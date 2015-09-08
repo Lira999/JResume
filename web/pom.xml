@@ -39,17 +39,16 @@
 		<dependency>
 			<groupId>org.springframework</groupId>
 			<artifactId>spring-webmvc</artifactId>
-			<version>4.2.1.RELEASE</version>
 		</dependency>
+		<!-- spring beans -->
 		<dependency>
 			<groupId>org.springframework</groupId>
 			<artifactId>spring-beans</artifactId>
-			<version>4.2.1.RELEASE</version>
 		</dependency>
+		<!-- spring context -->
 		<dependency>
 			<groupId>org.springframework</groupId>
 			<artifactId>spring-context</artifactId>
-			<version>4.2.1.RELEASE</version>
 		</dependency>
 	</dependencies>
 </project>
