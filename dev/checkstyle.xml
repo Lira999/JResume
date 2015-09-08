@@ -29,7 +29,6 @@
   Finally, it is worth reading the documentation.
 
 -->
-
 <module name="Checker">
 	<property name="severity" value="warning"/>
 
