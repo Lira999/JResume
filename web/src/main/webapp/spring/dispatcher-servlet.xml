@@ -13,8 +13,17 @@
 
 	<!-- import all controllers -->
 	<context:component-scan base-package="com.softserveinc.ita.jresume.web.controller" />
+	
 	<!-- import all contexts from other modules -->
 	<import resource="classpath*:**/*-context.xml" />
+	
+	<!-- jsp mapping -->
+	<bean class="org.springframework.web.servlet.view.InternalResourceViewResolver">
+		<property name="viewClass" value="org.springframework.web.servlet.view.JstlView"/>
+		<property name="prefix" value="/WEB-INF/views/jsp/" />
+		<property name="suffix" value=".jsp" />
+	</bean>
+	
 	<mvc:annotation-driven/>
 
 </beans>
