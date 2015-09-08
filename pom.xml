@@ -6,6 +6,7 @@
   <version>1.0</version>
   <packaging>pom</packaging>
   <name>JResume</name>
+
   <modules>
   	<module>common</module>
   	<module>persistence</module>
@@ -13,4 +14,32 @@
   	<module>logging</module>
     <module>web</module>
   </modules>
+
+  <build>
+    <pluginManagement>
+      <plugins>
+      <plugin>
+	   <groupId>org.apache.maven.plugins</groupId>
+	   <artifactId>maven-checkstyle-plugin</artifactId>
+	   <version>2.16</version>
+	   <executions>
+	     <execution>
+	       <id>validate</id>
+	       <phase>validate</phase>
+	       <configuration>
+	         <configLocation>dev/checkstyle.xml</configLocation>
+	         <encoding>UTF-8</encoding>
+	         <consoleOutput>true</consoleOutput>
+	         <failsOnError>true</failsOnError>
+	       </configuration>
+	       <goals>
+	         <goal>check</goal>
+	       </goals>
+	     </execution>
+	    </executions>
+	   </plugin>
+      </plugins>
+    </pluginManagement>
+  </build>
+  
 </project>
