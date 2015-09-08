@@ -30,6 +30,7 @@
 
 -->
 <module name="Checker">
+
 	<property name="severity" value="warning"/>
 
     <!-- Checks that a package-info.java file exists for each package.     -->
@@ -66,51 +67,6 @@
        <property name="message" value="Line has trailing spaces."/>
     </module>
     
-    <module name="BooleanExpressionComplexity">
-		<property name="max" value="5"/>
-	</module>
-	
-	<module name="CyclomaticComplexity">
-		<property name="max" value="15"/>
-	</module>
-	
-	<module name="NPathComplexity">
-		<property name="max" value="220"/>
-	</module>
-	
-	<module name="JavaNCSS"/>
-	<module name="SuperClone"/>
-	<module name="SuperFinalize"/>
-	<module name="PackageDeclaration"/>
-	
-	<module name="NestedIfDepth">
-		<property name="max" value="2"/>
-	</module>
-	
-	<module name="IllegalCatch">
-		<property name="id" value="IllegalExceptionCatch"/>
-	</module>
-	
-	<module name="IllegalThrows">
-		<property name="illegalClassNames" value="java.lang.Throwable, java.lang.Error, java.lang.RuntimeException, java.lang.Exception"/>
-		<property name="ignoredMethodNames" value="finalize, call, start, stop, setUp, tearDown"/>
-	</module>
-	
-	<module name="CovariantEquals"/>
-	<module name="DefaultComesLast"/>
-	<module name="ExplicitInitialization"/>
-	<module name="FallThrough"/>
-	
-	<module name="AnonInnerLength">
-		<property name="max" value="30"/>
-	</module>
-	
-	<module name="ThrowsCount">
-		<property name="max" value="3"/>
-	</module>
-	
-	<module name="UncommentedMain"/>
-
     <!-- Checks for Headers                                -->
     <!-- See http://checkstyle.sf.net/config_header.html   -->
     <!-- <module name="Header"> -->
@@ -119,6 +75,41 @@
     <!-- </module> -->
 
     <module name="TreeWalker">
+    	<module name="BooleanExpressionComplexity">
+			<property name="max" value="5"/>
+		</module>
+		<module name="CyclomaticComplexity">
+			<property name="max" value="15"/>
+		</module>
+		<module name="NPathComplexity">
+			<property name="max" value="220"/>
+		</module>
+		<module name="JavaNCSS"/>
+		<module name="SuperClone"/>
+		<module name="SuperFinalize"/>
+		<module name="PackageDeclaration"/>
+		<module name="NestedIfDepth">
+			<property name="max" value="2"/>
+		</module>
+		<module name="IllegalCatch">
+			<property name="id" value="IllegalExceptionCatch"/>
+		</module>
+		<module name="IllegalThrows">
+			<property name="illegalClassNames" value="java.lang.Throwable, java.lang.Error, java.lang.RuntimeException, java.lang.Exception"/>
+			<property name="ignoredMethodNames" value="finalize, call, start, stop, setUp, tearDown"/>
+		</module>
+		<module name="CovariantEquals"/>
+		<module name="DefaultComesLast"/>
+		<module name="ExplicitInitialization"/>
+		<module name="FallThrough"/>
+		<module name="AnonInnerLength">
+			<property name="max" value="30"/>
+		</module>
+		<module name="ThrowsCount">
+			<property name="max" value="3"/>
+		</module>
+		<module name="UncommentedMain"/>
+    	
         <property name="tabWidth" value="4"/>
 
         <!-- Checks for Javadoc comments.                     -->
