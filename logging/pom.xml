@@ -6,10 +6,4 @@
     <version>1.0</version>
   </parent>
   <artifactId>logging</artifactId>
-  <dependencies>
-  	<dependency>
-  		<groupId>org.springframework</groupId>
-  		<artifactId>spring-beans</artifactId>   		
-  	</dependency>  	
-  </dependencies>
 </project>

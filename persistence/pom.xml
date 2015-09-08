@@ -7,9 +7,6 @@
 		<version>1.0</version>
 	</parent>
 	<artifactId>persistence</artifactId>
-	<properties>
-        <spring.version>4.2.1.RELEASE</spring.version>
-    </properties>
 	<dependencies>
 		<!-- common module -->
 		<dependency>
