@@ -8,7 +8,9 @@
 		<artifactId>jresume</artifactId>
 		<version>1.0</version>
 	</parent>
+	<groupId>com.softserveinc.ita</groupId>
 	<artifactId>web</artifactId>
+	<version>1.0</version>
 	<packaging>war</packaging>
 	<name>web</name>
 	<build>
