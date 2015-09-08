@@ -41,12 +41,17 @@
       </plugins>
     </pluginManagement>
   </build>
-<dependencies>
-	<dependency>
-  		<groupId>org.springframework</groupId>
-  		<artifactId>spring-framework-bom</artifactId>
-		<version>4.2.1.RELEASE</version>
-		<type>pom</type>
-	</dependency>  
-</dependencies>	
+
+ <dependencyManagement>
+        <dependencies>
+            <dependency>
+                <groupId>org.springframework</groupId>
+                <artifactId>spring-framework-bom</artifactId>
+                <type>pom</type>
+                <version>4.2.1.RELEASE</version>
+                <scope>import</scope>
+            </dependency>
+         </dependencies>
+ </dependencyManagement>
+    
 </project>
