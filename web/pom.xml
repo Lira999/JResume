@@ -8,9 +8,7 @@
 		<artifactId>jresume</artifactId>
 		<version>1.0</version>
 	</parent>
-	<!-- <groupId>com.softserveinc.ita</groupId> -->
 	<artifactId>web</artifactId>
-	<!-- <version>1.0</version> -->
 	<packaging>war</packaging>
 	<name>web</name>
 	<build>
@@ -34,6 +32,12 @@
 			<groupId>com.softserveinc.ita</groupId>
 			<artifactId>logging</artifactId>
 			<version>1.0</version>
+		</dependency>
+		<!-- Spring mvc -->
+		<dependency>
+			<groupId>org.springframework</groupId>
+			<artifactId>spring-webmvc</artifactId>
+			<version>4.2.1.RELEASE</version>
 		</dependency>
 	</dependencies>
 </project>
