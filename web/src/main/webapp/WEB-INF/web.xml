@@ -4,7 +4,7 @@
 
 <web-app>
 	<display-name>JResume</display-name>
-	
+
 	<!-- dispatcher servlet -->
 	<servlet>
 		<servlet-name>dispatcher</servlet-name>

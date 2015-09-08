@@ -7,6 +7,7 @@
 		<version>1.0</version>
 	</parent>
 	<artifactId>persistence</artifactId>
+	<version>1.0</version>
 	<dependencies>
 		<!-- common module -->
 		<dependency>
@@ -19,6 +20,16 @@
 			<groupId>com.softserveinc.ita</groupId>
 			<artifactId>logging</artifactId>
 			<version>1.0</version>
+		</dependency>
+		<!-- spring beans -->
+		<dependency>
+			<groupId>org.springframework</groupId>
+			<artifactId>spring-beans</artifactId>
+		</dependency>
+		<!-- spring context -->
+		<dependency>
+			<groupId>org.springframework</groupId>
+			<artifactId>spring-context</artifactId>
 		</dependency>
 	</dependencies>
 </project>

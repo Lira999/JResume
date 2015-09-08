@@ -15,7 +15,7 @@
 	<context:component-scan base-package="com.softserveinc.ita.jresume.web.controller" />
 	
 	<!-- import all contexts from other modules -->
-	<import resource="classpath*:**/*-context.xml" />
+	<import resource="classpath*:*-context.xml" />
 	
 	<!-- jsp mapping -->
 	<bean class="org.springframework.web.servlet.view.InternalResourceViewResolver">
