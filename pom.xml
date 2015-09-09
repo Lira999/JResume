@@ -17,65 +17,54 @@
 	</modules>
 
 	<build>
-		<pluginManagement>
-			<plugins>
-				
-				<!-- formatter -->
-				<plugin>
-					<groupId>com.googlecode.maven-java-formatter-plugin</groupId>
-					<artifactId>maven-java-formatter-plugin</artifactId>
-					<version>0.4</version>
-					<executions>
-						<execution>
-							<id>id.generate-sources</id>
-							<phase>generate-sources</phase>
-							<goals>
-								<goal>format</goal>
-							</goals>
-						</execution>
-					</executions>
-					<configuration>
-						<tasks>
-							<echo>generate-sources phase</echo>
-						</tasks>
-						<encoding>UTF-8</encoding>
-						<configFile>../dev/formatter.xml</configFile>
-					</configuration>
-				</plugin>
-			</plugins>
-		</pluginManagement>
 		<plugins>
-				<plugin>
-					<groupId>org.apache.maven.plugins</groupId>
-					<artifactId>maven-checkstyle-plugin</artifactId>
-					<version>2.16</version>
-					<executions>
-						<execution>
-							<id>validate</id>
-							<phase>validate</phase>
-							<configuration>
-								<configLocation>dev/checkstyle.xml</configLocation>
-								<encoding>UTF-8</encoding>
-								<consoleOutput>true</consoleOutput>
-								<failsOnError>true</failsOnError>
-								<failOnViolation>true</failOnViolation>
-								<violationSeverity>warning</violationSeverity>
-							</configuration>
-							<goals>
-								<goal>check</goal>
-							</goals>
-						</execution>
-					</executions>
-				</plugin>
-
+			<!--formatter -->
 			<plugin>
 				<groupId>com.googlecode.maven-java-formatter-plugin</groupId>
 				<artifactId>maven-java-formatter-plugin</artifactId>
+				<version>0.4</version>
+				<executions>
+					<execution>
+						<id>formatter_validate</id>
+						<phase>validate</phase>
+						<goals>
+							<goal>format</goal>
+						</goals>
+					</execution>
+				</executions>
+				<configuration>
+					<tasks>
+						<echo>generate-sources phase</echo>
+					</tasks>
+					<encoding>UTF-8</encoding>
+					<configFile>../dev/formatter.xml</configFile>
+				</configuration>
 			</plugin>
-
+			<!--checkstyle -->
+			<plugin>
+				<groupId>org.apache.maven.plugins</groupId>
+				<artifactId>maven-checkstyle-plugin</artifactId>
+				<version>2.16</version>
+				<executions>
+					<execution>
+						<id>validate</id>
+						<phase>validate</phase>
+						<configuration>
+							<configLocation>dev/checkstyle.xml</configLocation>
+							<encoding>UTF-8</encoding>
+							<consoleOutput>true</consoleOutput>
+							<failsOnError>true</failsOnError>
+							<failOnViolation>true</failOnViolation>
+							<violationSeverity>warning</violationSeverity>
+						</configuration>
+						<goals>
+							<goal>check</goal>
+						</goals>
+					</execution>
+				</executions>
+			</plugin>
 		</plugins>
 	</build>
-
 
 	<dependencyManagement>
 		<dependencies>
