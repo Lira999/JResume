@@ -17,7 +17,6 @@
 	</modules>
 
 	<build>
-	<pluginManagement>
 		<plugins>
 			<!--formatter -->
 			<plugin>
@@ -64,7 +63,6 @@
 				</executions>
 			</plugin>
 		</plugins>
-		</pluginManagement>
 	</build>
 
 	<dependencyManagement>
