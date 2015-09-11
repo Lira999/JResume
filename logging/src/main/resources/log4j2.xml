@@ -17,9 +17,9 @@
         </RollingFile>
     </Appenders>
     <Loggers>       
-        <Root level="trace">
-            <AppenderRef ref="trace-log" level="debug"/>
-             <AppenderRef ref="console-log" level="error"/>
+        <Root level="all">
+            <AppenderRef ref="trace-log" level="all"/>
+             <AppenderRef ref="console-log" level="all"/>
         </Root>
     </Loggers>
 </Configuration>
