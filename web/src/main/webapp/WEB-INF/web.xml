@@ -5,13 +5,32 @@
 
 	<display-name>JResume</display-name>
 
+	<!-- loads spring security config file -->
+	<context-param>
+		<param-name>contextConfigLocation</param-name>
+		<param-value>
+			spring-security.xml
+		</param-value>
+	</context-param>
+
+	<!-- spring security -->
+	<filter>
+		<filter-name>springSecurityFilterChain</filter-name>
+		<filter-class>org.springframework.web.filter.DelegatingFilterProxy</filter-class>
+	</filter>
+
+	<filter-mapping>
+		<filter-name>springSecurityFilterChain</filter-name>
+		<url-pattern>/*</url-pattern>
+	</filter-mapping>
+
 	<!-- dispatcher servlet -->
 	<servlet>
 		<servlet-name>dispatcher</servlet-name>
 		<servlet-class>org.springframework.web.servlet.DispatcherServlet</servlet-class>
 		<init-param>
 			<param-name>contextConfigLocation</param-name>
-			<param-value>/WEB-INF/spring/dispatcher-servlet.xml</param-value>
+			<param-value>dispatcher-servlet.xml</param-value>
 		</init-param>
 		<load-on-startup>1</load-on-startup>
 	</servlet>
