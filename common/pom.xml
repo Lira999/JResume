@@ -21,8 +21,8 @@
 		</dependency>
 		<!-- hibernate-annotation dependency -->
 		<dependency>
-			<groupId>org.hibernate.common</groupId>
-			<artifactId>hibernate-commons-annotations</artifactId>
+			<groupId>org.hibernate</groupId>
+			<artifactId>hibernate-entitymanager</artifactId>
 			<version>5.0.0.Final</version>
 		</dependency>
 	</dependencies>
