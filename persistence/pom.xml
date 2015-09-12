@@ -34,19 +34,13 @@
 		<!-- hibernate dependency -->
 		<dependency>
 			<groupId>org.hibernate</groupId>
-			<artifactId>hibernate-core</artifactId>
-			<version>5.0.0.Final</version>
+			<artifactId>hibernate-core</artifactId>			
 		</dependency>
 		<!-- mysql-connector -->
 		<dependency>
 			<groupId>mysql</groupId>
 			<artifactId>mysql-connector-java</artifactId>
 			<version>5.1.36</version>
-		</dependency>
-		<dependency>
-			<groupId>org.hibernate</groupId>
-			<artifactId>hibernate-entitymanager</artifactId>
-			<version>5.0.0.Final</version>
-		</dependency>
+		</dependency>		
 	</dependencies>
 </project>

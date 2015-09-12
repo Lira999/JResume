@@ -21,9 +21,9 @@
 		</dependency>
 		<!-- hibernate-annotation dependency -->
 		<dependency>
-			<groupId>org.hibernate</groupId>
-			<artifactId>hibernate-entitymanager</artifactId>
-			<version>5.0.0.Final</version>
+			<groupId>org.hibernate.javax.persistence</groupId>
+			<artifactId>hibernate-jpa-2.1-api</artifactId>
+			<version>1.0.0.Draft-16</version>
 		</dependency>
 	</dependencies>
 </project>
