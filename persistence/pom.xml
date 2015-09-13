@@ -6,8 +6,13 @@
 		<artifactId>jresume</artifactId>
 		<version>1.0</version>
 	</parent>
+	
 	<artifactId>persistence</artifactId>
-	<version>1.0</version>
+	
+	<properties>
+        <hibernate.version>5.0.0.Final</hibernate.version>
+    </properties>
+	
 	<dependencies>
 		<!-- common module -->
 		<dependency>
@@ -34,7 +39,13 @@
 		<!-- hibernate dependency -->
 		<dependency>
 			<groupId>org.hibernate</groupId>
-			<artifactId>hibernate-core</artifactId>			
+			<artifactId>hibernate-core</artifactId>	
+			<version>${hibernate.version}</version>		
+		</dependency>
+		<dependency>
+			<groupId>org.hibernate</groupId>
+			<artifactId>hibernate-entitymanager</artifactId>	
+			<version>${hibernate.version}</version>			
 		</dependency>
 		<!-- mysql-connector -->
 		<dependency>
@@ -42,10 +53,6 @@
 			<artifactId>mysql-connector-java</artifactId>
 			<version>5.1.36</version>
 		</dependency>
-		<dependency>
-			<groupId>org.hibernate</groupId>
-			<artifactId>hibernate-entitymanager</artifactId>	
-			<version>5.0.0.Final</version>		
-		</dependency>
+		
 	</dependencies>
 </project>

@@ -73,13 +73,7 @@
 				<type>pom</type>
 				<version>4.2.1.RELEASE</version>
 				<scope>import</scope>
-			</dependency>
-			<dependency>
-				<groupId>org.hibernate</groupId>
-				<artifactId>hibernate-core</artifactId>
-				<version>5.0.0.Final</version>
-				<scope>import</scope>
-			</dependency>
+			</dependency>			
 		</dependencies>
 	</dependencyManagement>
 </project>
