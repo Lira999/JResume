@@ -1,7 +1,11 @@
 package com.softserveinc.ita.jresume.common.entity;
 
+import java.util.List;
+
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.FetchType;
+import javax.persistence.OneToMany;
 import javax.persistence.Table;
 
 /**
@@ -32,6 +36,10 @@ public class User extends Base {
     /** Column for role. */
     @Column(name = "role", nullable = false)
     private String role;
+    
+    /** One to many relationship with table ordering. */
+    @OneToMany(fetch = FetchType.LAZY, mappedBy = "user")
+    private List<Ordering> orderings;
     
     /**
      * Public constructor for class Base.
@@ -123,5 +131,24 @@ public class User extends Base {
      */
     public final void setRole(final String newRole) {
         role = newRole;
+    }
+    
+    /**
+     * Get orderings list.
+     * 
+     * @return list with all orderings associated with this user.
+     */
+    public final List<Ordering> getOrderings() {
+        return orderings;
+    }
+    
+    /**
+     * Changes list with all orderings associated with this user.
+     * 
+     * @param newOrderings
+     *            new orderings list
+     */
+    public final void setOrderings(final List<Ordering> newOrderings) {
+        orderings = newOrderings;
     }
 }
