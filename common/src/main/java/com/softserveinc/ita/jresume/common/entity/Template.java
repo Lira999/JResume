@@ -41,6 +41,10 @@ public class Template extends Base {
     @OneToMany(fetch = FetchType.LAZY, mappedBy = "template")
     private List<Ordering> orderings;
     
+    /** One to many relationship with table user_resume. */
+    @OneToMany(fetch = FetchType.LAZY, mappedBy = "template")
+    private List<UserResume> userResumes;
+    
     /** public constructor. */
     public Template() {
         super();
@@ -136,6 +140,23 @@ public class Template extends Base {
      */
     public final void setOrders(final List<Ordering> newOrderings) {
         orderings = newOrderings;
+    }
+    /**
+     * Get user resumes list.
+     * 
+     * @return list with all usersResumes associated with this template.
+     */
+    public final List<UserResume> getUserResumes() {
+        return userResumes;
+    }
+    
+    /**
+     * Changes list with all user resumes associated with this template.
+     * 
+     * @param newUserResumes new userResumes list.
+     */
+    public final void setUserResumes(final List<UserResume> newUserResumes) {
+        userResumes = newUserResumes;
     }
     
 }

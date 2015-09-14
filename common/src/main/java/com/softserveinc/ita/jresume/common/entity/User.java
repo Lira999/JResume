@@ -41,6 +41,10 @@ public class User extends Base {
     @OneToMany(fetch = FetchType.LAZY, mappedBy = "user")
     private List<Ordering> orderings;
     
+    /** One to many relationship with table user_resume. */
+    @OneToMany(fetch = FetchType.LAZY, mappedBy = "user")
+    private List<UserResume> userResumes;
+    
     /**
      * Public constructor for class Base.
      */
@@ -150,5 +154,22 @@ public class User extends Base {
      */
     public final void setOrderings(final List<Ordering> newOrderings) {
         orderings = newOrderings;
+    }
+    /**
+     * Get user resumes list.
+     * 
+     * @return list with all usersResumes associated with this user.
+     */
+    public final List<UserResume> getUserResumes() {
+        return userResumes;
+    }
+    
+    /**
+     * Changes list with all user resumes associated with this user.
+     * 
+     * @param newUserResumes new userResumes list.
+     */
+    public final void setUserResumes(final List<UserResume> newUserResumes) {
+        userResumes = newUserResumes;
     }
 }
