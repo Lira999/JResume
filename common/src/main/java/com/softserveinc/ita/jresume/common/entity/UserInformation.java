@@ -218,7 +218,7 @@ public class UserInformation extends Base {
     }
     
     /**
-     * Changes list with all certificates and its information associated with
+     * Changes list with all certificates associated with
      * this user.
      * 
      * @param newCertification

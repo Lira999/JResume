@@ -14,7 +14,7 @@ import javax.persistence.Column;
  * projects in which the developer has been involved.
  * 
  * This Project entity has a many to one relationship with the UserInformation
- * entity
+ * entity.
  * 
  * @author Andriy Luchko
  */
