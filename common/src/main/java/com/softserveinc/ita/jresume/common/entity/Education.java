@@ -57,7 +57,7 @@ public class Education extends Base {
      */
     @ManyToOne(fetch = FetchType.LAZY, cascade = CascadeType.ALL)
     @JoinColumn(name = "usetInformationId")
-    private UserInformation usetInformation;
+    private UserInformation userInformation;
     
     /**
      * public constructor.
@@ -124,9 +124,9 @@ public class Education extends Base {
      * @param newUsetInformation
      *            information about user.
      */
-    public final void setUsetInformation(
-            final UserInformation newUsetInformation) {
-        usetInformation = newUsetInformation;
+    public final void setUserInformation(
+            final UserInformation newUserInformation) {
+        userInformation = newUserInformation;
     }
     
     /**
@@ -182,8 +182,8 @@ public class Education extends Base {
      * @return information about user associated with these educational
      *         properties.
      */
-    public final UserInformation getUsetInformation() {
-        return usetInformation;
+    public final UserInformation getUserInformation() {
+        return userInformation;
     }
     
 }

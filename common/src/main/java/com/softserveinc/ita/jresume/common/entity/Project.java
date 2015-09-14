@@ -63,8 +63,8 @@ public class Project extends Base {
      * references to usetInformation table
      */
     @ManyToOne(fetch = FetchType.LAZY, cascade = CascadeType.ALL)
-    @JoinColumn(name = "usetInformationId")
-    private UserInformation usetInformation;
+    @JoinColumn(name = "userInformationId")
+    private UserInformation userInformation;
     
     /**
      * Public constructor.
@@ -139,9 +139,9 @@ public class Project extends Base {
      * @param newUsetInformation
      *            information about user.
      */
-    public final void setUsetInformation(
-            final UserInformation newUsetInformation) {
-        usetInformation = newUsetInformation;
+    public final void setUserInformation(
+            final UserInformation newUserInformation) {
+        userInformation = newUserInformation;
     }
     
     /**
@@ -203,8 +203,8 @@ public class Project extends Base {
      * 
      * @return information about user associated with this project.
      */
-    public final UserInformation getUsetInformation() {
-        return usetInformation;
+    public final UserInformation getUserInformation() {
+        return userInformation;
     }
     
 }

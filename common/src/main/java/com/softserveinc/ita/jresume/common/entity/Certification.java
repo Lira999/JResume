@@ -45,7 +45,7 @@ public class Certification extends Base {
      */
     @ManyToOne(fetch = FetchType.LAZY, cascade = CascadeType.ALL)
     @JoinColumn(name = "usetInformationId")
-    private UserInformation usetInformation;
+    private UserInformation userInformation;
     
     /**
      * Public constructor.
@@ -91,9 +91,9 @@ public class Certification extends Base {
      * @param newUsetInformation
      *            information about user.
      */
-    public final void setUsetInformation(
-            final UserInformation newUsetInformation) {
-        usetInformation = newUsetInformation;
+    public final void setUserInformation(
+            final UserInformation newUserInformation) {
+        userInformation = newUserInformation;
     }
     
     /**
@@ -129,8 +129,8 @@ public class Certification extends Base {
      * 
      * @return information about user associated with the certificate.
      */
-    public final UserInformation getUsetInformation() {
-        return usetInformation;
+    public final UserInformation getUserInformation() {
+        return userInformation;
     }
     
 }
