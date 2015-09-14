@@ -12,7 +12,7 @@ import javax.persistence.Table;
  * Describe UserResume entity class.
  */
 @Entity
-@Table(name = "user_resume")
+@Table(name = "userResume")
 public class UserResume extends Base {
     
     /** Column for name. */
@@ -37,7 +37,6 @@ public class UserResume extends Base {
     
     /** create default constructor. */
     public UserResume() {
-        super();
     }
     
     /**
