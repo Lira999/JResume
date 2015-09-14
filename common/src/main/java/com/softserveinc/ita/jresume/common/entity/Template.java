@@ -128,7 +128,7 @@ public class Template extends Base {
     
     /**
      * Gets all orderings associated with this template.
-     * @return list with all mark associated with template
+     * @return list with all orderings associated with template
      */
     public final List<Ordering> getOrderings() {
         return orderings;
@@ -138,7 +138,7 @@ public class Template extends Base {
      * Changes list with all orderings associated with this template.
      * @param newOrderings list with orderings for this template
      */
-    public final void setOrders(final List<Ordering> newOrderings) {
+    public final void setOrderings(final List<Ordering> newOrderings) {
         orderings = newOrderings;
     }
     /**
