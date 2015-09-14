@@ -13,7 +13,7 @@ import javax.persistence.Column;
  * certificated which were gained by a developer.
  * 
  * This Certification entity has a many to one relationship with the
- * UserInformation entity.
+ * UserInformation entity
  * 
  * @author Andriy Luchko
  */

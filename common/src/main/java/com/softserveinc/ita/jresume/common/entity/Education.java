@@ -13,7 +13,7 @@ import javax.persistence.Column;
  * degrees, department and schools information.
  * 
  * This Education entity has a many to one relationship with the UserInformation
- * entity.
+ * entity
  * 
  * @author Andriy Luchko
  */
