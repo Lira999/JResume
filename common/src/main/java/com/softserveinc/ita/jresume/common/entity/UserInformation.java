@@ -171,6 +171,25 @@ public class UserInformation extends Base {
     }
     
     /**
+     * Get value of column user.
+     * 
+     * @return the user
+     */
+    public final User getUser() {
+        return user;
+    }
+    
+    /**
+     * Changes user value of this User.
+     * 
+     * @param newUser
+     *            this user new value
+     */
+    public final void setUser(final User newUser) {
+        user = newUser;
+    }
+    
+    /**
      * Gets all projects associated with this user.
      * 
      * @return list with all projects associated with a user
@@ -218,8 +237,7 @@ public class UserInformation extends Base {
     }
     
     /**
-     * Changes list with all certificates associated with
-     * this user.
+     * Changes list with all certificates associated with this user.
      * 
      * @param newCertification
      *            list with certification information for this user
