@@ -8,6 +8,7 @@
 	</parent>
 	
 	<artifactId>persistence</artifactId>
+	<version>1.0</version>
 	
 	<properties>
         <hibernate.version>5.0.0.Final</hibernate.version>
