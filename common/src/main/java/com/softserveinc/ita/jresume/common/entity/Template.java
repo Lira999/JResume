@@ -15,7 +15,7 @@ import javax.persistence.Table;
 @Table(name = "template")
 public class Template extends Base {
     
-    /** The name of this template. */
+    /** Name of this template. */
     @Column(name = "name")
     private String name;
     
@@ -25,7 +25,7 @@ public class Template extends Base {
     
     /** Price of this template. */
     @Column(name = "price")
-    private double price;
+    private Double price;
     
     /**
      * All marks associated with this template. One to many relationship
@@ -47,7 +47,6 @@ public class Template extends Base {
     
     /** public constructor. */
     public Template() {
-        super();
     }
     
     /**
@@ -93,7 +92,7 @@ public class Template extends Base {
      * 
      * @return this template price
      */
-    public final double getPrice() {
+    public final Double getPrice() {
         return price;
     }
     
@@ -103,7 +102,7 @@ public class Template extends Base {
      * @param newPrice
      *            this template's new price
      */
-    public final void setPrice(final double newPrice) {
+    public final void setPrice(final Double newPrice) {
         price = newPrice;
     }
     
@@ -128,6 +127,7 @@ public class Template extends Base {
     
     /**
      * Gets all orderings associated with this template.
+     * 
      * @return list with all orderings associated with template
      */
     public final List<Ordering> getOrderings() {
@@ -136,11 +136,14 @@ public class Template extends Base {
     
     /**
      * Changes list with all orderings associated with this template.
-     * @param newOrderings list with orderings for this template
+     * 
+     * @param newOrderings
+     *            list with orderings for this template
      */
     public final void setOrderings(final List<Ordering> newOrderings) {
         orderings = newOrderings;
     }
+    
     /**
      * Get user resumes list.
      * 
@@ -153,7 +156,8 @@ public class Template extends Base {
     /**
      * Changes list with all user resumes associated with this template.
      * 
-     * @param newUserResumes new userResumes list.
+     * @param newUserResumes
+     *            new userResumes list.
      */
     public final void setUserResumes(final List<UserResume> newUserResumes) {
         userResumes = newUserResumes;
