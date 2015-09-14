@@ -88,7 +88,7 @@ public class Certification extends Base {
      * Changes information about user, associated with this certification gained
      * by user.
      * 
-     * @param newUsetInformation
+     * @param newUserInformation
      *            information about user.
      */
     public final void setUserInformation(

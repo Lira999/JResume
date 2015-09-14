@@ -121,7 +121,7 @@ public class Education extends Base {
      * Changes information about user associated with these educational
      * characteristics.
      * 
-     * @param newUsetInformation
+     * @param newUserInformation
      *            information about user.
      */
     public final void setUserInformation(

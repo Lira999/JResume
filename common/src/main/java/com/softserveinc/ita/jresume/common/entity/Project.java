@@ -136,7 +136,7 @@ public class Project extends Base {
     /**
      * Changes information about user associated with this project.
      * 
-     * @param newUsetInformation
+     * @param newUserInformation
      *            information about user.
      */
     public final void setUserInformation(
