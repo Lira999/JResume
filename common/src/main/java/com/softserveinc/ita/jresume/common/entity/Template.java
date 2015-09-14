@@ -1,7 +1,11 @@
 package com.softserveinc.ita.jresume.common.entity;
 
+import java.util.List;
+
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.FetchType;
+import javax.persistence.OneToMany;
 import javax.persistence.Table;
 
 /**
@@ -22,6 +26,13 @@ public class Template extends Base {
     /** Price of this template. */
     @Column(name = "price")
     private double price;
+    
+    /**
+     * All marks associated with this template. One to many relationship
+     * references with mark table.
+     */
+    @OneToMany(fetch = FetchType.LAZY, mappedBy = "template")
+    private List<Mark> marks;
     
     /** public constructor. */
     public Template() {
@@ -83,6 +94,25 @@ public class Template extends Base {
      */
     public final void setPrice(final double newPrice) {
         price = newPrice;
+    }
+    
+    /**
+     * Gets all marks associated with this template.
+     * 
+     * @return list with all mark associated with template
+     */
+    public final List<Mark> getMarks() {
+        return marks;
+    }
+    
+    /**
+     * Changes list with all marks associated with this template.
+     * 
+     * @param newMarks
+     *            list with marks for this template
+     */
+    public final void setMarks(final List<Mark> newMarks) {
+        marks = newMarks;
     }
     
 }
