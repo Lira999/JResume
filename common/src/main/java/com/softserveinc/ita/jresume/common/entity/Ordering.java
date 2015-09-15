@@ -40,13 +40,6 @@ public class Ordering extends Base {
     private String failureReason;
     
     /**
-     * Public constructor for class Ordering.
-     */
-    public Ordering() {
-        super();
-    }
-    
-    /**
      * Get value of column orderBy.
      *
      * @return value of column orderBy

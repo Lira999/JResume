@@ -38,12 +38,6 @@ public class Base {
     private Date updateDate;
     
     /**
-     * Public constructor for class Base.
-     */
-    public Base() {
-    }
-    
-    /**
      * Get value of column id.
      * 
      * @return value of column id
