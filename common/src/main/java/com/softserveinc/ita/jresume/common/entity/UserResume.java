@@ -35,10 +35,6 @@ public class UserResume extends Base {
     @JoinColumn(name = "userId")
     private User user;
     
-    /** create default constructor. */
-    public UserResume() {
-    }
-    
     /**
      * Get value of column name.
      * 
