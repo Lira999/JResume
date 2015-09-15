@@ -49,7 +49,7 @@ public class Education extends Base {
      * Describes the year of graduation.
      */
     @Column(name = "graduatedInYear")
-    private Long graduatedInYear;
+    private Integer graduatedInYear;
     
     /**
      * Education associates with UserInformation. Many to one relationship,
@@ -58,12 +58,6 @@ public class Education extends Base {
     @ManyToOne(fetch = FetchType.LAZY, cascade = CascadeType.ALL)
     @JoinColumn(name = "usetInformationId")
     private UserInformation userInformation;
-    
-    /**
-     * public constructor.
-     */
-    public Education() {
-    }
     
     /**
      * Sets the university name.
@@ -113,7 +107,7 @@ public class Education extends Base {
      * @param newGraduatedInYear
      *            a year when developer got a degree.
      */
-    public final void setGraduatedInYear(final Long newGraduatedInYear) {
+    public final void setGraduatedInYear(final Integer newGraduatedInYear) {
         graduatedInYear = newGraduatedInYear;
     }
     
@@ -172,7 +166,7 @@ public class Education extends Base {
      * 
      * @return the year where developer was graduated
      */
-    public final Long getGraduatedInYear() {
+    public final Integer getGraduatedInYear() {
         return graduatedInYear;
     }
     

@@ -16,13 +16,11 @@ import javax.persistence.Table;
 public class Mark extends Base {
     
     /** value of this mark. */
-    private double mark;
-    
-    /** author of this mark. */
-    @Column(name = "addedBy")
-    private String addedBy;
+    @Column(name = "mark")
+    private Double mark;
     
     /** comment to this mark. */
+    @Column(name = "comment")
     private String comment;
     
     /**
@@ -33,17 +31,17 @@ public class Mark extends Base {
     @JoinColumn(name = "templateId")
     private Template template;
     
-    /** public constructor. */
-    public Mark() {
-        super();
-    }
+    /** Author of this mark. */
+    @ManyToOne(fetch = FetchType.LAZY, cascade = CascadeType.ALL)
+    @JoinColumn(name = "userId")
+    private User user;
     
     /**
      * Gets mark value of this mark.
      * 
      * @return value of this mark
      */
-    public final double getMark() {
+    public final Double getMark() {
         return mark;
     }
     
@@ -53,27 +51,8 @@ public class Mark extends Base {
      * @param newMark
      *            this marks new value
      */
-    public final void setMark(final double newMark) {
-        this.mark = newMark;
-    }
-    
-    /**
-     * Gets author (his email) of this mark.
-     * 
-     * @return author email of this mark
-     */
-    public final String getAddedBy() {
-        return addedBy;
-    }
-    
-    /**
-     * Changes author's email for this mark.
-     * 
-     * @param newAddedBy
-     *            new authors email for this mark
-     */
-    public final void setAddedBy(final String newAddedBy) {
-        this.addedBy = newAddedBy;
+    public final void setMark(final Double newMark) {
+        mark = newMark;
     }
     
     /**
@@ -92,7 +71,7 @@ public class Mark extends Base {
      *            new comment for this mark
      */
     public final void setComment(final String newComment) {
-        this.comment = newComment;
+        comment = newComment;
     }
     
     /**
@@ -112,6 +91,25 @@ public class Mark extends Base {
      */
     public final void setTemplate(final Template newTemplate) {
         template = newTemplate;
+    }
+    
+    /**
+     * Gets user associated with this mark.
+     * 
+     * @return user associated with this mark.
+     */
+    public final User getUser() {
+        return user;
+    }
+    
+    /**
+     * Changes user associatd with this mark.
+     * 
+     * @param newUser
+     *            new author of this mark.
+     */
+    public final void setUser(final User newUser) {
+        user = newUser;
     }
     
 }

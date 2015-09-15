@@ -20,7 +20,7 @@ public class UserResume extends Base {
     private String name;
     
     /**
-     * template associated with this userResume. Many to one relationship,
+     * Template associated with this userResume. Many to one relationship,
      * references to template table.
      */
     @ManyToOne(fetch = FetchType.LAZY, cascade = CascadeType.ALL)
@@ -28,7 +28,7 @@ public class UserResume extends Base {
     private Template template;
     
     /**
-     * user associated with this userResume. Many to one relationship,
+     * User associated with this userResume. Many to one relationship,
      * references to user table.
      */
     @ManyToOne(fetch = FetchType.LAZY, cascade = CascadeType.ALL)
