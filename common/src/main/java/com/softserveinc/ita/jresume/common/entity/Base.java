@@ -3,13 +3,15 @@
  */
 package com.softserveinc.ita.jresume.common.entity;
 
-import java.util.Date;
+import java.util.Calendar;
 
 import javax.persistence.Id;
 import javax.persistence.Column;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.MappedSuperclass;
+import javax.persistence.Temporal;
+import javax.persistence.TemporalType;
 
 /**
  * Describe Base entity class.
@@ -26,16 +28,18 @@ public class Base {
     private String createdBy;
     
     /** Column for createDate. */
+    @Temporal(TemporalType.TIMESTAMP)
     @Column(name = "createDate")
-    private Date createDate;
+    private Calendar createDate;
     
     /** Column for updatedBy. */
     @Column(name = "updatedBy")
     private String updatedBy;
     
     /** Column for updateDate. */
+    @Temporal(TemporalType.TIMESTAMP)
     @Column(name = "updateDate")
-    private Date updateDate;
+    private Calendar updateDate;
     
     /**
      * Get value of column id.
@@ -80,7 +84,7 @@ public class Base {
      * 
      * @return value of column createDate
      */
-    public final Date getCreateDate() {
+    public final Calendar getCreateDate() {
         return createDate;
     }
     
@@ -90,7 +94,7 @@ public class Base {
      * @param newCreateDate
      *            value of column createDate
      */
-    public final void setCreateDate(final Date newCreateDate) {
+    public final void setCreateDate(final Calendar newCreateDate) {
         createDate = newCreateDate;
     }
     
@@ -118,7 +122,7 @@ public class Base {
      * 
      * @return value of column updateDate
      */
-    public final Date getUpdateDate() {
+    public final Calendar getUpdateDate() {
         return updateDate;
     }
     
@@ -128,7 +132,7 @@ public class Base {
      * @param newUpdateDate
      *            value of column updateDate
      */
-    public final void setUpdateDate(final Date newUpdateDate) {
+    public final void setUpdateDate(final Calendar newUpdateDate) {
         updateDate = newUpdateDate;
     }
     
