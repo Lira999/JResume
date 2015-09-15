@@ -3,7 +3,7 @@
  */
 package com.softserveinc.ita.jresume.common.entity;
 
-import java.util.Calendar;
+import java.util.Date;
 
 import javax.persistence.Id;
 import javax.persistence.Column;
@@ -30,7 +30,7 @@ public class Base {
     /** Column for createDate. */
     @Temporal(TemporalType.TIMESTAMP)
     @Column(name = "createDate")
-    private Calendar createDate;
+    private Date createDate;
     
     /** Column for updatedBy. */
     @Column(name = "updatedBy")
@@ -39,7 +39,7 @@ public class Base {
     /** Column for updateDate. */
     @Temporal(TemporalType.TIMESTAMP)
     @Column(name = "updateDate")
-    private Calendar updateDate;
+    private Date updateDate;
     
     /**
      * Get value of column id.
@@ -84,7 +84,7 @@ public class Base {
      * 
      * @return value of column createDate
      */
-    public final Calendar getCreateDate() {
+    public final Date getCreateDate() {
         return createDate;
     }
     
@@ -94,7 +94,7 @@ public class Base {
      * @param newCreateDate
      *            value of column createDate
      */
-    public final void setCreateDate(final Calendar newCreateDate) {
+    public final void setCreateDate(final Date newCreateDate) {
         createDate = newCreateDate;
     }
     
@@ -122,7 +122,7 @@ public class Base {
      * 
      * @return value of column updateDate
      */
-    public final Calendar getUpdateDate() {
+    public final Date getUpdateDate() {
         return updateDate;
     }
     
@@ -132,7 +132,7 @@ public class Base {
      * @param newUpdateDate
      *            value of column updateDate
      */
-    public final void setUpdateDate(final Calendar newUpdateDate) {
+    public final void setUpdateDate(final Date newUpdateDate) {
         updateDate = newUpdateDate;
     }
     
