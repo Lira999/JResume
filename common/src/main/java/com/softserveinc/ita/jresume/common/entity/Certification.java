@@ -31,13 +31,13 @@ public class Certification extends Base {
      * Describes the year when the certificate was gained.
      */
     @Column(name = "gotCertificationYear")
-    private Long gotCertificationYear;
+    private Integer gotCertificationYear;
     
     /**
      * Stores a reference to a logo of a certificate.
      */
     @Column(name = "certificationLogo")
-    private String certificationLogo;
+    private byte[] certificationLogo;
     
     /**
      * Certification associates with UserInformation. Many to one relationship,
@@ -46,13 +46,7 @@ public class Certification extends Base {
     @ManyToOne(fetch = FetchType.LAZY, cascade = CascadeType.ALL)
     @JoinColumn(name = "usetInformationId")
     private UserInformation userInformation;
-    
-    /**
-     * Public constructor.
-     */
-    public Certification() {
-    }
-    
+
     /**
      * Sets the certificates name.
      * 
@@ -70,7 +64,7 @@ public class Certification extends Base {
      *            a year when developer got a certificate
      */
     public final void setGotCertificationYear(
-            final Long newGotCertificationYear) {
+            final Integer newGotCertificationYear) {
         gotCertificationYear = newGotCertificationYear;
     }
     
@@ -78,9 +72,9 @@ public class Certification extends Base {
      * Sets the reference to the lofo of a certificate.
      * 
      * @param newCertificationLogo
-     *            the reference to a logo
+     *            the byte array which represents a logo
      */
-    public final void setCertificationLogo(final String newCertificationLogo) {
+    public final void setCertificationLogo(final byte[] newCertificationLogo) {
         certificationLogo = newCertificationLogo;
     }
     
@@ -110,16 +104,16 @@ public class Certification extends Base {
      * 
      * @return the year where certificate was gained
      */
-    public final Long getGotCertificationYear() {
+    public final Integer getGotCertificationYear() {
         return gotCertificationYear;
     }
     
     /**
      * Get value of field certificationLogo.
      * 
-     * @return the reference to the logo of a certificate
+     * @return the byte array of the logo
      */
-    public final String getCertificationLogo() {
+    public final byte[] getCertificationLogo() {
         return certificationLogo;
     }
     
