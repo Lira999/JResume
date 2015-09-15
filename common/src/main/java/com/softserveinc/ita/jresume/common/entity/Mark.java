@@ -3,6 +3,8 @@ package com.softserveinc.ita.jresume.common.entity;
 import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.EnumType;
+import javax.persistence.Enumerated;
 import javax.persistence.FetchType;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
@@ -16,8 +18,10 @@ import javax.persistence.Table;
 public class Mark extends Base {
     
     /** value of this mark. */
-    @Column(name = "mark")
-    private Double mark;
+    @Enumerated(EnumType.STRING)
+    @Column(name = "value", columnDefinition = 
+    "enum('POOR','FAIR', 'AVERAGE', 'GOOD', 'EXCELLENT')")
+    private MarkValue value;
     
     /** comment to this mark. */
     @Column(name = "comment")
@@ -37,22 +41,22 @@ public class Mark extends Base {
     private User user;
     
     /**
-     * Gets mark value of this mark.
+     * Gets value of this mark.
      * 
      * @return value of this mark
      */
-    public final Double getMark() {
-        return mark;
+    public final MarkValue getValue() {
+        return value;
     }
     
     /**
-     * Changes mark value of this Mark.
+     * Changes value of this mark.
      * 
-     * @param newMark
-     *            this marks new value
+     * @param newValue
+     *            new value for this mark
      */
-    public final void setMark(final Double newMark) {
-        mark = newMark;
+    public final void setValue(final MarkValue newValue) {
+        value = newValue;
     }
     
     /**
@@ -103,7 +107,7 @@ public class Mark extends Base {
     }
     
     /**
-     * Changes user associatd with this mark.
+     * Changes user associated with this mark.
      * 
      * @param newUser
      *            new author of this mark.
