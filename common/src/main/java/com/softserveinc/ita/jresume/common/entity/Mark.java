@@ -21,7 +21,7 @@ public class Mark extends Base {
     @Enumerated(EnumType.STRING)
     @Column(name = "value", columnDefinition = 
     "enum('POOR','FAIR', 'AVERAGE', 'GOOD', 'EXCELLENT')")
-    private MarkValue value;
+    private MarkValue mark;
     
     /** comment to this mark. */
     @Column(name = "comment")
@@ -45,18 +45,18 @@ public class Mark extends Base {
      * 
      * @return value of this mark
      */
-    public final MarkValue getValue() {
-        return value;
+    public final MarkValue getMark() {
+        return mark;
     }
     
     /**
      * Changes value of this mark.
      * 
-     * @param newValue
+     * @param newMark
      *            new value for this mark
      */
-    public final void setValue(final MarkValue newValue) {
-        value = newValue;
+    public final void setMark(final MarkValue newMark) {
+        mark = newMark;
     }
     
     /**
