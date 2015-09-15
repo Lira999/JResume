@@ -4,8 +4,11 @@ import java.util.List;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.EnumType;
+import javax.persistence.Enumerated;
 import javax.persistence.FetchType;
 import javax.persistence.OneToMany;
+import javax.persistence.OneToOne;
 import javax.persistence.Table;
 
 /**
@@ -17,47 +20,45 @@ import javax.persistence.Table;
 @Table(name = "user")
 public class User extends Base {
     
-    /** Column for first name. */
+    /** First name of this user. */
     @Column(name = "firstName")
     private String firstName;
     
-    /** Column for last name. */
+    /** Last name of this user. */
     @Column(name = "lastName")
     private String lastName;
     
-    /** Column for email. */
+    /** Email of this user. */
     @Column(name = "email", nullable = false, unique = true)
     private String email;
     
-    /** Column for password. */
+    /** Password of this user. */
     @Column(name = "password", nullable = false)
     private String password;
     
-    /** Column for role. */
-    @Column(name = "role", nullable = false)
-    private String role;
+    /** Role of this user. */
+    @Enumerated(EnumType.STRING)
+    @Column(name = "role", columnDefinition = "enum('ROLE_ADMIN','ROLE_USER')")
+    private UserRole role;
     
-    /** One to many relationship with table ordering. */
+    /** One to many relationship with Ordering. */
     @OneToMany(fetch = FetchType.LAZY, mappedBy = "user")
     private List<Ordering> orderings;
     
-    /** One to many relationship with table user_resume. */
+    /** One to many relationship with UserResume. */
     @OneToMany(fetch = FetchType.LAZY, mappedBy = "user")
     private List<UserResume> userResumes;
+    
+    /** One to one relationship with UserInformation. */
+    @OneToOne(fetch = FetchType.LAZY, mappedBy = "user")
+    private UserInformation userInformation;
     
     /** One to many relationship with table mark. */
     @OneToMany(fetch = FetchType.LAZY, mappedBy = "user")
     private List<Mark> marks;
     
     /**
-     * Public constructor for class Base.
-     */
-    public User() {
-        super();
-    }
-    
-    /**
-     * Get value of column firstName.
+     * Gets the first name of this user.
      * 
      * @return the firstName
      */
@@ -66,32 +67,36 @@ public class User extends Base {
     }
     
     /**
+     * Changes the first name of this user.
+     * 
      * @param newFirstName
-     *            the firstName to set
+     *            new first name to set
      */
     public final void setFirstName(final String newFirstName) {
         firstName = newFirstName;
     }
     
     /**
-     * Get value of column lastName.
+     * Gets the last name of this user.
      * 
-     * @return the lastName
+     * @return the last name
      */
     public final String getLastName() {
         return lastName;
     }
     
     /**
+     * Changes the last name of this user.
+     * 
      * @param newLastName
-     *            the lastName to set
+     *            new first name to set
      */
     public final void setLastName(final String newLastName) {
         lastName = newLastName;
     }
     
     /**
-     * Get value of column email.
+     * Gets the email of this user.
      * 
      * @return the email
      */
@@ -100,6 +105,8 @@ public class User extends Base {
     }
     
     /**
+     * Changes the email of this user.
+     * 
      * @param newEmail
      *            the email to set
      */
@@ -108,7 +115,7 @@ public class User extends Base {
     }
     
     /**
-     * Get value of column password.
+     * Gets the password of this user.
      * 
      * @return the password
      */
@@ -117,6 +124,8 @@ public class User extends Base {
     }
     
     /**
+     * Changes the user password.
+     * 
      * @param newPassword
      *            the password to set
      */
@@ -125,26 +134,28 @@ public class User extends Base {
     }
     
     /**
-     * Get value of column role.
+     * Get role of the user.
      * 
      * @return the role
      */
-    public final String getRole() {
+    public final UserRole getRole() {
         return role;
     }
     
     /**
+     * Changes the user role.
+     * 
      * @param newRole
      *            the role to set
      */
-    public final void setRole(final String newRole) {
+    public final void setRole(final UserRole newRole) {
         role = newRole;
     }
     
     /**
      * Get orderings list.
      * 
-     * @return list with all orderings associated with this user.
+     * @return list with all orderings associated with this user
      */
     public final List<Ordering> getOrderings() {
         return orderings;
@@ -154,15 +165,16 @@ public class User extends Base {
      * Changes list with all orderings associated with this user.
      * 
      * @param newOrderings
-     *            new orderings list
+     *            new orderings list to set
      */
     public final void setOrderings(final List<Ordering> newOrderings) {
         orderings = newOrderings;
     }
+    
     /**
      * Get user resumes list.
      * 
-     * @return list with all usersResumes associated with this user.
+     * @return list with all usersResumes associated with this user
      */
     public final List<UserResume> getUserResumes() {
         return userResumes;
@@ -171,9 +183,50 @@ public class User extends Base {
     /**
      * Changes list with all user resumes associated with this user.
      * 
-     * @param newUserResumes new userResumes list.
+     * @param newUserResumes
+     *            new userResumes list to set
      */
     public final void setUserResumes(final List<UserResume> newUserResumes) {
         userResumes = newUserResumes;
     }
+    
+    /**
+     * Gets the information associated with this user.
+     * 
+     * @return the userInformation
+     */
+    public final UserInformation getUserInformation() {
+        return userInformation;
+    }
+    
+    /**
+     * Changes the information associated with this user.
+     * 
+     * @param newUserInformation
+     *            new userInformation to set
+     */
+    public final void
+            setUserInformation(final UserInformation newUserInformation) {
+        userInformation = newUserInformation;
+    }
+    
+    /**
+     * Gets list of marks associated with this user.
+     * 
+     * @return the marks
+     */
+    public final List<Mark> getMarks() {
+        return marks;
+    }
+    
+    /**
+     * Changes list of marks associated with this user.
+     * 
+     * @param newMarks
+     *            new user marks to set
+     */
+    public final void setMarks(final List<Mark> newMarks) {
+        marks = newMarks;
+    }
+    
 }
