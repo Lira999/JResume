@@ -10,6 +10,8 @@ import javax.persistence.JoinColumn;
 import javax.persistence.OneToMany;
 import javax.persistence.OneToOne;
 import javax.persistence.Table;
+import javax.persistence.Temporal;
+import javax.persistence.TemporalType;
 
 /**
  * Describe UserInformation entity class.
@@ -33,6 +35,7 @@ public class UserInformation extends Base {
     private Date birthDate;
     
     /** Column for position. */
+    @Temporal(TemporalType.TIMESTAMP)
     @Column(name = "position")
     private String position;
     

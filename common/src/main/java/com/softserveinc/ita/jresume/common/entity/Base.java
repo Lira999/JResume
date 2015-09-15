@@ -10,6 +10,8 @@ import javax.persistence.Column;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.MappedSuperclass;
+import javax.persistence.Temporal;
+import javax.persistence.TemporalType;
 
 /**
  * Describe Base entity class.
@@ -26,6 +28,7 @@ public class Base {
     private String createdBy;
     
     /** Column for createDate. */
+    @Temporal(TemporalType.TIMESTAMP)
     @Column(name = "createDate")
     private Date createDate;
     
@@ -34,6 +37,7 @@ public class Base {
     private String updatedBy;
     
     /** Column for updateDate. */
+    @Temporal(TemporalType.TIMESTAMP)
     @Column(name = "updateDate")
     private Date updateDate;
     

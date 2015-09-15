@@ -1,11 +1,13 @@
 package com.softserveinc.ita.jresume.common.entity;
 
-import java.sql.Time;
+import java.util.Date;
 import javax.persistence.Entity;
 import javax.persistence.FetchType;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 import javax.persistence.Table;
+import javax.persistence.Temporal;
+import javax.persistence.TemporalType;
 import javax.persistence.CascadeType;
 import javax.persistence.Column;
 
@@ -44,13 +46,14 @@ public class Project extends Base {
      * Describes project's team size.
      */
     @Column(name = "projectTeamSize")
-    private Long projectTeamSize;
+    private Integer projectTeamSize;
     
     /**
      * Describes involvement duration in a project.
      */
+    @Temporal(TemporalType.TIME)
     @Column(name = "involvementDuration")
-    private Time involvementDuration;
+    private Date involvementDuration;
     
     /**
      * Describes tools and technologies which were used in a project.
@@ -65,12 +68,6 @@ public class Project extends Base {
     @ManyToOne(fetch = FetchType.LAZY, cascade = CascadeType.ALL)
     @JoinColumn(name = "userInformationId")
     private UserInformation userInformation;
-    
-    /**
-     * Public constructor.
-     */
-    public Project() {
-    }
     
     /**
      * Sets the project description.
@@ -108,7 +105,7 @@ public class Project extends Base {
      * @param newProjectTeamSize
      *            count of workers in a team
      */
-    public final void setProjectTeamSize(final Long newProjectTeamSize) {
+    public final void setProjectTeamSize(final Integer newProjectTeamSize) {
         projectTeamSize = newProjectTeamSize;
     }
     
@@ -129,7 +126,7 @@ public class Project extends Base {
      *            description of a time to be involvement
      */
     public final void setInvolvementDuration(
-            final Time newInvolvementDuration) {
+            final Date newInvolvementDuration) {
         involvementDuration = newInvolvementDuration;
     }
     
@@ -176,7 +173,7 @@ public class Project extends Base {
      * 
      * @return number of workers which were involved in a project
      */
-    public final Long getProjectTeamSize() {
+    public final Integer getProjectTeamSize() {
         return projectTeamSize;
     }
     
@@ -185,7 +182,7 @@ public class Project extends Base {
      * 
      * @return time have been spent in a project
      */
-    public final Time getInvolvementDuration() {
+    public final Date getInvolvementDuration() {
         return involvementDuration;
     }
     
