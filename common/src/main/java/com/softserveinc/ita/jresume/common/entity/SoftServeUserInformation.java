@@ -2,6 +2,8 @@ package com.softserveinc.ita.jresume.common.entity;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.JoinColumn;
+import javax.persistence.OneToOne;
 import javax.persistence.Table;
 
 /**
@@ -52,6 +54,11 @@ public class SoftServeUserInformation extends UserInformation {
     /** Column for hardware. */
     @Column(name = "hardware")
     private String hardware;
+    
+    /** Column for userInformation. */
+    @OneToOne
+    @JoinColumn(name = "userInformation")
+    private UserInformation userInformation;
     
     /**
      * Get value of column programmingLanguages.
@@ -107,7 +114,7 @@ public class SoftServeUserInformation extends UserInformation {
      * @param newRdbms
      *            this RDBMS new value
      */
-    public final void setRDBMS(final String newRdbms) {
+    public final void setRdbms(final String newRdbms) {
         rdbms = newRdbms;
     }
     
@@ -243,4 +250,25 @@ public class SoftServeUserInformation extends UserInformation {
     public final void setHardware(final String newHardware) {
         hardware = newHardware;
     }
+    
+    /**
+     * Get value of column userInformation.
+     * 
+     * @return the userInformation
+     */
+    public final UserInformation getUserInformation() {
+        return userInformation;
+    }
+    
+    /**
+     * Changes userInformation value of this User Information.
+     * 
+     * @param newUserInformation
+     *            this userInformation new value
+     */
+    public final void
+            setUserInformation(final UserInformation newUserInformation) {
+        userInformation = newUserInformation;
+    }
+    
 }

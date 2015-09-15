@@ -6,12 +6,14 @@ import java.util.List;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.FetchType;
+import javax.persistence.Inheritance;
 import javax.persistence.JoinColumn;
 import javax.persistence.OneToMany;
 import javax.persistence.OneToOne;
 import javax.persistence.Table;
 import javax.persistence.Temporal;
 import javax.persistence.TemporalType;
+import javax.persistence.InheritanceType;
 
 /**
  * Describe UserInformation entity class.
@@ -20,6 +22,7 @@ import javax.persistence.TemporalType;
  */
 @Entity
 @Table(name = "userInformation")
+@Inheritance(strategy = InheritanceType.JOINED)
 public class UserInformation extends Base {
     
     /** Column for first name. */
@@ -31,11 +34,11 @@ public class UserInformation extends Base {
     private String lastName;
     
     /** Column for birth date. */
+    @Temporal(TemporalType.TIMESTAMP)
     @Column(name = "birthDate")
     private Date birthDate;
     
     /** Column for position. */
-    @Temporal(TemporalType.TIMESTAMP)
     @Column(name = "position")
     private String position;
     
@@ -47,7 +50,7 @@ public class UserInformation extends Base {
      * user associated with this userInformation. One to one relationship,
      * references to user table.
      */
-    @OneToOne(fetch = FetchType.LAZY)
+    @OneToOne
     @JoinColumn(name = "userId")
     private User user;
     
@@ -249,4 +252,5 @@ public class UserInformation extends Base {
             final List<Certification> newCertification) {
         certification = newCertification;
     }
+    
 }
