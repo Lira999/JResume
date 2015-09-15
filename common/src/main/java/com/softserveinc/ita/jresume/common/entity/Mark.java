@@ -17,7 +17,7 @@ public class Mark extends Base {
     
     /** value of this mark. */
     @Column(name = "mark")
-    private double mark;
+    private Double mark;
     
     /** comment to this mark. */
     @Column(name = "comment")
@@ -41,7 +41,7 @@ public class Mark extends Base {
      * 
      * @return value of this mark
      */
-    public final double getMark() {
+    public final Double getMark() {
         return mark;
     }
     
@@ -51,7 +51,7 @@ public class Mark extends Base {
      * @param newMark
      *            this marks new value
      */
-    public final void setMark(final double newMark) {
+    public final void setMark(final Double newMark) {
         mark = newMark;
     }
     
