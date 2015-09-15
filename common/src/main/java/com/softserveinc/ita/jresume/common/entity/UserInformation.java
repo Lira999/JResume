@@ -1,11 +1,13 @@
 package com.softserveinc.ita.jresume.common.entity;
 
 import java.util.Date;
+import java.util.List;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.FetchType;
 import javax.persistence.JoinColumn;
+import javax.persistence.OneToMany;
 import javax.persistence.OneToOne;
 import javax.persistence.Table;
 
@@ -45,6 +47,27 @@ public class UserInformation extends Base {
     @OneToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "userId")
     private User user;
+    
+    /**
+     * All projects associated with information about this user. One to many
+     * relationship references with mark table.
+     */
+    @OneToMany(fetch = FetchType.LAZY, mappedBy = "userInformation")
+    private List<Project> projects;
+    
+    /**
+     * All information about user's education are linked with information about
+     * this user. One to many relationship references with mark table.
+     */
+    @OneToMany(fetch = FetchType.LAZY, mappedBy = "userInformation")
+    private List<Education> education;
+    
+    /**
+     * All certifications of user are associated with information about this
+     * user. One to many relationship references with mark table.
+     */
+    @OneToMany(fetch = FetchType.LAZY, mappedBy = "userInformation")
+    private List<Certification> certification;
     
     /**
      * Public constructor for class UserInformation.
@@ -145,5 +168,82 @@ public class UserInformation extends Base {
      */
     public final void setSummary(final String newSummary) {
         summary = newSummary;
+    }
+    
+    /**
+     * Get value of column user.
+     * 
+     * @return the user
+     */
+    public final User getUser() {
+        return user;
+    }
+    
+    /**
+     * Changes user value of this User.
+     * 
+     * @param newUser
+     *            this user new value
+     */
+    public final void setUser(final User newUser) {
+        user = newUser;
+    }
+    
+    /**
+     * Gets all projects associated with this user.
+     * 
+     * @return list with all projects associated with a user
+     */
+    public final List<Project> getProjects() {
+        return projects;
+    }
+    
+    /**
+     * Changes list with all projects associated with this user.
+     * 
+     * @param newProjects
+     *            list with projects for this user
+     */
+    public final void setProjects(final List<Project> newProjects) {
+        projects = newProjects;
+    }
+    
+    /**
+     * Gets all education information associated with this user.
+     * 
+     * @return list with all education information associated with a user
+     */
+    public final List<Education> getEducation() {
+        return education;
+    }
+    
+    /**
+     * Changes list with all education information associated with this user.
+     * 
+     * @param newEducation
+     *            list with education information for this user
+     */
+    public final void setEducation(final List<Education> newEducation) {
+        education = newEducation;
+    }
+    
+    /**
+     * Gets all certificates associated with this user.
+     * 
+     * @return list with all certificates associated with a user
+     */
+    public final List<Certification> getCertification() {
+        return certification;
+    }
+    
+    /**
+     * Changes list with all certificates associated with this user.
+     * 
+     * @param newCertification
+     *            list with certification information for this user
+     */
+    public final void setCertification(
+            final List<Certification> newCertification) {
+        certification = newCertification;
     }
 }
