@@ -45,10 +45,6 @@ public class Template extends Base {
     @OneToMany(fetch = FetchType.LAZY, mappedBy = "template")
     private List<UserResume> userResumes;
     
-    /** public constructor. */
-    public Template() {
-    }
-    
     /**
      * Gets the name of this template.
      * 
