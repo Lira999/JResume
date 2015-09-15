@@ -45,6 +45,10 @@ public class User extends Base {
     @OneToMany(fetch = FetchType.LAZY, mappedBy = "user")
     private List<UserResume> userResumes;
     
+    /** One to many relationship with table mark. */
+    @OneToMany(fetch = FetchType.LAZY, mappedBy = "user")
+    private List<Mark> marks;
+    
     /**
      * Public constructor for class Base.
      */
