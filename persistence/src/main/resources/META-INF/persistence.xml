@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<persistence xmlns="http://java.sun.com/xml/ns/persistence"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://java.sun.com/xml/ns/persistence http://java.sun.com/xml/ns/persistence/persistence_2_0.xsd"
+	version="2.0">
+	<persistence-unit name="persistenceUnit"
+		transaction-type="RESOURCE_LOCAL">
+		<provider>org.hibernate.ejb.HibernatePersistence</provider>
+		<jta-data-source>java:/DefaultDS</jta-data-source>
+		<class>com.softserveinc.ita.jresume.common.entity.Base</class>
+		<class>com.softserveinc.ita.jresume.common.entity.Certification</class>
+		<class>com.softserveinc.ita.jresume.common.entity.Education</class>
+		<class>com.softserveinc.ita.jresume.common.entity.Mark</class>
+		<class>com.softserveinc.ita.jresume.common.entity.Ordering</class>
+		<class>com.softserveinc.ita.jresume.common.entity.Project</class>
+		<class>com.softserveinc.ita.jresume.common.entity.Template</class>
+		<class>com.softserveinc.ita.jresume.common.entity.User</class>
+		<class>com.softserveinc.ita.jresume.common.entity.UserInformation</class>
+		<class>com.softserveinc.ita.jresume.common.entity.UserResume</class>
+		<exclude-unlisted-classes>false</exclude-unlisted-classes>
+		<properties>
+			<property name="hibernate.dialect" value="org.hibernate.dialect.MySQLDialect" />
+			<property name="hibernate.show_sql" value="true" />
+			<property name="hibernate.current_session_context_class" value="thread" />
+			<property name="hibernate.hbm2ddl.auto" value="update" />
+		</properties>
+	</persistence-unit>
+</persistence>
