@@ -4,9 +4,12 @@ import java.util.List;
 
 /**
  *
- * @param <Model>
+ * @param <T> =  Name Of Entity
+ *      accepts the name of Entity Class.
+ * @param <V> = Id Type
+ *          
  */
-public interface GenericDAO<Model> {
+public interface GenericDAO<T, V> {
     
     /**
      * 
@@ -15,17 +18,16 @@ public interface GenericDAO<Model> {
      * @return a unique element or null if none exists.
      */
     
-    Model create(Model entity);
+    T create(T entity);
     
     /**
-     * 
+     *  
      * @param id
-     *           Gets a unique element with an id, assumes column name is id.
-     *            
-     * @return  a unique element or null if none exists
+     *         Find T based on the entity Id.   
+     * @return  a unique element
      */
     
-    Model findById(Long id);
+    T findById(V id);
     
     /**
      * 
@@ -35,7 +37,7 @@ public interface GenericDAO<Model> {
      * @return a unique element or null if none exists.
      */
     
-    Model update(Model entity);
+    T update(T entity);
     
     /**
      * 
@@ -44,12 +46,19 @@ public interface GenericDAO<Model> {
      *            store.
      */
     
-    void delete(Long id);
+    void deleteById(V id);
+    /**
+     * 
+     * @param entity
+     *            Remove the entity with the specified type and id from the data
+     *            store.
+     */
+    void deleteEntity(T entity);
     
     /**
      * This loads all of the elements from the given table from the database.
      * @return a list of all the elements in a table specified by the model.
      */
     
-    List<Model> findAll();
+    List<T> findAll();
 }
