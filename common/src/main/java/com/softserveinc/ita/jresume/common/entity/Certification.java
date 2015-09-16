@@ -1,10 +1,13 @@
 package com.softserveinc.ita.jresume.common.entity;
 
+import java.util.Date;
 import javax.persistence.Entity;
 import javax.persistence.FetchType;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 import javax.persistence.Table;
+import javax.persistence.Temporal;
+import javax.persistence.TemporalType;
 import javax.persistence.CascadeType;
 import javax.persistence.Column;
 
@@ -30,8 +33,9 @@ public class Certification extends Base {
     /**
      * Describes the year when the certificate was gained.
      */
+    @Temporal(TemporalType.DATE)
     @Column(name = "gotCertificationYear")
-    private Integer gotCertificationYear;
+    private Date gotCertificationYear;
     
     /**
      * Stores a reference to a logo of a certificate.
@@ -64,7 +68,7 @@ public class Certification extends Base {
      *            a year when developer got a certificate
      */
     public final void setGotCertificationYear(
-            final Integer newGotCertificationYear) {
+            final Date newGotCertificationYear) {
         gotCertificationYear = newGotCertificationYear;
     }
     
@@ -104,7 +108,7 @@ public class Certification extends Base {
      * 
      * @return the year where certificate was gained
      */
-    public final Integer getGotCertificationYear() {
+    public final Date getGotCertificationYear() {
         return gotCertificationYear;
     }
     
