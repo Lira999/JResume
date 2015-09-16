@@ -34,7 +34,7 @@ public class UserInformation extends Base {
     private String lastName;
     
     /** Column for birth date. */
-    @Temporal(TemporalType.TIMESTAMP)
+    @Temporal(TemporalType.DATE)
     @Column(name = "birthDate")
     private Date birthDate;
     
