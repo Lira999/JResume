@@ -51,7 +51,7 @@ public class Project extends Base {
     /**
      * Describes involvement duration in a project.
      */
-    @Temporal(TemporalType.TIME)
+    @Temporal(TemporalType.DATE)
     @Column(name = "involvementDuration")
     private Calendar involvementDuration;
     
