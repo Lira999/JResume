@@ -15,6 +15,7 @@ import javax.persistence.Temporal;
 import javax.persistence.TemporalType;
 
 import com.softserveinc.ita.jresume.common.entity.entityListener
+
 .BaseEntityListener;
 
 /**
