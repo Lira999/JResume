@@ -20,7 +20,7 @@ public class BaseEntityListener {
      */
     @PrePersist
     private void prePersist(final Base object) {
-        object.setCreateDate(new Date());              
+        object.setCreateDate(new Date());
     }
     
     /**
@@ -31,7 +31,7 @@ public class BaseEntityListener {
      */
     @PreUpdate
     private void preUpdate(final Base object) {
-        object.setUpdateDate(new Date());        
+        object.setUpdateDate(new Date());
     }
     
 }
