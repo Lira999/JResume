@@ -1,8 +1,7 @@
-package com.softserveinc.ita.jresume.persistence.dao.impl.jpa;
+package com.softserveinc.ita.jresume.common.entity.entityListener;
 
 import java.util.Date;
 
-import javax.persistence.EntityListeners;
 import javax.persistence.PrePersist;
 import javax.persistence.PreUpdate;
 
@@ -11,8 +10,7 @@ import com.softserveinc.ita.jresume.common.entity.Base;
 /**
  * Entity Listeners for Base class.
  */
-@EntityListeners(Base.class)
-public class JPABaseEntityListener {
+public class BaseEntityListener {
     
     /**
      * Set date before the object is persisted to the data store.
@@ -22,10 +20,7 @@ public class JPABaseEntityListener {
      */
     @PrePersist
     private void prePersist(final Base object) {
-        object.setCreateDate(new Date());
-        if (object.getUpdateDate() == null) {
-            object.setUpdateDate(object.getCreateDate());
-        }        
+        object.setCreateDate(new Date());              
     }
     
     /**
