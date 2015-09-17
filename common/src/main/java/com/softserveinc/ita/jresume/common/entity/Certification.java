@@ -1,6 +1,6 @@
 package com.softserveinc.ita.jresume.common.entity;
 
-import java.util.Date;
+import java.util.Calendar;
 import javax.persistence.Entity;
 import javax.persistence.FetchType;
 import javax.persistence.JoinColumn;
@@ -34,8 +34,8 @@ public class Certification extends Base {
      * Describes the year when the certificate was gained.
      */
     @Temporal(TemporalType.DATE)
-    @Column(name = "gotCertificationYear")
-    private Date gotCertificationYear;
+    @Column(name = "yearReceived")
+    private Calendar yearReceived;
     
     /**
      * Stores a reference to a logo of a certificate.
@@ -64,12 +64,12 @@ public class Certification extends Base {
     /**
      * Sets the year when certificate was received.
      * 
-     * @param newGotCertificationYear
+     * @param newYearReceived
      *            a year when developer got a certificate
      */
-    public final void setGotCertificationYear(
-            final Date newGotCertificationYear) {
-        gotCertificationYear = newGotCertificationYear;
+    public final void setYearReceived(
+            final Calendar newYearReceived) {
+        yearReceived = newYearReceived;
     }
     
     /**
@@ -108,8 +108,8 @@ public class Certification extends Base {
      * 
      * @return the year where certificate was gained
      */
-    public final Date getGotCertificationYear() {
-        return gotCertificationYear;
+    public final Calendar getYearReceived() {
+        return yearReceived;
     }
     
     /**
