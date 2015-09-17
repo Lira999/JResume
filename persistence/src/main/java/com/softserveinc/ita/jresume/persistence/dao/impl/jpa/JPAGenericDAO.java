@@ -13,7 +13,7 @@ import com.softserveinc.ita.jresume.persistence.dao.GenericDAO;
  * Implementation of Generic DAO.
  *
  * @param <T>
- *            = Name Of Entity
+ *            = Type Of Entity
  *            
  * @param <V>
  *            = Id Type

@@ -5,7 +5,7 @@ import java.util.List;
 /**
  *
  * @param <T>
- *            = Name Of Entity accepts the name of Entity Class.
+ *            = Type Of Entity accepts the Entity Class.
  * @param <V>
  *            = Id Type
  *            
@@ -16,7 +16,7 @@ public interface GenericDAO<T, V> {
      * Create a new entity record in the database.
      * 
      * @param entity
-     *            Name Of Entity to be created.
+     *            Type Of Entity to be created.
      * @return entity.
      */
     
@@ -26,7 +26,7 @@ public interface GenericDAO<T, V> {
      * Find object based on the entity Id.
      * 
      * @param id
-     *            Find T based on the entity Id.
+     *            Find object based on the entity Id.
      * @return entity
      */
     
