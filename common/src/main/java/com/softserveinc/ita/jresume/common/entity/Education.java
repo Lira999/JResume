@@ -1,6 +1,6 @@
 package com.softserveinc.ita.jresume.common.entity;
 
-import java.util.Date;
+import java.util.Calendar;
 import javax.persistence.Entity;
 import javax.persistence.FetchType;
 import javax.persistence.JoinColumn;
@@ -52,8 +52,8 @@ public class Education extends Base {
      * Describes the year of graduation.
      */
     @Temporal(TemporalType.DATE)
-    @Column(name = "graduatedInYear")
-    private Date graduatedInYear;
+    @Column(name = "graduationYear")
+    private Calendar graduationYear;
     
     /**
      * Education associates with UserInformation. Many to one relationship,
@@ -106,13 +106,13 @@ public class Education extends Base {
     }
     
     /**
-     * Sets the year when developer got a degree to graduatedInYear field.
+     * Sets the year when developer got a degree to graduationYear field.
      * 
-     * @param newGraduatedInYear
+     * @param newgraduationYear
      *            a year when developer got a degree.
      */
-    public final void setGraduatedInYear(final Date newGraduatedInYear) {
-        graduatedInYear = newGraduatedInYear;
+    public final void setGraduationYear(final Calendar newgraduationYear) {
+        graduationYear = newgraduationYear;
     }
     
     /**
@@ -166,12 +166,12 @@ public class Education extends Base {
     }
     
     /**
-     * Get value of field graduatedInYear.
+     * Get value of field graduationYear.
      * 
      * @return the year where developer was graduated
      */
-    public final Date getGraduatedInYear() {
-        return graduatedInYear;
+    public final Calendar getGraduationYear() {
+        return graduationYear;
     }
     
     /**
