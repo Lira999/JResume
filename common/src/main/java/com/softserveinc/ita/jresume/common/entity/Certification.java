@@ -104,7 +104,7 @@ public class Certification extends Base {
     }
     
     /**
-     * Get value of field gotCertificationYear.
+     * Get value of field yearReceived.
      * 
      * @return the year where certificate was gained
      */
