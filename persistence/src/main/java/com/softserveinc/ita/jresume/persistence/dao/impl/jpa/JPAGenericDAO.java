@@ -1,4 +1,4 @@
-package com.softserveinc.ita.jresume.persistence.jpa;
+package com.softserveinc.ita.jresume.persistence.dao.impl.jpa;
 
 import java.lang.reflect.ParameterizedType;
 import java.util.List;
@@ -12,11 +12,12 @@ import com.softserveinc.ita.jresume.persistence.dao.GenericDAO;
 /**
  * Implementation of Generic DAO.
  *
- *  @param <T> =  Name Of Entity
- *            The type of the domain object for which this instance is to be.
- *            used.
- * @param <V> = Id Type
- *          
+ * @param <T>
+ *            = Name Of Entity
+ *            
+ * @param <V>
+ *            = Id Type
+ *            
  */
 public abstract class JPAGenericDAO<T, V>
         implements GenericDAO<T, V> {
@@ -28,12 +29,13 @@ public abstract class JPAGenericDAO<T, V>
     @PersistenceContext
     private EntityManager entityManager;
     /**
-     * Represents concrete Entity to work with.
+     * Object to assign actual type of arguments/.
      */
     private Class<T> entityType;
     
     /**
-     * Single public constructor. Turn back name of entity to work with.
+     * Single public constructor.
+     * gets the generic type at runtime.
      */
     @SuppressWarnings("unchecked")
     public JPAGenericDAO() {
