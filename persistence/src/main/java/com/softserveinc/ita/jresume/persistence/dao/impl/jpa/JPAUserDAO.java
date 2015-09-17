@@ -4,6 +4,8 @@ import java.util.List;
 
 import javax.persistence.Query;
 
+import org.springframework.stereotype.Repository;
+
 import com.softserveinc.ita.jresume.common.entity.User;
 import com.softserveinc.ita.jresume.persistence.dao.impl.UserDAO;
 
@@ -13,6 +15,7 @@ import com.softserveinc.ita.jresume.persistence.dao.impl.UserDAO;
  * @author Andriy
  *         
  */
+@Repository
 public class JPAUserDAO extends JPAGenericDAO<User, Long>
         implements UserDAO {
         
