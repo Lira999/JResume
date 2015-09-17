@@ -1,6 +1,6 @@
 package com.softserveinc.ita.jresume.common.entity;
 
-import java.util.Date;
+import java.util.Calendar;
 import javax.persistence.Entity;
 import javax.persistence.FetchType;
 import javax.persistence.JoinColumn;
@@ -53,7 +53,7 @@ public class Project extends Base {
      */
     @Temporal(TemporalType.TIME)
     @Column(name = "involvementDuration")
-    private Date involvementDuration;
+    private Calendar involvementDuration;
     
     /**
      * Describes tools and technologies which were used in a project.
@@ -126,7 +126,7 @@ public class Project extends Base {
      *            description of a time to be involvement
      */
     public final void setInvolvementDuration(
-            final Date newInvolvementDuration) {
+            final Calendar newInvolvementDuration) {
         involvementDuration = newInvolvementDuration;
     }
     
@@ -182,7 +182,7 @@ public class Project extends Base {
      * 
      * @return time have been spent in a project
      */
-    public final Date getInvolvementDuration() {
+    public final Calendar getInvolvementDuration() {
         return involvementDuration;
     }
     
