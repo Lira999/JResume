@@ -19,8 +19,7 @@ public class Mark extends Base {
     
     /** value of this mark. */
     @Enumerated(EnumType.STRING)
-    @Column(name = "value", columnDefinition = 
-    "enum('POOR','FAIR', 'AVERAGE', 'GOOD', 'EXCELLENT')")
+    @Column(name = "mark")
     private MarkValue mark;
     
     /** comment to this mark. */
