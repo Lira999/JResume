@@ -4,7 +4,8 @@ import com.softserveinc.ita.jresume.common.entity.Certification;
 import com.softserveinc.ita.jresume.persistence.dao.GenericDAO;
 
 /**
- * This interface describes CertificationDAO behavior.
+ * This simple DAO interface is to handle the database operation required to
+ * manipulate a certification entity.
  * 
  * @author Andriy Luchko
  */
