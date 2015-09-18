@@ -3,6 +3,7 @@ package com.softserveinc.ita.jresume.persistence.dao;
 import java.util.List;
 
 /**
+ * This interface describes Generic Dao.
  *
  * @param <T>
  *            = Type Of Entity accepts the Entity Class.
@@ -13,32 +14,33 @@ import java.util.List;
 public interface GenericDAO<T, V> {
     
     /**
-     * Create a new entity record in the database.
+     * Create a new entity.
      * 
      * @param entity
-     *            Type Of Entity to be created.
-     * @return entity.
+     *            Type to be created.
+     * @return entity Type.
      */
     
     T create(T entity);
     
     /**
-     * Find object based on the entity Id.
+     * Find object based on the V Id.
      * 
      * @param id
-     *            Find object based on the entity Id.
-     * @return entity
+     *            Find object based on the Id.
+     * @return entity 
+     *              Type.
      */
     
     T findById(V id);
     
     /**
-     * Update information of entity.
+     * Update information T type.
      * 
      * @param entity
-     *            to be updated.
+     *            object in the Type to be updated.
      *            
-     * @return entity.
+     * @return T type.
      */
     
     T update(T entity);
@@ -47,24 +49,25 @@ public interface GenericDAO<T, V> {
      * Delete object by their Id.
      * 
      * @param id
-     *            id object to be deleted from DB.
+     *            object to be deleted by id.
      *            
      */
     
     void deleteById(V id);
     
     /**
-     * Delete entity.
+     * Delete T type.
      * 
      * @param entity
      *            the object to be deleted from DB.
      */
-            void deleteEntity(T entity);
-            
+    
+    void deleteEntity(T entity);
+    
     /**
-     * Get entity from database.
+     * Get Type from database.
      * 
-     * @return a list of all the elements in entity.
+     * @return a list of all the elements in the Type.
      */
     
     List<T> findAll();
