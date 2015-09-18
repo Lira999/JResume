@@ -12,7 +12,7 @@ import com.softserveinc.ita.jresume.persistence.dao.impl.UserDAO;
 /**
  * JPA Implementation of User DAO.
  * 
- * @author Andriy
+ * @author Andriy Zykhor
  *         
  */
 @Repository
