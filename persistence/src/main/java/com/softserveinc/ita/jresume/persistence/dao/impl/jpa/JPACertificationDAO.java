@@ -4,7 +4,7 @@ import com.softserveinc.ita.jresume.common.entity.Certification;
 import com.softserveinc.ita.jresume.persistence.dao.impl.CertificationDAO;
 
 /**
- * Implementation of Certification DAO.
+ * A concrete JPA implementation for Certification DAO.
  * 
  * @author Andriy Luchko
  */

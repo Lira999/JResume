@@ -4,7 +4,7 @@ import com.softserveinc.ita.jresume.common.entity.Project;
 import com.softserveinc.ita.jresume.persistence.dao.impl.ProjectDAO;
 
 /**
- * Implementation of Project DAO.
+ * A concrete JPA implementation for Project DAO.
  * 
  * @author Andriy Luchko
  */

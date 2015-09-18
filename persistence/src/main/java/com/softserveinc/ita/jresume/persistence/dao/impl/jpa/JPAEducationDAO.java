@@ -4,7 +4,7 @@ import com.softserveinc.ita.jresume.common.entity.Education;
 import com.softserveinc.ita.jresume.persistence.dao.impl.EducationDAO;
 
 /**
- * Implementation of Education DAO.
+ * A concrete JPA implementation for Education DAO.
  * 
  * @author Andriy Luchko
  */
