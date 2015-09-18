@@ -60,7 +60,7 @@ public interface GenericDAO<T, V> {
      *            the object to be deleted from DB.
      */
     
-    void deleteEntity(T entity);
+    void delete(T entity);
     
     /**
      * Get Entity from database.

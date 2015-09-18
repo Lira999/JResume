@@ -68,7 +68,7 @@ public abstract class JPAGenericDAO<T, V>
     }
     
     @Override
-    public final void deleteEntity(final T entity) {
+    public final void delete(final T entity) {
         entityManager.remove(entity);
     }
     
