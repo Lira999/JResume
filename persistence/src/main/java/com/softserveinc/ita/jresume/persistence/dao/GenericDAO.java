@@ -6,7 +6,7 @@ import java.util.List;
  * This interface describes Generic Dao.
  *
  * @param <T>
- *            = Type Of Entity accepts the Entity Class.
+ *            = Type Of Entity accepts class.
  * @param <V>
  *            = Id Type
  *            
@@ -17,8 +17,8 @@ public interface GenericDAO<T, V> {
      * Create a new entity.
      * 
      * @param entity
-     *            Type to be created.
-     * @return entity Type.
+     *            Entity to be created.
+     * @return created entity .
      */
     
     T create(T entity);
@@ -28,19 +28,17 @@ public interface GenericDAO<T, V> {
      * 
      * @param id
      *            Find object based on the Id.
-     * @return entity 
-     *              Type.
+     * @return T entity.
      */
     
     T findById(V id);
     
     /**
-     * Update information T type.
-     * 
+     * Update information T entity.
      * @param entity
-     *            object in the Type to be updated.
+     *            object T entity to be updated.
      *            
-     * @return T type.
+     * @return updated entity.
      */
     
     T update(T entity);
@@ -65,9 +63,9 @@ public interface GenericDAO<T, V> {
     void deleteEntity(T entity);
     
     /**
-     * Get Type from database.
+     * Get Entity from database.
      * 
-     * @return a list of all the elements in the Type.
+     * @return a list of all the elements in Entity.
      */
     
     List<T> findAll();
