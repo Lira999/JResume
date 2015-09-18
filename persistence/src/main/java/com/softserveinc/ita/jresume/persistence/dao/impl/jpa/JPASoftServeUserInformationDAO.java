@@ -5,6 +5,7 @@ import com.softserveinc.ita.jresume.persistence.dao.impl
 .SoftServeUserInformationDAO;
 
 /**
+ * JPA implementation for SoftServeUserInformation DAO.
  * 
  * @author Bohdan Khudoba
  * 
