@@ -10,7 +10,7 @@ import com.softserveinc.ita.jresume.common.entity.User;
 import com.softserveinc.ita.jresume.persistence.dao.impl.UserDAO;
 
 /**
- * Implementation of User DAO.
+ * JPA Implementation of User DAO.
  * 
  * @author Andriy
  *         

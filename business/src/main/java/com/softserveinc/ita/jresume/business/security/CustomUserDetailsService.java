@@ -15,6 +15,8 @@ import org.springframework.stereotype.Service;
 import com.softserveinc.ita.jresume.persistence.dao.impl.UserDAO;
 
 /**
+ * Implementation of UserDetailsService which loads user-specific data.
+ * 
  * @author Andriy Zykhor
  *         
  */
@@ -33,13 +35,12 @@ public class CustomUserDetailsService implements UserDetailsService {
     @Override
     public final UserDetails loadUserByUsername(final String email)
             throws UsernameNotFoundException {
-        com.softserveinc.ita.jresume.common.entity.User user =
-                userDao.findByEmail(email);
+        com.softserveinc.ita.jresume.common.entity.User user = userDao
+                .findByEmail(email);
         if (user == null) {
             throw new UsernameNotFoundException("User does not exist.");
         }
-        return new User(user.getEmail(),
-                user.getPassword(),
+        return new User(user.getEmail(), user.getPassword(),
                 getGrantedAuthorities(user.getRole().toString()));
     }
     
