@@ -1,5 +1,5 @@
-body {
-  background: #eee !important;
+.login-body {
+  background: url(../images/loginpattern.png);
 }
 
 .wrapper {
@@ -7,7 +7,7 @@ body {
   margin-bottom: 100px;
 }
 
-.form-signin {
+.login-form {
   max-width: 360px;
   padding: 0px 20px 10px;
   margin: 0 auto;
@@ -16,12 +16,13 @@ body {
   border-radius: 8px;
 }
 
-.form-signin .form-signin-heading {
+.login-form .form-signin-heading {
   margin-bottom: 30px;
   text-align: center;
+  color: #6c6969;
 }
 
-.form-signin .checkbox {
+.login-form .checkbox {
   font-weight: normal;
   margin-left: 20px;
   margin-top: 10px;
@@ -29,8 +30,8 @@ body {
 }
 
 .loginbtn {
-  background-color: #4EA74E !important;
-  border-color: #4EA74E !important;
+  background-color: #4ea74e;
+  border-color: #4ea74e;
 }
 
 .register-suggestion {
@@ -41,7 +42,7 @@ body {
 }
 
 .colorgraph {
-  height: 7px;
+  height: 5px;
   border-top: 0;
   background: #c4e17f;
   border-radius: 5px;

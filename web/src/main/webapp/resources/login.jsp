@@ -3,13 +3,12 @@
 <html>
 <head>
     <title>Sign in</title>
-    <link rel="stylesheet" href="css/login.css">
-    <link rel="stylesheet" href="css/lib/bootstrap/bootstrap.css">
+    <jsp:include page="generic.jsp"/>
 </head>
-<body>
+<body class="login-body">
 <div class="wrapper">
-  <form class="form-signin" method="post" name="loginForm">
-    <h2 class="form-signin-heading">Please sign in</h2>
+  <form class="login-form form-signin" method="post" name="loginForm">
+    <h3 class="form-signin-heading">Please sign in</h3>
     <hr class="colorgraph">
     <div class="input-group">
       <span class="input-group-addon">
