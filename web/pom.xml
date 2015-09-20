@@ -15,6 +15,11 @@
 	<build>
 		<finalName>JResume</finalName>
 	</build>
+	
+	<properties>
+		<spring-security-version>4.0.2.RELEASE</spring-security-version>
+	</properties>
+	
 	<dependencies>
 		<!-- common module -->
 		<dependency>
@@ -60,17 +65,24 @@
 		<dependency>
 			<groupId>org.springframework.security</groupId>
 			<artifactId>spring-security-core</artifactId>
-			<version>4.0.2.RELEASE</version>
+			<version>${spring-security-version}</version>
 		</dependency>
 		<dependency>
 			<groupId>org.springframework.security</groupId>
 			<artifactId>spring-security-web</artifactId>
-			<version>4.0.2.RELEASE</version>
+			<version>${spring-security-version}</version>
 		</dependency>
 		<dependency>
 			<groupId>org.springframework.security</groupId>
 			<artifactId>spring-security-config</artifactId>
-			<version>4.0.2.RELEASE</version>
+			<version>${spring-security-version}</version>
 		</dependency>
+		<!-- jstl -->
+		<dependency>
+			<groupId>jstl</groupId>
+			<artifactId>jstl</artifactId>
+			<version>1.2</version>
+		</dependency>
+
 	</dependencies>
 </project>
