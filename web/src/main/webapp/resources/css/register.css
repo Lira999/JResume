@@ -1,0 +1,14 @@
+.register-form {
+  max-width: 600px;
+  padding: 0px 20px 10px;
+  margin: 0 auto;
+  background-color: white;
+  border: 1px solid rgba(0, 0, 0, 0.1);
+  border-radius: 8px;
+}
+
+.register-form .form-signup-heading {
+  margin-bottom: 30px;
+  text-align: center;
+  color: #6c6969;
+}
