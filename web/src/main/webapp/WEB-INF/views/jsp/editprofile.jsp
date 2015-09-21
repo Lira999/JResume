@@ -29,13 +29,6 @@
           </div>
 
           <div class="form-group">
-            <label class="col-sm-4 control-label" for="cname">Display name:</label>
-            <div class="col-sm-7">
-              <input type="text" id="cname" name="name" value="aluchko96" class="form-control" required>
-            </div>
-          </div>
-
-          <div class="form-group">
             <label class="col-sm-4 control-label" for="cemail">Email</label>
             <div class="col-sm-7">
               <input id="cemail" type="email" name="email" value="info@support.com" class="form-control" required>

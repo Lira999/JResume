@@ -25,10 +25,6 @@
                         <td>Luchko</td>
                       </tr>
                       <tr>
-                        <td>Display name:</td>
-                        <td>aluchko96</td>
-                      </tr>
-                      <tr>
                         <td>Email:</td>
                         <td><a href="mailto:info@support.com">info@support.com</a></td>
                       </tr>
