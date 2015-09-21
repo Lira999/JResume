@@ -35,7 +35,7 @@
                      <td></td><td></td>
                     </tbody>
                   </table>
-                  <a href="edituser.html" class="btn btn-primary">Edit Profile</a>
+                  <a href="edituser.jsp" class="btn btn-primary">Edit Profile</a>
                 </div>
               </div>
             </div>
