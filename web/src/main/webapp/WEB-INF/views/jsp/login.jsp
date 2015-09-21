@@ -12,9 +12,9 @@
     <h3 class="form-signin-heading">Please sign in</h3>
     <hr class="colorgraph">
     <!-- displaying login error -->
-    <c:if test="${not empty error}">
+    <c:if test="${not empty SPRING_SECURITY_LAST_EXCEPTION}">
       <div class="error alert alert-danger fade in">
-      <strong>Error! </strong>${error}
+      <strong>Error! </strong>${SPRING_SECURITY_LAST_EXCEPTION.message}
       </div>
     </c:if>
     <div class="input-group">
