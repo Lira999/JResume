@@ -1,13 +1,10 @@
 package com.softserveinc.ita.jresume.common.entity;
 
-import java.util.Calendar;
 import javax.persistence.Entity;
 import javax.persistence.FetchType;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 import javax.persistence.Table;
-import javax.persistence.Temporal;
-import javax.persistence.TemporalType;
 import javax.persistence.CascadeType;
 import javax.persistence.Column;
 
@@ -46,14 +43,13 @@ public class Project extends Base {
      * Describes project's team size.
      */
     @Column(name = "projectTeamSize")
-    private Integer projectTeamSize;
+    private Short projectTeamSize;
     
     /**
      * Describes involvement duration in a project.
      */
-    @Temporal(TemporalType.DATE)
     @Column(name = "involvementDuration")
-    private Calendar involvementDuration;
+    private Byte involvementDuration;
     
     /**
      * Describes tools and technologies which were used in a project.
@@ -105,7 +101,7 @@ public class Project extends Base {
      * @param newProjectTeamSize
      *            count of workers in a team
      */
-    public final void setProjectTeamSize(final Integer newProjectTeamSize) {
+    public final void setProjectTeamSize(final Short newProjectTeamSize) {
         projectTeamSize = newProjectTeamSize;
     }
     
@@ -126,7 +122,7 @@ public class Project extends Base {
      *            description of a time to be involvement
      */
     public final void setInvolvementDuration(
-            final Calendar newInvolvementDuration) {
+            final Byte newInvolvementDuration) {
         involvementDuration = newInvolvementDuration;
     }
     
@@ -173,7 +169,7 @@ public class Project extends Base {
      * 
      * @return number of workers which were involved in a project
      */
-    public final Integer getProjectTeamSize() {
+    public final Short getProjectTeamSize() {
         return projectTeamSize;
     }
     
@@ -182,7 +178,7 @@ public class Project extends Base {
      * 
      * @return time have been spent in a project
      */
-    public final Calendar getInvolvementDuration() {
+    public final Byte getInvolvementDuration() {
         return involvementDuration;
     }
     
