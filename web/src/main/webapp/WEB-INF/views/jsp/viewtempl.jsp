@@ -25,17 +25,16 @@
 				<hr>
 			</div>
 		</div>	
-        <div class="col-md-8">
+         <div class="col-xs-4 col-md-7">
 			<h4>Place for Marks</h4>
 		</div>
-		<div class="col-md-2">
+		<div class="col-xs-4 col-md-2">
 			<button type="button" class="btn btn-success  btn-lg btn-block" >Use</button>
 		</div>
-		<div class="col-md-1">
-			<button type="button" class="btn btn-primary  btn-lg" >Buy</button>
+		<div class="col-xs-4 col-md-2">
+			<button type="button" class="btn btn-primary  btn-lg btn-block" >Buy</button>
 		</div>
-		
-		<div class="col-md-8">
+		<div class="col-md-12">
             <div class="row">
                 <h3>Comment field</h3>
             </div>      
