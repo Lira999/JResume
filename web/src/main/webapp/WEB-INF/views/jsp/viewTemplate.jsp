@@ -31,7 +31,7 @@
                 <hr>
 
 				<div class="clear-rating clear-rating-active" title="Clear"></div>
-				<div class="rating-stars" data-content="" style="width: 0%;"></div>
+				<div class="rating-stars" data-content="" style="width: 100%;"></div>
 				<input id="input-21e" class="rating form-control hide" type="number" data-size="xs" step="0.5" max="5" min="0" value="0">
 				<div class="caption">
 					<span class="label label-default">Not Rated</span>
@@ -53,14 +53,15 @@
 						<form>
 							<div class="comment-frame">
 								<div class="comment-box">
-									<textarea class="comment-box-input js-new-comment-input" tabindex="1" placeholder="Write a comment…" style="overflow: hidden; word-wrap: break-word; height: 75px;"></textarea>
+									<textarea class="comment-box-input js-new-comment-input" tabindex="1" placeholder="Write a comment…" style="overflow: hidden; word-wrap: break-word; height: 75px; width: 75%"></textarea>
 								</div>
 							</div>	
 						</form>
 						<footer class="coments-form-footer">
 							<input class="submit" type="submit" onclick="testData(); return false;" value="додати коментар">
 						</footer>
-					</div>
+					</div>		
+					<br>
 					<div class="phenom phenom-action u-clearfix phenom-comment">
 						<div class="creator member js-show-mem-menu">
 							<img class="member-avatar" width="30" height="30" title="Petro (chyvaak)" alt="Petro (chyvaak)" src="resources/images/face.png">
@@ -81,6 +82,33 @@
 						</div>
 						<p class="phenom-meta quiet">
 							<span >Sep 17 at 1:38 PM</span>
+							<span class="js-spinner hide"></span>
+							<span class="js-hide-on-sending">
+								-
+								<a class="js-edit-action" href="#">Edit</a>
+								-
+								<a class="js-confirm-delete-action" href="#">Delete</a>
+							</span>
+						</p>
+						<div class="creator member js-show-mem-menu">
+							<img class="member-avatar" width="30" height="30" title="Bohdan (bohdan.khudoba)" alt="Bohdan (bohdan.khudoba)" src="resources/images/face2.png">
+							<span class="member-gold-badge" title="This member has Trello Gold."></span>
+						</div>
+						<div class="phenom-desc">
+							<span class="inline-member js-show-mem-menu">
+								<span class="u-font-weight-bold">Bohdan</span>
+							</span>
+							<div class="action-comment markeddown js-comment">
+								<div class="current-comment js-friendly-links">
+									<p>
+										It is great template
+									</p>
+								</div>
+							</div>
+							<div class="hide embedly js-embedly"></div>
+						</div>
+						<p class="phenom-meta quiet">
+							<span >Sep 22 at 1:22 AM</span>
 							<span class="js-spinner hide"></span>
 							<span class="js-hide-on-sending">
 								-
