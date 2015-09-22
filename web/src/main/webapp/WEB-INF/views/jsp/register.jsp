@@ -5,6 +5,7 @@
     <title>Sign Up</title>
     <jsp:include page="generic.jsp"/>
     <link rel="stylesheet" href="resources/css/register.css">
+    <script src="resources/js/lib/jquery-validate/jquery.validate.js"></script>
     <script src="resources/js/register.js"></script>
 </head>
 
@@ -45,7 +46,7 @@
 			<div class="row">
 				<div class="col-xs-4 col-sm-3 col-md-3">
 					<span class="button-checkbox">
-						<button type="button" class="btn" data-color="success" tabindex="7">I Agree</button>
+						<button type="button" class="btn col-sm-12" data-color="success" tabindex="7">I Agree</button>
                         <input type="checkbox" name="t_and_c" id="t_and_c" class="hidden" value="1">
 					</span>
 				</div>
