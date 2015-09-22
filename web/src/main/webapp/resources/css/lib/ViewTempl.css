@@ -1,0 +1,82 @@
+
+body {
+    padding-top: 70px; /* Required padding for .navbar-fixed-top. Remove if using .navbar-static-top. Change if height of navigation changes. */
+}
+
+footer {
+    margin: 50px 0;
+}
+.new-comment {
+    margin: 0 0 20px 38px;
+    position: relative;
+}
+
+.new-comment .member {
+    left: -38px;
+    position: absolute;
+    top: 1px;
+}
+
+.comment-frame {
+    background-color: #d3d3d3;
+    border-radius: 3px;
+    box-shadow: 0 1px 2px rgba(0, 0, 0, 0.23);
+    margin: 4px 4px 9pt 0;
+}
+.comment-box {
+    position: relative;
+}
+
+.comment-box-input, .comment-box-input:active, .comment-box-input:focus, .comment-box-input:hover {
+   
+    border-color: -moz-use-text-color -moz-use-text-color transparent;
+    border-image: none;
+    border-style: none none solid;
+    border-width: 0 0 30px;
+}
+.comment-box-input {
+    background: rgba(0, 0, 0, 0) none repeat scroll 0 0;
+    height: 75px;
+    margin: 0;
+    min-height: 75px;
+    padding: 9px 11px 0;
+    resize: none;
+    width: 100%;
+}
+
+.phenom {
+    min-height: 30px;
+    padding: 9pt 0 9pt 38px;
+    position: relative;
+}
+.phenom .creator {
+    height: 30px;
+    left: 0;
+    position: absolute;
+    top: 14px;
+    width: 30px;
+}
+
+
+.member-avatar {
+    height: 30px;
+    width: 30px;
+}
+
+.action-comment {
+    background-color: #d3d3d3;
+    border-radius: 3px;
+    box-shadow: 0 1px 2px rgba(0, 0, 0, 0.23);
+    box-sizing: border-box;
+    clear: both;
+    cursor: pointer;
+    display: block;
+    margin: 4px 2px 5px 0;
+    overflow: hidden;
+    text-overflow: ellipsis;
+	
+}
+.action-comment .current-comment {
+    padding: 9px 11px;
+	color: black ;
+}
