@@ -36,14 +36,14 @@ public class Project extends Base {
     /**
      * Describes the role of which was involved.
      */
-    @Column(name = "projectRole")
-    private String projectRole;
+    @Column(name = "role")
+    private String role;
     
     /**
      * Describes project's team size.
      */
-    @Column(name = "projectTeamSize")
-    private Short projectTeamSize;
+    @Column(name = "teamSize")
+    private Short teamSize;
     
     /**
      * Describes involvement duration in a project.
@@ -88,21 +88,21 @@ public class Project extends Base {
     /**
      * Sets the project role of a developer.
      * 
-     * @param newProjectRole
+     * @param newRole
      *            description of a developer's position
      */
-    public final void setProjectRole(final String newProjectRole) {
-        projectRole = newProjectRole;
+    public final void setRole(final String newRole) {
+        role = newRole;
     }
     
     /**
      * Sets the team size of a project.
      * 
-     * @param newProjectTeamSize
+     * @param newTeamSize
      *            count of workers in a team
      */
-    public final void setProjectTeamSize(final Short newProjectTeamSize) {
-        projectTeamSize = newProjectTeamSize;
+    public final void setTeamSize(final Short newTeamSize) {
+        teamSize = newTeamSize;
     }
     
     /**
@@ -161,7 +161,7 @@ public class Project extends Base {
      * @return projectRole of a developer in a project
      */
     public final String getProjectRole() {
-        return projectRole;
+        return role;
     }
     
     /**
@@ -170,7 +170,7 @@ public class Project extends Base {
      * @return number of workers which were involved in a project
      */
     public final Short getProjectTeamSize() {
-        return projectTeamSize;
+        return teamSize;
     }
     
     /**
