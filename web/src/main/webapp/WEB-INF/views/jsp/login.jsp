@@ -4,6 +4,7 @@
 <html>
 <head>
     <title>Sign in</title>
+    <link rel="stylesheet" href="resources/css/login.css">
     <jsp:include page="generic.jsp"/>
 </head>
 <body class="login-body">
@@ -12,9 +13,9 @@
     <h3 class="form-signin-heading">Please sign in</h3>
     <hr class="colorgraph">
     <!-- displaying login error -->
-    <c:if test="${not empty SPRING_SECURITY_LAST_EXCEPTION}">
+    <c:if test="${not empty error}">
       <div class="error alert alert-danger fade in">
-      <strong>Error! </strong>${SPRING_SECURITY_LAST_EXCEPTION.message}
+      <strong>Error! </strong>${error}
       </div>
     </c:if>
     <div class="input-group">
@@ -36,6 +37,5 @@
     <a class="register-suggestion" href="">Don't have an account? Sign up now.</a>
   </form>
 </div>
-
 </body>
 </html>
