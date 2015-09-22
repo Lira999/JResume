@@ -1,13 +1,10 @@
 package com.softserveinc.ita.jresume.common.entity;
 
-import java.util.Calendar;
 import javax.persistence.Entity;
 import javax.persistence.FetchType;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 import javax.persistence.Table;
-import javax.persistence.Temporal;
-import javax.persistence.TemporalType;
 import javax.persistence.CascadeType;
 import javax.persistence.Column;
 
@@ -51,9 +48,8 @@ public class Education extends Base {
     /**
      * Describes the year of graduation.
      */
-    @Temporal(TemporalType.DATE)
     @Column(name = "graduationYear")
-    private Calendar graduationYear;
+    private Short graduationYear;
     
     /**
      * Education associates with UserInformation. Many to one relationship,
@@ -111,7 +107,7 @@ public class Education extends Base {
      * @param newgraduationYear
      *            a year when developer got a degree.
      */
-    public final void setGraduationYear(final Calendar newgraduationYear) {
+    public final void setGraduationYear(final Short newgraduationYear) {
         graduationYear = newgraduationYear;
     }
     
@@ -170,7 +166,7 @@ public class Education extends Base {
      * 
      * @return the year where developer was graduated
      */
-    public final Calendar getGraduationYear() {
+    public final Short getGraduationYear() {
         return graduationYear;
     }
     
