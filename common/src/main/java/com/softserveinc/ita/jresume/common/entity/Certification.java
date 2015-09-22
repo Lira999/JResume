@@ -1,13 +1,10 @@
 package com.softserveinc.ita.jresume.common.entity;
 
-import java.util.Calendar;
 import javax.persistence.Entity;
 import javax.persistence.FetchType;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 import javax.persistence.Table;
-import javax.persistence.Temporal;
-import javax.persistence.TemporalType;
 import javax.persistence.CascadeType;
 import javax.persistence.Column;
 
@@ -27,21 +24,20 @@ public class Certification extends Base {
     /**
      * Describes the name of a certificate.
      */
-    @Column(name = "certificationName")
-    private String certificationName;
+    @Column(name = "name")
+    private String name;
     
     /**
      * Describes the year when the certificate was gained.
      */
-    @Temporal(TemporalType.DATE)
     @Column(name = "yearReceived")
-    private Calendar yearReceived;
+    private Short yearReceived;
     
     /**
      * Stores a reference to a logo of a certificate.
      */
-    @Column(name = "certificationLogo")
-    private byte[] certificationLogo;
+    @Column(name = "logo")
+    private byte[] logo;
     
     /**
      * Certification associates with UserInformation. Many to one relationship,
@@ -54,11 +50,11 @@ public class Certification extends Base {
     /**
      * Sets the certificates name.
      * 
-     * @param newCertificationName
+     * @param newName
      *            name of a certificate to set
      */
-    public final void setCertificationName(final String newCertificationName) {
-        certificationName = newCertificationName;
+    public final void setName(final String newName) {
+        name = newName;
     }
     
     /**
@@ -68,18 +64,18 @@ public class Certification extends Base {
      *            a year when developer got a certificate
      */
     public final void setYearReceived(
-            final Calendar newYearReceived) {
+            final Short newYearReceived) {
         yearReceived = newYearReceived;
     }
     
     /**
      * Sets the reference to the lofo of a certificate.
      * 
-     * @param newCertificationLogo
+     * @param newLogo
      *            the byte array which represents a logo
      */
-    public final void setCertificationLogo(final byte[] newCertificationLogo) {
-        certificationLogo = newCertificationLogo;
+    public final void setLogo(final byte[] newLogo) {
+        logo = newLogo;
     }
     
     /**
@@ -97,10 +93,10 @@ public class Certification extends Base {
     /**
      * Get value of field certificationName.
      * 
-     * @return the name and brief description of a certificate
+     * @return the name of a certificate
      */
-    public final String getCertificationName() {
-        return certificationName;
+    public final String getName() {
+        return name;
     }
     
     /**
@@ -108,7 +104,7 @@ public class Certification extends Base {
      * 
      * @return the year where certificate was gained
      */
-    public final Calendar getYearReceived() {
+    public final Short getYearReceived() {
         return yearReceived;
     }
     
@@ -117,8 +113,8 @@ public class Certification extends Base {
      * 
      * @return the byte array of the logo
      */
-    public final byte[] getCertificationLogo() {
-        return certificationLogo;
+    public final byte[] getLogo() {
+        return logo;
     }
     
     /**
