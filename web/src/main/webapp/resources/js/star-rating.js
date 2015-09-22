@@ -518,3 +518,17 @@
         }
     });
 }(window.jQuery));
+
+$('#star').raty('score');                   // Get the current score.
+
+
+$.getJSON("getData.php?rating=" + user.id, function(data) {
+    if (data) {
+        $.each(data, function(key, val) {
+            var reviews = val.tot_reviews;
+
+            $('#avg').rating('update', val.average);
+            $("#tot_reviews").html("(" + reviews + " reviews)").html();
+        });
+    }
+});

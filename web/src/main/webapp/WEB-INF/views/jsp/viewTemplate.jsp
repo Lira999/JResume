@@ -6,7 +6,10 @@
     <jsp:include page="generic.jsp"/>
    	<link href="resources/css/ViewTempl.css" rel="stylesheet">
 	<link href="resources/css/star-rating.css" rel="stylesheet">
+	<link href="resources/css/lib/bootstrap/bootstrap-rating.css" rel="stylesheet">
     <script src="resources/js/star-rating.js"></script>
+    <script src="resources/js/lib/bootstrap/bootstrap-rating.js"></script>
+    
 </head>
 <body>
  <div class="container">
@@ -30,13 +33,6 @@
 
                 <hr>
 
-				<div class="clear-rating clear-rating-active" title="Clear"></div>
-				<div class="rating-stars" data-content="" style="width: 100%;"></div>
-				<input id="input-21e" class="rating form-control hide" type="number" data-size="xs" step="0.5" max="5" min="0" value="0">
-				<div class="caption">
-					<span class="label label-default">Not Rated</span>
-				</div>
-
 				<ul class="pager">
 					 <li class="previous">
 						<a href="#">&larr; Older template</a>
@@ -49,6 +45,7 @@
 				<div class="new-comment js-new-comment">
 						<div class="member member-no-menu">
 							<img class="member-avatar" width="30" height="30" title="Petro (chyvaak)" alt="Petro (chyvaak)" src="resources/images/face.png">
+							<input type="hidden" class="rating-tooltip" data-stop="5" data-step="1"/>
 						</div>
 						<form>
 							<div class="comment-frame">
@@ -140,5 +137,55 @@
         </footer>
 
     </div>
+        <script>
+      $(function () {
+        $('input.check').on('change', function () {
+          alert('Rating: ' + $(this).val());
+        });
+        $('#programmatically-set').click(function () {
+          $('#programmatically-rating').rating('rate', $('#programmatically-value').val());
+        });
+        $('#programmatically-get').click(function () {
+          alert($('#programmatically-rating').rating('rate'));
+        });
+        $('.rating-tooltip').rating({
+          extendSymbol: function (rate) {
+            $(this).tooltip({
+              container: 'body',
+              placement: 'bottom',
+              title: 'Rate ' + rate
+            });
+          }
+        });
+        $('.rating-tooltip-manual').rating({
+          extendSymbol: function () {
+            var title;
+            $(this).tooltip({
+              container: 'body',
+              placement: 'bottom',
+              trigger: 'manual',
+              title: function () {
+                return title;
+              }
+            });
+            $(this).on('rating.rateenter', function (e, rate) {
+              title = rate;
+              $(this).tooltip('show');
+            })
+            .on('rating.rateleave', function () {
+              $(this).tooltip('hide');
+            });
+          }
+        });
+        $('.rating').each(function () {
+          $('<span class="label label-default"></span>')
+            .text($(this).val() || ' ')
+            .insertAfter(this);
+        });
+        $('.rating').on('change', function () {
+          $(this).next('.label').text($(this).val());
+        });
+      });
+    </script>
 </body>
 </html>
