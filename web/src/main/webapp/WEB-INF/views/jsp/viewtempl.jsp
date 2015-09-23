@@ -12,7 +12,7 @@
 		<h2 class="page-header">
 			<a href="#">Template myTemplate</a>	     
 		</h2>
-		    
+		<hr class="colorgraph">   
 		<div>
 			<div class="row" class="span9" >
 				<p class="about">Some description about resume.</p>
