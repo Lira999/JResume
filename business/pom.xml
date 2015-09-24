@@ -42,6 +42,12 @@
 			<artifactId>spring-security-core</artifactId>
 			<version>4.0.2.RELEASE</version>
 		</dependency>
+		<!-- junit tests -->
+		<dependency>
+			<groupId>junit</groupId>
+			<artifactId>junit</artifactId>
+			<version>4.12</version>
+		</dependency>
 	</dependencies>
 
 </project>
