@@ -71,7 +71,8 @@ public class XsltUtilsTest {
         notExistingFile = new File(
                 "src/test/resources/testFiles/xsltTestFiles"
                         + "/sayHelloToMyLittleFriend.txt");
-        uncreatableFile = new File("C:\\1.txt");
+        uncreatableFile =
+                new File("src/test/resources/testFiles/xsltTestFiles/?>.xml");
         successFile = new File(
                 "src/test/resources/testFiles/xsltTestFiles/input.xml");
         output = new File(
