@@ -4,7 +4,12 @@
 <head>
     <title>This Template</title>
     <jsp:include page="generic.jsp"/>
-   	<link href="resources/css/viewtempl.css" rel="stylesheet">
+    <link href="resources/css/viewtempl.css" rel="stylesheet">
+    
+    <link href="resources/css/comment.css" rel="stylesheet">
+	<script src="resources/js/mark.js"></script>
+	<script src="resources/js/sendcomment.js"></script>
+	<link href="http://maxcdn.bootstrapcdn.com/font-awesome/4.1.0/css/font-awesome.min.css"	rel="stylesheet">
 </head>
 <body>
  <div class="container">
@@ -25,8 +30,10 @@
 				<hr>
 			</div>
 		</div>	
-         <div class="col-xs-4 col-md-7">
-			<h4>Place for Marks</h4>
+        <div class="col-xs-4 col-md-7">
+       		<div class="row lead">
+         		<div id="stars" class="starrr"></div>		
+         	</div>
 		</div>
 		<div class="col-xs-4 col-md-2">
 			<button type="button" class="btn btn-success  btn-lg btn-block" >Use</button>
@@ -34,15 +41,16 @@
 		<div class="col-xs-4 col-md-2">
 			<button type="button" class="btn btn-primary  btn-lg btn-block" >Buy</button>
 		</div>
-		<div class="col-md-12">
-            <div class="row">
-                <h3>Comment field</h3>
-            </div>      
-        </div> 
 		<footer>
 			<div class="row"></div> 
 		</footer>
+		<br>
+		
     </div>
+</div>
+<div class="lol">
+		    <jsp:include page="addcomment.jsp"/>
+			<jsp:include page="viewcomments.jsp"/>
 </div>
 </body>
 </html>
