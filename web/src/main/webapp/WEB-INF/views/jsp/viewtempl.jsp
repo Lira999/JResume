@@ -48,9 +48,5 @@
 		
     </div>
 </div>
-<div class="lol">
-		    <jsp:include page="addcomment.jsp"/>
-			<jsp:include page="viewcomments.jsp"/>
-</div>
 </body>
 </html>
