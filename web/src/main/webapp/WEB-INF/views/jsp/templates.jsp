@@ -109,5 +109,6 @@
 </div>
 </div>
 
+<script src="resources/js/templates.js"></script>
 </body>
 </html>
