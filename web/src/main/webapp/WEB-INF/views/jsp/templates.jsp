@@ -13,7 +13,7 @@
 <div class="wrapper">
 <div class="container">
 <div class="well well-lg">
-  
+   
   <h1>Resume templates</h1>
   <hr class="colorgraph">       
   <form class="form-inline" role="form">
@@ -37,21 +37,21 @@
 
 <div class="wrapper">  
     <div class="row">
-            
+    
     <div class="col-sm-12 col-xs-12 col-md-4 col-lg-4">
       <div class="thumbnail">
         <div class="caption">
-          <a href="" class="btn btn-lg btn-success centeredPos">Use</a>
+          <a href="" class="btn btn-success button">Use</a>
         </div>
         <img src="./resources/images/Template1.png"> 
-        <p class="template_name">Template name</p>        
+         <p class="template_name">Template name</p>        
       </div>
     </div>              
     
     <div class="col-sm-12 col-xs-12 col-md-4 col-lg-4">
       <div class="thumbnail">
         <div class="caption">
-          <a href="" class="btn btn-lg btn-danger centeredPos">Buy 1.07$</a>
+          <a href="" class="btn btn-danger button">Buy 1.07$</a>
         </div>
         <img src="./resources/images/Template1.png"> 
         <p class="template_name">Template name</p>        
@@ -61,7 +61,7 @@
     <div class="col-sm-12 col-xs-12 col-md-4 col-lg-4">
       <div class="thumbnail">
         <div class="caption">
-          <a href="" class="btn btn-lg btn-success centeredPos">Use</a>
+          <a href="" class="btn btn-success button">Use</a>
         </div>
         <img src="./resources/images/Template1.png"> 
         <p class="template_name">Template name</p>        
@@ -75,7 +75,7 @@
     <div class="col-sm-12 col-xs-12 col-md-4 col-lg-4">
       <div class="thumbnail">
         <div class="caption">
-          <a href="" class="btn btn-lg btn-success centeredPos">Use</a>
+          <a href="" class="btn btn-success button">Use</a>
         </div>
         <img src="./resources/images/Template1.png"> 
         <p class="template_name">Template name</p>        
@@ -85,7 +85,7 @@
     <div class="col-sm-12 col-xs-12 col-md-4 col-lg-4">
       <div class="thumbnail">
         <div class="caption">
-          <a href="" class="btn btn-lg btn-success centeredPos">Use</a>
+          <a href="" class="btn btn-success button">Use</a>
         </div>
         <img src="./resources/images/Template1.png"> 
         <p class="template_name">Template name</p>        
@@ -95,7 +95,7 @@
     <div class="col-sm-12 col-xs-12 col-md-4 col-lg-4">
       <div class="thumbnail">
         <div class="caption">
-          <a href="" class="btn btn-lg btn-success centeredPos">Use</a>
+          <a href="" class="btn btn-success button">Use</a>
         </div>
         <img src="./resources/images/Template1.png"> 
         <p class="template_name">Template name</p>        
