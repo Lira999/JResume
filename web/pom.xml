@@ -15,11 +15,11 @@
 	<build>
 		<finalName>JResume</finalName>
 	</build>
-	
+
 	<properties>
 		<spring-security-version>4.0.2.RELEASE</spring-security-version>
 	</properties>
-	
+
 	<dependencies>
 		<!-- common module -->
 		<dependency>
@@ -83,6 +83,21 @@
 			<artifactId>jstl</artifactId>
 			<version>1.2</version>
 		</dependency>
-
+		<!-- Jackson -->
+		<dependency>
+			<groupId>org.codehaus.jackson</groupId>
+			<artifactId>jackson-mapper-asl</artifactId>
+			<version>1.9.13</version>
+		</dependency>
+		<dependency>
+			<groupId>com.fasterxml.jackson.core</groupId>
+			<artifactId>jackson-core</artifactId>
+			<version>2.6.2</version>
+		</dependency>
+		<dependency>
+			<groupId>com.fasterxml.jackson.core</groupId>
+			<artifactId>jackson-databind</artifactId>
+			<version>2.6.2</version>
+		</dependency>
 	</dependencies>
 </project>

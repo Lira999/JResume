@@ -7,6 +7,8 @@ import javax.persistence.EntityManager;
 import javax.persistence.PersistenceContext;
 import javax.persistence.Query;
 
+import org.springframework.transaction.annotation.Transactional;
+
 import com.softserveinc.ita.jresume.persistence.dao.GenericDAO;
 
 /**
@@ -19,6 +21,7 @@ import com.softserveinc.ita.jresume.persistence.dao.GenericDAO;
  *            = Id Type
  *            
  */
+@Transactional
 public abstract class JPAGenericDAO<T, V>
         implements GenericDAO<T, V> {
         

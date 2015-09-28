@@ -1,140 +1,184 @@
+$(function() {
 
-$(function () {
-
-	jQuery.validator.addMethod( 'passwordMatch', function(value, element) {
+	jQuery.validator.addMethod('passwordMatch', function(value, element) {
 		// The two password inputs
 		var password = $("#password").val();
 		var confirmPassword = $("#password_confirmation").val();
-
 		// Check for equality with the password inputs
-		if (password != confirmPassword ) {
+		if (password != confirmPassword) {
 			return false;
 		} else {
 			return true;
 		}
-
 	}, "Your passwords must match");
+	
+	jQuery.validator.addMethod('regx', function(value, element, regexpr) {
+		return regexpr.test(value);
+	}, "Please enter a valid data.");
 
-	$.validator.setDefaults({ 
-		ignore: ":hidden:not(#t_and_c)"
+	jQuery.validator.setDefaults({
+		ignore : ":hidden:not(#t_and_c)"
 	});
-	// Setup form validation on the #register-form element
+	
+	// Setup form validation on the .register-form element
 	$(".register-form").validate({
+				// Specify the validation rules
+				rules : {
+					first_name : {
+						required : true,
+						regx : /^[a-zA-Z]+$/
+					},
+					last_name : {
+						required : true,
+						regx : /^[a-zA-Z]+$/
+					},
+					email : {
+						required : true,
+						regx : /^[_A-Za-z0-9-\+]+(\.[_A-Za-z0-9-]+)*@[A-Za-z0-9-]+(\.[A-Za-z0-9]+)*(\.[A-Za-z]{2,})$/,
+						maxlength : 60,
+						remote: {
+	                        url: "register&emailExist",
+	                        type: "POST",
+	                        value: true
+	                    }
+					},
+					password : {
+						required : true,
+						minlength : 5,
 
-    // Specify the validation rules
-    rules: {
-    	first_name: "required",
-    	last_name: "required",
+					},
+					password_confirmation : {
+						required : true,
+						minlength : 5,
+						passwordMatch : true
+			},
+			t_and_c : {
+				required : true
+			}
+		},
+				// Specify the validation error messages
+				messages : {
+					first_name : "Please enter your first name.",
+					last_name : "Please enter your last name.",
+					t_and_c : "Please accept our T&C.",
+					password : {
+						required : "Please provide a password.",
+						minlength : "Please enter a password with at least five characters."
+					},
+					password_confirmation : {
+						required : "You must confirm your password.",
+						minlength : "Please enter a password with at least five characters.",
+					passwordMatch : "Your passwords must match."
+				},
+				email : "Email is invalid or already taken."
+			},
+			submitHandler : function(form) {
+				sendAjax();
+			},
+			invalidHandler : function(form) {
+			}
 
-    	email: {
-    		required: true,
-    		email: true
-    	},
-    	password: {
-    		required: true,
-    		minlength: 5,
-    
-    	},
-    	password_confirmation: {
-    		required: true,
-    		minlength: 5,
-            passwordMatch: true // set this on the field you're trying to match
+		});
+	
+	/**
+	 * Send json to server.
+	 */
+	function sendAjax() {
+		var data = JSON.stringify({
+			firstName: $("#first_name").val(),
+			lastName: $("#last_name").val(),
+			email: $("#email").val(),
+			password: $("#password").val()
+		});
+		$.ajax({
+			url: "register",
+			type: "POST",
+			dataType: "json",
+			contentType: "application/json",
+			data: data,
+			success: function(data) {
+				if (data.status === "success") {
+					top.location.href = "login";
+				} else {
+					if (!$("#err").length) {
+						$("#bot_line").after("<label class='error' id='err'>" + data.message +"</label>");
+					}
+				}
+			},
+			error:function(data,status,er) {
+				if (!$("#err").length) {
+					$("#bot_line").after("<label class='error' id='err'>" + "Error: status: "+status + "</label>");
+				}
+			}
+		});
+	}
 
-        },
-        t_and_c: {
-        	required: true
-        },
-        submitHandler: function(form) {
-        	form.submit();
-        },
-    },
-    // Specify the validation error messages
-    messages: {
-    	firstname: "Please enter your first name.",
-    	lastname: "Please enter your last name.",
-    	t_and_c: "Please accept our T&C.",
-    	password: {
-    		required: "Please provide a password.",
-    		minlength: "Please enter a password with at least five characters."
-    	},
-    	password_confirmation: {
-    		required: "You must confirm your password.",
-    		minlength: "Please enter a password with at least five characters.",
-    	    passwordMatch: "Your passwords must match." // custom message for mismatched passwords
-    	    },
-    	    email: "Please enter a valid email address."
-    	},
+	//For button "Agree".
+	$('.button-checkbox')
+	.each(function() {
+		// Settings for button
+		var $widget = $(this), $button = $widget.find('button'), $checkbox = $widget
+		.find('input:checkbox'), color = $button
+		.data('color'), settings = {
+			on : {
+				icon : 'glyphicon glyphicon-check'
+			},
+			off : {
+				icon : 'glyphicon glyphicon-unchecked'
+			}
+		};
 
-    	submitHandler: function(form) {
-    		form.submit();
-    	}
-    }
-    );
+		// Event Handlers
+		$button.on('click',
+			function() {
+				$checkbox.prop('checked', !$checkbox
+					.is(':checked'));
+				$checkbox.triggerHandler('change');
+				updateDisplay();
+			});
+		$checkbox.on('change', function() {
+			updateDisplay();
+		});
 
+		// Actions
+		function updateDisplay() {
+			var isChecked = $checkbox.is(':checked');
 
-$('.button-checkbox').each(function () {
+			// Set the button's state
+			$button.data('state', (isChecked) ? "on" : "off");
 
-        // Settings for button
-        var $widget = $(this),
-        $button = $widget.find('button'),
-        $checkbox = $widget.find('input:checkbox'),
-        color = $button.data('color'),
-        settings = {
-        	on: {
-        		icon: 'glyphicon glyphicon-check'
-        	},
-        	off: {
-        		icon: 'glyphicon glyphicon-unchecked'
-        	}
-        };
+			// Set the button's icon
+			$button
+			.find('.state-icon')
+			.removeClass()
+			.addClass(
+				'state-icon '
+				+ settings[$button
+				.data('state')].icon);
 
-        // Event Handlers
-        $button.on('click', function () {
-        	$checkbox.prop('checked', !$checkbox.is(':checked'));
-        	$checkbox.triggerHandler('change');
-        	updateDisplay();
-        });
-        $checkbox.on('change', function () {
-        	updateDisplay();
-        });
+			// Update the button's color
+			if (isChecked) {
+				$button.removeClass('btn-default').addClass(
+					'btn-' + color + ' active');
+			} else {
+				$button.removeClass('btn-' + color + ' active')
+				.addClass('btn-default');
+			}
 
-        // Actions
-        function updateDisplay() {
-        	var isChecked = $checkbox.is(':checked');
+		}
 
-            // Set the button's state
-            $button.data('state', (isChecked) ? "on" : "off");
+		// Initialization
+		function init() {
 
-            // Set the button's icon
-            $button.find('.state-icon')
-            .removeClass()
-            .addClass('state-icon ' + settings[$button.data('state')].icon);
+			updateDisplay();
 
-            // Update the button's color
-            if (isChecked) {
-            	$button
-            	.removeClass('btn-default')
-            	.addClass('btn-' + color + ' active');
-            }
-            else {
-            	$button
-            	.removeClass('btn-' + color + ' active')
-            	.addClass('btn-default');
-            }
-
-        }
-
-
-        // Initialization
-        function init() {
-
-        	updateDisplay();
-
-            // Inject the icon if applicable
-            if ($button.find('.state-icon').length == 0) {
-            	$button.prepend('<i class="state-icon ' + settings[$button.data('state')].icon + '"></i>');
-            }
-        }
-        init();
-    });
+			// Inject the icon if applicable
+			if ($button.find('.state-icon').length == 0) {
+				$button.prepend('<i class="state-icon '
+					+ settings[$button.data('state')].icon
+					+ '"></i>');
+			}
+		}
+		init();
+	});
 });

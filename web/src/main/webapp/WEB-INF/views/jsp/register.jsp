@@ -1,18 +1,18 @@
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
-<!DOCTYPE html/>
+<%@taglib uri="http://www.springframework.org/tags/form" prefix="form"%>  
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
+<!DOCTYPE html>
 <html>
 <head>
     <title>Sign Up</title>
     <jsp:include page="generic.jsp"/>
-    <link rel="stylesheet" href="resources/css/register.css">
-    <script src="resources/js/lib/jquery-validate/jquery.validate.js"></script>
-    <script src="resources/js/register.js"></script>
+	<link rel="stylesheet" href="resources/css/register.css">
 </head>
 
 <body class="login-body">
 <div class="wrapper">
     <div class="col-xs-12 col-sm-8 col-md-6 col-sm-offset-2 col-md-offset-3">
-		<form class="register-form" method="POST" role="form">
+		<form class="register-form" method="POST" role="form" enctype='application/json'>
 			<h3 class="form-signup-heading">Please sign up</h3>
 			<hr class="colorgraph">
 			<div class="row">
@@ -55,7 +55,7 @@
 				</div>
 			</div>
 			
-			<hr class="colorgraph">
+			<hr id = "bot_line" class="colorgraph">
 			<div class="row">
 				<div class="col-xs-12 col-md-6 col-md-offset-3"><input type="submit" value="Register" class="btn btn-success btn-block btn-lg" tabindex="7"></div>
 			</div>
@@ -79,5 +79,8 @@
 		</div>
 	</div>
 </div>
+
+<script src="resources/js/lib/jquery-validate/jquery.validate.js"></script>
+<script src="resources/js/register.js"></script>
 </body>
 </html>

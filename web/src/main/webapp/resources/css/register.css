@@ -22,6 +22,8 @@ label.error {
   font-size: 12px;
   font-style: italic;
   font-weight: normal;
+  text-align: center;
+  display: block;
 }
 
 .wrapper {
