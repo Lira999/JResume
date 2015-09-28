@@ -72,7 +72,11 @@ public class Template extends Base {
     public final String getDescription() {
         return description;
     }
-    
+    /**
+     * Stores a reference to a image of a template.
+     */
+    @Column(name = "image")
+    private byte[] image;
     /**
      * Changes description of this template.
      * 
