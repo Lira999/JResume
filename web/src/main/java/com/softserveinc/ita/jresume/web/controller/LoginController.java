@@ -34,10 +34,10 @@ public class LoginController {
             @RequestParam(value = "error",
                     required = false) final String error) {
         ModelAndView modelAndView = new ModelAndView();
-        Object lastException =
-                webRequest.getAttribute("SPRING_SECURITY_LAST_EXCEPTION",
-                        webRequest.SCOPE_SESSION);
         if (error != null) {
+            Object lastException =
+                    webRequest.getAttribute("SPRING_SECURITY_LAST_EXCEPTION",
+                            webRequest.SCOPE_SESSION);
             if (lastException
             
             instanceof InternalAuthenticationServiceException) {
@@ -45,9 +45,7 @@ public class LoginController {
                         "JResume encountered some internal problems. "
                                 + "We working to resolve the issue as "
                                 + "soon as possible."
-                                + " Please try again later.");
-            } else {
-                modelAndView.addObject("error", "Incorect sign in data!");
+                                + " Please, try again later.");
             }
         }
         modelAndView.setViewName("login");
