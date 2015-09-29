@@ -45,7 +45,7 @@
       <input type="checkbox" name="remember-me"/> Remember me
     </label>
     <button class="loginbtn btn btn-lg btn-success btn-block" type="submit">Sign in</button>
-    <a class="register-suggestion" href="">Don't have an account? Sign up now.</a>
+    <a class="register-suggestion" href="register">Don't have an account? Sign up now.</a>
   </form>
 </div>
 </body>

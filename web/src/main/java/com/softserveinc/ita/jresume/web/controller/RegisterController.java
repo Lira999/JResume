@@ -52,9 +52,10 @@ public class RegisterController {
      *            the user to be created.
      * @param result
      *            for validation errors.
-     * @return status and message about registration process.
+     * @return ResponseEntity that contains information about registration
+     *         process.
      * @throws URISyntaxException
-     *             s.
+     *             if invalid URI syntax.
      */
     @RequestMapping(value = "register", method = RequestMethod.POST)
     public final ResponseEntity<String> processRegistration(
