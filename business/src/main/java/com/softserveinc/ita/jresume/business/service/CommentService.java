@@ -21,7 +21,7 @@ public class CommentService {
     /**
      * Create a new user.
      * 
-     * @param user
+     * @param mark
      *            to be created.
      * @return created user.
      */
@@ -32,7 +32,7 @@ public class CommentService {
     /**
      * Update information user.
      * 
-     * @param user
+     * @param mark
      *            object user to be updated.
      *            
      * @return updated user.
@@ -44,7 +44,7 @@ public class CommentService {
     /**
      * Delete user from data storage.
      * 
-     * @param user
+     * @param mark
      *            the user to be deleted.
      */
     public final void delete(final Mark mark) {
