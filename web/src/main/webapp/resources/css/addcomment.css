@@ -2,15 +2,11 @@
 	margin-left:10px; 
 	margin-top:5px;	
 }
+
 .addbutton {
 	margin-top: 5px; 
-	margin-left:15px;
-}
-.starsforcomment {	
-	margin-top: 5px; 
-	margin-right: 740px;
 }
 
-.lol {
-	display: inline;
+.form-location {
+	margin-right: 15px;
 }
