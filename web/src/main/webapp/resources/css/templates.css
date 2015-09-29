@@ -25,12 +25,18 @@
     width: 100%;
 }
 
-.centeredPos {
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-    position: absolute;     
-}
+.button {
+  color: white;
+  font-size: 25px;
+  width: 170px;
+  height: 55px;
+  border-radius: 6px;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  position: absolute;     
+} 
+
 
 .caption {
     margin-left: -4px;
