@@ -16,7 +16,7 @@ import javax.persistence.Table;
 @Entity
 @Table(name = "mark")
 public class Mark extends Base {
-    
+
     /** value of this mark. */
     @Enumerated(EnumType.STRING)
     @Column(name = "mark")
