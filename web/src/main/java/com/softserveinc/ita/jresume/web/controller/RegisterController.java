@@ -1,9 +1,12 @@
 package com.softserveinc.ita.jresume.web.controller;
 
-import java.util.HashMap;
-import java.util.Map;
+import java.net.URI;
+import java.net.URISyntaxException;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.HttpHeaders;
+import org.springframework.http.HttpStatus;
+import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Controller;
 import org.springframework.validation.BindingResult;
 import org.springframework.validation.Validator;
@@ -50,26 +53,32 @@ public class RegisterController {
      * @param result
      *            for validation errors.
      * @return status and message about registration process.
+     * @throws URISyntaxException
+     *             s.
      */
-    @RequestMapping(value = "register", method = RequestMethod.POST,
-            consumes = "application/json")
-    @ResponseBody
-    public final Map<String, String> processRegistration(
-            @RequestBody final User user, final BindingResult result) {
-            
+    @RequestMapping(value = "register", method = RequestMethod.POST)
+    public final ResponseEntity<String> processRegistration(
+            @RequestBody final User user, final BindingResult result)
+                    throws URISyntaxException {
+                    
         validator.validate(user, result);
         
-        Map<String, String> map = new HashMap<String, String>();
+        String msg;
+        HttpHeaders header = new HttpHeaders();
+        HttpStatus status;
+        
         if (result.hasErrors()) {
-            map.put("status", "error");
-            map.put("message", "Registration data invalid.");
+            msg = "Registration data invalid!";
+            status = HttpStatus.UNPROCESSABLE_ENTITY;
         } else {
+            msg = "{}";
+            header.setLocation(new URI("login"));
+            status = HttpStatus.CREATED;
             user.setRole(UserRole.ROLE_USER);
             userService.create(user);
-            map.put("status", "success");
-            map.put("message", "");
         }
-        return map;
+        
+        return new ResponseEntity<String>(msg, header, status);
     }
     
     /**
@@ -79,13 +88,9 @@ public class RegisterController {
      *            the email address of user.
      * @return true if email is not existing.
      */
-    @RequestMapping(value = "register&emailExist", method = RequestMethod.POST)
+    @RequestMapping(value = "emailExist", method = RequestMethod.POST)
     @ResponseBody
     public final String emailExisting(final String email) {
-        if (userService.findByEmail(email) == null) {
-            return "true";
-        }
-        return "false";
+        return Boolean.toString(userService.findByEmail(email) == null);
     }
-    
 }

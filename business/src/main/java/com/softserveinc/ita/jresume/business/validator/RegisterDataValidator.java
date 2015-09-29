@@ -1,4 +1,4 @@
-package com.softserveinc.ita.jresume.business.utils;
+package com.softserveinc.ita.jresume.business.validator;
 
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
