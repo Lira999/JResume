@@ -5,22 +5,19 @@
     <title>This Template</title>
     <jsp:include page="generic.jsp"/>
     <link href="resources/css/viewtempl.css" rel="stylesheet">
-    
-    <link href="resources/css/comment.css" rel="stylesheet">
-	<script src="resources/js/mark.js"></script>
-	<script src="resources/js/sendcomment.js"></script>
+	<script src="resources/js/viewtempl.js"></script>
 	<link href="http://maxcdn.bootstrapcdn.com/font-awesome/4.1.0/css/font-awesome.min.css"	rel="stylesheet">
 </head>
 <body>
- <div class="container">
+ <div class="container" id="view">
     <div class="well well-lg">
 		<h2 class="page-header">
-			<a href="#">Template myTemplate</a>	     
+			<a href="#" id = "name"></a>	     
 		</h2>
 		<hr class="colorgraph">   
 		<div>
 			<div class="row" class="span9" >
-				<p class="about">Some description about resume.</p>
+				<p class="about" id= "description"></p>
 				
 			</div>
 			
@@ -39,11 +36,11 @@
 			<button type="button" class="btn btn-success  btn-lg btn-block" >Use</button>
 		</div>
 		<div class="col-xs-4 col-md-2">
-			<button type="button" class="btn btn-primary  btn-lg btn-block" >Buy</button>
+			<input type="button" class="btn btn-primary  btn-lg btn-block" id = "price" value = "">
 		</div>
 		<footer>
-			<div class="row"></div> 
-		</footer>
+			<div class="row"></div>
+			</footer>
 		<br>
 		
     </div>
