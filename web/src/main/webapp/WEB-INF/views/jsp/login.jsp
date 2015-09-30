@@ -12,12 +12,23 @@
   <form class="login-form form-signin" action="j_spring_security_check" method="POST">
     <h3 class="form-signin-heading">Please sign in</h3>
     <hr class="colorgraph">
-    <!-- displaying login error -->
-    <c:if test="${not empty error}">
-      <div class="error alert alert-danger fade in">
-      <strong>Error! </strong>${error}
-      </div>
-    </c:if>
+    <!-- show correct error message -->
+    <c:choose>
+      <c:when test="${not empty error}">
+        <div class="error alert alert-warning fade in">
+          <strong>Sorry! </strong>${error}
+        </div>
+      </c:when>
+      <c:otherwise>
+        <c:if test="${not empty SPRING_SECURITY_LAST_EXCEPTION}">
+          <div class="error alert alert-danger fade in">
+            <strong>Error! </strong>${SPRING_SECURITY_LAST_EXCEPTION.message}
+          </div>
+        </c:if>
+      </c:otherwise>
+    </c:choose>
+    <!-- remove error message on page reload -->
+    <c:remove var = "SPRING_SECURITY_LAST_EXCEPTION" scope = "session" />
     <div class="input-group">
       <span class="input-group-addon">
         <i class="glyphicon glyphicon-user"></i>
@@ -34,7 +45,7 @@
       <input type="checkbox" name="remember-me"/> Remember me
     </label>
     <button class="loginbtn btn btn-lg btn-success btn-block" type="submit">Sign in</button>
-    <a class="register-suggestion" href="">Don't have an account? Sign up now.</a>
+    <a class="register-suggestion" href="register">Don't have an account? Sign up now.</a>
   </form>
 </div>
 </body>

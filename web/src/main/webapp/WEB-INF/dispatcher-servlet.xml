@@ -11,6 +11,13 @@
 
 	<!-- import all context files -->
 	<import resource="classpath*:**/*-context.xml" />
+	
+	<!-- messages for spring security -->
+	<bean id="messageSource"
+		class="org.springframework.context.support.ReloadableResourceBundleMessageSource">
+		<property name="basename" value="resources/properties/securityMessages" />
+		<property name="defaultEncoding" value="UTF-8" />
+	</bean>
 
 	<!-- jsp mapping -->
 	<bean
@@ -20,9 +27,9 @@
 		<property name="prefix" value="/WEB-INF/views/jsp/" />
 		<property name="suffix" value=".jsp" />
 	</bean>
-	
+
 	<mvc:resources mapping="/resources/**" location="/resources/"
-	cache-period="31556926"/>
+		cache-period="31556926" />
 
 	<mvc:annotation-driven />
 

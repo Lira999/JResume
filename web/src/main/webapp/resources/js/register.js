@@ -1,3 +1,4 @@
+"use strict";
 $(function() {
 
 	jQuery.validator.addMethod('passwordMatch', function(value, element) {
@@ -17,18 +18,18 @@ $(function() {
 	}, "Please enter a valid data.");
 
 	jQuery.validator.setDefaults({
-		ignore : ":hidden:not(#t_and_c)"
+		ignore : ":hidden:not(#tAndC)"
 	});
 	
 	// Setup form validation on the .register-form element
 	$(".register-form").validate({
 				// Specify the validation rules
 				rules : {
-					first_name : {
+					firstName : {
 						required : true,
 						regx : /^[a-zA-Z]+$/
 					},
-					last_name : {
+					lastName : {
 						required : true,
 						regx : /^[a-zA-Z]+$/
 					},
@@ -37,7 +38,7 @@ $(function() {
 						regx : /^[_A-Za-z0-9-\+]+(\.[_A-Za-z0-9-]+)*@[A-Za-z0-9-]+(\.[A-Za-z0-9]+)*(\.[A-Za-z]{2,})$/,
 						maxlength : 60,
 						remote: {
-	                        url: "register&emailExist",
+	                        url: "emailExist",
 	                        type: "POST",
 	                        value: true
 	                    }
@@ -52,20 +53,20 @@ $(function() {
 						minlength : 5,
 						passwordMatch : true
 			},
-			t_and_c : {
+			tAndC : {
 				required : true
 			}
 		},
 				// Specify the validation error messages
 				messages : {
-					first_name : "Please enter your first name.",
-					last_name : "Please enter your last name.",
-					t_and_c : "Please accept our T&C.",
+					firstName : "Please enter your first name.",
+					lastName : "Please enter your last name.",
+					tAndC : "Please accept our T&C.",
 					password : {
 						required : "Please provide a password.",
 						minlength : "Please enter a password with at least five characters."
 					},
-					password_confirmation : {
+					passwordConfirmation : {
 						required : "You must confirm your password.",
 						minlength : "Please enter a password with at least five characters.",
 					passwordMatch : "Your passwords must match."
@@ -85,8 +86,8 @@ $(function() {
 	 */
 	function sendAjax() {
 		var data = JSON.stringify({
-			firstName: $("#first_name").val(),
-			lastName: $("#last_name").val(),
+			firstName: $("#firstName").val(),
+			lastName: $("#lastName").val(),
 			email: $("#email").val(),
 			password: $("#password").val()
 		});
@@ -96,18 +97,12 @@ $(function() {
 			dataType: "json",
 			contentType: "application/json",
 			data: data,
-			success: function(data) {
-				if (data.status === "success") {
-					top.location.href = "login";
-				} else {
-					if (!$("#err").length) {
-						$("#bot_line").after("<label class='error' id='err'>" + data.message +"</label>");
-					}
-				}
+			success: function(data, textStatus, xhr) {
+				top.location.href = xhr.getResponseHeader('Location');
 			},
-			error:function(data,status,er) {
+			error: function(data,status,er) {
 				if (!$("#err").length) {
-					$("#bot_line").after("<label class='error' id='err'>" + "Error: status: "+status + "</label>");
+					$("#bot_line").after("<label class='error' id='err'>" + data.responseText + "</label>");
 				}
 			}
 		});
