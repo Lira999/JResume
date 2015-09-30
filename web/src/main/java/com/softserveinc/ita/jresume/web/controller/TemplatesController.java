@@ -17,6 +17,7 @@ import com.softserveinc.ita.jresume.business.service.TemplatesService;
  * @author Ira Lialikova
  */
 @Controller
+@RequestMapping(value = "/templates")
 public class TemplatesController {
     
     /**
@@ -30,7 +31,7 @@ public class TemplatesController {
      * 
      * @return model "templates" view
      */
-    @RequestMapping(value = "/templates", method = RequestMethod.GET)
+    @RequestMapping(value = "", method = RequestMethod.GET)
     public final String templates() {
         return "templates";
     }
@@ -40,10 +41,9 @@ public class TemplatesController {
      * 
      * @return listTemplates all available templates
      */
-    @RequestMapping(value = "/temp", method = RequestMethod.GET)
+    @RequestMapping(value = "/list", method = RequestMethod.GET)
     @ResponseBody
     public final List<Template> getPages() {
-        List<Template> listTemplates = templatesService.findAll();
-        return listTemplates;
+        return templatesService.findAll();
     }
 }
