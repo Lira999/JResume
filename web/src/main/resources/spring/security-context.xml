@@ -19,12 +19,13 @@
 		<intercept-url pattern="/admin/**" access="hasRole('ROLE_ADMIN')" />
 		<form-login 
 			login-page="/login" 
-			default-target-url="/"
+			default-target-url="/templates"
+			always-use-default-target="true"
 			authentication-failure-url="/login?error"
 			login-processing-url="/j_spring_security_check"
 			username-parameter="username"
 			password-parameter="password" />
-		<logout logout-success-url="/"/>
+		<logout logout-success-url="/" />
 		<remember-me key="remember-me"/>
 		<csrf disabled="true"/>
 	</http>
