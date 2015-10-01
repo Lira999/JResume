@@ -40,7 +40,9 @@
 			<div class="row"></div>
 			</footer>
 		<br>
-		
+		<br>
+		<jsp:include page="addcomment.jsp"/>
+		<jsp:include page="viewcommentsandmarks.jsp"/>
     </div>
 </div>
 </body>
