@@ -33,7 +33,7 @@
          	</div>
 		</div>
 		<div class="col-xs-4 col-md-2">
-			<button class ="btn button" type="button"></button>
+			<button class ="btn button" id="control" type="button"></button>
 		</div>
 		
 		<footer>
