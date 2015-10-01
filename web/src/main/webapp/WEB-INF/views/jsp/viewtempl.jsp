@@ -33,11 +33,9 @@
          	</div>
 		</div>
 		<div class="col-xs-4 col-md-2">
-			<button type="button" class="btn btn-success  btn-lg btn-block" >Use</button>
+			<button class ="btn button" type="button"></button>
 		</div>
-		<div class="col-xs-4 col-md-2">
-			<input type="button" class="btn btn-primary  btn-lg btn-block" id = "price" value = "">
-		</div>
+		
 		<footer>
 			<div class="row"></div>
 			</footer>

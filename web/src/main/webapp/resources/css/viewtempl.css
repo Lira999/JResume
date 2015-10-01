@@ -28,3 +28,12 @@ body {
 .about{
 	padding-left: 40px;
 }
+.button {
+  right: -100px;
+  color: white;
+  font-size: 30px !important;
+  width: 200px;
+  height: 65px;
+  border-radius: 6px;
+  position: absolute;     
+} 
