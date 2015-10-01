@@ -1,0 +1,11 @@
+.starsposition {
+	margin-left: 40px;
+}
+.viewcommentinpage {
+	margin-right: 100px;
+}
+
+.stars {
+	color: #FDDE51; 
+	text-shadow: -0.5px 0 black, 0 0.5px black, 0.5px 0 black, 0 -0.5px black;
+}
