@@ -1,11 +1,11 @@
 package com.softserveinc.ita.jresume.business.xslt;
 
 import java.io.File;
-import java.io.IOException;
 import java.io.InputStream;
 import java.io.OutputStream;
 
 import javax.xml.transform.Transformer;
+import javax.xml.transform.TransformerConfigurationException;
 import javax.xml.transform.TransformerException;
 import javax.xml.transform.TransformerFactory;
 import javax.xml.transform.stream.StreamResult;
@@ -19,6 +19,12 @@ import javax.xml.transform.stream.StreamSource;
 public final class XsltTransformer {
     
     /**
+     * Instance of {@link javax.xml.transform.TransformerFactory}.
+     */
+    private TransformerFactory transformerFactory =
+            TransformerFactory.newInstance();
+    
+    /**
      * Perform data transformation in according to schema.
      * 
      * @param input
@@ -27,29 +33,33 @@ public final class XsltTransformer {
      *            xsl transformation schema
      * @param output
      *            target output stream to write converted data
-     * @throws TransformerException
-     *             in case of errors during transformation or if schema file is
-     *             not initialized
-     * @throws IOException
-     *             in case of wrong input file format
+     * @throws XstlTransformerException
+     *             in case of wrong input parameters or during transformation
+     *             process.
      */
     public void transform(final InputStream input,
             final File schema, final OutputStream output)
-            throws TransformerException, IOException {
+            throws XstlTransformerException {
         if (!getExtension(schema).equalsIgnoreCase("xsl")) {
-            throw new IOException(
+            throw new XstlTransformerException(
                     "Wrong schema format. Schema file should have xsl "
                             + "extension");
         }
         StreamSource inputStreamSource = new StreamSource(input);
         StreamSource schemaStreamSource = new StreamSource(schema);
-        TransformerFactory transformerFactory =
-                TransformerFactory.newInstance();
-        Transformer transformer =
-                transformerFactory.newTransformer(schemaStreamSource);
-        StreamResult resultStream = new StreamResult();
-        resultStream.setOutputStream(output);
-        transformer.transform(inputStreamSource, resultStream);
+        Transformer transformer;
+        try {
+            transformer = transformerFactory.newTransformer(schemaStreamSource);
+            StreamResult resultStream = new StreamResult();
+            resultStream.setOutputStream(output);
+            transformer.transform(inputStreamSource, resultStream);
+        } catch (TransformerConfigurationException e) {
+            throw new XstlTransformerException(
+                    "Exception in transformer configuration", e);
+        } catch (TransformerException e) {
+            throw new XstlTransformerException("Transformation exception", e);
+        }
+        
     }
     
     /**

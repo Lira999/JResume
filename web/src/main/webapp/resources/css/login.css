@@ -33,6 +33,13 @@
   margin-bottom: 10px;
 }
 
+.popover {
+  min-width: 220px;
+  text-align: center;
+  color: #f0776c;
+}
+
+
 .loginbtn {
   background-color: #4ea74e;
   border-color: #4ea74e;

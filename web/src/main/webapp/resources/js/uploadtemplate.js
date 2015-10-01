@@ -1,29 +1,13 @@
 "use strict";
 /**
  * 
- */
-
+ */    
 $(document).ready(function () {
-    //block possibility to write smth in form if radiobutton isn't choose 
-    $(function () {
-        $('input[name="showthis"]').hide();
-
-        //show it when the checkbox is clicked
-        $('input[name="checkbox"]').on('click', function () {
-            if ($(this).prop('checked')) {
-                $('input[name="showthis"]').fadeIn();
-            } else {
-                $('input[name="showthis"]').hide();
-            }
-        });
-    });
-    
     function sendAjax() { 
      var data = JSON.stringify({
          name:$( "#NameTeplate" ).val(),
          description:$( "#DescriptionTeplate" ).val(),
-         price:$( "#showthis" ).val(),
-         image:$( "#fileUpload1" ).val()
+         price:$( "#showthis" ).val()
      });
      $.ajax({
       url: document.location.href,
@@ -32,6 +16,7 @@ $(document).ready(function () {
       contentType: "application/json",
       data: data,
       success: function(data) {
+    	  alert("Data saved");
     	  top.location.href = "login";
       },
       error:function(data,status,er) {

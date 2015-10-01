@@ -33,7 +33,7 @@ public class UploadTemplateController {
      * @return uploadtemplate view.
      */
     @RequestMapping(value = "uploadtemplate", method = RequestMethod.GET)
-    public final String register() {
+    public final String uploadtemplate() {
         return "uploadtemplate";
     }
     
@@ -48,7 +48,7 @@ public class UploadTemplateController {
     @RequestMapping(value = "uploadtemplate", method = RequestMethod.POST,
             consumes = "application/json")
     @ResponseBody
-    public final Map<String, String> processRegistration(
+    public final Map<String, String> createtemplateWithData(
             @RequestBody final Template template) {
             
       

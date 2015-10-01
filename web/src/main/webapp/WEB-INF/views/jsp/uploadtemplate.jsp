@@ -1,58 +1,53 @@
-<%@page contentType="text/html" pageEncoding="UTF-8"%>
-<!DOCTYPE html/>
+<%@ page language="java" contentType="text/html; charset=ISO-8859-1"
+    pageEncoding="ISO-8859-1"%>
+<!DOCTYPE html>
 <html>
 <head>
-    <title>Upload a template</title>
+<meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
+<title>Upload a template</title>
     <jsp:include page="generic.jsp"/>
     <link rel="stylesheet" href="resources/css/uploadtemplate.css">
     <script src="resources/js/uploadtemplate.js"></script>
 </head>
-<body>
-<div class="wrapper">
-    <div class="col-xs-12 col-sm-8 col-md-6 col-sm-offset-2 col-md-offset-3">
-		<form class="register-form" method="POST" role="form">
-			<h3 class="form-signup-heading">Upload a new template here:</h3>
-			<hr class="colorgraph1">
-			
-			<div>
-				<input type="text" class="form-control" placeholder="Name of the template" id = "NameTeplate" required>
-			</div>
-			<br/>
-			<textarea class="form-control" rows="3" placeholder="Write description"id = "DescriptionTeplate" required></textarea>
-		
-		<br>
-		<div class="checkbox">
-		  <label>
-		    <input type="checkbox" name="checkbox" id="checkbox" value="scheckbox" />
-		    if you gonna push it It'll be paid!
-		  </label>
-		  <br/>
-		  <input id="showthis" name="showthis" type="text" class="form-control" placeholder="costs in dollars" >
-		  
-		</div>
+<body><div class="center"><button data-toggle="modal" data-target="#squarespaceModal" class="btn btn-primary center-block">Upload Template here</button></div>
 
-			<!--Button for image-->
-			<br/>
-			<hr class="colorgraph"/>
-			
-			
-			<span class="btn btn-primary btn-file"><span class="fileupload-new">Select image</span>
-				<input  type="file" name="fileUpload1" id="fileUpload1" class="fileUpload" accept="image/*"/>
-			</span> 
-			<!--Button for xssl-->
-			<span class="btn btn-primary btn-file"><span class="fileupload-new">Select Template</span>
-				<input   type="file" name="fileUpload2[]" id="fileUpload2" class="fileUpload" accept=".xslt*/"/>
-			</span>
-			
-			<div id="display"></div>
-			<div id="previews"></div>
-			<hr class="colorgraph">
-			<button type="submit" class="btn btn-lg btn-success" id ="uploadBtn">Send</button>
-			
-			
-		</form>
+
+<!-- line modal -->
+<div class="modal fade" id="squarespaceModal" tabindex="-1" role="dialog" aria-labelledby="modalLabel" aria-hidden="true">
+ 
+ <div class="modal-dialog">
+	<div class="modal-content">
+		<div class="modal-header">
+			<button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">×</span><span class="sr-only">Close</span></button>
+			<h3 class="modal-title" id="lineModalLabel">Form for Upload Template</h3>
+		</div>
 		
-	</div>
+		<div class="modal-body">
+			
+            <!-- content goes here -->
+			<form>
+              <div class="form-group">
+                <label>Template name</label>
+                <input type="text" class="form-control" id="NameTeplate" placeholder="Really good name for tamplate">
+              </div>
+              <div class="form-group">
+                <label>Please write some description about this Template</label>
+                <textarea rows = "3" class="form-control" id="DescriptionTeplate" placeholder="This tempate is ... "></textarea>
+              </div>
+              <div>
+              	<input id="showthis" name="showthis" type="text" class="form-control" placeholder="Free / A dollar" >
+              </div>
+              <div class="form-group">
+                <label class = "marginFile" for="exampleInputFile">File input</label>
+                <input type="file" id="fileUpload1" name="fileUpload1" accept="image/*">
+                <p class="help-block">Example block-level help text here.</p>
+              </div>
+              <button type="submit" class="btn btn-default" id ="uploadBtn">Submit</button>
+            </form>
+
+		</div>
+  </div>
+</div>
 </div>
 </body>
 </html>

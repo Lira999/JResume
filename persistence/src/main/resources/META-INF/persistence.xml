@@ -13,6 +13,7 @@
 		<class>com.softserveinc.ita.jresume.common.entity.Mark</class>
 		<class>com.softserveinc.ita.jresume.common.entity.Ordering</class>
 		<class>com.softserveinc.ita.jresume.common.entity.Project</class>
+		<class>com.softserveinc.ita.jresume.common.entity.SoftServeUserInformation</class>
 		<class>com.softserveinc.ita.jresume.common.entity.Template</class>
 		<class>com.softserveinc.ita.jresume.common.entity.User</class>
 		<class>com.softserveinc.ita.jresume.common.entity.UserInformation</class>

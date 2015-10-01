@@ -4,16 +4,14 @@ import java.io.ByteArrayInputStream;
 import java.io.ByteArrayOutputStream;
 import java.io.File;
 import java.io.FileInputStream;
-import java.io.FileOutputStream;
 import java.io.IOException;
-
-import javax.xml.transform.TransformerException;
 
 import org.junit.Assert;
 import org.junit.Before;
 import org.junit.Test;
 
 import com.softserveinc.ita.jresume.business.xslt.XsltTransformer;
+import com.softserveinc.ita.jresume.business.xslt.XstlTransformerException;
 
 /**
  * Tests for {@link com.softserveinc.ita.jresume.business.xslt.XsltTransformer}.
@@ -46,22 +44,24 @@ public class XsltTransfromerTest {
     /**
      * Runs {@link com.softserveinc.ita.jresume.business.xslt.
      * 
-     * XsltTransformer#transform} with not correct schema file. IOException
-     * expected.
+     * XsltTransformer#transform} with not correct schema file.
+     * XstlTransformerException expected.
      * 
-     * @throws TransformerException
-     *             in case of errors during transformation
+     * @throws XstlTransformerException
+     *             in case of wrong input parameters or during transformation
+     *             process.
      * @throws IOException
      *             in case of wrong input file format
      */
-    @Test(expected = IOException.class)
+    @Test(expected = XstlTransformerException.class)
     public final void testWrongSchema()
-            throws TransformerException, IOException {
+            throws XstlTransformerException, IOException {
         xsltTransformer.transform(
                 new FileInputStream(
                         "src/test/resources/testFiles/xsltTestFiles/input.xml"),
-                schema,
-                new FileOutputStream(""));
+                new File(
+                        "src/test/resources/testFiles/xsltTestFiles/input.xml"),
+                new ByteArrayOutputStream());
     }
     
     /**
@@ -70,14 +70,15 @@ public class XsltTransfromerTest {
      * XsltTransformer#transform} with not initialized schema file.
      * NullPointerException expected.
      * 
-     * @throws TransformerException
-     *             in case of errors during transformation
+     * @throws XstlTransformerException
+     *             in case of wrong input parameters or during transformation
+     *             process.
      * @throws IOException
      *             in case of wrong input file format
      */
     @Test(expected = NullPointerException.class)
     public final void testNullPointer()
-            throws TransformerException, IOException {
+            throws XstlTransformerException {
         xsltTransformer.transform(new ByteArrayInputStream(new byte[] {}),
                 null, null);
         xsltTransformer.transform(new ByteArrayInputStream(new byte[] {}),
@@ -89,16 +90,17 @@ public class XsltTransfromerTest {
      * Runs {@link com.softserveinc.ita.jresume.business.xslt.
      * 
      * XsltTransformer#transform} with not valid input/output data.
-     * TransformerException expected.
+     * XstlTransformerException expected.
      * 
-     * @throws TransformerException
-     *             in case of errors during transformation
+     * @throws XstlTransformerException
+     *             in case of wrong input parameters or during transformation
+     *             process.
      * @throws IOException
      *             in case of wrong input file format
      */
-    @Test(expected = TransformerException.class)
+    @Test(expected = XstlTransformerException.class)
     public final void testTransformerException()
-            throws TransformerException, IOException {
+            throws XstlTransformerException, IOException {
         xsltTransformer.transform(null, schema, null);
         xsltTransformer.transform(new FileInputStream(
                 "src/test/resources/testFiles/xsltTestFiles/input.xml"), schema,
@@ -108,7 +110,7 @@ public class XsltTransfromerTest {
     
     /**
      * 709 is output file length in case of using Unix way line endings (\n,
-     * github using this). In case of Windows way(\n\r) value should be 739.
+     * github using this). In case of Windows way(\n\r) value should be bigger.
      */
     private final int normalTestFileSize = 709;
     
@@ -117,14 +119,15 @@ public class XsltTransfromerTest {
      * 
      * XsltTransformer#transform} with valid parameters.
      * 
-     * @throws TransformerException
-     *             in case of errors during transformation
+     * @throws XstlTransformerException
+     *             in case of wrong input parameters or during transformation
+     *             process.
      * @throws IOException
      *             in case of wrong input file format
      */
     @Test
     public final void testTransformation()
-            throws TransformerException, IOException {
+            throws XstlTransformerException, IOException {
         ByteArrayOutputStream out = new ByteArrayOutputStream();
         xsltTransformer.transform(new FileInputStream(
                 "src/test/resources/testFiles/xsltTestFiles/input.xml"), schema,
