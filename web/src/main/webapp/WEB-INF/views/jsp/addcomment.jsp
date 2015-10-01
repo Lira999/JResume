@@ -2,17 +2,17 @@
 <link href="resources/css/addcomment.css" rel="stylesheet">
 <link href="resources/css/lib/star-rating.css" rel="stylesheet">
 <script src="resources/js/addcomment.js"></script>
+<script src="resources/js/lib/jquery-validate/jquery.validate.js"></script>
 <script src="resources/js/lib/star-rating.js"></script>
-<div class="container">
 	<div class="row">
 		<div class="col-md-12">
-	    	<div class="well well-sm">
 	            <div class="row" id="post-review-box">
 	            	<div class="useravatar">
 	            	<div class="form-location">
-			            <div class="col-md-1"><img src="resources/images/avatar.png" class="img-responsive user-photo"/>
-			            <p><br>UserName</p>
-			            </div></div>
+			            <div class="col-md-1"><img src="resources/images/avatar.png" class="img-rounded img-responsive"/>
+			            <p id="name"><br>UserName</p>
+			            </div>
+			         </div>
 			            <div class="form-location">
 			            
 		                <div class="col-md-11">
@@ -22,7 +22,7 @@
 			                   	<div class="row lead">
 					        		<div class="addbutton">
 					        			<div class="col-xs-2 col-md-offset-10">
-					        				<button id="addcomment" class="btn btn-success  btn-lg btn-block" type="button">Add</button>
+					        				<button id="addcomment" class="btn-success btn-lg btn-block btn" type="button">Add</button>
 					        			</div>
 					        		</div>
 					        	</div>
@@ -31,7 +31,5 @@
 		        	</div>
 	            </div>
 	        </div> 
-		</div>
 	</div>
-</div>
 </div>
