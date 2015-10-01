@@ -7,6 +7,7 @@
     <title>Resume templates</title>
     <link rel="stylesheet" href="resources/css/templates.css">
     <jsp:include page="generic.jsp"/>
+    <script src="resources/js/templates.js"></script>
 </head>
 
 <body class="body">
@@ -36,79 +37,14 @@
   </form>
 
 <div class="wrapper">  
-    <div class="row">
+    <div class="row" id="row">
     
-    <div class="col-sm-12 col-xs-12 col-md-4 col-lg-4">
-      <div class="thumbnail">
-        <div class="caption">
-          <a href="" class="btn btn-success button">Use</a>
-        </div>
-        <img src="./resources/images/Template1.png"> 
-         <p class="template_name">Template name</p>        
-      </div>
-    </div>              
-    
-    <div class="col-sm-12 col-xs-12 col-md-4 col-lg-4">
-      <div class="thumbnail">
-        <div class="caption">
-          <a href="" class="btn btn-danger button">Buy 1.07$</a>
-        </div>
-        <img src="./resources/images/Template1.png"> 
-        <p class="template_name">Template name</p>        
-      </div>
-    </div>    
-
-    <div class="col-sm-12 col-xs-12 col-md-4 col-lg-4">
-      <div class="thumbnail">
-        <div class="caption">
-          <a href="" class="btn btn-success button">Use</a>
-        </div>
-        <img src="./resources/images/Template1.png"> 
-        <p class="template_name">Template name</p>        
-      </div>
-    </div>    
-  
-  </div>
-        
-  <div class="row">
-          
-    <div class="col-sm-12 col-xs-12 col-md-4 col-lg-4">
-      <div class="thumbnail">
-        <div class="caption">
-          <a href="" class="btn btn-success button">Use</a>
-        </div>
-        <img src="./resources/images/Template1.png"> 
-        <p class="template_name">Template name</p>        
-      </div>
-    </div>        
-    
-    <div class="col-sm-12 col-xs-12 col-md-4 col-lg-4">
-      <div class="thumbnail">
-        <div class="caption">
-          <a href="" class="btn btn-success button">Use</a>
-        </div>
-        <img src="./resources/images/Template1.png"> 
-        <p class="template_name">Template name</p>        
-      </div>
-    </div>    
-
-    <div class="col-sm-12 col-xs-12 col-md-4 col-lg-4">
-      <div class="thumbnail">
-        <div class="caption">
-          <a href="" class="btn btn-success button">Use</a>
-        </div>
-        <img src="./resources/images/Template1.png"> 
-        <p class="template_name">Template name</p>        
-      </div>
-    </div>    
-  
-  </div>
+    </div>
+</div>
 
 </div>
 </div>
 </div>
-</div>
 
-<script src="resources/js/templates.js"></script>
 </body>
 </html>

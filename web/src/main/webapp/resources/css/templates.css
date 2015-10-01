@@ -12,17 +12,19 @@
     overflow:hidden;
 }
 
+.thumbnail:hover .caption {
+    top:0%;
+}
+  
 .template_name {
     background-color: #96C9FC;
     color: #444;
     display: block;
     font-size: 20px;
-    line-height: 35px;
     margin: 0 auto;
-    overflow: hidden;
     padding: 5px 10px;
     text-align: center;
-    width: 100%;
+    text-decoration: none !important;
 }
 
 .button {
@@ -31,7 +33,7 @@
   width: 170px;
   height: 55px;
   border-radius: 6px;
-  top: 50%;
+  top: 56%;
   left: 50%;
   transform: translate(-50%, -50%);
   position: absolute;     
@@ -40,6 +42,7 @@
 
 .caption {
     margin-left: -4px;
+    margin-top: -46px;
     position:absolute;
     top:-100%;
     background:rgba(66, 139, 202, 0.25);
@@ -52,10 +55,6 @@
     transition: all 0.5s ease-in-out;
 }
 
-.thumbnail:hover .caption {
-    top:0%;
-}
-    
 .colorgraph {
   height: 5px;
   border-top: 0;
