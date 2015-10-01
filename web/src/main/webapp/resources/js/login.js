@@ -30,11 +30,11 @@ $(function() {
 			messages : {
 				username : {
 					required : "Please, enter your e-mail",
-					regx : "Please, enter yout e-mail correctly",
+					regx : "Please, enter your e-mail correctly",
 				},
 				password : {
 					required : "Please, provide a password",
-					minlength : "Please, enter a password with at least five characters"
+					minlength : "Enter a password with at least 5 characters"
 				}
 			},
 			errorPlacement: function (error, element) {

@@ -29,6 +29,7 @@ input {
 
 .popover {
   min-width: 310px;
+  text-align: center
 }
 
 div.error {

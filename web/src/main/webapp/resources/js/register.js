@@ -79,7 +79,7 @@ $(function() {
 					minlength : "Enter a password with at least 5 characters"
 				},
 				passwordConfirmation : {
-					required : "You must confirm your password.",
+					required : "You must confirm your password",
 					minlength : "Enter a password with at least 5 characters",
 					passwordMatch : "Your passwords must match"
 				},
