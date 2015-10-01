@@ -9,13 +9,13 @@ import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Controller;
 import org.springframework.validation.BindingResult;
-import org.springframework.validation.Validator;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.ResponseBody;
 
 import com.softserveinc.ita.jresume.business.service.UserService;
+import com.softserveinc.ita.jresume.business.validator.RegisterDataValidator;
 import com.softserveinc.ita.jresume.common.entity.User;
 import com.softserveinc.ita.jresume.common.entity.UserRole;
 
@@ -33,7 +33,7 @@ public class RegisterController {
     
     /** Validator for validate registration data. */
     @Autowired
-    private Validator validator;
+    private RegisterDataValidator registerValidator;
     
     /**
      * Registration page mapping.
@@ -62,17 +62,16 @@ public class RegisterController {
             @RequestBody final User user, final BindingResult result)
                     throws URISyntaxException {
                     
-        validator.validate(user, result);
+        registerValidator.validate(user, result);
         
-        String msg;
+        String msg = "";
         HttpHeaders header = new HttpHeaders();
         HttpStatus status;
         
         if (result.hasErrors()) {
             msg = "Registration data invalid!";
-            status = HttpStatus.UNPROCESSABLE_ENTITY;
+            status = HttpStatus.BAD_REQUEST;
         } else {
-            msg = "{}";
             header.setLocation(new URI("login"));
             status = HttpStatus.CREATED;
             user.setRole(UserRole.ROLE_USER);
@@ -91,7 +90,7 @@ public class RegisterController {
      */
     @RequestMapping(value = "emailExist", method = RequestMethod.POST)
     @ResponseBody
-    public final String emailExisting(final String email) {
-        return Boolean.toString(userService.findByEmail(email) == null);
+    public final Boolean emailExisting(final String email) {
+        return userService.findByEmail(email) == null;
     }
 }

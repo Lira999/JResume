@@ -26,7 +26,7 @@ public class RegisterDataValidator implements Validator {
                     + "[A-Za-z0-9-]+(\\.[A-Za-z0-9]+)*(\\.[A-Za-z]{2,})$";
             
     /** First name and last name regex pattern. */
-    private static final String STRING_PATTERN = "[a-zA-Z]+";
+    private static final String STRING_PATTERN = "[a-zA-Zà-ÿÀ-ß]+";
     
     /** Variable for access to data storage. */
     @Autowired
@@ -46,7 +46,6 @@ public class RegisterDataValidator implements Validator {
         ValidationUtils.rejectIfEmpty(errors, "firstName", "required.fisrtName",
                 "Name is required.");
         if (!(user.getFirstName() != null && user.getFirstName().isEmpty())) {
-            System.out.println(STRING_PATTERN + user.getFirstName());
             Pattern pattern = Pattern.compile(STRING_PATTERN);
             Matcher matcher = pattern.matcher(user.getFirstName());
             if (!matcher.matches()) {
@@ -71,7 +70,6 @@ public class RegisterDataValidator implements Validator {
         ValidationUtils.rejectIfEmptyOrWhitespace(errors, "email",
                 "required.email", "Email is required.");
         if (!(user.getEmail() != null && user.getEmail().isEmpty())) {
-            System.out.println(EMAIL_PATTERN + user.getEmail());
             Pattern pattern = Pattern.compile(EMAIL_PATTERN);
             Matcher matcher = pattern.matcher(user.getEmail());
             if (!matcher.matches()) {

@@ -3,7 +3,7 @@
 }
 
 .register-form {
-  max-width: 550px;
+  max-width: 360px;
   padding: 0px 20px 10px;
   margin: 0 auto;
   background-color: white;
@@ -17,18 +17,29 @@
   color: #6c6969;
 }
 
-label.error {
-  color: rgb(240,119,108);
-  font-size: 12px;
-  font-style: italic;
-  font-weight: normal;
-  text-align: center;
-  display: block;
-}
-
 .wrapper {
   margin-top: 100px;
   margin-bottom: 100px;
+}
+input {
+  margin-bottom: 6px !important;
+  border-radius: 4px !important;
+  display: block !important;
+}
+
+.popover {
+  min-width: 310px;
+}
+
+div.error {
+	text-align: center;
+}
+
+.register-suggestion {
+  display: block;
+  margin-top: 20px;
+  margin-bottom: 0px;
+  text-align: center;
 }
 
 .colorgraph {
