@@ -3,6 +3,7 @@ package com.softserveinc.ita.jresume.web.controller;
 import org.springframework.security.authentication.
 
 InternalAuthenticationServiceException;
+import org.springframework.security.core.AuthenticationException;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
@@ -46,6 +47,10 @@ public class LoginController {
                                 + "We working to resolve the issue as "
                                 + "soon as possible."
                                 + " Please, try again later.");
+            } else if (lastException instanceof AuthenticationException) {
+                AuthenticationException exception =
+                        (AuthenticationException) lastException;
+                modelAndView.addObject("error", exception.getMessage());
             }
         }
         modelAndView.setViewName("login");
