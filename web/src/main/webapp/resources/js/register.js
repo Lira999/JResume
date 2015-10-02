@@ -1,17 +1,5 @@
 $(function() {
 
-	jQuery.validator.addMethod('passwordMatch', function(value, element) {
-		// The two password inputs
-		var password = $("#password").val();
-		var confirmPassword = $("#passwordConfirmation").val();
-		// Check for equality with the password inputs
-		if (password != confirmPassword) {
-			return false;
-		} else {
-			return true;
-		}
-	}, "Your passwords must match");
-	
 	jQuery.validator.addMethod('regx', function(value, element, regexpr) {
 		return regexpr.test(value);
 	}, "Please enter a valid data.");
@@ -38,11 +26,12 @@ $(function() {
 			rules : {
 				firstName : {
 					required : true,
-					regx : /^[a-zA-Zа-яА-Я]+$/
+					regx : /^([ \u00c0-\u01ffa-zA-Z'\-])+$/
 				},
 				lastName : {
 					required : true,
-					regx : /^[a-zA-Zа-яА-Я]+$/
+					regx : /^([ \u00c0-\u01ffa-zA-Z'\-])+$/
+
 				},
 				email : {
 					required : true,
@@ -56,12 +45,11 @@ $(function() {
 				password : {
 					required : true,
 					minlength : 5,
-
 				},
 				passwordConfirmation : {
 					required : true,
 					minlength : 5,
-					passwordMatch : true
+					equalTo: "#password",
 				}
 			},
 				// Specify the validation error messages
@@ -72,7 +60,7 @@ $(function() {
 				},
 				lastName : {
 					required: "Please, enter your last name.",
-					regx : "Please, enter your first name correctly"
+					regx : "Please, enter your last name correctly"
 				},
 				password : {
 					required : "Please provide a password",
@@ -81,7 +69,7 @@ $(function() {
 				passwordConfirmation : {
 					required : "You must confirm your password",
 					minlength : "Enter a password with at least 5 characters",
-					passwordMatch : "Your passwords must match"
+					equalTo : "Your passwords must match"
 				},
 				email : {
 					required : "Please, enter your e-mail",

@@ -16,7 +16,6 @@
 		<form class="register-form" method="POST" role="form">
 			<h3 class="form-signup-heading">Please sign up</h3>
 			<hr id="line_rb" class="colorgraph">
-			<!-- remove error message on page reload -->
 			<div class="input-group col-xs-12">
 				<input type="text" name="firstName" id="firstName"
 					class="form-control" placeholder="First Name">
@@ -31,12 +30,12 @@
 			</div>
 			<div class="input-group col-xs-12">
 				<input class="form-control" placeholder="Password" id="password"
-					name="password" type="password">
+					name="password" type="password" required>
 			</div>
 			<div class="input-group col-xs-12">
 				<input class="form-control" placeholder="Confirm Password"
 					id="passwordConfirmation" name="passwordConfirmation"
-					type="password">
+					type="password" required>
 			</div>
 			<button class="loginbtn btn btn-lg btn-success btn-block"
 				type="submit">Sign up</button>
