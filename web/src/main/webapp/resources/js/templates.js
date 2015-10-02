@@ -9,7 +9,7 @@ function sendAjax() {
   success: function(data) {
    $.each(data ,function(index, templates) {
 	   
-	   var address = new String("http://jresume-lv159java2.rhcloud.com/viewtempl/" + templates.id);
+	   var address = new String("viewtempl" + templates.id);
 	   if (templates.price == null) { var priceButton = new String("<a href=" + address + " class='btn button btn-success'>Free</a>"); }
 	   		else { var priceButton = new String("<a href=" + address + " class='btn button btn-danger'>" + "Price " + templates.price + "$" +"</a>") }
 	  

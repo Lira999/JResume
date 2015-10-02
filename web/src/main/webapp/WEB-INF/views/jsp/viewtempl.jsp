@@ -11,30 +11,38 @@
 <body>
  <div class="container" id="view">
     <div class="well well-lg">
-		<h2 class="page-header">
-			<a href="#" id = "name"></a>	     
-		</h2>
+		<h2 id = "name"></h2>
 		<hr class="colorgraph">   
-		<div>
-			<div class="row" class="span9" >
-				<p class="about" id= "description"></p>
-				
-			</div>
+		<div class="row" class="span9" >	
 			
-			<div>
-				<hr>
+			
+			
+		<div class="row">
+  			<div class="col-xs-6 col-sm-8">
 					<img class="img-responsive" src="resources/images/Resume.jpg" alt="">
-				<hr>
+				</div>
+			
+			<div class="col-xs-6 col-sm-4" >
+				<p class="about" id= "description"></p>
+			</div>	
+			
+			
+		</div>
+		<div class="col-md-3 col-md-offset-3 posbut">
+				<button class ="btn btn-lg button" id="control" type="button"></button>
 			</div>
 		</div>	
+		
+		
+		<hr>
+		
+		
         <div class="col-xs-4 col-md-7">
        		<div class="row lead">
          		<div id="stars" class="starrr"></div>		
          	</div>
 		</div>
-		<div class="col-xs-4 col-md-2">
-			<button class ="btn button" id="control" type="button"></button>
-		</div>
+		
 		
 		<footer>
 			<div class="row"></div>

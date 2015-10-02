@@ -3,6 +3,7 @@ package com.softserveinc.ita.jresume.web.controller;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.ResponseBody;
@@ -15,12 +16,11 @@ import com.softserveinc.ita.jresume.common.entity.Template;
  * 
  */
 @Controller
-@RequestMapping(value = "/viewtempl")
+@RequestMapping(value = "/viewtempl{id}")
 public class ViewtemplController {
     /**
      * id of object we are looking for.
      */ 
-    private long id = 1;
     /** Variable for access to data storage. */
     @Autowired
     private TemplateService templateService;
@@ -30,17 +30,19 @@ public class ViewtemplController {
      */
     @RequestMapping(value = "", method = RequestMethod.GET)
     public final String uploadtmpl() {
+    	
         return "viewtempl";
     }
     /**
      * Controller for load info  about concrete template to html.
-     * 
+     * @param id 
+     * 		id of template we are looking for.
      * @return Template with current id.
      */ 
     @RequestMapping(value = "/res", produces = "application/json",
             method = RequestMethod.GET)
     @ResponseBody
-    public final Template someinfo() {
+    public final Template someinfo(@PathVariable final Long id) {
      return templateService.findById(id);
     }
 }

@@ -14,13 +14,16 @@ import javax.persistence.Table;
 @Entity
 @Table(name = "template")
 public class Template extends Base {
-    
+	/**
+	 * Variable for max length of description.
+	 */
+    private static final int MAX_DESCRIPTION_LENGTH = 1000;
     /** Name of this template. */
     @Column(name = "name")
     private String name;
     
     /** Description of this template. */
-    @Column(name = "description")
+    @Column(name = "description", length = MAX_DESCRIPTION_LENGTH)
     private String description;
     
     /** Price of this template. */

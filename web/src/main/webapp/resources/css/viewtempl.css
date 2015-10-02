@@ -29,11 +29,16 @@ body {
 	padding-left: 40px;
 }
 .button {
-  right: -100px;
-  color: white;
-  font-size: 30px !important;
-  width: 200px;
-  height: 65px;
-  border-radius: 6px;
-  position: absolute;     
+  width: 170px;
+  height: 55px;   
+}
+.posbut{
+	margin-left: 0;
+	margin-top: -50px;
+	padding-left: 75%;
+}
+
+.well{
+    margin-top: 10px;
+    padding-top: 0px;
 } 
