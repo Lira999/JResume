@@ -23,8 +23,7 @@ $(function() {
 					regx : /^[_A-Za-z0-9-\+]+(\.[_A-Za-z0-9-]+)*@[A-Za-z0-9-]+(\.[A-Za-z0-9]+)*(\.[A-Za-z]{2,})$/
 				},
 				password : {
-					required : true,
-					minlength : 5
+					required : true
 				}
 			},
 			messages : {
@@ -33,8 +32,7 @@ $(function() {
 					regx : "Please, enter your e-mail correctly",
 				},
 				password : {
-					required : "Please, provide a password",
-					minlength : "Enter a password with at least 5 characters"
+					required : "Please, enter your password"
 				}
 			},
 			errorPlacement: function (error, element) {
