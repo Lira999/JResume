@@ -1,4 +1,3 @@
-"use strict";
 $(document).ready(function() {
  sendAjax();
 }); 
@@ -8,41 +7,30 @@ function sendAjax() {
   type: "GET",
   contentType: "application/json",
   success: function(data) {
-   $.each(data ,function(index, object) {
+   $.each(data ,function(index, templates) {
 	   
-	   if (object.price == null) {
+	   var address = new String("http://jresume-lv159java2.rhcloud.com/viewtempl/" + templates.id);
+	   if (templates.price == null) { var priceButton = new String("<a href=" + address + " class='btn button btn-success'>Free</a>"); }
+	   		else { var priceButton = new String("<a href=" + address + " class='btn button btn-danger'>" + "Price " + templates.price + "$" +"</a>") }
+	  
 	   $("<div>" +
 	   		"<div class='thumbnail'>" +
 	   		"<div class='caption'>" +
-	   		"<a href='' class='btn button btn-success'>Use</a>" +
+	   		priceButton +
 	   		"</div>" +
 	   		"<img src='./resources/images/Template1.png'>" + 
-	   		"<a href='' class='template_name'>" + object.name + "</a>" +
+	   		"<p class='template-name'>" + templates.name + "</p>" +
 	   		"</div>" +
 	   		"</div>")
 		   .addClass("col-sm-12 col-xs-12 col-md-4 col-lg-4")
-		   .attr('id', object.id)
-		   .appendTo("div#row");
-	   
-	   } else {
-		   $("<div>" +
-			   	"<div class='thumbnail'>" +
-			   	"<div class='caption'>" +
-			   	"<a href='' class='btn button btn-danger'>" + "Price " + object.price + "$" +"</a>" +
-			   	"</div>" +
-			   	"<img src='./resources/images/Template1.png'>" + 
-			   	"<a href='' class='template_name'>" + object.name + "</a>" +
-			   	"</div>" +
-			   	"</div>")
-				.addClass("col-sm-12 col-xs-12 col-md-4 col-lg-4")
-				.attr('id', object.id)
-				.appendTo("div#row");
-	   }
-	   
+		   .attr('id', templates.id)
+		   .appendTo("div#row");  
+		 	   
    });   
      
   },
   error:function(data,status,er) {
+	  
 	    }
  });
 }

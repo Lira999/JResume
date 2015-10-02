@@ -16,7 +16,7 @@
     top:0%;
 }
   
-.template_name {
+.template-name {
     background-color: #96C9FC;
     color: #444;
     display: block;
@@ -33,7 +33,7 @@
   width: 170px;
   height: 55px;
   border-radius: 6px;
-  top: 56%;
+  top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
   position: absolute;     
@@ -41,8 +41,7 @@
 
 
 .caption {
-    margin-left: -4px;
-    margin-top: -46px;
+    margin-left: -4px;    
     position:absolute;
     top:-100%;
     background:rgba(66, 139, 202, 0.25);
