@@ -4,8 +4,12 @@ import java.io.ByteArrayInputStream;
 import java.io.ByteArrayOutputStream;
 import java.io.File;
 import java.io.FileInputStream;
+import java.io.FileOutputStream;
 import java.io.IOException;
+import java.nio.file.Files;
+import java.util.Arrays;
 
+import org.junit.After;
 import org.junit.Assert;
 import org.junit.Before;
 import org.junit.Test;
@@ -32,13 +36,26 @@ public class XsltTransfromerTest {
     private File schema;
     
     /**
+     * Stands for output file.
+     */
+    private File output;
+    
+    /**
      * Initialize test data.
+     * 
+     * @throws IOException
+     *             in case of errors during creating test files
      */
     @Before
-    public final void init() {
+    public final void init() throws IOException {
         schema = new File(
                 "src/test/resources/testFiles/xsltTestFiles/testSchema.xsl");
         xsltTransformer = new XsltTransformer();
+        output = new File(
+                "src/test/resources/testFiles/xsltTestFiles/output");
+        if (!output.exists()) {
+            output.createNewFile();
+        }
     }
     
     /**
@@ -51,7 +68,7 @@ public class XsltTransfromerTest {
      *             in case of wrong input parameters or during transformation
      *             process.
      * @throws IOException
-     *             in case of wrong input file format
+     *             in case of IO errors
      */
     @Test(expected = XstlTransformerException.class)
     public final void testWrongSchema()
@@ -74,7 +91,7 @@ public class XsltTransfromerTest {
      *             in case of wrong input parameters or during transformation
      *             process.
      * @throws IOException
-     *             in case of wrong input file format
+     *             in case of IO errors
      */
     @Test(expected = NullPointerException.class)
     public final void testNullPointer()
@@ -96,7 +113,7 @@ public class XsltTransfromerTest {
      *             in case of wrong input parameters or during transformation
      *             process.
      * @throws IOException
-     *             in case of wrong input file format
+     *             in case of IO errors
      */
     @Test(expected = XstlTransformerException.class)
     public final void testTransformerException()
@@ -109,12 +126,6 @@ public class XsltTransfromerTest {
     }
     
     /**
-     * 709 is output file length in case of using Unix way line endings (\n,
-     * github using this). In case of Windows way(\n\r) value should be bigger.
-     */
-    private final int normalTestFileSize = 709;
-    
-    /**
      * Runs {@link com.softserveinc.ita.jresume.business.xslt.
      * 
      * XsltTransformer#transform} with valid parameters.
@@ -123,17 +134,33 @@ public class XsltTransfromerTest {
      *             in case of wrong input parameters or during transformation
      *             process.
      * @throws IOException
-     *             in case of wrong input file format
+     *             in case of IO errors
      */
     @Test
     public final void testTransformation()
             throws XstlTransformerException, IOException {
-        ByteArrayOutputStream out = new ByteArrayOutputStream();
-        xsltTransformer.transform(new FileInputStream(
-                "src/test/resources/testFiles/xsltTestFiles/input.xml"), schema,
-                out);
-        byte[] arr = out.toByteArray();
-        Assert.assertTrue(arr.length >= normalTestFileSize);
+        xsltTransformer.transform(
+                new FileInputStream(
+                        "src/test/resources/testFiles/xsltTestFiles/input.xml"),
+                schema,
+                new FileOutputStream(output));
+        File expectedOutputWin = new File(
+                "src/test/resources/testFiles/xsltTestFiles/outputWin");
+        File expectedOutputUnix = new File(
+                "src/test/resources/testFiles/xsltTestFiles/outputUnix");
+        byte[] expectedWin = Files.readAllBytes(expectedOutputWin.toPath());
+        byte[] exectedUnix = Files.readAllBytes(expectedOutputUnix.toPath());
+        byte[] actual = Files.readAllBytes(output.toPath());
+        Assert.assertTrue(Arrays.equals(expectedWin, actual)
+                || Arrays.equals(exectedUnix, actual));
+    }
+    
+    /**
+     * Clean test directory after all tests.
+     */
+    @After
+    public final void cleanUp() {
+        output.delete();
     }
     
 }

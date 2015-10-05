@@ -11,6 +11,8 @@ import javax.xml.transform.TransformerFactory;
 import javax.xml.transform.stream.StreamResult;
 import javax.xml.transform.stream.StreamSource;
 
+import com.softserveinc.ita.jresume.business.utils.FileUtils;
+
 /**
  * Class to operate with XSLT files.
  * 
@@ -40,7 +42,7 @@ public final class XsltTransformer {
     public void transform(final InputStream input,
             final File schema, final OutputStream output)
             throws XstlTransformerException {
-        if (!getExtension(schema).equalsIgnoreCase("xsl")) {
+        if (!FileUtils.getExtension(schema).equalsIgnoreCase("xsl")) {
             throw new XstlTransformerException(
                     "Wrong schema format. Schema file should have xsl "
                             + "extension");
@@ -60,23 +62,6 @@ public final class XsltTransformer {
             throw new XstlTransformerException("Transformation exception", e);
         }
         
-    }
-    
-    /**
-     * Method to get file extension.
-     * 
-     * @param file
-     *            target file to get extension
-     * @return extension of file or <strong>null</strong> in case of not
-     *         existing extension.
-     */
-    private String getExtension(final File file) {
-        String fileName = file.getAbsolutePath();
-        int i = fileName.lastIndexOf('.');
-        if (i != -1) {
-            return fileName.substring(i + 1);
-        }
-        return null;
     }
     
 }

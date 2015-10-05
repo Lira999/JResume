@@ -1,0 +1,30 @@
+<html>
+<body>
+<h1>Indian Languages details</h1>
+<table border="1">
+<tr>
+<th>Language</th><th>Family/Origin</th><th>No. of speakers</th><th>Region</th>
+</tr>
+<tr>
+<td>Kannada</td><td>Dravidian</td><td>38M</td><td>Karnataka</td>
+</tr>
+<tr>
+<td>Telugu</td><td>Dravidian</td><td>74M</td><td>Andra Pradesh</td>
+</tr>
+<tr>
+<td>Tamil</td><td>Dravidian</td><td>61M</td><td>TamilNadu</td>
+</tr>
+<tr>
+<td>Malayalam</td><td>Dravidian</td><td>33M</td><td>Kerela</td>
+</tr>
+<tr>
+<td>Hindi</td><td>Indo Aryan</td><td>442M</td><td>
+Andaman and Nicobar Islands, North india, Parts of North east
+</td>
+</tr>
+<tr>
+<td>Assamese</td><td>Indo Aryan</td><td>13M</td><td>Assam, Arunachal Pradesh</td>
+</tr>
+</table>
+</body>
+</html>

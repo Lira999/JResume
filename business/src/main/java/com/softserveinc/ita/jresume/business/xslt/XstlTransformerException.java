@@ -13,14 +13,6 @@ public class XstlTransformerException extends Exception {
     private static final long serialVersionUID = 8745466860571861339L;
     
     /**
-     * Constructs an {@code XstlTransformerException} with {@code null} as its
-     * error detail message.
-     */
-    public XstlTransformerException() {
-        
-    }
-    
-    /**
      * Constructs an {@code XstlTransformerException} with the specified detail
      * message.
      * 
@@ -49,17 +41,5 @@ public class XstlTransformerException extends Exception {
     public XstlTransformerException(final String message,
             final Throwable cause) {
         super(message, cause);
-    }
-    
-    /**
-     * Constructs an {@code XstlTransformerException} with the specified cause.
-     * 
-     * @param cause
-     *            The cause (which is saved for later retrieval by the
-     *            {@link #getCause()} method). (A null value is permitted, and
-     *            indicates that the cause is nonexistent or unknown.)
-     */
-    public XstlTransformerException(final Throwable cause) {
-        super(cause);
     }
 }

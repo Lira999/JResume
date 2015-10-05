@@ -37,6 +37,8 @@
 					</tasks>
 					<encoding>UTF-8</encoding>
 					<configFile>../dev/formatter.xml</configFile>
+					<!-- force usage dos style line endings -->
+					<lineEnding>CRLF</lineEnding>
 				</configuration>
 			</plugin>
 			<!--checkstyle -->
@@ -73,7 +75,7 @@
 				<type>pom</type>
 				<version>4.2.1.RELEASE</version>
 				<scope>import</scope>
-			</dependency>			
+			</dependency>
 		</dependencies>
 	</dependencyManagement>
 </project>
