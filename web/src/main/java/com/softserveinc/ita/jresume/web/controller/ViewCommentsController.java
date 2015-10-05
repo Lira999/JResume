@@ -15,31 +15,32 @@ import com.softserveinc.ita.jresume.common.entity.Mark;
  * Controller for view all comments and marks.
  * 
  * @author Bohdan Khudoba
- *
+ *         
  */
 @Controller
 @RequestMapping(value = "/viewcommentsandmarks")
 public class ViewCommentsController {
-
+    
     /** Variable for access to data storage. */
     @Autowired
     private CommentService commentService;
     
     /**
      * Comments implementation mapping.
+     * 
      * @return model "viewcommentsandmarks" view
      */
     @RequestMapping(value = "", method = RequestMethod.GET)
-    public final String uploadtmpl() {
+    public final String viewcommentsandmarks() {
         return "viewcommentsandmarks";
     }
     
     /**
      * Controller for load comments and marks for template.
      * 
-     * @return all comments.
-     */ 
-    @RequestMapping(value = "/res", produces = "application/json",
+     * @return all comments for template.
+     */
+    @RequestMapping(value = "/result", produces = "application/json",
             method = RequestMethod.GET)
     @ResponseBody
     public final List<Mark> getCommentsAndMarks() {

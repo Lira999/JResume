@@ -1,5 +1,7 @@
 package com.softserveinc.ita.jresume.persistence.dao.impl;
 
+import java.util.List;
+
 import com.softserveinc.ita.jresume.common.entity.Mark;
 import com.softserveinc.ita.jresume.persistence.dao.GenericDAO;
 
@@ -10,4 +12,13 @@ import com.softserveinc.ita.jresume.persistence.dao.GenericDAO;
  */
 public interface MarkDAO extends GenericDAO<Mark, Long> {
     
+    /**
+     * Find template associated with this templateId.
+     * 
+     * @param templateId
+     *            templateId of the template
+     * @return the mark associated with this template
+     */
+    
+    List<Mark> findByTemplateId(Long templateId);
 }

@@ -52,9 +52,18 @@ public class CommentService {
     }
     
     /**
-     * Find all users.
+     * @param templateId
+     *            templateId of the template
+     * @return the template associated with this templateId
+     */
+    public final List<Mark> findByTemplateId(final long templateId) {
+        return markDao.findByTemplateId(templateId);
+    }
+    
+    /**
+     * Find all comments and marks.
      * 
-     * @return a list of all users.
+     * @return a list of all comments and marks
      */
     public final List<Mark> findAll() {
         return markDao.findAll();
