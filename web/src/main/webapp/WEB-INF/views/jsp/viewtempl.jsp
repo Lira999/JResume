@@ -17,9 +17,9 @@
 			
 			
 			
-		<div class="row">
-  			<div class="col-xs-6 col-sm-8">
-					<img class="img-responsive" src="resources/images/Resume.jpg" alt="">
+		<div class="row" id="row">
+  			<div class="col-xs-6 col-sm-8" id = "img">
+					
 				</div>
 			
 			<div class="col-xs-6 col-sm-4" >

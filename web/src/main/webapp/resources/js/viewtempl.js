@@ -12,6 +12,8 @@ $(document).ready(function () {
         success: function (response) {
          	 $('#name').append(response.name+" Template");
          	 $('#description').append(response.description);
+         	 var image = new String("<img src='./resources/templates/" + response.name + ".png'>");
+         	$('#img').append(image);
          	 if (response.price == null && typeof $(".btn") != "btn btn-success  btn-lg") {
          	 $("#control").addClass("btn btn-success  btn-lg").append("Use");
          	 } else {
@@ -19,7 +21,18 @@ $(document).ready(function () {
          	 }
         },
         error: function(data,status,er) {
-        	alert(er);
-        }  
+        	$("<div>" +
+        		    "<p><strong>Error:</strong>" + 
+        				"JResume encountered some internal problems. " +
+        	            "We working to resolve the issue as " +
+        	            "soon as possible." + 
+        	            " Please, try again later." + 
+        			"</p>" +
+        		  	"</div>")
+        		  	    .addClass('error alert alert-danger fade in')	   
+        		  	    .appendTo('div#row');  
+        	$('#control').hide();
+        		}
+        
     });
 });

@@ -42,3 +42,6 @@ body {
     margin-top: 10px;
     padding-top: 0px;
 } 
+.error {
+	text-align: center;
+}
