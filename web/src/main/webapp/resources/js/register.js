@@ -26,11 +26,11 @@ $(function() {
 			rules : {
 				firstName : {
 					required : true,
-					regx : /^([ \u00c0-\u01ffa-zA-Z'\-])+$/
+					regx : /^[A-Za-z][A-Za-z\- ']*$/
 				},
 				lastName : {
 					required : true,
-					regx : /^([ \u00c0-\u01ffa-zA-Z'\-])+$/
+					regx : /^[A-Za-z][A-Za-z\- ']*$/
 
 				},
 				email : {

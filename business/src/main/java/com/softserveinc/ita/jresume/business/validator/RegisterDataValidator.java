@@ -27,7 +27,7 @@ public class RegisterDataValidator implements Validator {
                     
     /** First name and last name regex pattern. */
     private static final String STRING_PATTERN =
-            "^([ \u00c0-\u01ffa-zA-Z'\\-])+$";
+            "^[A-Za-z][A-Za-z\\- ']*$";
             
     /** Variable for access to data storage. */
     @Autowired
