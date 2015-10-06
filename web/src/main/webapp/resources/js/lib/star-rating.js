@@ -77,6 +77,7 @@
                 self.setStars(pos);
                 self.$element.trigger('change').trigger('rating.change', [self.$element.val(), self.$caption.html()]);
                 self.starClicked = true;
+                $('#addbutton').removeAttr("disabled");
             });
             self.$rating.on("mousemove", function (e) {
                 if (!self.hoverEnabled || self.inactive) {
@@ -367,7 +368,7 @@
             return {caption: caption, width: width, val: val};
         },
         setStars: function (pos) {
-            var self = this, out = arguments.length ? self.calculate(pos) : self.calculate();
+        	var self = this, out = arguments.length ? self.calculate(pos) : self.calculate();
             self.$element.val(out.val);
             self.$stars.css('width', out.width);
             self.$caption.html(out.caption);
