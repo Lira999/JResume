@@ -54,13 +54,14 @@ $(function() {
 			        	debugger
 			        }  
 			    });
-			},
+			    jQuery('textarea[name="comment"]').val('');
+			    },
 			error: function (er) {
 				debugger
 			}
 		});
 	}
-	$("#addcomment").click(function(){
+	$("#addbutton").click(function(){
 		sendAjax();
 	});
 });
