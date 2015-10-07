@@ -14,7 +14,7 @@
 			<input id="rating-input" type="number" name="rating" data-size="xs"/>
 		</div>
 			<form accept-charset="UTF-8" action="" method="post">
-				<textarea class="form-control animated" cols="50" id="comment" name="comment" placeholder="Enter your review here..." rows="5"></textarea>
+				<textarea class="form-control" cols="50" id="comment" name="comment" placeholder="Enter your review here..." rows="5"></textarea>
 				<div class="row lead">
 					<div class="addbutton">
 						<div class="col-xs-2 col-md-offset-10">

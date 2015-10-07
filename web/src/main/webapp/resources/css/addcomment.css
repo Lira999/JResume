@@ -1,7 +1,7 @@
 .addbutton {
-	margin-top: 5px; 
+	margin-top: 5px;
 }
 
-.form-location {
-	margin-right: 15px;
+#comment {
+	display: inline !important;
 }
