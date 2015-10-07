@@ -16,6 +16,7 @@
 		<!-- both admin and user can access secure content -->
 		<intercept-url pattern="/login" access="permitAll"/>
 		<intercept-url pattern="/register" access="permitAll"/>
+		<intercept-url pattern="/emailExist" access="permitAll"/>
 		<intercept-url pattern="/**" access="hasAnyRole('ROLE_USER','ROLE_ADMIN')"/>
 		<!-- only admin can access admin content -->
 		<intercept-url pattern="/admin/**" access="hasRole('ROLE_ADMIN')" />
