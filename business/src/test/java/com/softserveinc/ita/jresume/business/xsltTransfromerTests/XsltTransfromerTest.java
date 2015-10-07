@@ -85,7 +85,7 @@ public class XsltTransfromerTest {
      * Runs {@link com.softserveinc.ita.jresume.business.xslt.
      * 
      * XsltTransformer#transform} with not initialized schema file.
-     * NullPointerException expected.
+     * XstlTransformerException expected.
      * 
      * @throws XstlTransformerException
      *             in case of wrong input parameters or during transformation
@@ -93,7 +93,7 @@ public class XsltTransfromerTest {
      * @throws IOException
      *             in case of IO errors
      */
-    @Test(expected = NullPointerException.class)
+    @Test(expected = XstlTransformerException.class)
     public final void testNullPointer()
             throws XstlTransformerException {
         xsltTransformer.transform(new ByteArrayInputStream(new byte[] {}),

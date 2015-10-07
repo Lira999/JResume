@@ -7,7 +7,7 @@ import java.io.File;
  * Contains methods to operate with files.
  * 
  * @author Golovii Sergii
- *         
+ * 
  */
 public final class FileUtils {
     
@@ -15,7 +15,7 @@ public final class FileUtils {
      * private default constructor (this is utility class).
      */
     private FileUtils() {
-    
+        
     }
     
     /**

@@ -42,19 +42,22 @@ public final class XsltTransformer {
     public void transform(final InputStream input,
             final File schema, final OutputStream output)
             throws XstlTransformerException {
-        if (!FileUtils.getExtension(schema).equalsIgnoreCase("xsl")) {
-            throw new XstlTransformerException(
-                    "Wrong schema format. Schema file should have xsl "
-                            + "extension");
-        }
-        StreamSource inputStreamSource = new StreamSource(input);
-        StreamSource schemaStreamSource = new StreamSource(schema);
-        Transformer transformer;
         try {
+            if (!FileUtils.getExtension(schema).equalsIgnoreCase("xsl")) {
+                throw new XstlTransformerException(
+                        "Wrong schema format. Schema file should have xsl "
+                                + "extension");
+            }
+            StreamSource inputStreamSource = new StreamSource(input);
+            StreamSource schemaStreamSource = new StreamSource(schema);
+            Transformer transformer;
             transformer = transformerFactory.newTransformer(schemaStreamSource);
             StreamResult resultStream = new StreamResult();
             resultStream.setOutputStream(output);
             transformer.transform(inputStreamSource, resultStream);
+        } catch (NullPointerException e) {
+            throw new XstlTransformerException(
+                    "Some of input params are not initialized", e);
         } catch (TransformerConfigurationException e) {
             throw new XstlTransformerException(
                     "Exception in transformer configuration", e);

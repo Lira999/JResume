@@ -28,7 +28,6 @@ public class LoginController {
      * @return modelAndView with "login" view and error message (if error
      *         present)
      */
-    @SuppressWarnings("static-access")
     @RequestMapping(value = "/login", method = RequestMethod.GET)
     public final ModelAndView login(final WebRequest webRequest,
             @RequestParam(value = "error",
@@ -37,7 +36,7 @@ public class LoginController {
         if (error != null) {
             Object lastException =
                     webRequest.getAttribute("SPRING_SECURITY_LAST_EXCEPTION",
-                            webRequest.SCOPE_SESSION);
+                            WebRequest.SCOPE_SESSION);
             if (lastException
             
             instanceof InternalAuthenticationServiceException) {
