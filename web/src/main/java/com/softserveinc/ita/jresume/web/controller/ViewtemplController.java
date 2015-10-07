@@ -12,37 +12,38 @@ import com.softserveinc.ita.jresume.business.service.TemplateService;
 import com.softserveinc.ita.jresume.common.entity.Template;
 
 /**
- * Controller for view template page.
+ * Controller for view template page with current id.
  * 
  */
 @Controller
 @RequestMapping(value = "/viewtempl{id}")
 public class ViewtemplController {
-    /**
-     * id of object we are looking for.
-     */ 
+    
     /** Variable for access to data storage. */
     @Autowired
     private TemplateService templateService;
+    
     /**
      * Templates page mapping.
+     * 
      * @return model "viewtempl" view
      */
     @RequestMapping(value = "", method = RequestMethod.GET)
     public final String uploadtmpl() {
-    	
         return "viewtempl";
     }
+    
     /**
-     * Controller for load info  about concrete template to html.
-     * @param id 
-     * 		id of template we are looking for.
-     * @return Template with current id.
-     */ 
+     * Controller for load info about concrete template to html.
+     * 
+     * @param id
+     *            id of template to show.
+     * @return Template data with current id.
+     */
     @RequestMapping(value = "/res", produces = "application/json",
             method = RequestMethod.GET)
     @ResponseBody
     public final Template someinfo(@PathVariable final Long id) {
-     return templateService.findById(id);
+        return templateService.findById(id);
     }
 }

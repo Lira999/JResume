@@ -1,7 +1,5 @@
 "use strict";
-/**
- * 
- */
+
 $(document).ready(function () {
 	
     $.ajax({
@@ -13,7 +11,7 @@ $(document).ready(function () {
          	 $('#name').append(response.name+" Template");
          	 $('#description').append(response.description);
          	 var image = new String("<img src='./resources/templates/" + response.name + ".png'>");
-         	$('#img').append(image);
+         	 $('#img').append(image);
          	 if (response.price == null && typeof $(".btn") != "btn btn-success  btn-lg") {
          	 $("#control").addClass("btn btn-success  btn-lg").append("Use");
          	 } else {
