@@ -50,7 +50,7 @@
 		<br>
 		<br>
 		<jsp:include page="addcomment.jsp"/>
-		<jsp:include page="viewcommentsandmarks.jsp"/>
+		<jsp:include page="viewcomments.jsp"/>
     </div>
 </div>
 </body>

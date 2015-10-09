@@ -13,7 +13,7 @@ $(function() {
 			success: function (response) {
 			    $.ajax({
 			    	type: 'GET',
-			        url: 'viewcommentsandmarks/result',
+			        url: 'viewcomments/result',
 			        dataType: 'json',
 			        contentType: "application/json",
 			        success: function (response) {
@@ -51,13 +51,11 @@ $(function() {
 			        				);
 			        },
 			        error: function(data,status,er) {
-			        	debugger
 			        }  
 			    });
 			    jQuery('textarea[name="comment"]').val('');
 			    },
 			error: function (er) {
-				debugger
 			}
 		});
 	}

@@ -1,0 +1,16 @@
+.starsposition {
+	margin-left: 40px;
+}
+.viewcommentinpage {
+	margin-right: 100px;
+}
+
+.stars {
+	display: inline;
+	color: #FDDE51; 
+	text-shadow: -0.5px 0 black, 0 0.5px black, 0.5px 0 black, 0 -0.5px black;
+}
+
+.username {
+	display: inline;
+}
