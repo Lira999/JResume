@@ -8,44 +8,45 @@ import com.softserveinc.ita.jresume.common.entity.Mark;
 import com.softserveinc.ita.jresume.persistence.dao.impl.MarkDAO;
 
 /**
- * Class for working with User.
+ * Class for working with Comment.
  * 
  * @author Bohdan Khudoba
  */
 @Service
 public class CommentService {
-    /** UserDAO for access to data storage. */
+    
+    /** MarkDAO for access to data storage. */
     @Autowired
     private MarkDAO markDao;
     
     /**
-     * Create a new user.
+     * Create a new mark.
      * 
      * @param mark
      *            to be created.
-     * @return created user.
+     * @return created mark.
      */
     public final Mark create(final Mark mark) {
         return markDao.create(mark);
     }
     
     /**
-     * Update information user.
+     * Update information mark.
      * 
      * @param mark
-     *            object user to be updated.
+     *            object mark to be updated.
      *            
-     * @return updated user.
+     * @return updated mark.
      */
     public final Mark update(final Mark mark) {
         return markDao.update(mark);
     }
     
     /**
-     * Delete user from data storage.
+     * Delete mark from data storage.
      * 
      * @param mark
-     *            the user to be deleted.
+     *            the mark to be deleted.
      */
     public final void delete(final Mark mark) {
         markDao.delete(mark);
@@ -53,8 +54,8 @@ public class CommentService {
     
     /**
      * @param templateId
-     *            templateId of the template
-     * @return the template associated with this templateId
+     *            templateId of the template.
+     * @return all comments and marks associated with template.
      */
     public final List<Mark> findByTemplateId(final long templateId) {
         return markDao.findByTemplateId(templateId);
@@ -63,7 +64,7 @@ public class CommentService {
     /**
      * Find all comments and marks.
      * 
-     * @return a list of all comments and marks
+     * @return a list of all comments and marks.
      */
     public final List<Mark> findAll() {
         return markDao.findAll();

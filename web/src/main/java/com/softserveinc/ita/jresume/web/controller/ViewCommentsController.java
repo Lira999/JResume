@@ -18,7 +18,7 @@ import com.softserveinc.ita.jresume.common.entity.Mark;
  *         
  */
 @Controller
-@RequestMapping(value = "/viewcommentsandmarks")
+@RequestMapping(value = "/viewcomments")
 public class ViewCommentsController {
     
     /** Variable for access to data storage. */
@@ -28,11 +28,11 @@ public class ViewCommentsController {
     /**
      * Comments implementation mapping.
      * 
-     * @return model "viewcommentsandmarks" view
+     * @return model "viewcomments" view
      */
     @RequestMapping(value = "", method = RequestMethod.GET)
-    public final String viewcommentsandmarks() {
-        return "viewcommentsandmarks";
+    public final String viewComments() {
+        return "viewcomments";
     }
     
     /**
@@ -43,7 +43,8 @@ public class ViewCommentsController {
     @RequestMapping(value = "/result", produces = "application/json",
             method = RequestMethod.GET)
     @ResponseBody
-    public final List<Mark> getCommentsAndMarks() {
+    public final List<Mark> getComments() {
         return commentService.findAll();
     }
+    
 }

@@ -17,8 +17,8 @@ public interface MarkDAO extends GenericDAO<Mark, Long> {
      * 
      * @param templateId
      *            templateId of the template
-     * @return the mark associated with this template
+     * @return the comments and marks associated with this template
      */
-    
-    List<Mark> findByTemplateId(Long templateId);
+     List<Mark> findByTemplateId(Long templateId);
+            
 }
