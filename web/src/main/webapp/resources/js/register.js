@@ -1,5 +1,4 @@
 $(function() {
-
 	jQuery.validator.addMethod('regx', function(value, element, regexpr) {
 		return regexpr.test(value);
 	}, "Please enter a valid data.");
@@ -22,6 +21,7 @@ $(function() {
 	
 	// Setup form validation on the .register-form element
 	$(".register-form").validate({
+			onfocusout: function (element) { return $(element).valid(); },
 			// Specify the validation rules
 			rules : {
 				firstName : {
@@ -35,7 +35,7 @@ $(function() {
 				},
 				email : {
 					required : true,
-					regx : /^[_A-Za-z0-9-\+]+(\.[_A-Za-z0-9-]+)*@[A-Za-z0-9-]+(\.[A-Za-z0-9]+)*(\.[A-Za-z]{2,})$/,
+					regx : /^[_A-Za-z0-9-\+]+(\.[_A-Za-z0-9-]+)*@[A-Za-z0-9-]+(\.[A-Za-z0-9]+)*(\.[A-Za-z]+)$/,
 					remote: {
                         url: "emailExist",
                         type: "POST",
@@ -52,15 +52,15 @@ $(function() {
 					equalTo: "#password",
 				}
 			},
-				// Specify the validation error messages
+			// Specify the validation error messages
 			messages : {
 				firstName : {
-					required : "Please, enter your first name",
-					regx : "Please, enter your first name correctly"
+					required : "Please enter your first name",
+					regx : "Please enter your first name correctly"
 				},
 				lastName : {
-					required: "Please, enter your last name.",
-					regx : "Please, enter your last name correctly"
+					required: "Please enter your last name.",
+					regx : "Please enter your last name correctly"
 				},
 				password : {
 					required : "Please provide a password",
@@ -72,12 +72,11 @@ $(function() {
 					equalTo : "Your passwords must match"
 				},
 				email : {
-					required : "Please, enter your e-mail",
-					regx : "Please, enter your e-mail correctly",
+					required : "Please enter your e-mail",
+					regx : "Please enter your e-mail correctly",
 					remote : "This e-mail is already taken"
 				}
 			},
-
 			errorPlacement: function (error, element) {
 				var _popover;
 			      _popover = $(element).popover({
@@ -88,7 +87,6 @@ $(function() {
 			      });
 			      _popover.data("bs.popover").options.content = $(error).text();
 			      $(element).popover("show");
-
 			},
 			success: function (label, element) {
     			$(element).popover("hide");
@@ -104,6 +102,7 @@ $(function() {
 	 * Send json to server.
 	 */
 	function sendAjax() {
+		const BAD_REQUEST = 400;
 		var data = JSON.stringify({
 			firstName: $("#firstName").val(),
 			lastName: $("#lastName").val(),
@@ -122,7 +121,7 @@ $(function() {
 			},
 			error: function(data, textStatus) {
 				if (!$("#err").length) {
-					if (data.status==400)
+					if (data.status===BAD_REQUEST)
 						$("#line_rb").after("<div class='error alert alert-danger fade in' id='err'><strong> Error! </strong>" + data.responseText + "</div>");
 					else
 						$("#line_rb").after("<div class='error alert alert-danger fade in' id='err'><strong> Internal error! </strong></div>");

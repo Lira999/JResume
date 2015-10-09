@@ -23,7 +23,7 @@ public class RegisterDataValidator implements Validator {
     /** Email regex pattern. */
     private static final String EMAIL_PATTERN =
             "^[_A-Za-z0-9-\\+]+(\\.[_A-Za-z0-9-]+)*@"
-                    + "[A-Za-z0-9-]+(\\.[A-Za-z0-9]+)*(\\.[A-Za-z]{2,})$";
+                    + "[A-Za-z0-9-]+(\\.[A-Za-z0-9]+)*(\\.[A-Za-z]+)$";
                     
     /** First name and last name regex pattern. */
     private static final String STRING_PATTERN =
