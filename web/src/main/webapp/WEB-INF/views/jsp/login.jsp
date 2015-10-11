@@ -10,6 +10,7 @@
     <script src="resources/js/login.js"></script>
 </head>
 <body class="login-body">
+<jsp:include page="navbar.jsp"></jsp:include>
 <div class="wrapper">
   <form class="login-form form-signin" action="j_spring_security_check" method="POST" role="form">
     <h3 class="form-signin-heading">Please sign in</h3>
@@ -23,7 +24,7 @@
       <span class="input-group-addon">
         <i class="glyphicon glyphicon-user"></i>
       </span> 
-      <input id= "email" class="form-control" placeholder="E-mail" name="username" type="text" rel="popover">
+      <input id= "email" class="form-control" placeholder="E-mail" name="username" type="text">
     </div>
     <div class="input-group">
       <span class="input-group-addon">

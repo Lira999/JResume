@@ -1,0 +1,5 @@
+body {
+  background: url(../images/loginpattern.png);
+  /*place for navigation bar*/
+  padding-top: 50px !important;
+}

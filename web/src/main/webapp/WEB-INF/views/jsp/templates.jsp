@@ -11,6 +11,7 @@
 </head>
 
 <body class="body">
+<jsp:include page="navbar.jsp"></jsp:include>
 <div class="wrapper">
 <div class="container">
 <div class="well well-lg">

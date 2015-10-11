@@ -12,6 +12,7 @@
 </head>
 
 <body class="login-body">
+<jsp:include page="navbar.jsp"></jsp:include>
 	<div class="wrapper">
 		<form class="register-form" method="POST" role="form">
 			<h3 class="form-signup-heading">Please sign up</h3>

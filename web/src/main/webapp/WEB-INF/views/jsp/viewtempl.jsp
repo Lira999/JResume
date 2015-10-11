@@ -9,6 +9,7 @@
 	<link href="http://maxcdn.bootstrapcdn.com/font-awesome/4.1.0/css/font-awesome.min.css"	rel="stylesheet">
 </head>
 <body>
+<jsp:include page="navbar.jsp"></jsp:include>
  <div class="container" id="view">
     <div class="well well-lg">
 		<h2 id = "name"></h2>
