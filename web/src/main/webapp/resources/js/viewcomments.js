@@ -1,8 +1,11 @@
 $(document).ready(function () {
 	
+	var startPosition = document.location.href.indexOf('viewtempl')+'viewtempl'.length;
+    var id = document.location.href.substring(startPosition, document.location.href.length)
+	
     $.ajax({
     	type: 'GET',
-        url: 'viewcomments/result',
+        url: 'viewcomments' + id + '/result',
         dataType: 'json',
         contentType: "application/json",
         success: function (response) {
@@ -13,13 +16,9 @@ $(document).ready(function () {
         		else if(response[i].mark == 'GOOD') var mark = new String('<span class="glyphicon glyphicon-star"></span>' + '<span class="glyphicon glyphicon-star"></span>' + '<span class="glyphicon glyphicon-star"></span>' + '<span class="glyphicon glyphicon-star"></span>');        		
         		else if(response[i].mark == 'AVERAGE') var mark = new String('<span class="glyphicon glyphicon-star"></span>' + '<span class="glyphicon glyphicon-star"></span>' + '<span class="glyphicon glyphicon-star"></span>');        		
         		else if(response[i].mark == 'FAIR') var mark = new String('<span class="glyphicon glyphicon-star"></span>' + '<span class="glyphicon glyphicon-star"></span>');        		
-        		else var mark = new String('<span class="glyphicon glyphicon-star"></span>'	);
+        		else var mark = new String('<span class="glyphicon glyphicon-star"></span>'	);   		
         		
-        		
-        		var unixDate =  new Date(response[i].createDate);
-        		var date = unixDate.getDate() + '-' + (unixDate.getMonth()+1) + '-' + unixDate.getFullYear();
-        		
-        		$('#container').append(
+             		$('#container').append(
         			'<div class="row">' +
 	        			'<hr />' +	
 	        			'<div class="col-md-12">' +
@@ -28,10 +27,10 @@ $(document).ready(function () {
 	        						'<div class="stars">' +
 	        							mark + 
 	        						'</div>' + 
-	        						'&nbsp&nbsp&nbsp' + 'UserName' +
+	        						'&nbsp&nbsp&nbsp' + response[i].createdBy +
 	        					'</div>' +
 	        					'<div class="col-md-offset-11">' +
-        							'<h6>' + date + '</h6>' +
+        							'<h6>' + moment(response[i].createDate).format('DD-MM-YY ') + '</h6>' +
         						'</div>' +
 	        				'</div>' +
 	        			'</div>' +

@@ -10,13 +10,15 @@ import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 import javax.persistence.Table;
 
+import com.fasterxml.jackson.annotation.JsonBackReference;
+
 /**
  * Class represents mark table in database.
  */
 @Entity
 @Table(name = "mark")
 public class Mark extends Base {
-
+    
     /** value of this mark. */
     @Enumerated(EnumType.STRING)
     @Column(name = "mark")
@@ -30,8 +32,9 @@ public class Mark extends Base {
      * template associated with this mark. Many to one relationship, references
      * to template table.
      */
-    @ManyToOne(fetch = FetchType.LAZY, cascade = CascadeType.ALL)
+    @ManyToOne(fetch = FetchType.EAGER, cascade = CascadeType.PERSIST)
     @JoinColumn(name = "templateId")
+    @JsonBackReference
     private Template template;
     
     /** Author of this mark. */

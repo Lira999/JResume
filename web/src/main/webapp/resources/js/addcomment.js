@@ -1,19 +1,23 @@
 $(function() {
 	
 	function sendAjax() {
+		var startPosition = document.location.href.indexOf('viewtempl')+'viewtempl'.length;
+	    var id = document.location.href.substring(startPosition, document.location.href.length)
+	    
 		var data = JSON.stringify ({
 			comment: $("#comment").val(),
 			mark: $("#rating-input").val(),
+			createdBy: "UserName",
 		});
 		$.ajax({
-			url: "addcomment",
+			url: "addcomment" + id,
 			type: "POST",
 			contentType: "application/json",
 			data: data,
 			success: function (response) {
 			    $.ajax({
 			    	type: 'GET',
-			        url: 'viewcomments/result',
+			        url: 'viewcomments' + id + '/result',
 			        dataType: 'json',
 			        contentType: "application/json",
 			        success: function (response) {
@@ -37,7 +41,7 @@ $(function() {
 				        						'<div class="stars">' +
 				        							mark + 
 				        						'</div>' + 
-				        						'&nbsp&nbsp&nbsp' + 'UserName' +
+				        						'&nbsp&nbsp&nbsp' + newComment.createdBy +
 				        					'</div>' +
 				        					'<div class="col-md-offset-11">' +
 			        							'<h6>' + date + '</h6>' +

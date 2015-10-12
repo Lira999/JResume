@@ -6,7 +6,6 @@
     <jsp:include page="generic.jsp"/>
     <link href="resources/css/viewtempl.css" rel="stylesheet">
 	<script src="resources/js/viewtempl.js"></script>
-	<link href="http://maxcdn.bootstrapcdn.com/font-awesome/4.1.0/css/font-awesome.min.css"	rel="stylesheet">
 </head>
 <body>
 <jsp:include page="navbar.jsp"></jsp:include>

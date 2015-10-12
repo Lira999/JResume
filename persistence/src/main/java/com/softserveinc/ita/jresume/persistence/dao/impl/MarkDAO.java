@@ -13,12 +13,23 @@ import com.softserveinc.ita.jresume.persistence.dao.GenericDAO;
 public interface MarkDAO extends GenericDAO<Mark, Long> {
     
     /**
-     * Find template associated with this templateId.
+     * Create new mark by templateId.
+     * 
+     * @param mark
+     *            Mark to be created.
+     * @param templateId
+     *            Find mark based on templateId.
+     * @return created mark.
+     */
+    Mark create(final Mark mark, long templateId);
+    
+    /**
+     * Find marks associated with this templateId.
      * 
      * @param templateId
      *            templateId of the template
      * @return the comments and marks associated with this template
      */
-     List<Mark> findByTemplateId(Long templateId);
-            
+    List<Mark> findByTemplateId(Long templateId);
+    
 }

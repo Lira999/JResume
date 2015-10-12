@@ -2,11 +2,14 @@ package com.softserveinc.ita.jresume.common.entity;
 
 import java.util.List;
 
+import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.FetchType;
 import javax.persistence.OneToMany;
 import javax.persistence.Table;
+
+import com.fasterxml.jackson.annotation.JsonBackReference;
 
 /**
  * Class represents template table in database.
@@ -14,9 +17,9 @@ import javax.persistence.Table;
 @Entity
 @Table(name = "template")
 public class Template extends Base {
-	/**
-	 * Variable for max length of description.
-	 */
+    /**
+     * Variable for max length of description.
+     */
     private static final int MAX_DESCRIPTION_LENGTH = 1000;
     /** Name of this template. */
     @Column(name = "name")
@@ -34,7 +37,9 @@ public class Template extends Base {
      * All marks associated with this template. One to many relationship
      * references with mark table.
      */
-    @OneToMany(fetch = FetchType.LAZY, mappedBy = "template")
+    @OneToMany(fetch = FetchType.EAGER, mappedBy = "template",
+            cascade = CascadeType.PERSIST)
+    @JsonBackReference
     private List<Mark> marks;
     
     /**
@@ -75,11 +80,13 @@ public class Template extends Base {
     public final String getDescription() {
         return description;
     }
+    
     /**
      * Stores a reference to a image of a template.
      */
     @Column(name = "image")
     private byte[] image;
+    
     /**
      * Changes description of this template.
      * 

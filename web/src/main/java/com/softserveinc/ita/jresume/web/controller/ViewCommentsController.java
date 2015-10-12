@@ -4,6 +4,7 @@ import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.ResponseBody;
@@ -18,7 +19,7 @@ import com.softserveinc.ita.jresume.common.entity.Mark;
  *         
  */
 @Controller
-@RequestMapping(value = "/viewcomments")
+@RequestMapping(value = "/viewcomments{templateId}")
 public class ViewCommentsController {
     
     /** Variable for access to data storage. */
@@ -38,13 +39,16 @@ public class ViewCommentsController {
     /**
      * Controller for load comments and marks for template.
      * 
+     * @param templateId
+     *            templateId associated with marks.
+     *            
      * @return all comments for template.
      */
     @RequestMapping(value = "/result", produces = "application/json",
             method = RequestMethod.GET)
     @ResponseBody
-    public final List<Mark> getComments() {
-        return commentService.findAll();
+    public final List<Mark> getComments(@PathVariable final long templateId) {
+        return commentService.findByTemplateId(templateId);
     }
     
 }

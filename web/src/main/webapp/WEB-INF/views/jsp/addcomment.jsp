@@ -1,8 +1,8 @@
 <%@ page language="java" contentType="application/json; charset=UTF-8" pageEncoding="UTF-8"%>
-<link href="resources/css/addcomment.css" rel="stylesheet">
 <link href="resources/css/lib/star-rating.css" rel="stylesheet">
-<script src="resources/js/addcomment.js"></script>
+<link href="resources/css/addcomment.css" rel="stylesheet">
 <script src="resources/js/lib/star-rating.js"></script>
+<script src="resources/js/addcomment.js"></script>
 
 <div class="row">
 	<div class="col-md-12">

@@ -18,16 +18,17 @@ public class CommentService {
     /** MarkDAO for access to data storage. */
     @Autowired
     private MarkDAO markDao;
-    
+
     /**
      * Create a new mark.
      * 
      * @param mark
      *            to be created.
+     * @param templateId associated with mark.
      * @return created mark.
      */
-    public final Mark create(final Mark mark) {
-        return markDao.create(mark);
+    public final Mark create(final Mark mark, final long templateId) {
+        return markDao.create(mark, templateId);
     }
     
     /**
