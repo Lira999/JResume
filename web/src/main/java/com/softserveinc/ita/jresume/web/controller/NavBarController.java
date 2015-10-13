@@ -39,13 +39,13 @@ public class NavBarController {
             method = RequestMethod.GET)
     @ResponseBody
     public final String getCurrentUserFullName(final Principal principal) {
+        String fullName = null;
         if (principal != null) {
             User currentUser = userService.findByEmail(principal.getName());
-            return currentUser.getFirstName() + " "
+            fullName = currentUser.getFirstName() + " "
                     + currentUser.getLastName();
-        } else {
-            return null;
         }
+        return fullName;
     }
     
 }

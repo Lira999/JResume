@@ -7,11 +7,11 @@ function getCurrentUserFullName() {
     url: 'getCurrentUserFullName',
     type: 'GET',
     contentType: 'text',
-    success: function(CurrentUserFullName) {
-        if (CurrentUserFullName) {
+    success: function(currentUserFullName) {
+        if (currentUserFullName) {
             var output = '<li class="dropdown"><a class="dropdown-toggle" ' + 
                 'data-toggle="dropdown" href="#">' + 
-                CurrentUserFullName + '<span class="caret">' + 
+                currentUserFullName + '<span class="caret">' + 
                 '</span></a><ul class="dropdown-menu"><li><a href="#">' + 
                 'View Profile</a></li><li><a href="#">Edit Profile</a>' + 
                 '</li></ul></li><li><a href="logout"><span class="glyphicon' +

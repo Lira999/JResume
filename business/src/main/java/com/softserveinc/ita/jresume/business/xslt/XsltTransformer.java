@@ -54,8 +54,8 @@ public final class XsltTransformer {
         try {
             StreamSource inputStreamSource = new StreamSource(input);
             StreamSource schemaStreamSource = new StreamSource(schema);
-            Transformer transformer;
-            transformer = transformerFactory.newTransformer(schemaStreamSource);
+            Transformer transformer =
+                    transformerFactory.newTransformer(schemaStreamSource);
             StreamResult resultStream = new StreamResult();
             resultStream.setOutputStream(output);
             transformer.transform(inputStreamSource, resultStream);
