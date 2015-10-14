@@ -16,8 +16,8 @@ import com.softserveinc.ita.jresume.common.entity.Template;
  * 
  */
 @Controller
-@RequestMapping(value = "/viewtempl/{id}")
-public class ViewtemplController {
+@RequestMapping(value = "/viewtempl{id}")
+public class ViewTemplateController {
     
     /** Variable for access to data storage. */
     @Autowired

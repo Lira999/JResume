@@ -10,7 +10,7 @@ function sendAjax() {
     success: function(data) {
     $.each(data ,function(index, templates) {
 	   
-	    var address = new String("viewtempl/" + templates.id);
+	    var address = new String("viewtempl" + templates.id);
 	    if (templates.price == null) { var priceButton = new String("<a href=" + address + " class='btn button btn-success'>Free</a>"); }
 	   	    else { var priceButton = new String("<a href=" + address + " class='btn button btn-danger'>" + "Price " + templates.price + "$" +"</a>") }
 	    var image = new String("<img src='./resources/templates/" + templates.name + ".png'>");
@@ -26,7 +26,7 @@ function sendAjax() {
 	   		"</div>")
 		        .addClass('col-sm-12 col-xs-12 col-md-4 col-lg-4')
 		        .attr('id', templates.id)
-		        .appendTo('div#row');  		 	   
+		        .appendTo('div#row');
     });        
     },
     error:function(data,status,er) {
@@ -38,7 +38,7 @@ function sendAjax() {
             " Please, try again later." + 
 		"</p>" +
 	  	"</div>")
-	  	    .addClass('error alert alert-danger fade in')	   
+	  	    .addClass('error alert alert-danger fade in')
 	  	    .appendTo('div#row');  	  
 	}
     });

@@ -4,8 +4,8 @@
 <head>
     <title>This Template</title>
     <jsp:include page="generic.jsp"/>
-    <link href=" <%=request.getContextPath()%>/resources/css/viewtempl.css" rel="stylesheet">
-	<script src="<%=request.getContextPath()%>/resources/js/viewtempl.js"></script>
+    <link href="resources/css/viewtempl.css" rel="stylesheet">
+	<script src="resources/js/viewtempl.js"></script>
 </head>
 <body>
 <jsp:include page="navbar.jsp"></jsp:include>
