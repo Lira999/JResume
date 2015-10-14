@@ -27,6 +27,9 @@
 		<property name="prefix" value="/WEB-INF/views/jsp/" />
 		<property name="suffix" value=".jsp" />
 	</bean>
+	
+	<bean id="multipartResolver"
+  		class="org.springframework.web.multipart.commons.CommonsMultipartResolver"/>
 
 	<mvc:resources mapping="/resources/**" location="/resources/"
 		cache-period="31556926" />
