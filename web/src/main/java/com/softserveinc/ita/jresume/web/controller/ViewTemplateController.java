@@ -1,6 +1,5 @@
 package com.softserveinc.ita.jresume.web.controller;
 
-
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.PathVariable;
@@ -13,32 +12,31 @@ import com.softserveinc.ita.jresume.common.entity.Template;
 
 /**
  * Controller for view template page with current id.
- * 
  */
 @Controller
 @RequestMapping(value = "/viewtempl{id}")
 public class ViewTemplateController {
     
-    /** Variable for access to data storage. */
+    /** Template service to operate with Template objects. */
     @Autowired
     private TemplateService templateService;
     
     /**
-     * Templates page mapping.
+     * Viewtemplate page mapping.
      * 
-     * @return model "viewtempl" view
+     * @return "viewtempl" view
      */
     @RequestMapping(value = "", method = RequestMethod.GET)
     public final String viewTemplate() {
         return "viewtempl";
-    } 
+    }
     
     /**
-     * Controller for load info about concrete template to html.
+     * Search template by id and send it to page.
      * 
      * @param id
-     *            id of template to show.
-     * @return Template data with current id.
+     *            id of target template
+     * @return founded template object
      */
     @RequestMapping(value = "/res", produces = "application/json",
             method = RequestMethod.GET)
