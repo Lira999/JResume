@@ -22,8 +22,10 @@ $(function() {
 	// Setup form validation on the .register-form element
 	$('.register-form').validate({
 			onkeyup: function (element) { 
-				if ($(element).attr('id') === $('#password').attr('id'))
+				if ($(element).attr('id') === $('#password').attr('id') 
+					&& $('#passwordConfirmation').val().length > 0) {
 					$('#passwordConfirmation').valid();
+				}
 				return $(element).valid();
 			},
 			// Specify the validation rules
