@@ -4,6 +4,7 @@ html, body, div {
    padding: 0;
    border: 0;
    outline: 0;
+   font-size: 100%;
    vertical-align: baseline;
    background: transparent;
 }
@@ -24,17 +25,17 @@ body {
 .container{
 	text-align: left;
 }
-.about{
-	padding-left: 40px;
-}
+
 .button {
-  width: 170px;
-  height: 55px;   
+  min-width: 100px;
+  height: 55px;
+  position: relative;
+	overflow: hidden;
+	margin-left: 10px;   
 }
 .posbut{
 	margin-left: 0;
-	margin-top: -50px;
-	padding-left: 75%;
+	padding-left: 70%;
 }
 
 .well{
@@ -43,4 +44,9 @@ body {
 } 
 .error {
 	text-align: center;
+}
+
+.thumbnail {
+	position: relative;
+	overflow: hidden;
 }
