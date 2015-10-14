@@ -10,12 +10,12 @@ $(document).ready(function () {
         success: function (response) {
          	 $('#name').append(response.name+" Template");
          	 $('#description').append(response.description);
-         	 var image = new String("<img src='./resources/templates/" + response.name + ".png'>");
+         	 var image = new String("<img src='../resources/templates/" + response.name + ".png'>");
          	 $('#img').append(image);
          	 if (response.price == null && typeof $(".btn") != "btn btn-success  btn-lg") {
          	 $("#control").addClass("btn btn-success  btn-lg").append("Use");
          	 } else {
-         		$("#control").addClass("btn-danger btn-lg").append("Price " + response.price + " $");
+         		$("#control").addClass("btn-danger btn-lg").append("Buy " + response.price + " $");
          	 }
         },
         error: function(data,status,er) {

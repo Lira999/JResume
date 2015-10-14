@@ -4,8 +4,8 @@
 <head>
     <title>This Template</title>
     <jsp:include page="generic.jsp"/>
-    <link href="resources/css/viewtempl.css" rel="stylesheet">
-	<script src="resources/js/viewtempl.js"></script>
+    <link href=" <%=request.getContextPath()%>/resources/css/viewtempl.css" rel="stylesheet">
+	<script src="<%=request.getContextPath()%>/resources/js/viewtempl.js"></script>
 </head>
 <body>
 <jsp:include page="navbar.jsp"></jsp:include>
@@ -25,7 +25,7 @@
 			<div class="col-xs-2 col-md-offset-8">
 				<button class="btn btn-lg button btn-block  " id="control" type="button"></button>
 			</div>
-			<hr>
+			
 			<div class="col-xs-4 col-md-7">
 				<div class="row lead">
 					<div id="stars" class="starrr"></div>

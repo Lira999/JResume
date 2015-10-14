@@ -16,7 +16,7 @@ import com.softserveinc.ita.jresume.common.entity.Template;
  * 
  */
 @Controller
-@RequestMapping(value = "/viewtempl{id}")
+@RequestMapping(value = "/viewtempl/{id}")
 public class ViewtemplController {
     
     /** Variable for access to data storage. */
@@ -29,9 +29,9 @@ public class ViewtemplController {
      * @return model "viewtempl" view
      */
     @RequestMapping(value = "", method = RequestMethod.GET)
-    public final String uploadtmpl() {
+    public final String viewTemplate() {
         return "viewtempl";
-    }
+    } 
     
     /**
      * Controller for load info about concrete template to html.
@@ -43,7 +43,7 @@ public class ViewtemplController {
     @RequestMapping(value = "/res", produces = "application/json",
             method = RequestMethod.GET)
     @ResponseBody
-    public final Template someinfo(@PathVariable final Long id) {
+    public final Template getCurrentTemplate(@PathVariable final Long id) {
         return templateService.findById(id);
     }
 }

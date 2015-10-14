@@ -13,7 +13,7 @@
 		<div class="collapse navbar-collapse" id="myNavbar">
 			<ul class="nav navbar-nav">
 				<li><a href="#">Home</a></li>
-				<li><a href="templates">Templates</a></li>
+				<li><a href="<%=request.getContextPath()%>/templates">Templates</a></li>
 				<li><a href="#">About Us</a></li>
 				<li><a href="#">Support</a></li>
 			</ul>
