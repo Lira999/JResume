@@ -9,5 +9,14 @@ import com.softserveinc.ita.jresume.persistence.dao.GenericDAO;
  * @author Golovii Sergii
  */
 public interface TemplateDAO extends GenericDAO<Template, Long> {
-
+    
+    /**
+     * Find template by name.
+     * 
+     * @param name
+     *            target template name
+     * @return founded template or {@code null} if template not found.
+     */
+    Template findByName(String name);
+    
 }

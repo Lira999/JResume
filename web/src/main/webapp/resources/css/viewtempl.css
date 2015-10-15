@@ -3,6 +3,11 @@
   font-size: 15px;
 }
 
+.action-button {
+  max-width: 130px;
+  min-width: 130px;
+}
+
 .center {
   float: none;
   margin-left: auto;

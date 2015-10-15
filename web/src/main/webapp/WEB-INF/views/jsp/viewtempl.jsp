@@ -16,19 +16,18 @@
 				<div id= "page-content">
 					<h2 class="title" id= "name"></h2>
 					<hr class="colorgraph">
+					<h4><strong>Description</strong></h4>
+					<p class="about" id="description"></p>
+					<br>
 					<div class ="img-responsive img-thumbnail thumbnail" id="img"></div>
-						<h4><strong>Description</strong></h4>
-						<p class="about" id="description"></p>
-						<br>
-						<div class= "center col col-sm-3">
-							<button class="btn btn-lg btn-block" id="control" type="button"></button>
-						</div>
-						<br>
-						<h4><strong>Customer Reviews</strong></h4>
-						<jsp:include page="viewcomments.jsp"/>
-						<br>
-						<h4><strong>Leave a Customer Review</strong></h4>
-						<jsp:include page="addcomment.jsp"/>
+					<span class= "pull-right">
+						<button class="action-button btn btn-lg btn-block" id="control" type="button"></button>
+					</span>
+					<br>
+					<br>
+					<jsp:include page="viewcomments.jsp"/>
+					<br>
+					<jsp:include page="addcomment.jsp"/>
 				</div>
 			</div>
 		</div>

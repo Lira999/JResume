@@ -1,7 +1,5 @@
 package com.softserveinc.ita.jresume.web.controller;
 
-
-
 import java.io.BufferedOutputStream;
 import java.io.File;
 import java.io.FileOutputStream;
@@ -22,7 +20,7 @@ import com.softserveinc.ita.jresume.business.service.TemplateService;
 import com.softserveinc.ita.jresume.common.entity.Template;
 
 /**
- * Controller for view upload template page.
+ * Controller for uploadtemplate page.
  * 
  */
 @Controller
@@ -71,10 +69,9 @@ public class UploadTemplateController {
      */
     @RequestMapping(value = "/uploadtemplatefile", method = RequestMethod.POST)
     @ResponseBody
-    public final
-            String uploadMultipleFileHandler(
-                    @RequestParam("name") final String name,
-                    @RequestParam("file") final MultipartFile[] files) {
+    public final String uploadMultipleFileHandler(
+            @RequestParam("name") final String name,
+            @RequestParam("file") final MultipartFile[] files) {
         String message = "";
         for (int i = 0; i < files.length; i++) {
             MultipartFile file = files[i];
@@ -83,7 +80,7 @@ public class UploadTemplateController {
                         FilenameUtils.getExtension(file.getOriginalFilename());
                 String nameOfFile = (name + "." + fileExtension);
                 String filedir = (System.getProperty("catalina.home")
-                        + "/webapps/templatesDir");
+                        + "/webapps/Files");
                 String filepath = Paths.get(filedir, nameOfFile).toString();
                 BufferedOutputStream stream = new BufferedOutputStream(
                         new FileOutputStream(new File(filepath)));
@@ -102,6 +99,17 @@ public class UploadTemplateController {
         return message;
     }
     
+    /**
+     * Check for template name availability.
+     * 
+     * @param name
+     *            name of template to be found.
+     * @return true if template name is available.
+     */
+    @RequestMapping(value = "templateExists", method = RequestMethod.POST)
+    @ResponseBody
+    public final Boolean checkName(final String name) {
+        return templateService.findByName(name) == null;
+    }
+    
 }
-	 
-
