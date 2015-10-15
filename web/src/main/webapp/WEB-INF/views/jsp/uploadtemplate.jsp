@@ -6,51 +6,46 @@
 <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
 <title>Upload Template</title>
 <jsp:include page="generic.jsp"/>
-<script src="resources/js/uploadtemplate.js"></script>
 <link rel="stylesheet" href="resources/css/uploadtemplate.css">
 <script src="resources/js/lib/jquery-validate/jquery.validate.js"></script>
+<script src="resources/js/lib/jquery-validate/additional-methods.js"></script>
+<script src="resources/js/uploadtemplate.js"></script>
 </head>
 <body>
-	<div class="modal-dialog">
-		<div class="modal-content">
-			<div>
-				<h3>Form for Upload Template</h3>
-			</div>
-			<hr id="line_rb" class="colorgraph">
-			<div class="modal-body">
-				<form id="upload-form" method="POST" action="uploadMultipleFile2"
-					enctype="multipart/form-data">
-					<div class="input-group">
-						<label>Template name</label> 
-						<input type="text"
-							class="form-control" name = "name" id="name"
-							placeholder="Set name for template">
-					</div>
-					
-					<div class="input-group">
-						<label>Please write some description about this Template</label>
-						<textarea rows="3" class="form-control" name = "description" id="DescriptionTeplate"
-							placeholder="This tempate is ... "></textarea>
-					</div>
-					
-					<div class = "input-group">
-						Please enter price:
-						<input id="price" name="price" type="text"
-							class="form-control" placeholder="Free / Paid">
-					</div>
-					<div class="input-group">
-						Image file to upload:
-						<input id="file" class="upl " type="file" name="file" accept="image/*">
-					</div>
-					<div class="input-group"> 
-						Template view to upload: 
-						<input id="file2" class="upl " type="file" name="file2" > 
-					</div>
-					<input type="submit" name="submit" id="uploadBtn" class="btn btn-success  btn-lg" value="Upload">
-						Press here to upload the files and data!
-				</form>
-			</div>
+	<jsp:include page="navbar.jsp"></jsp:include>
+	<div class="wrapper">
+		<form class= "upload-form" id="upload-form" method="POST" action="uploadMultipleFile2" enctype="multipart/form-data">
+		<h3 class= "form-heading">Upload Template</h3>
+		<div id= "error-div"></div>
+		<hr class="colorgraph">
+		<div class="input-group col-xs-12">
+			<input id= "name" class="form-control data-input" placeholder="Template Name" name="name" type="text">
 		</div>
+		<br>
+		<div class="input-group col-xs-12">
+			<textarea rows="3" class="form-control data-input" name = "description" id="description" placeholder="Template Description"></textarea>
+		</div>
+		<br>
+		<div class="input-group col-xs-12">
+			<input id= "price" class="form-control data-input" placeholder="Template Price (Leave blank to set as free)" name="price" type="text">
+		</div>
+		<br>
+		<div class= "input-group col-xs-12">
+			<span class="file-input btn btn-block btn-default btn-file">
+				Pick An Preview Image <input id= "pic" name= "pic" type="file" class="form-control data-input" >
+			</span>
+		</div>
+		<br>
+		<div class= "input-group col-xs-12">
+			<span class="file-input btn btn-block btn-default btn-file">
+				Pick A Template <input id= "file" name= "file" type="file" class="form-control data-input" >
+			</span>
+		</div>
+		<br>
+		<button class="loginbtn btn btn-lg btn-success btn-block" name="submit" id="uploadBtn"
+				type="submit">Upload</button>
+		<br>
+		</form>
 	</div>
 </body>
 </html>

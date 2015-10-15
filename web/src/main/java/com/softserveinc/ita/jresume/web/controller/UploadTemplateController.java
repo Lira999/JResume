@@ -26,6 +26,12 @@ import com.softserveinc.ita.jresume.common.entity.Template;
 @Controller
 public class UploadTemplateController {
     
+    /**
+     * Path to folder to save files.
+     */
+    private static final String FILE_PATH =
+            (System.getProperty("catalina.home") + "/webapps/Files");
+            
     /** Variable for access to data storage. */
     @Autowired
     private TemplateService templateService;
@@ -59,44 +65,38 @@ public class UploadTemplateController {
     }
     
     /**
-     * Controller to save files on server.
+     * Save files on server side.
      * 
      * @param name
      *            name of files to be created.
      * @param files
      *            files to be saved.
-     * @return message
+     * @return true if files saved successfully or false in case of errors
+     *         during saving
      */
-    @RequestMapping(value = "/uploadtemplatefile", method = RequestMethod.POST)
+    @RequestMapping(value = "/uploadfiles", method = RequestMethod.POST)
     @ResponseBody
-    public final String uploadMultipleFileHandler(
+    public final boolean uploadMultipleFileHandler(
             @RequestParam("name") final String name,
             @RequestParam("file") final MultipartFile[] files) {
-        String message = "";
+        boolean result = false;
         for (int i = 0; i < files.length; i++) {
             MultipartFile file = files[i];
             try {
                 String fileExtension =
                         FilenameUtils.getExtension(file.getOriginalFilename());
                 String nameOfFile = (name + "." + fileExtension);
-                String filedir = (System.getProperty("catalina.home")
-                        + "/webapps/Files");
-                String filepath = Paths.get(filedir, nameOfFile).toString();
+                String filepath = Paths.get(FILE_PATH, nameOfFile).toString();
                 BufferedOutputStream stream = new BufferedOutputStream(
                         new FileOutputStream(new File(filepath)));
                 stream.write(file.getBytes());
                 stream.close();
-                message =
-                        message + "You successfully uploaded file="
-                                + nameOfFile
-                                + "<br />";
+                result = true;
             } catch (IOException e) {
-                message =
-                        message + "You failed to upload " + " => "
-                                + e.getMessage();
+                result = false;
             }
         }
-        return message;
+        return result;
     }
     
     /**
