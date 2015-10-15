@@ -5,15 +5,16 @@ package com.softserveinc.ita.jresume.common.entity;
 
 import java.util.Date;
 
-import javax.persistence.EntityListeners;
-import javax.persistence.Id;
 import javax.persistence.Column;
+import javax.persistence.EntityListeners;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
+import javax.persistence.Id;
 import javax.persistence.MappedSuperclass;
 import javax.persistence.Temporal;
 import javax.persistence.TemporalType;
 
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import com.softserveinc.ita.jresume.common.entity.entityListener
 
 .BaseEntityListener;
@@ -21,6 +22,7 @@ import com.softserveinc.ita.jresume.common.entity.entityListener
 /**
  * Describe Base entity class.
  */
+@JsonIgnoreProperties({"hibernateLazyInitializer", "handler"})
 @EntityListeners(BaseEntityListener.class)
 @MappedSuperclass
 public class Base {
