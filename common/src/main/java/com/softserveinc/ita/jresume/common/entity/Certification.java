@@ -1,12 +1,16 @@
 package com.softserveinc.ita.jresume.common.entity;
 
+import javax.persistence.CascadeType;
+import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.FetchType;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 import javax.persistence.Table;
-import javax.persistence.CascadeType;
-import javax.persistence.Column;
+import javax.xml.bind.annotation.XmlAccessType;
+import javax.xml.bind.annotation.XmlAccessorType;
+import javax.xml.bind.annotation.XmlElement;
+import javax.xml.bind.annotation.XmlRootElement;
 
 /**
  * This class describes Certification entity which stores the information about
@@ -17,6 +21,8 @@ import javax.persistence.Column;
  * 
  * @author Andriy Luchko
  */
+@XmlRootElement(name = "certification")
+@XmlAccessorType(XmlAccessType.NONE)
 @Entity
 @Table(name = "certification")
 public class Certification extends Base {
@@ -24,12 +30,14 @@ public class Certification extends Base {
     /**
      * Describes the name of a certificate.
      */
+    @XmlElement
     @Column(name = "name")
     private String name;
     
     /**
      * Describes the year when the certificate was gained.
      */
+    @XmlElement
     @Column(name = "yearReceived")
     private Short yearReceived;
     
@@ -46,7 +54,7 @@ public class Certification extends Base {
     @ManyToOne(fetch = FetchType.LAZY, cascade = CascadeType.ALL)
     @JoinColumn(name = "usetInformationId")
     private UserInformation userInformation;
-
+    
     /**
      * Sets the certificates name.
      * 
@@ -63,8 +71,7 @@ public class Certification extends Base {
      * @param newYearReceived
      *            a year when developer got a certificate
      */
-    public final void setYearReceived(
-            final Short newYearReceived) {
+    public final void setYearReceived(final Short newYearReceived) {
         yearReceived = newYearReceived;
     }
     

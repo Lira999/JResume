@@ -5,53 +5,66 @@ import javax.persistence.Entity;
 import javax.persistence.JoinColumn;
 import javax.persistence.OneToOne;
 import javax.persistence.Table;
+import javax.xml.bind.annotation.XmlElement;
+import javax.xml.bind.annotation.XmlRootElement;
 
 /**
  * Describe SoftServeUserInformation entity class.
  * 
  * @author Bohdan Khudoba
  */
+@XmlRootElement(name = "userInformation")
 @Entity
 @Table(name = "softServeUserInformation")
 public class SoftServeUserInformation extends UserInformation {
     
     /** Column for programmingLanguages. */
+    @XmlElement
     @Column(name = "programmingLanguages")
     private String programmingLanguages;
     
     /** Column for technologies. */
+    @XmlElement
     @Column(name = "technologies")
     private String technologies;
     
     /** Column for rdbms. */
+    @XmlElement
     @Column(name = "rdbms")
     private String rdbms;
     
     /** Column for methodologies. */
+    @XmlElement
     @Column(name = "methodologies")
     private String methodologies;
     
     /** Column for frameworks. */
+    @XmlElement
     @Column(name = "frameworks")
     private String frameworks;
     
     /** Column for webServers. */
+    @XmlElement
     @Column(name = "webServers")
     private String webServers;
     
     /** Column for tools. */
+    @XmlElement
     @Column(name = "tools")
     private String tools;
     
     /** Column for testingTools. */
+    @XmlElement
     @Column(name = "testingTools")
     private String testingTools;
     
     /** Column for operatingSystems. */
+    @XmlElement
     @Column(name = "operatingSystems")
     private String operatingSystems;
     
     /** Column for hardware. */
+    @XmlElement
     @Column(name = "hardware")
     private String hardware;
     
@@ -75,8 +88,8 @@ public class SoftServeUserInformation extends UserInformation {
      * @param newProgrammingLanguages
      *            this programming languages new value
      */
-    public final void
-            setProgrammingLanguages(final String newProgrammingLanguages) {
+    public final void setProgrammingLanguages(
+            final String newProgrammingLanguages) {
         programmingLanguages = newProgrammingLanguages;
     }
     
@@ -266,8 +279,8 @@ public class SoftServeUserInformation extends UserInformation {
      * @param newUserInformation
      *            this userInformation new value
      */
-    public final void
-            setUserInformation(final UserInformation newUserInformation) {
+    public final void setUserInformation(
+            final UserInformation newUserInformation) {
         userInformation = newUserInformation;
     }
     

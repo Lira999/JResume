@@ -7,42 +7,56 @@ import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.FetchType;
 import javax.persistence.Inheritance;
+import javax.persistence.InheritanceType;
 import javax.persistence.JoinColumn;
 import javax.persistence.OneToMany;
 import javax.persistence.OneToOne;
 import javax.persistence.Table;
 import javax.persistence.Temporal;
 import javax.persistence.TemporalType;
-import javax.persistence.InheritanceType;
+import javax.xml.bind.annotation.XmlElement;
+import javax.xml.bind.annotation.XmlElementWrapper;
+import javax.xml.bind.annotation.XmlElements;
+import javax.xml.bind.annotation.XmlRootElement;
+import javax.xml.bind.annotation.adapters.XmlJavaTypeAdapter;
+
+import com.softserveinc.ita.jresume.common.adapter.JAXBDateAdapter;
 
 /**
  * Describe UserInformation entity class.
  * 
  * @author Bohdan Khudoba
  */
+@XmlRootElement(name = "userInformation")
 @Entity
 @Table(name = "userInformation")
 @Inheritance(strategy = InheritanceType.JOINED)
 public class UserInformation extends Base {
     
     /** Column for first name. */
+    @XmlElement
     @Column(name = "firstName")
     private String firstName;
     
     /** Column for last name. */
+    @XmlElement
     @Column(name = "lastName")
     private String lastName;
     
     /** Column for birth date. */
+    @XmlElement
+    @XmlJavaTypeAdapter(JAXBDateAdapter.class)
     @Temporal(TemporalType.DATE)
     @Column(name = "birthDate")
     private Date birthDate;
     
     /** Column for position. */
+    @XmlElement
     @Column(name = "position")
     private String position;
     
     /** Column for summary. */
+    @XmlElement(name = "summary")
     @Column(name = "summary")
     private String summary;
     
@@ -58,6 +72,8 @@ public class UserInformation extends Base {
      * All projects associated with information about this user. One to many
      * relationship references with mark table.
      */
+    @XmlElements({ @XmlElement(name = "project", type = Project.class), })
+    @XmlElementWrapper(name = "projects")
     @OneToMany(fetch = FetchType.LAZY, mappedBy = "userInformation")
     private List<Project> projects;
     
@@ -65,6 +81,8 @@ public class UserInformation extends Base {
      * All information about user's education are linked with information about
      * this user. One to many relationship references with mark table.
      */
+    @XmlElements({ @XmlElement(name = "education", type = Education.class), })
+    @XmlElementWrapper(name = "educations")
     @OneToMany(fetch = FetchType.LAZY, mappedBy = "userInformation")
     private List<Education> education;
     
@@ -72,9 +90,12 @@ public class UserInformation extends Base {
      * All certifications of user are associated with information about this
      * user. One to many relationship references with mark table.
      */
+    @XmlElements({ @XmlElement(name = "certification",
+            type = Certification.class), })
+    @XmlElementWrapper(name = "certifications")
     @OneToMany(fetch = FetchType.LAZY, mappedBy = "userInformation")
     private List<Certification> certification;
-    
+
     /**
      * Public constructor for class UserInformation.
      */

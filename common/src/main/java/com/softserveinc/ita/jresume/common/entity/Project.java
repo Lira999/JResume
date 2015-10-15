@@ -1,12 +1,16 @@
 package com.softserveinc.ita.jresume.common.entity;
 
+import javax.persistence.CascadeType;
+import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.FetchType;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 import javax.persistence.Table;
-import javax.persistence.CascadeType;
-import javax.persistence.Column;
+import javax.xml.bind.annotation.XmlAccessType;
+import javax.xml.bind.annotation.XmlAccessorType;
+import javax.xml.bind.annotation.XmlElement;
+import javax.xml.bind.annotation.XmlRootElement;
 
 /**
  * This class describes Project entity which stores the information about
@@ -17,6 +21,8 @@ import javax.persistence.Column;
  * 
  * @author Andriy Luchko
  */
+@XmlRootElement(name = "project")
+@XmlAccessorType(XmlAccessType.NONE)
 @Entity
 @Table(name = "project")
 public class Project extends Base {
@@ -24,36 +30,42 @@ public class Project extends Base {
     /**
      * Project description.
      */
+    @XmlElement
     @Column(name = "description")
     private String description;
     
     /**
      * Describes project's customer.
      */
+    @XmlElement
     @Column(name = "customer")
     private String customer;
     
     /**
      * Describes the role of which was involved.
      */
+    @XmlElement
     @Column(name = "role")
     private String role;
     
     /**
      * Describes project's team size.
      */
+    @XmlElement
     @Column(name = "teamSize")
     private Short teamSize;
     
     /**
      * Describes involvement duration in a project.
      */
+    @XmlElement
     @Column(name = "involvementDuration")
     private Byte involvementDuration;
     
     /**
      * Describes tools and technologies which were used in a project.
      */
+    @XmlElement
     @Column(name = "tools")
     private String tools;
     

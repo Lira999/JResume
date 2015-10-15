@@ -1,12 +1,16 @@
 package com.softserveinc.ita.jresume.common.entity;
 
+import javax.persistence.CascadeType;
+import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.FetchType;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 import javax.persistence.Table;
-import javax.persistence.CascadeType;
-import javax.persistence.Column;
+import javax.xml.bind.annotation.XmlAccessType;
+import javax.xml.bind.annotation.XmlAccessorType;
+import javax.xml.bind.annotation.XmlElement;
+import javax.xml.bind.annotation.XmlRootElement;
 
 /**
  * This class describes Education entity which stores the developer's university
@@ -17,6 +21,8 @@ import javax.persistence.Column;
  * 
  * @author Andriy Luchko
  */
+@XmlRootElement(name = "education")
+@XmlAccessorType(XmlAccessType.NONE)
 @Entity
 @Table(name = "education")
 public class Education extends Base {
@@ -24,30 +30,35 @@ public class Education extends Base {
     /**
      * Describes the university in which the developer studied.
      */
+    @XmlElement
     @Column(name = "university")
     private String university;
     
     /**
      * Describes the degree which was gained.
      */
+    @XmlElement
     @Column(name = "degreeReceived")
     private String degreeReceived;
     
     /**
      * Describes the name of a school.
      */
+    @XmlElement(name = "schoolName")
     @Column(name = "schoolName")
     private String schoolName;
     
     /**
      * Describes the name of a department.
      */
+    @XmlElement
     @Column(name = "department")
     private String department;
     
     /**
      * Describes the year of graduation.
      */
+    @XmlElement
     @Column(name = "graduationYear")
     private Short graduationYear;
     
