@@ -9,8 +9,6 @@ import javax.persistence.FetchType;
 import javax.persistence.OneToMany;
 import javax.persistence.Table;
 
-import com.fasterxml.jackson.annotation.JsonBackReference;
-
 /**
  * Class represents template table in database.
  */
@@ -37,9 +35,8 @@ public class Template extends Base {
      * All marks associated with this template. One to many relationship
      * references with mark table.
      */
-    @OneToMany(fetch = FetchType.EAGER, mappedBy = "template",
+    @OneToMany(fetch = FetchType.LAZY, mappedBy = "template",
             cascade = CascadeType.PERSIST)
-    @JsonBackReference
     private List<Mark> marks;
     
     /**

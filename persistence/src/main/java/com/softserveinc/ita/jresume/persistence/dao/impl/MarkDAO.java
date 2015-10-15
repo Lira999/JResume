@@ -2,6 +2,7 @@ package com.softserveinc.ita.jresume.persistence.dao.impl;
 
 import java.util.List;
 
+import com.softserveinc.ita.jresume.common.dto.MarkDTO;
 import com.softserveinc.ita.jresume.common.entity.Mark;
 import com.softserveinc.ita.jresume.persistence.dao.GenericDAO;
 
@@ -15,14 +16,16 @@ public interface MarkDAO extends GenericDAO<Mark, Long> {
     /**
      * Create new mark by templateId.
      * 
-     * @param mark
-     *            Mark to be created.
+     * @param markDto
+     *            Mark to be mapped from markDto.
      * @param templateId
-     *            Find mark based on templateId.
-     * @return created mark.
+     *            Mark associated with Template by templateId.
+     * @param userId
+     *            Mark associated with User by userId.
      */
-    Mark create(final Mark mark, long templateId);
-    
+     void create(final MarkDTO markDto, final Long templateId,
+                    final Long userId);
+                    
     /**
      * Find marks associated with this templateId.
      * 
@@ -30,6 +33,6 @@ public interface MarkDAO extends GenericDAO<Mark, Long> {
      *            templateId of the template
      * @return the comments and marks associated with this template
      */
-    List<Mark> findByTemplateId(Long templateId);
-    
+     List<Mark> findByTemplateId(Long templateId);
+            
 }

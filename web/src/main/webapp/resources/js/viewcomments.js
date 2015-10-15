@@ -30,7 +30,7 @@ $(document).ready(function () {
 	        						'&nbsp&nbsp&nbsp' + response[i].createdBy +
 	        					'</div>' +
 	        					'<div class="col-md-offset-11">' +
-        							'<h6>' + moment(response[i].createDate).format('DD-MM-YY ') + '</h6>' +
+        							'<h6>' + moment(response[i].createDate).format('DD-MMM-YYYY ') + '</h6>' +
         						'</div>' +
 	        				'</div>' +
 	        			'</div>' +

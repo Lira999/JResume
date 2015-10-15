@@ -7,9 +7,6 @@
 <div class="row">
 	<div class="col-md-12">
 		<div class="row" id="post-review-box">
-		<div class="col-md-3">
-			<h3>UserName</h3>
-		</div>
 		<div class="col-md-offset-9">
 			<input id="rating-input" type="number" name="rating" data-size="xs"/>
 		</div>

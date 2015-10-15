@@ -1,9 +1,11 @@
 package com.softserveinc.ita.jresume.business.service;
 
 import java.util.List;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import com.softserveinc.ita.jresume.common.dto.MarkDTO;
 import com.softserveinc.ita.jresume.common.entity.Mark;
 import com.softserveinc.ita.jresume.persistence.dao.impl.MarkDAO;
 
@@ -18,22 +20,25 @@ public class CommentService {
     /** MarkDAO for access to data storage. */
     @Autowired
     private MarkDAO markDao;
-
+    
     /**
      * Create a new mark.
      * 
-     * @param mark
-     *            to be created.
-     * @param templateId associated with mark.
-     * @return created mark.
+     * @param markDto
+     *            Data transfer object for Mark.
+     * @param templateId
+     *            associated with template.
+     * @param userId
+     *            associated with user.
      */
-    public final Mark create(final Mark mark, final long templateId) {
-        return markDao.create(mark, templateId);
+    public final void create(final MarkDTO markDto, final long templateId,
+            final long userId) {
+        markDao.create(markDto, templateId, userId);
     }
     
     /**
      * Update information mark.
-     * 
+     *
      * @param mark
      *            object mark to be updated.
      *            
@@ -45,7 +50,7 @@ public class CommentService {
     
     /**
      * Delete mark from data storage.
-     * 
+     *
      * @param mark
      *            the mark to be deleted.
      */
@@ -64,7 +69,7 @@ public class CommentService {
     
     /**
      * Find all comments and marks.
-     * 
+     *
      * @return a list of all comments and marks.
      */
     public final List<Mark> findAll() {

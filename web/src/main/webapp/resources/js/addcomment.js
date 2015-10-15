@@ -29,9 +29,6 @@ $(function() {
 			        		else var mark = new String('<span class="glyphicon glyphicon-star"></span>'	);
 			        		
 			        		
-			        		var unixDate = new Date(newComment.createDate);
-			        		var date = unixDate.getDate() + '-' + (unixDate.getMonth()+1) + '-' + unixDate.getFullYear();
-			        		
 			        		$('#container').prepend(
 			        			'<div class="row">' +
 				        			'<hr />' +	
@@ -44,7 +41,7 @@ $(function() {
 				        						'&nbsp&nbsp&nbsp' + newComment.createdBy +
 				        					'</div>' +
 				        					'<div class="col-md-offset-11">' +
-			        							'<h6>' + date + '</h6>' +
+			        							'<h6>' + moment(newComment.createDate).format('DD-MMM-YYYY ') + '</h6>' +
 			        						'</div>' +
 				        				'</div>' +
 				        			'</div>' +
