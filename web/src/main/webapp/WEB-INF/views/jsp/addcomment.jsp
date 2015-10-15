@@ -18,11 +18,11 @@
 				<div class="row lead">
 					<div class="addbutton">
 						<div class="col-xs-2 col-md-offset-10">
-					    	<button id="addbutton" class="btn-success btn-lg btn-block btn" type="button" disabled>Add</button>
+							<button id="addbutton" class="add-comment-btn btn-success btn-lg btn-block btn" type="button" disabled>Add</button>
 						</div>
 					</div>
 				</div>
 			</form>
-		</div> 
+		</div>
 	</div>
 </div>

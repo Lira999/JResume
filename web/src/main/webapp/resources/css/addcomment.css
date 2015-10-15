@@ -1,7 +1,11 @@
 .addbutton {
-	margin-top: 5px;
+	margin-top: 10px !important;
 }
 
 #comment {
 	display: inline !important;
+}
+
+.add-comment-btn {
+	min-width: 90px !important;
 }

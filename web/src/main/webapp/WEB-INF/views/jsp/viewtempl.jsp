@@ -2,43 +2,37 @@
 <!DOCTYPE html/>
 <html>
 <head>
-    <title>This Template</title>
-    <jsp:include page="generic.jsp"/>
-    <link href="resources/css/viewtempl.css" rel="stylesheet">
+	<title></title>
+	<jsp:include page="generic.jsp"/>
+	<link href="resources/css/viewtempl.css" rel="stylesheet">
 	<script src="resources/js/viewtempl.js"></script>
 </head>
 <body>
 <jsp:include page="navbar.jsp"></jsp:include>
-  <div class="container" id="view">
-    <div class="well well-lg">
-		<h2 id = "name"></h2>
-		<hr class="colorgraph">
-			<div class="row">
-			<div class="col-xs-12 col-sm-12">
-					<p class="about" id="description"></p>	
-			</div>
-			<br/>
-			<div class="col-xs-12 col-sm-8 col-md-offset-2">
-				<div class ="img-responsive img-thumbnail thumbnail" id="img"></div>
-			</div>
-			</div>
-			<div class="col-xs-2 col-md-offset-8">
-				<button class="btn btn-lg button btn-block  " id="control" type="button"></button>
-			</div>
-			
-			<div class="col-xs-4 col-md-7">
-				<div class="row lead">
-					<div id="stars" class="starrr"></div>
+<div class="container" id="view">
+	<div class="row">
+		<div class="center col-lg-10">
+			<div class="well well-lg" id= "well">
+				<div id= "page-content">
+					<h2 class="title" id= "name"></h2>
+					<hr class="colorgraph">
+					<div class ="img-responsive img-thumbnail thumbnail" id="img"></div>
+						<h4><strong>Description</strong></h4>
+						<p class="about" id="description"></p>
+						<br>
+						<div class= "center col col-sm-3">
+							<button class="btn btn-lg btn-block" id="control" type="button"></button>
+						</div>
+						<br>
+						<h4><strong>Customer Reviews</strong></h4>
+						<jsp:include page="viewcomments.jsp"/>
+						<br>
+						<h4><strong>Leave a Customer Review</strong></h4>
+						<jsp:include page="addcomment.jsp"/>
 				</div>
 			</div>
-			<footer>
-			<div class="row"></div>
-			</footer>
-		<br>
-		<br>
-		<jsp:include page="addcomment.jsp"/>
-		<jsp:include page="viewcomments.jsp"/>
-    </div>
+		</div>
+	</div>
 </div>
 </body>
 </html>

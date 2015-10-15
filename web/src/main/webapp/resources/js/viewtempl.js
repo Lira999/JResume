@@ -1,36 +1,28 @@
-"use strict";
-
 $(document).ready(function () {
-	
     $.ajax({
-    	type: 'GET',
+        type: 'GET',
         url: document.location.href +'/res',
         dataType: 'json',
         contentType: "application/json",
-        success: function (response) {
-         	 $('#name').append(response.name+" Template");
-         	 $('#description').append(response.description);
-         	 var image = new String("<img src='./resources/templates/" + response.name + ".png'>");
-         	 $('#img').append(image);
-         	 if (response.price == null && typeof $(".btn") != "btn btn-success  btn-lg") {
-         	 $("#control").addClass("btn btn-success  btn-lg").append("Use");
-         	 } else {
-         		$("#control").addClass("btn-danger btn-lg").append("Buy " + response.price + " $");
-         	 }
+        success: function (template) {
+             document.title = template.name + ' - JResume';
+             $('#name').append(template.name);
+             $('#description').append(template.description);
+             var image = '<img src="./resources/templates/' + template.name + '.png">';
+             $('#img').append(image);
+             if (template.price === null) {
+             $("#control").addClass("btn-success").append("Use!");
+             } else {
+                 $("#control").addClass("btn-danger").append("Buy " + template.price + " $");
+             }
         },
-        error: function(data,status,er) {
-        	$("<div>" +
-        		    "<p><strong>Error:</strong>" + 
-        				"JResume encountered some internal problems. " +
-        	            "We working to resolve the issue as " +
-        	            "soon as possible." + 
-        	            " Please, try again later." + 
-        			"</p>" +
-        		  	"</div>")
-        		  	    .addClass('error alert alert-danger fade in')	   
-        		  	    .appendTo('div#row');  
-        	$('#control').hide();
-        		}
-        
+        error: function() {
+            $('#page-content').hide();
+            var errormessage = '<div class="center error alert alert-danger ' +
+            'fade in"><strong>Error: </strong>JResume encountered some ' +
+            'internal problems. We working to resolve the issue as soon ' + 
+            'as possible.  Please, try again later.</div>'
+            $('#well').append(errormessage);
+        }
     });
 });
