@@ -18,21 +18,21 @@
    
   <h1>Resume templates</h1>
   <hr class="colorgraph">       
-  <form class="form-inline" role="form">
+  <form class="form-inline" role="form" id="select">
     <div class="form-group">
       <label for="sel1">View:</label>
-        <select class="form-control">
-          <option>all</option>
-          <option>only free</option>
-          <option>only paid</option>
+        <select class="form-control" id="view">
+          <option value="ALL">all</option>
+          <option value="FREE">only free</option>
+          <option value="PAID">only paid</option>
         </select>
     </div>
     <div class="form-group">
       <label for="sel1">Order by:</label>
-        <select class="form-control">
-          <option>newest</option>
-          <option>popular</option>
-          <option>price</option>
+        <select class="form-control" id="sortBy">
+          <option  value="NEWEST">newest</option>
+          <option value="POPULAR">popular</option>
+          <option value="PRICE">price</option>
         </select>
     </div>    
   </form>
