@@ -15,6 +15,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
+import org.springframework.web.multipart.MaxUploadSizeExceededException;
 import org.springframework.web.multipart.MultipartFile;
 import com.softserveinc.ita.jresume.business.service.TemplateService;
 import com.softserveinc.ita.jresume.common.entity.Template;
@@ -93,7 +94,7 @@ public class UploadTemplateController {
                 stream.write(file.getBytes());
                 stream.close();
                 result = true;
-            } catch (IOException e) {
+            } catch (MaxUploadSizeExceededException | IOException e) {
                 result = false;
                 break;
             }

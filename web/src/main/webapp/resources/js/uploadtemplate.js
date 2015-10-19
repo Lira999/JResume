@@ -117,12 +117,11 @@ function writeFiles() {
 			}
 		},
 		error : function(result) {
-			//shown in case of some problems on server side
+			//shown in case of some problems on server side e.g. file size exceeded
 			$('#error-div').empty();
-			var errorMessage = '<div class="alert error alert-danger fade in">' + 
-			'<strong>Error: </strong>JResume encountered some internal' + 
-			' problems. We working to resolve the issue as soon as possible.' + 
-			' Please, try again later.</div>';
+			var errorMessage = '<div class="alert error alert-danger fade' +
+			' in">Upload failed. We accept only files, less then 1 MB. Please,' +
+			' check your files and try again later.</div>';
 			$('#error-div').prepend(errorMessage);
 		}
 	});
