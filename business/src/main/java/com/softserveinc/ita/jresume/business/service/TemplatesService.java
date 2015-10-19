@@ -31,5 +31,20 @@ public class TemplatesService {
         return templateDAO.findAll();
     }
     
+    /**
+     * Method witch load and sort templates.
+     * 
+     * @param viewOnly
+     *            parameter for selecting templates in accordance price
+     *            
+     * @param sortBy
+     *            sort template by this parameter
+     *            
+     * @return list of all available templates
+     */
+    public final List<Template> findAndSort(final String viewOnly,
+            final String sortBy) {
+        return templateDAO.findAndSort(viewOnly, sortBy);
+    }
     
 }

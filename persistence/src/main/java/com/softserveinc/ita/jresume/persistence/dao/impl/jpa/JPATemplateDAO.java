@@ -37,4 +37,38 @@ public class JPATemplateDAO extends JPAGenericDAO<Template, Long>
         return target;
     }
     
+    @Override
+    @SuppressWarnings("unchecked")
+    public final List<Template> findAndSort(final String viewOnly,
+            final String sortBy) {
+        String str1 = " ";
+        String str2 = " ";
+        switch (viewOnly) {
+        case "ALL":
+            str1 = " ";
+            break;
+        case "FREE":
+            str1 = " WHERE price IS null";
+            break;
+        case "PAID":
+            str1 = " WHERE price > 0";
+            break;
+        default:
+            str1 = " ";
+        }
+        switch (sortBy) {
+        case "NEWEST":
+            str2 = " ORDER BY createDate DESC";
+            break;        
+        case "PRICE":
+            str2 = " ORDER BY price ";
+            break;
+        default:
+            str2 = " ";
+        }
+        Query query =
+                getEntityManager().createQuery("FROM Template" + str1 + str2);
+        return query.getResultList();
+    }
+    
 }
