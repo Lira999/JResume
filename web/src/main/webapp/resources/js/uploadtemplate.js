@@ -10,13 +10,15 @@ $(function() {
 			$(element).closest('.input-group').removeClass('has-success');
 			$(element).closest('.input-group').addClass('has-error');
 			$(element).nextAll('.glyphicon').remove();
-			$(element).after('<span class="glyphicon glyphicon-remove form-control-feedback"></span>');
+			$(element).after('<span class="glyphicon glyphicon-remove '+
+			'form-control-feedback"></span>');
 		},
 		unhighlight: function(element) {
 			$(element).closest('.input-group').removeClass('has-error');
 			$(element).closest('.input-group').addClass('has-success');
 			$(element).nextAll('.glyphicon').remove();
-			$(element).after('<span class="glyphicon glyphicon-ok form-control-feedback"></span>');
+			$(element).after('<span class="glyphicon glyphicon-ok form-control' +
+			'-feedback"></span>');
 		}
 	});
 	$('#upload-form').validate({
@@ -75,7 +77,9 @@ $(function() {
 					trigger: 'manual',
 					placement: 'right',
 					content: $(error).text(),
-					template: '<div class="popover"><div class="arrow"></div><div class="popover-inner"><div class="popover-content"><p></p></div></div></div>'
+					template: '<div class="popover"><div class="arrow">' +
+					'</div><div class="popover-inner"><div class="popover-' +
+					'content"><p></p></div></div></div>'
 				});
 				popover.data('bs.popover').options.content = $(error).text();
 				$(element).parent().popover('show');
@@ -85,7 +89,6 @@ $(function() {
 			},
 			submitHandler : function(form) {
 				writeFiles();
-				createDBEntry();
 			}
 		});
 });
@@ -103,14 +106,24 @@ function writeFiles() {
 		contentType : false,
 		success : function(result) {
 			if (result) {
-				location.href = 'templates';
+				createDBEntry();
 			} else {
-				var errorMessage = '<div class="alert error alert-danger fade in">Upload failed. Please, try again later.</div>';
+				//shown in case of error during file upload
+				$('#error-div').empty();
+				var errorMessage = '<div class="alert error alert-danger fade' +
+				' in">Upload failed. Your files seems to be not valid. Please,' +
+				' check them and try again later.</div>';
 				$('#error-div').prepend(errorMessage);
 			}
 		},
 		error : function(result) {
-			
+			//shown in case of some problems on server side
+			$('#error-div').empty();
+			var errorMessage = '<div class="alert error alert-danger fade in">' + 
+			'<strong>Error: </strong>JResume encountered some internal' + 
+			' problems. We working to resolve the issue as soon as possible.' + 
+			' Please, try again later.</div>';
+			$('#error-div').prepend(errorMessage);
 		}
 	});
 }
@@ -128,8 +141,16 @@ function createDBEntry() {
 		contentType: 'application/json',
 		data: data,
 		success: function(data) {
+		location.href = 'templates';
 	},
 		error:function(data,status,er) {
+			//shown in case of some problems on server side
+			$('#error-div').empty();
+			var errorMessage = '<div class="alert error alert-danger fade in">' + 
+			'<strong>Error: </strong>JResume encountered some internal' + 
+			' problems. We working to resolve the issue as soon as possible.' + 
+			' Please, try again later.</div>';
+			$('#error-div').prepend(errorMessage);
 		}
 	});
 }

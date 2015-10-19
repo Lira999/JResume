@@ -30,9 +30,10 @@ public class UploadTemplateController {
      * Path to folder to save files.
      */
     private static final String FILE_PATH =
-            (System.getProperty("catalina.home") + "/webapps/Files");
-            
-    /** Variable for access to data storage. */
+            "/var/lib/openshift/56251b0d7628e1759a000003/"
+                    + "jbossews/webapps/Files";
+                    
+    /** Template service to operate with template objects. */
     @Autowired
     private TemplateService templateService;
     
@@ -94,6 +95,7 @@ public class UploadTemplateController {
                 result = true;
             } catch (IOException e) {
                 result = false;
+                break;
             }
         }
         return result;
