@@ -9,11 +9,12 @@
 	<authentication-manager>
 		<authentication-provider user-service-ref="userDetailsService" />
 	</authentication-manager>
-
+	
 	<http pattern="/resources/**" security="none"/>
 	
 	<http auto-config="true"  use-expressions="true">
-		<!-- both admin and user can access secure content -->
+		<intercept-url pattern="/" access="permitAll"/>
+		<intercept-url pattern="/index" access="permitAll"/>
 		<intercept-url pattern="/getCurrentUserFullName" access="permitAll"/>
 		<intercept-url pattern="/login" access="permitAll"/>
 		<intercept-url pattern="/register" access="permitAll"/>
