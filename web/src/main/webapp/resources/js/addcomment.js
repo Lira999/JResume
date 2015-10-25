@@ -1,7 +1,7 @@
 $(function() {
 	
 	function sendAjax() {
-		var startPosition = document.location.href.indexOf('viewtempl')+'viewtempl'.length;
+		var startPosition = document.location.href.indexOf('viewtemplate/')+'viewtemplate/'.length;
 	    var id = document.location.href.substring(startPosition, document.location.href.length);
 	    
 		var data = JSON.stringify ({

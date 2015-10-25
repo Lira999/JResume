@@ -14,7 +14,7 @@ import com.softserveinc.ita.jresume.common.entity.Template;
  * Controller for view template page with current id.
  */
 @Controller
-@RequestMapping(value = "/viewtempl{id}")
+@RequestMapping(value = "/viewtemplate/{id}")
 public class ViewTemplateController {
     
     /** Template service to operate with Template objects. */
@@ -28,7 +28,7 @@ public class ViewTemplateController {
      */
     @RequestMapping(value = "", method = RequestMethod.GET)
     public final String viewTemplate() {
-        return "viewtempl";
+        return "viewtemplate";
     }
     
     /**
