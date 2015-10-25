@@ -17,12 +17,7 @@ $(document).ready(function () {
              }
         },
         error: function() {
-            $('#page-content').hide();
-            var errormessage = '<div class="center error alert alert-danger ' +
-            'fade in"><strong>Error: </strong>JResume encountered some ' +
-            'internal problems. We working to resolve the issue as soon ' + 
-            'as possible.  Please, try again later.</div>'
-            $('#well').append(errormessage);
+            showErrorMessage('#well');
         }
     });
 });

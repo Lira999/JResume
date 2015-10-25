@@ -28,7 +28,7 @@ function getCurrentUserFullName() {
         var errorMessage = '<li><a href="#"><span class="glyphicon ' + 
         'glyphicon-exclamation-sign"></span><strong> Error: </strong> ' + 
         'Something went wrong. Please, try to refresh page.</a></li>';
-        $('#toggles').prepend(errorMessage);
+        showErrorMessage('#toggles', errorMessage);
     }
     });
 }

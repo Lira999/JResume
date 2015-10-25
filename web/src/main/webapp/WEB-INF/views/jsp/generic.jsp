@@ -6,3 +6,5 @@
 <script src="resources/js/lib/bootstrap/bootstrap.js"></script>
 <!-- Body style for all pages -->
 <link rel="stylesheet" href="resources/css/generic.css">
+<!-- Basic script -->
+<script src="resources/js/generic.js"></script>
