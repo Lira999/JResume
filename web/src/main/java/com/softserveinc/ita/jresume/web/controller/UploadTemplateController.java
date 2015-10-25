@@ -8,7 +8,9 @@ import java.nio.file.Paths;
 import java.util.HashMap;
 import java.util.Map;
 import org.apache.commons.io.FilenameUtils;
+import org.apache.log4j.Logger;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -30,14 +32,21 @@ public class UploadTemplateController {
     /**
      * Path to folder to save files.
      */
-    private static final String FILE_PATH =
-            "/var/lib/openshift/56251b0d7628e1759a000003/"
-                    + "jbossews/webapps/Files";
-                    
-    /** Template service to operate with template objects. */
+    @Value("${fileUpload.path}")
+    private String uploadPath;
+    
+    /**
+     * Template service to operate with template objects.
+     */
     @Autowired
     private TemplateService templateService;
     
+    /**
+     * Logger instance.
+     */
+    private static final Logger LOGGER =
+            Logger.getLogger(UploadTemplateController.class);
+            
     /**
      * uploadtemplate page mapping.
      * 
@@ -84,17 +93,20 @@ public class UploadTemplateController {
         boolean result = false;
         for (int i = 0; i < files.length; i++) {
             MultipartFile file = files[i];
+            LOGGER.info("Start writing file " + file.getName());
             try {
                 String fileExtension =
                         FilenameUtils.getExtension(file.getOriginalFilename());
                 String nameOfFile = (name + "." + fileExtension);
-                String filepath = Paths.get(FILE_PATH, nameOfFile).toString();
+                String filepath = Paths.get(uploadPath, nameOfFile).toString();
                 BufferedOutputStream stream = new BufferedOutputStream(
                         new FileOutputStream(new File(filepath)));
                 stream.write(file.getBytes());
                 stream.close();
                 result = true;
             } catch (MaxUploadSizeExceededException | IOException e) {
+                LOGGER.error("Exceprion during writing file " + file.getName(),
+                        e);
                 result = false;
                 break;
             }
@@ -113,6 +125,25 @@ public class UploadTemplateController {
     @ResponseBody
     public final Boolean checkName(final String name) {
         return templateService.findByName(name) == null;
+    }
+    
+    /**
+     * Get current file upload path.
+     * 
+     * @return current file upload path.
+     */
+    public final String getUploadPath() {
+        return uploadPath;
+    }
+    
+    /**
+     * Change current upload path.
+     * 
+     * @param newUploadPath
+     *            path to upload files
+     */
+    public final void setUploadPath(final String newUploadPath) {
+        uploadPath = newUploadPath;
     }
     
 }
