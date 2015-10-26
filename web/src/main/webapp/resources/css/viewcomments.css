@@ -1,8 +1,13 @@
+.item {
+	display: none;
+}
+
+li {
+	list-style-type: none
+}
+
 .starsposition {
 	margin-left: 40px;
-}
-.viewcommentinpage {
-	margin-right: 100px;
 }
 
 .stars {
@@ -13,4 +18,13 @@
 
 .username {
 	display: inline;
+}
+
+ul {
+	margin-left: 0;
+	padding-left: 0;
+}
+
+.viewcommentinpage {
+	margin-right: 100px;
 }
