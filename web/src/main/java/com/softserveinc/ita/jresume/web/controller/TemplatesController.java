@@ -4,9 +4,9 @@ import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
-import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
 
 import com.softserveinc.ita.jresume.common.entity.Template;
@@ -20,7 +20,7 @@ import com.softserveinc.ita.jresume.business.service.TemplatesService;
 @Controller
 @RequestMapping(value = "/templates")
 public class TemplatesController {
-        
+    
     /**
      * Variable for access to data storage.
      */
@@ -40,17 +40,6 @@ public class TemplatesController {
     /**
      * Controller for load all available templates in system.
      * 
-     * @return listTemplates all available templates
-     */
-    @RequestMapping(value = "/list", method = RequestMethod.GET)
-    @ResponseBody
-    public final List<Template> getPages() {
-        return templatesService.findAll();       
-    }
-    
-    /**
-     * Controller for load all available templates in system.
-     * 
      * @param viewOnly
      *            parameter for choosing free/paid templates
      * @param sortBy
@@ -58,13 +47,15 @@ public class TemplatesController {
      *            
      * @return listTemplates all available templates
      */
-    @RequestMapping(value = "?view={viewOnly}?sort={sortBy}?/list",
+    @RequestMapping(value = "/list",
             produces = "application/json",
             method = RequestMethod.GET)
     @ResponseBody
     public final List<Template> getCurrentlyPages(
-            @PathVariable("viewOnly") final String viewOnly,
-            @PathVariable("sortBy") final String sortBy) {
+            @RequestParam(value = "viewOnly",
+                    defaultValue = " ") final String viewOnly,
+            @RequestParam(value = "sortBy",
+                    defaultValue = " ") final String sortBy) {
         return templatesService.findAndSort(viewOnly, sortBy);
     }
 }
