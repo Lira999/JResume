@@ -15,7 +15,7 @@
 				<li><a href="index">Home</a></li>
 				<li><a href="templates">Templates</a></li>
 				<li><a href="#">About Us</a></li>
-				<li><a href="#">Support</a></li>
+				<li><a href="support">Support</a></li>
 			</ul>
 			<ul class="nav navbar-nav navbar-right" id= "toggles">
 			</ul>

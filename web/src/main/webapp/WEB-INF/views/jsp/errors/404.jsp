@@ -22,7 +22,7 @@
         <div class="panel-body">
           <h4 class="text-center">The page you’re looking for can’t be found.</h4>
           <br>
-          <h5 class="text-center">If you reached this page by clicking a link, please <a href="contact">tell us</a>.</h5>
+          <h5 class="text-center">If you reached this page by clicking a link, please <a href="support">tell us</a>.</h5>
           <br>
           <h5 class="text-center"><a href= "index">Click here</a> to return to home page</h5>
           </div>

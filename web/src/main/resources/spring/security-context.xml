@@ -17,6 +17,7 @@
 		<intercept-url pattern="/index" access="permitAll"/>
 		<intercept-url pattern="/getUserInformation" access="permitAll"/>
 		<intercept-url pattern="/emailExist" access="permitAll"/>
+		<intercept-url pattern="/support" access="permitAll"/>
 		<intercept-url pattern="/login" access="hasRole('ROLE_ANONYMOUS')"/>
 		<intercept-url pattern="/register" access="hasRole('ROLE_ANONYMOUS')"/>
 		<intercept-url pattern="/uploadtemplate" access="hasRole('ROLE_ADMIN')" />

@@ -1,0 +1,34 @@
+.support {
+	padding-top: 100px;
+	height: 100%;
+	width: 100%;
+	background-color: #063850 !important;
+	background-image: url("../images/support.png") !important;
+	background-position: center center;
+	background-repeat: no-repeat;
+}
+
+h1, h2, h3, h4, h5 {
+	font-weight: 900;
+	color: white;
+	font-size: 46px;
+}
+
+p {
+	font-weight: 700;
+	color: white;
+	font-size: 24px;
+}
+
+.inner-link {
+	color: white;
+}
+
+.inner-link:hover, .inner-link:visited, .inner-link:link, .inner-link:active {
+	color: white;
+}
+
+.content {
+	max-width: 600px;
+	margin-top: center !important;
+}
