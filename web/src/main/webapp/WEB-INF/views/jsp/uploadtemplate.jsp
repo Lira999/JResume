@@ -32,7 +32,7 @@
 		<br>
 		<div class= "input-group col-xs-12">
 			<span class="file-input btn btn-block btn-default btn-file">
-				Pick An Preview Image <input id= "pic" name= "pic" type="file" class="form-control data-input" >
+				Pick An Preview Image <input id= "pic" name= "pic" type="file" accept="png" class="form-control data-input" >
 			</span>
 		</div>
 		<br>

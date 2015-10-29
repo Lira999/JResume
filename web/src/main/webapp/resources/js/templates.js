@@ -13,7 +13,7 @@ function sendAjax() {
 	    var address = new String("viewtemplate/" + templates.id);
 	    if (templates.price == null) { var priceButton = new String("<a href=" + address + " class='btn button btn-success'>Free</a>"); }
 	   	    else { var priceButton = new String("<a href=" + address + " class='btn button btn-danger'>" + "Price " + templates.price + "$" +"</a>") }
-	    var image = new String("<img src='./resources/templates/" + templates.name + ".png'>");
+	    var image = new String("<img src='/Files/" + templates.name + ".png'>");
 	   
 	    $("<div>" +
 	   	    "<div class='thumbnail'>" +

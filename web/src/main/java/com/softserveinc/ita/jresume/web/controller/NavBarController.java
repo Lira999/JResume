@@ -27,25 +27,28 @@ public class NavBarController {
     private UserService userService;
     
     /**
-     * Returns full user name (first name and last name) of current logged in
-     * user. If system has no logged in user, returns {@code null}.
+     * Returns full user name (first name and last name) and role of current
+     * logged in user. If system has no logged in user, returns {@code null}.
      * 
      * @param principal
      *            current spring security user, logged in system
-     * @return current user's full name or {@code null} if system has no logged
-     *         in user
+     * @return array of 2 string elements, first contains current user full name
+     *         and second - current user role. Returns {@code null} if system
+     *         has no logged user
      */
-    @RequestMapping(value = "getCurrentUserFullName",
+    @RequestMapping(value = "getUserInformation",
             method = RequestMethod.GET)
     @ResponseBody
-    public final String getCurrentUserFullName(final Principal principal) {
-        String fullName = null;
+    public final String[] getUserInformation(final Principal principal) {
+        String[] information = null;
         if (principal != null) {
+            information = new String[2];
             User currentUser = userService.findByEmail(principal.getName());
-            fullName = currentUser.getFirstName() + " "
+            information[0] = currentUser.getFirstName() + " "
                     + currentUser.getLastName();
+            information[1] = currentUser.getRole().toString();
         }
-        return fullName;
+        return information;
     }
     
 }

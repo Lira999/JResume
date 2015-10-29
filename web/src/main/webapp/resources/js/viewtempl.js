@@ -8,7 +8,7 @@ $(document).ready(function () {
              document.title = template.name + ' - JResume';
              $('#name').append(template.name);
              $('#description').append(template.description);
-             var image = '<img src="./resources/templates/' + template.name + '.png">';
+             var image = '<img src="/Files/' + template.name + '.png">';
              $('#img').append(image);
              if (template.price === null) {
              $("#control").addClass("btn-success").append("Use!");
