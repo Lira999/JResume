@@ -31,16 +31,15 @@
       <label for="sel1">Order by:</label>
         <select class="form-control" id="sortBy">
           <option  value="NEWEST">newest</option>
-          <option value="POPULAR">popular</option>
+          <option value="NAME">name</option>
           <option value="PRICE">price</option>
         </select>
     </div>    
   </form>
 
 <div class="wrapper">  
-    <div class="row" id="row">
-    
-    </div>
+    <div class="row" id="row">        
+    </div>    
 </div>
 
 </div>

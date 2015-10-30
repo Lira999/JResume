@@ -49,13 +49,14 @@ public class TemplatesController {
      */
     @RequestMapping(value = "/list",
             produces = "application/json",
-            method = RequestMethod.GET)
+            method = RequestMethod.GET,
+            params = {"viewOnly", "sortBy"})
     @ResponseBody
     public final List<Template> getCurrentlyPages(
-            @RequestParam(value = "viewOnly",
-                    defaultValue = " ") final String viewOnly,
-            @RequestParam(value = "sortBy",
-                    defaultValue = " ") final String sortBy) {
+            @RequestParam("viewOnly") final String viewOnly,
+            @RequestParam("sortBy") final String sortBy) {
         return templatesService.findAndSort(viewOnly, sortBy);
     }
+    
+    
 }

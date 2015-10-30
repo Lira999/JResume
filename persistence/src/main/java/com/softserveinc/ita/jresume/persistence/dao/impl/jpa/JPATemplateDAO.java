@@ -44,9 +44,6 @@ public class JPATemplateDAO extends JPAGenericDAO<Template, Long>
         String str1 = " ";
         String str2 = " ";
         switch (viewOnly) {
-        case "ALL":
-            str1 = " ";
-            break;
         case "FREE":
             str1 = " WHERE price IS null";
             break;
@@ -61,7 +58,10 @@ public class JPATemplateDAO extends JPAGenericDAO<Template, Long>
             str2 = " ORDER BY createDate DESC";
             break;        
         case "PRICE":
-            str2 = " ORDER BY price ";
+            str2 = " ORDER BY price";
+            break;
+        case "NAME":
+            str2 = " ORDER BY name";
             break;
         default:
             str2 = " ";
