@@ -11,6 +11,8 @@ import javax.xml.transform.TransformerFactory;
 import javax.xml.transform.stream.StreamResult;
 import javax.xml.transform.stream.StreamSource;
 
+import org.springframework.stereotype.Service;
+
 import com.softserveinc.ita.jresume.business.utils.FileUtils;
 
 /**
@@ -18,6 +20,7 @@ import com.softserveinc.ita.jresume.business.utils.FileUtils;
  * 
  * @author Golovii Sergii
  */
+@Service
 public final class XsltTransformer {
     
     /**

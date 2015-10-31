@@ -18,9 +18,6 @@ import javax.xml.bind.annotation.XmlElement;
 import javax.xml.bind.annotation.XmlElementWrapper;
 import javax.xml.bind.annotation.XmlElements;
 import javax.xml.bind.annotation.XmlRootElement;
-import javax.xml.bind.annotation.adapters.XmlJavaTypeAdapter;
-
-import com.softserveinc.ita.jresume.common.adapter.JAXBDateAdapter;
 
 /**
  * Describe UserInformation entity class.
@@ -45,7 +42,6 @@ public class UserInformation extends Base {
     
     /** Column for birth date. */
     @XmlElement
-    @XmlJavaTypeAdapter(JAXBDateAdapter.class)
     @Temporal(TemporalType.DATE)
     @Column(name = "birthDate")
     private Date birthDate;
