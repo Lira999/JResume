@@ -56,7 +56,7 @@ public class ResumeGenerator {
                     "Some of paramaters might not have been initialized");
         }
         
-        File schema = new File(uploadPath + "\\" + template.getName() + ".xsl");
+        File schema = new File(uploadPath + "/" + template.getName() + ".xsl");
         if (!schema.exists() || schema.isDirectory()) {
             throw new ResumeGeneratorException("Schema is not found");
         }
