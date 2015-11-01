@@ -18,7 +18,6 @@ public interface UserDAO extends GenericDAO<User, Long> {
      *            email of the user
      * @return the user associated with this email
      */
-    
     User findByEmail(String email);
     
 }

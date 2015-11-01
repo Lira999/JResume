@@ -20,7 +20,6 @@ public interface GenericDAO<T, V> {
      *            Entity to be created.
      * @return created entity .
      */
-    
     T create(T entity);
     
     /**
@@ -30,17 +29,16 @@ public interface GenericDAO<T, V> {
      *            Find object based on the Id.
      * @return T entity.
      */
-    
     T findById(V id);
     
     /**
      * Update information T entity.
+     * 
      * @param entity
      *            object T entity to be updated.
      *            
      * @return updated entity.
      */
-    
     T update(T entity);
     
     /**
@@ -50,7 +48,6 @@ public interface GenericDAO<T, V> {
      *            object to be deleted by id.
      *            
      */
-    
     void deleteById(V id);
     
     /**
@@ -59,7 +56,6 @@ public interface GenericDAO<T, V> {
      * @param entity
      *            the object to be deleted from DB.
      */
-    
     void delete(T entity);
     
     /**
@@ -67,6 +63,5 @@ public interface GenericDAO<T, V> {
      * 
      * @return a list of all the elements in Entity.
      */
-    
     List<T> findAll();
 }

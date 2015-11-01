@@ -19,8 +19,8 @@ public interface TemplateDAO extends GenericDAO<Template, Long> {
      *            target template name
      * @return founded template or {@code null} if template not found.
      */
-            Template findByName(String name);
-            
+    Template findByName(String name);
+    
     /**
      * Load templates and sort them.
      * 
@@ -31,6 +31,6 @@ public interface TemplateDAO extends GenericDAO<Template, Long> {
      *            
      * @return sorted list of templates
      */
-            List<Template> findAndSort(String viewOnly, String sortBy);
-            
+    List<Template> findAndSort(String viewOnly, String sortBy);
+    
 }
