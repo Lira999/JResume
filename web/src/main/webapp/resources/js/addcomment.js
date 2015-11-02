@@ -7,7 +7,6 @@ $(function() {
 		var data = JSON.stringify ({
 			comment: $('#comment').val(),
 			mark: $('#rating-input').val(),
-			createdBy: 'UserName',
 		});
 		$.ajax({
 			url: 'addcomment' + id,

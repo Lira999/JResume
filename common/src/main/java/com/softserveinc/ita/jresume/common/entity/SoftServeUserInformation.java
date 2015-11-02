@@ -1,5 +1,6 @@
 package com.softserveinc.ita.jresume.common.entity;
 
+import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.JoinColumn;
@@ -69,9 +70,16 @@ public class SoftServeUserInformation extends UserInformation {
     private String hardware;
     
     /** Column for userInformation. */
-    @OneToOne
+    @OneToOne(cascade = CascadeType.ALL)
     @JoinColumn(name = "userInformation")
     private UserInformation userInformation;
+    
+    /**
+     * Constructor for SoftServeUserInformation.
+     */
+    public SoftServeUserInformation() {
+        userInformation = super.getInstance();
+    }
     
     /**
      * Get value of column programmingLanguages.

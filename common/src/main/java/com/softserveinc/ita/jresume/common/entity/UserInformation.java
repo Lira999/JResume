@@ -3,6 +3,7 @@ package com.softserveinc.ita.jresume.common.entity;
 import java.util.Date;
 import java.util.List;
 
+import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.FetchType;
@@ -91,12 +92,11 @@ public class UserInformation extends Base {
     @XmlElementWrapper(name = "certifications")
     @OneToMany(fetch = FetchType.LAZY, mappedBy = "userInformation")
     private List<Certification> certification;
-
-    /**
-     * Public constructor for class UserInformation.
-     */
-    public UserInformation() {
-    }
+    
+    /** One to one relationship with SoftServeUserInformation. */
+    @OneToOne(fetch = FetchType.LAZY, mappedBy = "userInformation",
+            cascade = CascadeType.ALL)
+    private SoftServeUserInformation softServeUserInformation;
     
     /**
      * Get value of column firstName.
@@ -268,6 +268,39 @@ public class UserInformation extends Base {
     public final void setCertification(
             final List<Certification> newCertification) {
         certification = newCertification;
+    }
+    
+    /**
+     * Gets the SoftServeUserInformation associated with this userInformation.
+     * 
+     * @return the softServeUserInformation.
+     */
+    public final SoftServeUserInformation getSoftServeUserInformation() {
+        return softServeUserInformation;
+    }
+    
+    /**
+     * Changes the SoftServeUserInformation associated with this
+     * userInformation.
+     * 
+     * @param newSoftServeUserInformation
+     *            new SoftServeUserInformation to set.
+     */
+    public final void
+            setSoftServeUserInformation(
+                    final SoftServeUserInformation
+                    
+    newSoftServeUserInformation) {
+        softServeUserInformation = newSoftServeUserInformation;
+    }
+    
+    /**
+     * Gets the instance of UserInformation.
+     * 
+     * @return object of UserInformation.
+     */
+    public final UserInformation getInstance() {
+        return this;
     }
     
 }
