@@ -39,7 +39,12 @@
 
 <div class="wrapper">  
     <div class="row" id="row">        
-    </div>    
+    </div>   
+    <div class="text-center">
+        <div id="paging">     
+        </div>         
+    </div>
+    
 </div>
 
 </div>
