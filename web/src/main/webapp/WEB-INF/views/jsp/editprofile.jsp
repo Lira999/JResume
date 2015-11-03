@@ -38,11 +38,14 @@
 					<input type="text" class="form-control" id="position"
 						name="position" placeholder="Position" required>
 				</div>
-				<div class="test input-group input-append date col-lg-6" id="datePicker">
-					<input type="text" class="form-control" name="date" id="birthdate"
-						placeholder="Birth Date" /> <span
-						class="input-group-addon add-on"><span
-						class="glyphicon glyphicon-calendar"></span></span>
+				<div class="col-lg-6">
+					<div class="input-group input-append date col-lg-12"
+						id="datePicker">
+						<input type="text" class="form-control" name="date" id="birthdate"
+							placeholder="Birth Date" /> <span
+							class="input-group-addon add-on"><span
+							class="glyphicon glyphicon-calendar"></span></span>
+					</div>
 				</div>
 				<div class="form-group col-lg-12">
 					<input name="summary" class="form-control" id="summary"
@@ -88,7 +91,7 @@
 					<input name="hardware" class="form-control" id="hardware"
 						placeholder="Hardware">
 				</div>
-				<div class="form-group col-lg-4">
+				<div class="col-xs-2">
 					<button id="savebutton"
 						class="btn-success btn-save btn-lg btn-block btn" type="button">Save</button>
 				</div>

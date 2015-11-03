@@ -82,7 +82,7 @@ $(function() {
 				});
 		}
 	$('#addbutton').click(function() {
-		if($('#comment').val() && $('#rating-input').val()!=undefined){
+		if($('#comment').val()){
 			sendAjax();
 		}
 	});
