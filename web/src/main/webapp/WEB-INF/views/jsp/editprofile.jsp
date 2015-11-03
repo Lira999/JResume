@@ -14,16 +14,18 @@
 <script src="resources/js/lib/bootstrap/bootstrap-datepicker.min.js"></script>
 
 </head>
+<jsp:include page="navbar.jsp"></jsp:include>
+
 <body>
-	<jsp:include page="navbar.jsp"></jsp:include>
-	<div class="container">
+	<div class="container" id="well">
 
 		<form class="editprofile-form" method="POST" role="form">
-			<hr class="colorgraph">
 
 			<div class="row">
 				<h3 style="margin-bottom: 25px; text-align: center;">Edit
 					Profile</h3>
+				<hr class="colorgraph">
+
 				<div class="form-group col-lg-6">
 					<input type="text" class="form-control" id="firstname"
 						name="firstname" placeholder="Name" required>
@@ -33,32 +35,13 @@
 						name="lastname" placeholder="Surname" required>
 				</div>
 				<div class="form-group col-lg-6">
-					<input type="password" name="password" class="form-control"
-						id="password" placeholder="Password">
-				</div>
-
-				<div class="form-group col-lg-6">
-					<input type="password" name="confirmpassword" class="form-control"
-						id="confirmpassword" placeholder="Confirm password">
-				</div>
-
-				<div class="form-group col-lg-6">
-					<input name="email" class="form-control" id="email"
-						placeholder="Email">
-				</div>
-
-				<div class="form-group col-lg-6">
-					<input name="confirmemail" class="form-control" id="confirmemail"
-						placeholder="Confirm email">
-				</div>
-
-				<div class="form-group col-lg-6">
 					<input type="text" class="form-control" id="position"
 						name="position" placeholder="Position" required>
 				</div>
 				<div class="input-group input-append date col-lg-6" id="datePicker">
 					<input type="text" class="form-control" name="date" id="birthdate"
-						placeholder="Birth Date" /> <span class="input-group-addon add-on"><span
+						placeholder="Birth Date" /> <span
+						class="input-group-addon add-on"><span
 						class="glyphicon glyphicon-calendar"></span></span>
 				</div>
 				<div class="form-group col-lg-12">
@@ -105,16 +88,16 @@
 					<input name="hardware" class="form-control" id="hardware"
 						placeholder="Hardware">
 				</div>
-
+				<div class="form-group col-lg-4">
+					<button id="savebutton"
+						class="btn-success btn-save btn-lg btn-block btn" type="button">Save</button>
+				</div>
 			</div>
 		</form>
 	</div>
 
 
-	<div class="form-group col-lg-4">
-		<button id="savebutton"
-			class="btn-success btn-save btn-lg btn-block btn" type="button">Save</button>
-	</div>
+
 
 
 

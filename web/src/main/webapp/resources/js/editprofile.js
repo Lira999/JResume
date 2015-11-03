@@ -4,12 +4,10 @@ $(function() {
 		var data = JSON.stringify({
 			firstName : $('#firstname').val(),
 			lastName : $('#lastname').val(),
-			// password : $('#password').val(),
-			// email : $('#email').val(),
 			position : $('#position').val(),
 			summary : $('#summary').val(),
-			birthDate: 1000*moment($('#birthdate').val()).unix(),
-			
+			birthDate : 1000 * moment($('#birthdate').val()).unix(),
+
 			programmingLanguages : $('#programminglanguages').val(),
 			technologies : $('#technologies').val(),
 			rdbms : $('#rdbms').val(),
@@ -29,11 +27,10 @@ $(function() {
 			contentType : 'application/json',
 			data : data,
 			success : function(response) {
-				$('#hardware').val(moment($('#birthdate').val()).unix());
-				debugger
+
 			},
 			error : function(er) {
-				debugger
+				showErrorMessage('#well');
 			}
 		});
 	}
@@ -47,27 +44,5 @@ $(document).ready(function() {
 		format : 'mm-dd-yyyy'
 	}).on('changeDate', function(e) {
 		$('#eventForm').formValidation('revalidateField', 'date');
-	});
-
-	$('#eventForm').formValidation({
-		framework : 'bootstrap',
-		icon : {
-			valid : 'glyphicon glyphicon-ok',
-			invalid : 'glyphicon glyphicon-remove',
-			validating : 'glyphicon glyphicon-refresh'
-		},
-		fields : {
-			date : {
-				validators : {
-					notEmpty : {
-						message : 'The date is required'
-					},
-					date : {
-						format : 'MM-DD-YYYY',
-						message : 'The date is not a valid'
-					}
-				}
-			}
-		}
 	});
 });
