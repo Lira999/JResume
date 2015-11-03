@@ -38,7 +38,7 @@
 					<input type="text" class="form-control" id="position"
 						name="position" placeholder="Position" required>
 				</div>
-				<div class="input-group input-append date col-lg-6" id="datePicker">
+				<div class="test input-group input-append date col-lg-6" id="datePicker">
 					<input type="text" class="form-control" name="date" id="birthdate"
 						placeholder="Birth Date" /> <span
 						class="input-group-addon add-on"><span

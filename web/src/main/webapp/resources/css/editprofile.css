@@ -7,6 +7,12 @@
 	border-radius: 8px;
 }
 
+.test {
+	margin-left: 409px;
+	min-width: 364px !important;
+	max-width: 364px !important;
+}
+
 #eventForm .form-control-feedback {
 	top: 0;
 	right: -15px;
@@ -22,9 +28,9 @@
 }
 
 .btn-save {
-	margin-left: 618px; min-width : 140px !important;
-	max-width: 140px !important;
+	margin-left: 618px;
 	min-width: 140px !important;
+	max-width: 140px !important;
 }
 
 .colorgraph {
