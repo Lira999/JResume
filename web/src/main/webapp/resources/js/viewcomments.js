@@ -38,7 +38,7 @@ $(document).ready(function () {
 					var mark = new String('<span class="glyphicon glyphicon-star"></span>');
 				else 				
 					var mark = '';
-				$('#list').prepend('<li class= "item"><div class="row">'
+				$('#list').append('<li class= "item"><div class="row">'
 						+ '<hr />'
 						+ '<div class="col-md-12">'
 						+ '<div class="row rating-desc">'
