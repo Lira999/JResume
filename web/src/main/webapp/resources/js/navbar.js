@@ -15,7 +15,7 @@ function getUserInformation() {
                 'data-toggle="dropdown" href="#">' + 
                 userInformation[0] + '<span class="caret">' + 
                 '</span></a><ul class="dropdown-menu"><li><a href="#">' + 
-                'View Profile</a></li><li><a href="#">Edit Profile</a>' + 
+                'View Profile</a></li><li><a href="editprofile">Edit Profile</a>' + 
                 '</li></ul></li><li><a href="logout"><span class="glyphicon' +
                 ' glyphicon-log-out"></span> Log Out</a></li>';
             } else {
@@ -23,7 +23,7 @@ function getUserInformation() {
                 'data-toggle="dropdown" href="#">' + 
                 userInformation[0] + '<span class="caret">' + 
                 '</span></a><ul class="dropdown-menu"><li><a href="#">' + 
-                'View Profile</a></li><li><a href="#">Edit Profile</a>' + 
+                'View Profile</a></li><li><a href="editprofile">Edit Profile</a>' + 
                 '</li><li><a href="uploadtemplate">Upload New Template</a>' + 
                 '</li></ul></li><li><a href="logout"><span class="glyphicon' +
                 ' glyphicon-log-out"></span> Log Out</a></li>';
