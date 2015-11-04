@@ -41,33 +41,33 @@ public class JPATemplateDAO extends JPAGenericDAO<Template, Long>
     @SuppressWarnings("unchecked")
     public final List<Template> findAndSort(final String viewOnly,
             final String sortBy) {
-        String str1 = " ";
-        String str2 = " ";
+        String view = " ";
+        String sort = " ";
         switch (viewOnly) {
         case "FREE":
-            str1 = " WHERE price IS null";
+            view = " WHERE price IS null";
             break;
         case "PAID":
-            str1 = " WHERE price > 0";
+            view = " WHERE price > 0";
             break;
         default:
-            str1 = " ";
+            view = " ";
         }
         switch (sortBy) {
         case "NEWEST":
-            str2 = " ORDER BY createDate DESC";
+            sort = " ORDER BY createDate DESC";
             break;        
         case "PRICE":
-            str2 = " ORDER BY price";
+            sort = " ORDER BY price";
             break;
         case "NAME":
-            str2 = " ORDER BY name";
+            sort = " ORDER BY name";
             break;
         default:
-            str2 = " ";
+            sort = " ";
         }
         Query query =
-                getEntityManager().createQuery("FROM Template" + str1 + str2);
+                getEntityManager().createQuery("FROM Template" + view + sort);
         return query.getResultList();
     }
     
