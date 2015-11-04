@@ -10,7 +10,7 @@ import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
 
 import com.softserveinc.ita.jresume.common.entity.Template;
-import com.softserveinc.ita.jresume.business.service.TemplatesService;
+import com.softserveinc.ita.jresume.business.service.TemplateService;
 
 /**
  * Controller for templates page.
@@ -25,7 +25,7 @@ public class TemplatesController {
      * Variable for access to data storage.
      */
     @Autowired
-    private TemplatesService templatesService;
+    private TemplateService templatesService;
     
     /**
      * Templates page mapping.
