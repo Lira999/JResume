@@ -11,7 +11,8 @@ $(document).ready(function () {
 		contentType: 'application/json',
 		success: function (response) {
 			itemsLength = response.length - COMMENTS_PER_LOAD;
-			if (itemsLength > COMMENTS_PER_LOAD) {
+			//show button only if we have some invisible comments
+			if (itemsLength > 0) {
 				$('#load-btn').show();
 			} 
 			for(var i = response.length - 1; i >= 0; i--) {
