@@ -88,6 +88,8 @@ $(function() {
 				$(element).parent().popover('hide');
 			},
 			submitHandler : function(form) {
+				$('#uploadBtn').text('Please wait');
+				$('#uploadBtn').prop('disabled', true);
 				writeFiles();
 			}
 		});
@@ -113,6 +115,7 @@ function writeFiles() {
 				' in">Upload failed. Your files seems to be not valid. Please,' +
 				' check them and try again later.</div>';
 				showErrorMessage('#error-div', errorMessage);
+				enableButton();
 			}
 		},
 		error : function(result) {
@@ -121,6 +124,7 @@ function writeFiles() {
 			' in">Upload failed. We accept only files, less then 1 MB. Please,' +
 			' check your files and try again later.</div>';
 			showErrorMessage('#error-div', errorMessage);
+			enableButton();
 		}
 	});
 }
@@ -143,6 +147,12 @@ function createDBEntry() {
 		error:function() {
 			//shown in case of some problems on server side
 			showErrorMessage('#error-div');
+			enableButton();
 		}
 	});
+}
+
+function enableButton() {
+	$('#uploadBtn').text('Upload');
+	$('#uploadBtn').prop('disabled', false);
 }
