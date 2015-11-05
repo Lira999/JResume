@@ -11,8 +11,8 @@ $(document).ready(function () {
 		contentType: 'application/json',
 		success: function (response) {
 			itemsLength = response.length - COMMENTS_PER_LOAD;
-			if (itemsLength <= 0) {
-				$('#load-btn').css('display', 'none');
+			if (itemsLength > COMMENTS_PER_LOAD) {
+				$('#load-btn').show();
 			} 
 			for(var i = response.length - 1; i >= 0; i--) {
 				
@@ -71,7 +71,7 @@ $(document).ready(function () {
 		$('#list').find('li:hidden:lt('+ COMMENTS_PER_LOAD + ')').show();
 		currentPosition += COMMENTS_PER_LOAD;
 		if (currentPosition >= itemsLength) {
-			$('#load-btn').css('display', 'none');
+			$('#load-btn').hide();
 		}
 	});
 });

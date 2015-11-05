@@ -2,6 +2,10 @@
 	display: none;
 }
 
+.load-comments-btn {
+	display: none;
+}
+
 li {
 	list-style-type: none
 }

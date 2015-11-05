@@ -6,6 +6,6 @@
 		
 	</ul>
 	<div class="text-center">
-		<a class="btn btn-md btn-primary" id="load-btn">Load more comments</a>
+		<a class="btn btn-md btn-primary load-comments-btn" id="load-btn">Load more comments</a>
 	</div>
 </div>
