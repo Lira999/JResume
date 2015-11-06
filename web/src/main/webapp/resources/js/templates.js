@@ -14,6 +14,7 @@ function sendAjax() {
 		success : function(templates) {
 			var maxPage = Math.ceil(templates.length/PAGE_SIZE);
 			showTemplate(DEFAULT_PAGE);
+			$('#paging').empty();
 			for(var i = 1; i <= maxPage; i++) {
 				$('<input type="button" class="btn btn-default" name="' 
 						+ i + '" value="' + i + '">')
