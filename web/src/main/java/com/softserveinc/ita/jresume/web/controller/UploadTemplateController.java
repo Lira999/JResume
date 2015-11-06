@@ -1,16 +1,12 @@
 package com.softserveinc.ita.jresume.web.controller;
 
-import java.io.BufferedOutputStream;
-import java.io.File;
-import java.io.FileOutputStream;
 import java.io.IOException;
-import java.nio.file.Paths;
 import java.util.HashMap;
 import java.util.Map;
+
 import org.apache.commons.io.FilenameUtils;
 import org.apache.log4j.Logger;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -19,6 +15,8 @@ import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.multipart.MaxUploadSizeExceededException;
 import org.springframework.web.multipart.MultipartFile;
+
+import com.softserveinc.ita.jresume.business.service.FileUploadService;
 import com.softserveinc.ita.jresume.business.service.TemplateService;
 import com.softserveinc.ita.jresume.common.entity.Template;
 
@@ -30,16 +28,16 @@ import com.softserveinc.ita.jresume.common.entity.Template;
 public class UploadTemplateController {
     
     /**
-     * Path to folder to save files.
-     */
-    @Value("${fileUpload.path}")
-    private String uploadPath;
-    
-    /**
      * Template service to operate with template objects.
      */
     @Autowired
     private TemplateService templateService;
+    
+    /**
+     * File upload service to handle file upload.
+     */
+    @Autowired
+    private FileUploadService fileUploadService;
     
     /**
      * Logger instance.
@@ -80,8 +78,10 @@ public class UploadTemplateController {
      * 
      * @param name
      *            name of files to be created.
-     * @param files
-     *            files to be saved.
+     * @param image
+     *            image with template preview
+     * @param schema
+     *            xsl template schema
      * @return true if files saved successfully or false in case of errors
      *         during saving
      */
@@ -89,27 +89,23 @@ public class UploadTemplateController {
     @ResponseBody
     public final boolean uploadMultipleFileHandler(
             @RequestParam("name") final String name,
-            @RequestParam("file") final MultipartFile[] files) {
+            @RequestParam("image") final MultipartFile image,
+            @RequestParam("schema") final MultipartFile schema) {
         boolean result = false;
-        for (int i = 0; i < files.length; i++) {
-            MultipartFile file = files[i];
-            LOGGER.info("Start writing file " + file.getName());
-            try {
-                String fileExtension =
-                        FilenameUtils.getExtension(file.getOriginalFilename());
-                String nameOfFile = (name + "." + fileExtension);
-                String filepath = Paths.get(uploadPath, nameOfFile).toString();
-                BufferedOutputStream stream = new BufferedOutputStream(
-                        new FileOutputStream(new File(filepath)));
-                stream.write(file.getBytes());
-                stream.close();
-                result = true;
-            } catch (MaxUploadSizeExceededException | IOException e) {
-                LOGGER.error("Exceprion during writing file " + file.getName(),
-                        e);
-                result = false;
-                break;
+        try {
+            LOGGER.info("Start writing files " + image.getName() + " "
+                    + schema.getName());
+            result = fileUploadService.saveFile(image.getBytes(), name,
+                    FilenameUtils.getExtension(image.getOriginalFilename()));
+            // if first file saved successful, try write next
+            if (result) {
+                result = fileUploadService.saveFile(schema.getBytes(), name,
+                        FilenameUtils.getExtension(
+                                schema.getOriginalFilename()));
             }
+        } catch (MaxUploadSizeExceededException | IOException e) {
+            LOGGER.error("Exception during writing files ", e);
+            result = false;
         }
         return result;
     }
@@ -125,25 +121,6 @@ public class UploadTemplateController {
     @ResponseBody
     public final Boolean checkName(final String name) {
         return templateService.findByName(name) == null;
-    }
-    
-    /**
-     * Get current file upload path.
-     * 
-     * @return current file upload path.
-     */
-    public final String getUploadPath() {
-        return uploadPath;
-    }
-    
-    /**
-     * Change current upload path.
-     * 
-     * @param newUploadPath
-     *            path to upload files
-     */
-    public final void setUploadPath(final String newUploadPath) {
-        uploadPath = newUploadPath;
     }
     
 }

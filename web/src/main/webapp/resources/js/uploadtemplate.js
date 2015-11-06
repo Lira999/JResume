@@ -97,8 +97,8 @@ $(function() {
 
 function writeFiles() {
 	var formData = new FormData();
-	formData.append('file', $('input[type=file]')[0].files[0]);
-	formData.append('file', $('input[type=file]')[1].files[0]);
+	formData.append('image', $('input[type=file]')[0].files[0]);
+	formData.append('schema', $('input[type=file]')[1].files[0]);
 	formData.append('name', $('#name').val());
 	$.ajax({
 		url : 'uploadfiles',
