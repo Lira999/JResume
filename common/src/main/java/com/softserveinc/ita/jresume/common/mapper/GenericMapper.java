@@ -1,7 +1,5 @@
 package com.softserveinc.ita.jresume.common.mapper;
 
-import org.springframework.stereotype.Component;
-
 /**
  * This interface describes Generic Mapper.
  * 
@@ -12,7 +10,6 @@ import org.springframework.stereotype.Component;
  * @param <V>
  *            Type of DTO.
  */
-@Component
 public interface GenericMapper<T, V> {
     
     /**

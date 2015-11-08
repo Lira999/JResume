@@ -23,12 +23,8 @@ public class TemplateService {
     private TemplateDAO templateDao;
     
     /** TemplateMapper for map between DTO and entity. */
+    @Autowired
     private TemplateMapper templateMapper;
-    
-    /** Constructor for initialize templateMapper. */
-    public TemplateService() {
-        templateMapper = new TemplateMapper();
-    }
     
     /**
      * Create a new template.

@@ -34,12 +34,8 @@ public class CommentService {
     private TemplateDAO templateDao;
     
     /** MarkMapper for map between DTO and entity. */
+    @Autowired
     private MarkMapper markMapper;
-    
-    /** Constructor for initialize markMapper. */
-    public CommentService() {
-        markMapper = new MarkMapper();
-    }
     
     /**
      * Create a new mark.
