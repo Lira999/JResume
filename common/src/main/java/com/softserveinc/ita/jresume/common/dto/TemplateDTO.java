@@ -17,6 +17,9 @@ public class TemplateDTO extends BaseDTO {
     /** Price of this template. */
     private Double price;
     
+    /** Id of this template. */
+    private Long id;
+    
     /**
      * Gets the name of this template.
      * 
@@ -72,6 +75,25 @@ public class TemplateDTO extends BaseDTO {
      */
     public final void setPrice(final Double newPrice) {
         price = newPrice;
+    }
+    
+    /**
+     * Gets id of this template.
+     * 
+     * @return this template id
+     */
+    public final Long getId() {
+        return id;
+    }
+    
+    /**
+     * Changes id of this template.
+     * 
+     * @param newId
+     *            this template's new id
+     */
+    public final void setId(final Long newId) {
+        id = newId;
     }
     
 }

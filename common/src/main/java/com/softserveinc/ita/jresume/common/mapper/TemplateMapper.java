@@ -20,6 +20,7 @@ public class TemplateMapper implements GenericMapper<Template, TemplateDTO> {
         templateDto.setDescription(template.getDescription());
         templateDto.setName(template.getName());
         templateDto.setPrice(template.getPrice());
+        templateDto.setId(template.getId());
         return templateDto;
     }
     
@@ -29,6 +30,7 @@ public class TemplateMapper implements GenericMapper<Template, TemplateDTO> {
         template.setName(templateDto.getName());
         template.setDescription(templateDto.getDescription());
         template.setPrice(templateDto.getPrice());
+        template.setId(templateDto.getId());
         return template;
     }
 }
