@@ -16,7 +16,6 @@ import javax.persistence.TemporalType;
 import javax.xml.bind.annotation.XmlAccessType;
 import javax.xml.bind.annotation.XmlAccessorType;
 
-import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import com.softserveinc.ita.jresume.common.entity.entityListener
 
 .BaseEntityListener;
@@ -25,7 +24,6 @@ import com.softserveinc.ita.jresume.common.entity.entityListener
  * Describe Base entity class.
  */
 @XmlAccessorType(XmlAccessType.NONE)
-@JsonIgnoreProperties({"hibernateLazyInitializer", "handler"})
 @EntityListeners(BaseEntityListener.class)
 @MappedSuperclass
 public class Base {
