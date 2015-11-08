@@ -1,5 +1,6 @@
 package com.softserveinc.ita.jresume.business.service;
 
+import java.util.ArrayList;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -7,7 +8,10 @@ import org.springframework.stereotype.Service;
 
 import com.softserveinc.ita.jresume.common.dto.MarkDTO;
 import com.softserveinc.ita.jresume.common.entity.Mark;
+import com.softserveinc.ita.jresume.common.mapper.MarkMapper;
 import com.softserveinc.ita.jresume.persistence.dao.impl.MarkDAO;
+import com.softserveinc.ita.jresume.persistence.dao.impl.TemplateDAO;
+import com.softserveinc.ita.jresume.persistence.dao.impl.UserDAO;
 
 /**
  * Class for working with Comment.
@@ -21,6 +25,22 @@ public class CommentService {
     @Autowired
     private MarkDAO markDao;
     
+    /** UserDAO for access to data storage. */
+    @Autowired
+    private UserDAO userDao;
+    
+    /** TemplateDAO for access to data storage. */
+    @Autowired
+    private TemplateDAO templateDao;
+    
+    /** MarkMapper for map between DTO and entity. */
+    private MarkMapper markMapper;
+    
+    /** Constructor for initialize markMapper. */
+    public CommentService() {
+        markMapper = new MarkMapper();
+    }
+    
     /**
      * Create a new mark.
      * 
@@ -33,29 +53,12 @@ public class CommentService {
      */
     public final void create(final MarkDTO markDto, final long templateId,
             final long userId) {
-        markDao.create(markDto, templateId, userId);
-    }
-    
-    /**
-     * Update information mark.
-     *
-     * @param mark
-     *            object mark to be updated.
-     *            
-     * @return updated mark.
-     */
-    public final Mark update(final Mark mark) {
-        return markDao.update(mark);
-    }
-    
-    /**
-     * Delete mark from data storage.
-     *
-     * @param mark
-     *            the mark to be deleted.
-     */
-    public final void delete(final Mark mark) {
-        markDao.delete(mark);
+        Mark mark = markMapper.toEntity(markDto);
+        mark.setUser(userDao.findById(userId));
+        mark.setTemplate(templateDao.findById(templateId));
+        mark.setCreatedBy(userDao.findById(userId).getFirstName() + " "
+                + userDao.findById(userId).getLastName());
+        markDao.create(mark);
     }
     
     /**
@@ -63,17 +66,14 @@ public class CommentService {
      *            templateId of the template.
      * @return all comments and marks associated with template.
      */
-    public final List<Mark> findByTemplateId(final long templateId) {
-        return markDao.findByTemplateId(templateId);
-    }
-    
-    /**
-     * Find all comments and marks.
-     *
-     * @return a list of all comments and marks.
-     */
-    public final List<Mark> findAll() {
-        return markDao.findAll();
+    public final List<MarkDTO> findByTemplateId(final long templateId) {
+        List<MarkDTO> result = new ArrayList<MarkDTO>();
+        List<Mark> listOfMarks = markDao.findByTemplateId(templateId);
+        for (Mark mark : listOfMarks) {
+            MarkDTO markDto = markMapper.toDto(mark);
+            result.add(markDto);
+        }
+        return result;
     }
     
 }

@@ -49,12 +49,9 @@ public class AddCommentController {
     public final void sendCommentAndMark(
             @RequestBody final MarkDTO markDto,
             @PathVariable final Long templateId, final Principal principal) {
-        Long userId = null;
-        if (principal != null) {
-            User currentUser = userService.findByEmail(principal.getName());
-            userId = currentUser.getId();
-            commentService.create(markDto, templateId, userId);
-        }
+        User currentUser = userService.findByEmail(principal.getName());
+        Long userId = currentUser.getId();
+        commentService.create(markDto, templateId, userId);
     }
     
 }

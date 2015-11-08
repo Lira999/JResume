@@ -9,7 +9,7 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
 
-import com.softserveinc.ita.jresume.common.entity.Template;
+import com.softserveinc.ita.jresume.common.dto.TemplateDTO;
 import com.softserveinc.ita.jresume.business.service.TemplateService;
 
 /**
@@ -25,7 +25,7 @@ public class TemplatesController {
      * Variable for access to data storage.
      */
     @Autowired
-    private TemplateService templatesService;
+    private TemplateService templateService;
     
     /**
      * Templates page mapping.
@@ -50,13 +50,12 @@ public class TemplatesController {
     @RequestMapping(value = "/list",
             produces = "application/json",
             method = RequestMethod.GET,
-            params = {"viewOnly", "sortBy"})
+            params = { "viewOnly", "sortBy" })
     @ResponseBody
-    public final List<Template> getCurrentlyPages(
+    public final List<TemplateDTO> getCurrentlyPages(
             @RequestParam("viewOnly") final String viewOnly,
             @RequestParam("sortBy") final String sortBy) {
-        return templatesService.findAndSort(viewOnly, sortBy);
+        return templateService.findAndSort(viewOnly, sortBy);
     }
-    
     
 }

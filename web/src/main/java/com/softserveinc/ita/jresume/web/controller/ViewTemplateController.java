@@ -8,7 +8,7 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.ResponseBody;
 
 import com.softserveinc.ita.jresume.business.service.TemplateService;
-import com.softserveinc.ita.jresume.common.entity.Template;
+import com.softserveinc.ita.jresume.common.dto.TemplateDTO;
 
 /**
  * Controller for view template page with current id.
@@ -41,7 +41,7 @@ public class ViewTemplateController {
     @RequestMapping(value = "/res", produces = "application/json",
             method = RequestMethod.GET)
     @ResponseBody
-    public final Template getCurrentTemplate(@PathVariable final Long id) {
+    public final TemplateDTO getCurrentTemplate(@PathVariable final Long id) {
         return templateService.findById(id);
     }
 }

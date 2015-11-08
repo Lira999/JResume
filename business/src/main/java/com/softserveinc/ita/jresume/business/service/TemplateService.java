@@ -3,7 +3,11 @@ package com.softserveinc.ita.jresume.business.service;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import com.softserveinc.ita.jresume.common.dto.TemplateDTO;
 import com.softserveinc.ita.jresume.common.entity.Template;
+import com.softserveinc.ita.jresume.common.mapper.TemplateMapper;
+
+import java.util.ArrayList;
 import java.util.List;
 import com.softserveinc.ita.jresume.persistence.dao.impl.TemplateDAO;
 
@@ -17,6 +21,14 @@ public class TemplateService {
     /** TemplateDAO for access to data storage. */
     @Autowired
     private TemplateDAO templateDao;
+    
+    /** TemplateMapper for map between DTO and entity. */
+    private TemplateMapper templateMapper;
+    
+    /** Constructor for initialize templateMapper. */
+    public TemplateService() {
+        templateMapper = new TemplateMapper();
+    }
     
     /**
      * Create a new template.
@@ -69,8 +81,8 @@ public class TemplateService {
      * @return the template.
      */
     
-    public final Template findById(final long id) {
-        return templateDao.findById(id);
+    public final TemplateDTO findById(final long id) {
+        return templateMapper.toDto(templateDao.findById(id));
     }
     
     /**
@@ -95,9 +107,15 @@ public class TemplateService {
      *            
      * @return list of all available templates
      */
-    public final List<Template> findAndSort(final String viewOnly,
+    public final List<TemplateDTO> findAndSort(final String viewOnly,
             final String sortBy) {
-        return templateDao.findAndSort(viewOnly, sortBy);
+        List<Template> listOfTemplate =
+                templateDao.findAndSort(viewOnly, sortBy);
+        List<TemplateDTO> listOfTemplateDto = new ArrayList<TemplateDTO>();
+        for (Template template : listOfTemplate) {
+            listOfTemplateDto.add(templateMapper.toDto(template));
+        }
+        return listOfTemplateDto;
     }
 
 }

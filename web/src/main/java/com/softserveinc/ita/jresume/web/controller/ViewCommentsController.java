@@ -10,7 +10,7 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.ResponseBody;
 
 import com.softserveinc.ita.jresume.business.service.CommentService;
-import com.softserveinc.ita.jresume.common.entity.Mark;
+import com.softserveinc.ita.jresume.common.dto.MarkDTO;
 
 /**
  * Controller for view all comments and marks.
@@ -47,7 +47,8 @@ public class ViewCommentsController {
     @RequestMapping(value = "/result", produces = "application/json",
             method = RequestMethod.GET)
     @ResponseBody
-    public final List<Mark> getComments(@PathVariable final long templateId) {
+    public final List<MarkDTO>
+            getComments(@PathVariable final long templateId) {
         return commentService.findByTemplateId(templateId);
     }
     
