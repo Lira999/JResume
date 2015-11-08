@@ -1,8 +1,6 @@
 package com.softserveinc.ita.jresume.common.dto;
 
 import com.softserveinc.ita.jresume.common.entity.MarkValue;
-import com.softserveinc.ita.jresume.common.entity.Template;
-import com.softserveinc.ita.jresume.common.entity.User;
 
 /**
  * Data Transfer Object for Mark entity.
@@ -10,22 +8,13 @@ import com.softserveinc.ita.jresume.common.entity.User;
  * @author Bohdan Khudoba
  * 
  */
-public class MarkDTO {
+public class MarkDTO extends BaseDTO {
     
-    /** value of this mark. */
+    /** Value of this mark. */
     private MarkValue mark;
     
-    /** comment to this mark. */
+    /** Comment to this mark. */
     private String comment;
-    
-    /**
-     * template associated with this mark. Many to one relationship, references
-     * to template table.
-     */
-    private Template template;
-    
-    /** Author of this mark. */
-    private User user;
     
     /**
      * Gets value of this mark.
@@ -63,44 +52,6 @@ public class MarkDTO {
      */
     public final void setComment(final String newComment) {
         comment = newComment;
-    }
-    
-    /**
-     * Gets template associated with this mark.
-     * 
-     * @return template associated with this mark.
-     */
-    public final Template getTemplate() {
-        return template;
-    }
-    
-    /**
-     * Changes template associated with this mark.
-     * 
-     * @param newTemplate
-     *            new template for this mark.
-     */
-    public final void setTemplate(final Template newTemplate) {
-        template = newTemplate;
-    }
-    
-    /**
-     * Gets user associated with this mark.
-     * 
-     * @return user associated with this mark.
-     */
-    public final User getUser() {
-        return user;
-    }
-    
-    /**
-     * Changes user associated with this mark.
-     * 
-     * @param newUser
-     *            new author of this mark.
-     */
-    public final void setUser(final User newUser) {
-        user = newUser;
     }
     
 }
