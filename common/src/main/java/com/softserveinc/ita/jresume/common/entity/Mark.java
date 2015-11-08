@@ -1,6 +1,5 @@
 package com.softserveinc.ita.jresume.common.entity;
 
-import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.EnumType;
@@ -30,12 +29,12 @@ public class Mark extends Base {
      * template associated with this mark. Many to one relationship, references
      * to template table.
      */
-    @ManyToOne(fetch = FetchType.LAZY, cascade = CascadeType.PERSIST)
+    @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "templateId")
     private Template template;
     
     /** Author of this mark. */
-    @ManyToOne(fetch = FetchType.LAZY, cascade = CascadeType.ALL)
+    @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "userId")
     private User user;
     
