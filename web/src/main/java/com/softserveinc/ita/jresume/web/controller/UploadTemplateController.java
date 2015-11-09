@@ -93,16 +93,14 @@ public class UploadTemplateController {
             @RequestParam("schema") final MultipartFile schema) {
         boolean result = false;
         try {
-            LOGGER.info("Start writing files " + image.getName() + " "
-                    + schema.getName());
+            LOGGER.info(
+                    "Start writing files " + image.getOriginalFilename() + " "
+                            + schema.getOriginalFilename());
             result = fileUploadService.saveFile(image.getBytes(), name,
-                    FilenameUtils.getExtension(image.getOriginalFilename()));
-            // if first file saved successful, try write next
-            if (result) {
-                result = fileUploadService.saveFile(schema.getBytes(), name,
-                        FilenameUtils.getExtension(
-                                schema.getOriginalFilename()));
-            }
+                    FilenameUtils.getExtension(image.getOriginalFilename()))
+                    && fileUploadService.saveFile(schema.getBytes(), name,
+                            FilenameUtils.getExtension(
+                                    schema.getOriginalFilename()));
         } catch (MaxUploadSizeExceededException | IOException e) {
             LOGGER.error("Exception during writing files ", e);
             result = false;
