@@ -14,12 +14,11 @@ function sendAjax() {
 		contentType : 'application/json',
 		success : function(templates) {
 			var maxPage = Math.ceil(templates.length/PAGE_SIZE);
-			var currentPage = DEFAULT_PAGE;
-			showTemplate(DEFAULT_PAGE);
+			var currentPage;
 			showPaging(DEFAULT_PAGE);
+			showTemplate(DEFAULT_PAGE);			
 			function showTemplate(page) {
 				$('#row').empty();
-				currentPage = page;
 				var startPosition = (page - 1)*PAGE_SIZE;
 				var endPosition = startPosition + PAGE_SIZE;
 				for(var i = startPosition; i < endPosition; i++ ) {
@@ -46,6 +45,7 @@ function sendAjax() {
 			}
     		function showPaging(page) {
     			$('#paging').empty();
+    			currentPage = page;
 				var startPage, endPage;
 				if(page <= Math.ceil(PER_PAGE/2)) {
 				  startPage = 1;
