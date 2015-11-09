@@ -39,6 +39,11 @@
 	position: absolute;
 }
 
+.space {
+	margin-left: 20px;
+	margin-right: 20px;
+}
+
 .caption {
 	margin-left: -4px;
 	position: absolute;
