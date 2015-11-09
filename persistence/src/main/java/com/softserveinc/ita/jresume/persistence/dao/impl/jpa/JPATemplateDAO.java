@@ -28,10 +28,8 @@ public class JPATemplateDAO extends JPAGenericDAO<Template, Long>
         query.setParameter("name", name);
         query.setMaxResults(1);
         List<Template> result = query.getResultList();
-        Template target;
-        if (result.isEmpty()) {
-            target = null;
-        } else {
+        Template target = null;
+        if (!result.isEmpty()) {
             target = result.get(0);
         }
         return target;
@@ -56,7 +54,7 @@ public class JPATemplateDAO extends JPAGenericDAO<Template, Long>
         switch (sortBy) {
         case "NEWEST":
             sort = " ORDER BY createDate DESC";
-            break;        
+            break;
         case "PRICE":
             sort = " ORDER BY price";
             break;
