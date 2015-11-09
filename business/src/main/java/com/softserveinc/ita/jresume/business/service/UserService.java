@@ -5,7 +5,9 @@ import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import com.softserveinc.ita.jresume.common.dto.UserDTO;
 import com.softserveinc.ita.jresume.common.entity.User;
+import com.softserveinc.ita.jresume.common.mapper.UserMapper;
 import com.softserveinc.ita.jresume.persistence.dao.impl.UserDAO;
 
 /**
@@ -19,6 +21,10 @@ public class UserService {
     /** UserDAO for access to data storage. */
     @Autowired
     private UserDAO userDao;
+    
+    /** UserMapper for map between DTO and entity. */
+    @Autowired
+    private UserMapper userMapper;
     
     /**
      * Create a new user.
@@ -34,13 +40,19 @@ public class UserService {
     /**
      * Update information user.
      * 
-     * @param user
+     * @param currentUser
      *            object user to be updated.
-     *            
+     * @param updatedUser
+     *            object userDto with updated information.
      * @return updated user.
      */
-    public final User update(final User user) {
-        return userDao.update(user);
+    public final User update(final User currentUser,
+            final UserDTO updatedUser) {
+        currentUser.setEmail(updatedUser.getEmail());
+        currentUser.setFirstName(updatedUser.getFirstName());
+        currentUser.setLastName(currentUser.getLastName());
+        currentUser.setPassword(updatedUser.getPassword());
+        return userDao.update(currentUser);
     }
     
     /**
@@ -71,6 +83,17 @@ public class UserService {
      */
     public final User findByEmail(final String email) {
         return userDao.findByEmail(email);
+    }
+    
+    /**
+     * Find userDto associated with this email.
+     * 
+     * @param email
+     *            email of the user
+     * @return the userDto associated with this email.
+     */
+    public final UserDTO findDtoByEmail(final String email) {
+        return userMapper.toDto(userDao.findByEmail(email));
     }
     
 }

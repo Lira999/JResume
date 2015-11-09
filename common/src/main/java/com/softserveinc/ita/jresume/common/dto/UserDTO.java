@@ -4,7 +4,7 @@ package com.softserveinc.ita.jresume.common.dto;
  * Data Transfer Object for User entity.
  * 
  * @author Bohdan Khudoba
- *         
+ * 
  */
 public class UserDTO extends BaseDTO {
     
