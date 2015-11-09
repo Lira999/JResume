@@ -14,7 +14,7 @@ function getUserInformation() {
                 logged = '<li class="dropdown"><a class="dropdown-toggle" ' + 
                 'data-toggle="dropdown" href="#">' + 
                 userInformation[0] + '<span class="caret">' + 
-                '</span></a><ul class="dropdown-menu"><li><a href="#">' + 
+                '</span></a><ul class="dropdown-menu"><li><a href="viewprofile">' + 
                 'View Profile</a></li><li><a href="editprofile">Edit Profile</a>' + 
                 '</li></ul></li><li><a href="logout"><span class="glyphicon' +
                 ' glyphicon-log-out"></span> Log Out</a></li>';
@@ -22,7 +22,7 @@ function getUserInformation() {
                 logged = '<li class="dropdown"><a class="dropdown-toggle" ' + 
                 'data-toggle="dropdown" href="#">' + 
                 userInformation[0] + '<span class="caret">' + 
-                '</span></a><ul class="dropdown-menu"><li><a href="#">' + 
+                '</span></a><ul class="dropdown-menu"><li><a href="viewprofile">' + 
                 'View Profile</a></li><li><a href="editprofile">Edit Profile</a>' + 
                 '</li><li><a href="uploadtemplate">Upload New Template</a>' + 
                 '</li></ul></li><li><a href="logout"><span class="glyphicon' +
