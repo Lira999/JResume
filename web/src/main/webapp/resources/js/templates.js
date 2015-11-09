@@ -16,11 +16,11 @@ function sendAjax() {
 			var maxPage = Math.ceil(templates.length/PAGE_SIZE);
 			var currentPage;
 			showPaging(DEFAULT_PAGE);
-			showTemplate(DEFAULT_PAGE);			
-			function showTemplate(page) {
+			showTemplates(DEFAULT_PAGE);			
+			function showTemplates(page) {
 				$('#row').empty();
 				var startPosition = (page - 1)*PAGE_SIZE;
-				var endPosition = startPosition + PAGE_SIZE;
+				var endPosition = Math.min(startPosition + PAGE_SIZE, templates.length);
 				for(var i = startPosition; i < endPosition; i++ ) {
 					var address = new String('viewtemplate/' + templates[i].id);
 					if (templates[i].price == null) {
@@ -93,7 +93,7 @@ function sendAjax() {
 					}
 				} else currentPage = page;
 				showPaging(currentPage);
-				showTemplate(currentPage);								
+				showTemplates(currentPage);								
 			}    		
 		},
 		error : function(templates, status, er) {
