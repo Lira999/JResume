@@ -1,6 +1,7 @@
 $(document).ready(function() {
-	var DEFAULT_PAGE = 1;
-	var PAGE_SIZE = 6;
+	var PAGE_SIZE = 1;
+	var PER_PAGE = 5;
+	var DEFAULT_PAGE = 1;	
 	sendAjax();
 	$('#select').change(function() {
 		$('#select option').each(sendAjax());
@@ -13,17 +14,14 @@ function sendAjax() {
 		contentType : 'application/json',
 		success : function(templates) {
 			var maxPage = Math.ceil(templates.length/PAGE_SIZE);
-			showTemplate(DEFAULT_PAGE);
-			$('#paging').empty();
-			for(var i = 1; i <= maxPage; i++) {
-				$('<input type="button" class="btn btn-default" name="' 
-						+ i + '" value="' + i + '">')
-						.appendTo('#paging');
-			}			
-			function showTemplate(page) {
+			var currentPage;
+			showPaging(DEFAULT_PAGE);
+			showTemplates(DEFAULT_PAGE);			
+			function showTemplates(page) {
 				$('#row').empty();
-				for(var i = (page - 1)*PAGE_SIZE; 
-				        i < (page - 1)*PAGE_SIZE + PAGE_SIZE; i++ ) {
+				var startPosition = (page - 1)*PAGE_SIZE;
+				var endPosition = Math.min(startPosition + PAGE_SIZE, templates.length);
+				for(var i = startPosition; i < endPosition; i++ ) {
 					var address = new String('viewtemplate/' + templates[i].id);
 					if (templates[i].price == null) {
 						var priceButton = new String('<a href=' + address
@@ -43,11 +41,64 @@ function sendAjax() {
 							  .addClass('col-sm-12 col-xs-12 col-md-4 col-lg-4')
 							  .attr('id',	templates[i].id)
 							  .appendTo('div#row');
-				}
+				}				
 			}
-    		$('#paging :button').click(function(){
-				showTemplate(this.value);
-			});			
+    		function showPaging(page) {
+    			$('#paging').empty();
+    			currentPage = page;
+				var startPage, endPage;
+				if(page <= Math.ceil(PER_PAGE/2)) {
+				  startPage = 1;
+				  endPage = Math.min(PER_PAGE, maxPage);
+				} else if(maxPage-page < PER_PAGE/2) {
+			             startPage = Math.max(1, (maxPage-PER_PAGE+1));
+			             endPage = maxPage;
+				       } else {
+				         startPage = page - Math.floor(PER_PAGE/2);
+				         endPage = startPage + PER_PAGE-1;
+				         }
+				$('<input type="button" class="btn btn-default form-control space"'
+						+ ' name="Prev" value="Prev">').appendTo('#paging');
+				if(startPage != 1) {
+					$('<input type="button" class="btn btn-default form-control"'
+							+ ' name="1" value="1" id="btn1">').appendTo('#paging');
+					if(startPage > 2) {
+						$('<label class="space"> . . . </label>').appendTo('#paging');							
+					}													
+				} 
+			    for(var i = startPage; i <= endPage; i++) {
+			    	$('<input type="button" class="btn btn-default form-control"'
+			    			+ ' name="' + i + '" value="' + i + '" id="btn' + i + '">')
+							.appendTo('#paging');
+			    }
+			    if(endPage != maxPage) {			    	
+			    	if(endPage < (maxPage - 1)) {
+			    		$('<label class="space"> . . . </label>').appendTo('#paging');
+			    	}
+			    	$('<input type="button" class="btn btn-default form-control"'
+			    			+' name="' + maxPage + '" value="' + maxPage 
+			    			+ '"id="btn' + maxPage + '">').appendTo('#paging');
+				}
+			    $('<input type="button" class="btn btn-default form-control space"'
+			    		+' name="Next" value="Next">').appendTo('#paging');
+			    $("#btn" + page).addClass("active");			    
+			    $('#paging :button').click(function(){
+			    	countPage(this.value);					
+				});
+			}	
+    		function countPage(page) {
+				if(page == 'Prev') {
+					if(currentPage > 1){
+						currentPage--;						
+					} 
+				} else if(page == 'Next'){
+					if(currentPage < maxPage){
+						currentPage++;						    
+					}
+				} else currentPage = page;
+				showPaging(currentPage);
+				showTemplates(currentPage);								
+			}    		
 		},
 		error : function(templates, status, er) {
 			showErrorMessage('div#row');

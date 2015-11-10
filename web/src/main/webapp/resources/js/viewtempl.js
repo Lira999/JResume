@@ -20,4 +20,7 @@ $(document).ready(function () {
             showErrorMessage('#well');
         }
     });
+    $('#control').click(function() {
+    	document.location.href += '/resume';
+	});		
 });

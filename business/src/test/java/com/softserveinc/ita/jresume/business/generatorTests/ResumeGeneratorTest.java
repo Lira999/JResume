@@ -19,6 +19,7 @@ import com.softserveinc.ita.jresume.business.converter.XMLConverter;
 import com.softserveinc.ita.jresume.business.generator.ResumeGenerator;
 import com.softserveinc.ita.jresume.business.generator.ResumeGeneratorException;
 import com.softserveinc.ita.jresume.business.xslt.XsltTransformer;
+import com.softserveinc.ita.jresume.common.dto.TemplateDTO;
 import com.softserveinc.ita.jresume.common.entity.Education;
 import com.softserveinc.ita.jresume.common.entity.Project;
 import com.softserveinc.ita.jresume.common.entity.Template;
@@ -27,7 +28,7 @@ import com.softserveinc.ita.jresume.common.entity.UserInformation;
 /**
  * Tests for {@link com.softserveinc.ita.jresume.business.xslt.XsltTransformer}.
  * 
- * @author Golovii Sergii
+ * @author Andriy Zykhor
  */
 public class ResumeGeneratorTest {
     
@@ -46,7 +47,7 @@ public class ResumeGeneratorTest {
     /**
      * {@link com.softserveinc.ita.jresume.common.entity.Template} instance.
      */
-    private Template template;
+    private TemplateDTO template;
     
     /**
      * Stands for output file.
@@ -69,7 +70,7 @@ public class ResumeGeneratorTest {
         ReflectionTestUtils.setField(resumeGenerator, "uploadPath",
                 "src/test/resources/testFiles/generatorTestFiles");
                 
-        template = new Template();
+        template = new TemplateDTO();
         template.setName("testTemplate");
         
         userInformation = new UserInformation();
@@ -137,7 +138,7 @@ public class ResumeGeneratorTest {
      */
     @Test(expected = ResumeGeneratorException.class)
     public final void testTemplate() throws ResumeGeneratorException {
-        Template wrongTemplate = new Template();
+        TemplateDTO wrongTemplate = new TemplateDTO();
         wrongTemplate.setName("wrongName");
         resumeGenerator.generate(userInformation, wrongTemplate);
     }

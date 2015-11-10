@@ -41,8 +41,10 @@
     <div class="row" id="row">        
     </div>   
     <div class="text-center">
-        <div id="paging">     
-        </div>         
+        <form class="form-inline" role="form" id="paging">
+          <div class="form-group">        
+          </div>    
+        </form>     
     </div>
     
 </div>

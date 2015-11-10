@@ -14,7 +14,7 @@ import org.springframework.stereotype.Service;
 import com.softserveinc.ita.jresume.business.converter.XMLConverter;
 import com.softserveinc.ita.jresume.business.xslt.XsltTransformer;
 import com.softserveinc.ita.jresume.business.xslt.XstlTransformerException;
-import com.softserveinc.ita.jresume.common.entity.Template;
+import com.softserveinc.ita.jresume.common.dto.TemplateDTO;
 import com.softserveinc.ita.jresume.common.entity.UserInformation;
 
 /**
@@ -42,7 +42,7 @@ public class ResumeGenerator {
      * 
      * @param userInformation
      *            the information about user for resume
-     * @param template
+     * @param templateDTO
      *            the template to use
      * @return output stream with writed html data
      * @throws ResumeGeneratorException
@@ -50,13 +50,14 @@ public class ResumeGenerator {
      *             process
      */
     public final OutputStream generate(final UserInformation userInformation,
-            final Template template) throws ResumeGeneratorException {
-        if (userInformation == null || template == null) {
+            final TemplateDTO templateDTO) throws ResumeGeneratorException {
+        if (userInformation == null || templateDTO == null) {
             throw new ResumeGeneratorException(
                     "Some of paramaters might not have been initialized");
         }
         
-        File schema = new File(uploadPath + "/" + template.getName() + ".xsl");
+        File schema = new File(uploadPath + "/" + templateDTO.getName()
+                + ".xsl");
         if (!schema.exists() || schema.isDirectory()) {
             throw new ResumeGeneratorException("Schema is not found");
         }
