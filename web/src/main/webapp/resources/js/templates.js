@@ -1,5 +1,5 @@
 $(document).ready(function() {
-	var PAGE_SIZE = 6;
+	var PAGE_SIZE = 1;
 	var PER_PAGE = 5;
 	var DEFAULT_PAGE = 1;	
 	sendAjax();
@@ -54,7 +54,7 @@ function sendAjax() {
 			             startPage = Math.max(1, (maxPage-PER_PAGE+1));
 			             endPage = maxPage;
 				       } else {
-				         startPage = page - Math.ceil(PER_PAGE/2);
+				         startPage = page - Math.floor(PER_PAGE/2);
 				         endPage = startPage + PER_PAGE-1;
 				         }
 				$('<input type="button" class="btn btn-default form-control space"'
@@ -62,15 +62,19 @@ function sendAjax() {
 				if(startPage != 1) {
 					$('<input type="button" class="btn btn-default form-control"'
 							+ ' name="1" value="1" id="btn1">').appendTo('#paging');
-					$('<label class="space"> . . . </label>').appendTo('#paging');									
+					if(startPage > 2) {
+						$('<label class="space"> . . . </label>').appendTo('#paging');							
+					}													
 				} 
 			    for(var i = startPage; i <= endPage; i++) {
 			    	$('<input type="button" class="btn btn-default form-control"'
 			    			+ ' name="' + i + '" value="' + i + '" id="btn' + i + '">')
 							.appendTo('#paging');
 			    }
-			    if(endPage != maxPage) {
-			    	$('<label class="space"> . . . </label>').appendTo('#paging');
+			    if(endPage != maxPage) {			    	
+			    	if(endPage < (maxPage - 1)) {
+			    		$('<label class="space"> . . . </label>').appendTo('#paging');
+			    	}
 			    	$('<input type="button" class="btn btn-default form-control"'
 			    			+' name="' + maxPage + '" value="' + maxPage 
 			    			+ '"id="btn' + maxPage + '">').appendTo('#paging');
