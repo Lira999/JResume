@@ -14,5 +14,14 @@ public enum FileExtensions {
     /**
      * Image file format.
      */
-    PNG
+    PNG;
+    
+    /**
+     * Returns enum's string value in lower case format.
+     * 
+     * @return string with enum's value in lower case.
+     */
+    public String toString() {
+        return name().toLowerCase();
+    }
 }
