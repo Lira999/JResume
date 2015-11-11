@@ -1,8 +1,14 @@
 package com.softserveinc.ita.jresume.common.mapper;
 
+import java.util.ArrayList;
+import java.util.List;
+
 import org.springframework.stereotype.Component;
 
 import com.softserveinc.ita.jresume.common.dto.SoftServeUserInformationDTO;
+import com.softserveinc.ita.jresume.common.entity.Certification;
+import com.softserveinc.ita.jresume.common.entity.Education;
+import com.softserveinc.ita.jresume.common.entity.Project;
 import com.softserveinc.ita.jresume.common.entity.SoftServeUserInformation;
 
 /**
@@ -20,7 +26,21 @@ public class SoftServeUserInformationMapper implements
             toDto(final SoftServeUserInformation softServeUserInformation) {
         SoftServeUserInformationDTO softServeUserInformationDto =
                 new SoftServeUserInformationDTO();
-                
+        List<Long> listOfEducationId = new ArrayList<Long>();
+        List<Long> listOfCertificationId = new ArrayList<Long>();
+        List<Long> listOfProjectId = new ArrayList<Long>();
+        
+        for (Education education : softServeUserInformation.getEducation()) {
+            listOfEducationId.add(education.getId());
+        }
+        for (Certification certification : softServeUserInformation
+                .getCertification()) {
+            listOfCertificationId.add(certification.getId());
+        }
+        for (Project project : softServeUserInformation.getProjects()) {
+            listOfProjectId.add(project.getId());
+        }
+        
         softServeUserInformationDto
                 .setFirstName(softServeUserInformation.getFirstName());
         softServeUserInformationDto
@@ -51,6 +71,11 @@ public class SoftServeUserInformationMapper implements
                 .setTools(softServeUserInformation.getTools());
         softServeUserInformationDto
                 .setWebServers(softServeUserInformation.getWebServers());
+        softServeUserInformationDto.setListOfEducationId(listOfEducationId);
+        softServeUserInformationDto
+                .setListOfCetificationId(listOfCertificationId);
+        softServeUserInformationDto.setListOfProjectId(listOfProjectId);
+        
         return softServeUserInformationDto;
     }
     

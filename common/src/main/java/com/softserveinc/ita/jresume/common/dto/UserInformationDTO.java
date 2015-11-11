@@ -1,29 +1,60 @@
 package com.softserveinc.ita.jresume.common.dto;
 
 import java.util.Date;
+import java.util.List;
 
 /**
  * Data Transfer Object for UserInformation entity.
  * 
  * @author Bohdan Khudoba.
- * 
+ *         
  */
 public class UserInformationDTO extends BaseDTO {
     
-    /** Value of First Name. */
+    /**
+     * UserInformation Id.
+     */
+    private Long id;
+    
+    /**
+     * Value of First Name.
+     */
     private String firstName;
     
-    /** Value of Last Name. */
+    /**
+     * Value of Last Name.
+     */
     private String lastName;
     
-    /** Value of. */
+    /**
+     * Value of Birth Date.
+     */
     private Date birthDate;
     
-    /** Value of position. */
+    /**
+     * Value of position.
+     */
     private String position;
     
-    /** Value of summary. */
+    /**
+     * Value of summary.
+     */
     private String summary;
+    
+    /**
+     * List with Certifications Id.
+     */
+    private List<Long> listOfCetificationId;
+    
+    /**
+     * List with Educations Id.
+     */
+    private List<Long> listOfEducationId;
+    
+    /**
+     * List with Projects Id.
+     */
+    private List<Long> listOfProjectId;
     
     /**
      * Get value of firstName.
@@ -119,4 +150,83 @@ public class UserInformationDTO extends BaseDTO {
     public final void setSummary(final String newSummary) {
         summary = newSummary;
     }
+    
+    /**
+     * Get value of id.
+     * 
+     * @return id of this UserInformation.
+     */
+    public final Long getId() {
+        return id;
+    }
+    
+    /**
+     * Change value of this id.
+     * 
+     * @param newId
+     *            id of this UserInformation to be changed.
+     */
+    public final void setId(final Long newId) {
+        id = newId;
+    }
+    
+    /**
+     * Get list with certifications id.
+     * 
+     * @return listOfCetificationId.
+     */
+    public final List<Long> getListOfCetificationId() {
+        return listOfCetificationId;
+    }
+    
+    /**
+     * Change list with certifications id.
+     * 
+     * @param newListOfCetificationId
+     *            new list with certifications id to be changed.
+     */
+    public final void
+            setListOfCetificationId(final List<Long> newListOfCetificationId) {
+        listOfCetificationId = newListOfCetificationId;
+    }
+    
+    /**
+     * Get list with educations id.
+     * 
+     * @return listOfEducationId.
+     */
+    public final List<Long> getListOfEducationId() {
+        return listOfEducationId;
+    }
+    
+    /**
+     * Change list with educations id.
+     * 
+     * @param newListOfEducationId
+     *            new list with educations id to be changed.
+     */
+    public final void
+            setListOfEducationId(final List<Long> newListOfEducationId) {
+        listOfEducationId = newListOfEducationId;
+    }
+    
+    /**
+     * Get list with projects id.
+     * 
+     * @return listOfProjectId.
+     */
+    public final List<Long> getListOfProjectId() {
+        return listOfProjectId;
+    }
+    
+    /**
+     * Change list with projects id.
+     * 
+     * @param newListOfProjectId
+     *            new list with projects id to be changed.
+     */
+    public final void setListOfProjectId(final List<Long> newListOfProjectId) {
+        listOfProjectId = newListOfProjectId;
+    }
+    
 }
