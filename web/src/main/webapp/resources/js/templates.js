@@ -1,5 +1,5 @@
 $(document).ready(function() {
-	var PAGE_SIZE = 1;
+	var PAGE_SIZE = 6;
 	var PER_PAGE = 5;
 	var DEFAULT_PAGE = 1;	
 	sendAjax();
