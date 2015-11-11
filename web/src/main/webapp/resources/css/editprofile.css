@@ -1,54 +1,55 @@
-.editprofile-form {
-	max-width: 800px;
-	padding: 0px 20px 10px;
-	margin: 0 auto;
-	background-color: white;
-	border: 1px solid rgba(0, 0, 0, 0.1);
-	border-radius: 8px;
+.login-body {
+  background: url(../images/loginpattern.png);
 }
 
-.date {
-	margin-bottom: 15px;
+.edit-profile-form {
+  max-width: 360px;
+  padding: 0px 20px 10px;
+  margin: 0 auto;
+  background-color: white;
+  border: 1px solid rgba(0, 0, 0, 0.1);
+  border-radius: 8px;
 }
 
-#eventForm .form-control-feedback {
-	top: 0;
-	right: -15px;
+.edit-profile-form .form-signup-heading {
+  margin-bottom: 30px;
+  text-align: center;
+  color: #6c6969;
 }
 
-.container {
-	margin-top: 40px;
-	margin-bottom: 40px;
+.wrapper {
+  margin-top: 100px;
+  margin-bottom: 100px;
+}
+input {
+  margin-bottom: 6px !important;
+  border-radius: 4px !important;
+  display: block !important;
 }
 
-.red {
-	color: red;
+.popover {
+  min-width: 310px;
+  text-align: center
 }
 
-.btn-save {
-	min-width: 140px !important;
-	max-width: 140px !important;
+div.error {
+	text-align: center;
+}
+
+.edit-profile-suggestion {
+  display: block;
+  margin-top: 20px;
+  margin-bottom: 0px;
+  text-align: center;
 }
 
 .colorgraph {
-	height: 5px;
-	border-top: 0;
-	background: #c4e17f;
-	border-radius: 5px;
-	background-image: -webkit-linear-gradient(left, #c4e17f, #c4e17f 12.5%, #f7fdca 12.5%,
-		#f7fdca 25%, #fecf71 25%, #fecf71 37.5%, #f0776c 37.5%, #f0776c 50%,
-		#db9dbe 50%, #db9dbe 62.5%, #c49cde 62.5%, #c49cde 75%, #669ae1 75%,
-		#669ae1 87.5%, #62c2e4 87.5%, #62c2e4);
-	background-image: -moz-linear-gradient(left, #c4e17f, #c4e17f 12.5%, #f7fdca 12.5%,
-		#f7fdca 25%, #fecf71 25%, #fecf71 37.5%, #f0776c 37.5%, #f0776c 50%,
-		#db9dbe 50%, #db9dbe 62.5%, #c49cde 62.5%, #c49cde 75%, #669ae1 75%,
-		#669ae1 87.5%, #62c2e4 87.5%, #62c2e4);
-	background-image: -o-linear-gradient(left, #c4e17f, #c4e17f 12.5%, #f7fdca 12.5%, #f7fdca
-		25%, #fecf71 25%, #fecf71 37.5%, #f0776c 37.5%, #f0776c 50%, #db9dbe
-		50%, #db9dbe 62.5%, #c49cde 62.5%, #c49cde 75%, #669ae1 75%, #669ae1
-		87.5%, #62c2e4 87.5%, #62c2e4);
-	background-image: linear-gradient(to right, #c4e17f, #c4e17f 12.5%, #f7fdca 12.5%, #f7fdca
-		25%, #fecf71 25%, #fecf71 37.5%, #f0776c 37.5%, #f0776c 50%, #db9dbe
-		50%, #db9dbe 62.5%, #c49cde 62.5%, #c49cde 75%, #669ae1 75%, #669ae1
-		87.5%, #62c2e4 87.5%, #62c2e4);
+  height: 5px;
+  border-top: 0;
+  background: #c4e17f;
+  border-radius: 5px;
+  background-image: -webkit-linear-gradient(left, #c4e17f, #c4e17f 12.5%, #f7fdca 12.5%, #f7fdca 25%, #fecf71 25%, #fecf71 37.5%, #f0776c 37.5%, #f0776c 50%, #db9dbe 50%, #db9dbe 62.5%, #c49cde 62.5%, #c49cde 75%, #669ae1 75%, #669ae1 87.5%, #62c2e4 87.5%, #62c2e4);
+  background-image: -moz-linear-gradient(left, #c4e17f, #c4e17f 12.5%, #f7fdca 12.5%, #f7fdca 25%, #fecf71 25%, #fecf71 37.5%, #f0776c 37.5%, #f0776c 50%, #db9dbe 50%, #db9dbe 62.5%, #c49cde 62.5%, #c49cde 75%, #669ae1 75%, #669ae1 87.5%, #62c2e4 87.5%, #62c2e4);
+  background-image: -o-linear-gradient(left, #c4e17f, #c4e17f 12.5%, #f7fdca 12.5%, #f7fdca 25%, #fecf71 25%, #fecf71 37.5%, #f0776c 37.5%, #f0776c 50%, #db9dbe 50%, #db9dbe 62.5%, #c49cde 62.5%, #c49cde 75%, #669ae1 75%, #669ae1 87.5%, #62c2e4 87.5%, #62c2e4);
+  background-image: linear-gradient(to right, #c4e17f, #c4e17f 12.5%, #f7fdca 12.5%, #f7fdca 25%, #fecf71 25%, #fecf71 37.5%, #f0776c 37.5%, #f0776c 50%, #db9dbe 50%, #db9dbe 62.5%, #c49cde 62.5%, #c49cde 75%, #669ae1 75%, #669ae1 87.5%, #62c2e4 87.5%, #62c2e4);
 }

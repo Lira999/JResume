@@ -48,10 +48,12 @@ public class UserService {
      */
     public final User update(final User currentUser,
             final UserDTO updatedUser) {
-        currentUser.setEmail(updatedUser.getEmail());
         currentUser.setFirstName(updatedUser.getFirstName());
         currentUser.setLastName(currentUser.getLastName());
-        currentUser.setPassword(updatedUser.getPassword());
+        if (updatedUser.getPassword() != null
+                && !updatedUser.getPassword().isEmpty()) {
+            currentUser.setPassword(updatedUser.getPassword());
+        }
         return userDao.update(currentUser);
     }
     
