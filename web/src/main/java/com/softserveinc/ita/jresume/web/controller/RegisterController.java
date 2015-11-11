@@ -3,10 +3,19 @@ package com.softserveinc.ita.jresume.web.controller;
 import java.net.URI;
 import java.net.URISyntaxException;
 
+import javax.servlet.http.HttpServletRequest;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpHeaders;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
+import org.springframework.security.authentication.AuthenticationManager;
+import org.springframework.security.authentication.
+
+UsernamePasswordAuthenticationToken;
+import org.springframework.security.core.Authentication;
+import org.springframework.security.core.context.SecurityContextHolder;
+import org.springframework.security.web.authentication.WebAuthenticationDetails;
 import org.springframework.stereotype.Controller;
 import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.RequestBody;
@@ -35,6 +44,10 @@ public class RegisterController {
     @Autowired
     private RegisterDataValidator registerValidator;
     
+    /** AuthenticationManager instance to log user to system. */
+    @Autowired
+    private AuthenticationManager authenticationManager;
+    
     /**
      * Registration page mapping.
      * 
@@ -52,6 +65,8 @@ public class RegisterController {
      *            the user to be created.
      * @param result
      *            for validation errors.
+     * @param request
+     *            current request information.
      * @return ResponseEntity that contains information about registration
      *         process.
      * @throws URISyntaxException
@@ -59,7 +74,8 @@ public class RegisterController {
      */
     @RequestMapping(value = "register", method = RequestMethod.POST)
     public final ResponseEntity<String> processRegistration(
-            @RequestBody final User user, final BindingResult result)
+            @RequestBody final User user, final BindingResult result,
+            final HttpServletRequest request)
                     throws URISyntaxException {
                     
         registerValidator.validate(user, result);
@@ -72,13 +88,34 @@ public class RegisterController {
             msg = "Registration data invalid!";
             status = HttpStatus.BAD_REQUEST;
         } else {
-            header.setLocation(new URI("login"));
+            header.setLocation(new URI("templates"));
             status = HttpStatus.CREATED;
             user.setRole(UserRole.ROLE_USER);
             userService.create(user);
+            authentificate(user, request);
         }
-        
         return new ResponseEntity<String>(msg, header, status);
+    }
+    
+    /**
+     * Authenticate user to system.
+     * 
+     * @param user
+     *            user to authenticate.
+     * @param request
+     *            information about current request
+     */
+    private void authentificate(final User user,
+            final HttpServletRequest request) {
+        String userName = user.getEmail();
+        String password = user.getPassword();
+        UsernamePasswordAuthenticationToken token =
+                new UsernamePasswordAuthenticationToken(userName, password);
+        request.getSession();
+        token.setDetails(new WebAuthenticationDetails(request));
+        Authentication authenticatedUser =
+                authenticationManager.authenticate(token);
+        SecurityContextHolder.getContext().setAuthentication(authenticatedUser);
     }
     
     /**
