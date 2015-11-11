@@ -40,7 +40,7 @@ function getUserInformation() {
         var errorMessage = '<li><a href="#"><span class="glyphicon ' + 
         'glyphicon-exclamation-sign"></span><strong> Error: </strong> ' + 
         'Something went wrong. Please, try to refresh page.</a></li>';
-        showErrorMessage('#toggles', errorMessage);
+        $('#toggles').prepend(errorMessage);
     }
     });
 }

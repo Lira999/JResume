@@ -4,9 +4,10 @@ import java.io.IOException;
 import java.util.HashMap;
 import java.util.Map;
 
-import org.apache.commons.io.FilenameUtils;
 import org.apache.log4j.Logger;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.HttpStatus;
+import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -16,6 +17,7 @@ import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.multipart.MaxUploadSizeExceededException;
 import org.springframework.web.multipart.MultipartFile;
 
+import com.softserveinc.ita.jresume.business.enums.FileExtensions;
 import com.softserveinc.ita.jresume.business.service.FileUploadService;
 import com.softserveinc.ita.jresume.business.service.TemplateService;
 import com.softserveinc.ita.jresume.common.entity.Template;
@@ -27,6 +29,13 @@ import com.softserveinc.ita.jresume.common.entity.Template;
 @Controller
 public class UploadTemplateController {
     
+    /**
+     * Error message to display in case of errors during file transfer.
+     */
+    private final String errorMessage = new String(
+            "Upload failed. We accept only files, less then 1 MB. "
+                    + "Please, check your files and try again later.");
+                    
     /**
      * Template service to operate with template objects.
      */
@@ -82,30 +91,38 @@ public class UploadTemplateController {
      *            image with template preview
      * @param schema
      *            xsl template schema
-     * @return true if files saved successfully or false in case of errors
-     *         during saving
+     * @return responceEntity with information about upload status
      */
     @RequestMapping(value = "/uploadfiles", method = RequestMethod.POST)
-    @ResponseBody
-    public final boolean uploadMultipleFileHandler(
+    public final ResponseEntity<String> uploadMultipleFileHandler(
             @RequestParam("name") final String name,
             @RequestParam("image") final MultipartFile image,
             @RequestParam("schema") final MultipartFile schema) {
-        boolean result = false;
+        ResponseEntity<String> responseEntity = null;
         try {
             LOGGER.info(
                     "Start writing files " + image.getOriginalFilename() + " "
                             + schema.getOriginalFilename());
-            result = fileUploadService.saveFile(image.getBytes(), name,
-                    FilenameUtils.getExtension(image.getOriginalFilename()))
+            boolean result = fileUploadService.saveFile(image.getBytes(), name,
+                    FileExtensions.PNG)
                     && fileUploadService.saveFile(schema.getBytes(), name,
-                            FilenameUtils.getExtension(
-                                    schema.getOriginalFilename()));
+                            FileExtensions.XSL);
+            if (result) {
+                responseEntity =
+                        new ResponseEntity<String>("OK",
+                                HttpStatus.OK);
+            } else {
+                responseEntity =
+                        new ResponseEntity<String>(errorMessage,
+                                HttpStatus.INTERNAL_SERVER_ERROR);
+            }
         } catch (MaxUploadSizeExceededException | IOException e) {
             LOGGER.error("Exception during writing files ", e);
-            result = false;
+            responseEntity =
+                    new ResponseEntity<String>(errorMessage,
+                            HttpStatus.INTERNAL_SERVER_ERROR);
         }
-        return result;
+        return responseEntity;
     }
     
     /**

@@ -103,27 +103,15 @@ function writeFiles() {
 	$.ajax({
 		url : 'uploadfiles',
 		data : formData,
+		dataType: 'text',
 		type : 'POST',
 		processData : false,
 		contentType : false,
 		success : function(result) {
-			if (result) {
 				createDBEntry();
-			} else {
-				//shown in case of error during file upload
-				var errorMessage = '<div class="alert error alert-danger fade' +
-				' in">Upload failed. Your files seems to be not valid. Please,' +
-				' check them and try again later.</div>';
-				showErrorMessage('#error-div', errorMessage);
-				enableButton();
-			}
 		},
 		error : function(result) {
-			//shown in case of some problems on server side e.g. file size exceeded
-			var errorMessage = '<div class="alert error alert-danger fade' +
-			' in">Upload failed. We accept only files, less then 1 MB. Please,' +
-			' check your files and try again later.</div>';
-			showErrorMessage('#error-div', errorMessage);
+			showErrorMessage('#error-div', result.responseText);
 			enableButton();
 		}
 	});
@@ -143,7 +131,7 @@ function createDBEntry() {
 		data: data,
 		success: function() {
 		location.href = 'templates';
-	},
+		},
 		error:function() {
 			//shown in case of some problems on server side
 			showErrorMessage('#error-div');
