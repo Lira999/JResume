@@ -38,7 +38,7 @@
 					id="passwordConfirmation" name="passwordConfirmation"
 					type="password" required>
 			</div>
-			<button class="loginbtn btn btn-lg btn-success btn-block"
+			<button id="signUpBtn" class="loginbtn btn btn-lg btn-success btn-block"
 				type="submit">Sign up</button>
 			<a class="register-suggestion" href="login">Already registered?
 				Please, login.</a>

@@ -4,7 +4,6 @@ $(function() {
 	}, 'Please enter a valid data.');
 
 	jQuery.validator.setDefaults({
-		ignore : ':hidden:not(#tAndC)',
 		highlight: function(element) {
 			$(element).closest('.input-group').removeClass('has-success');
     		$(element).closest('.input-group').addClass('has-error');
@@ -84,23 +83,23 @@ $(function() {
 			},
 			errorPlacement: function (error, element) {
 				var _popover;
-			      _popover = $(element).popover({
-			        trigger: 'manual',
-			        animation: false,
-			        placement: 'right',
-			        content: $(error).text(),
-			        template: '<div class="popover"><div class="arrow"></div><div class="popover-inner"><div class="popover-content"><p></p></div></div></div>'
-			      });
-			      _popover.data('bs.popover').options.content = $(error).text();
-			      $(element).popover('show');
+				_popover = $(element).popover({
+					trigger: 'manual',
+					animation: false,
+					placement: 'right',
+					content: $(error).text(),
+					template: '<div class="popover"><div class="arrow"></div><div class="popover-inner"><div class="popover-content"><p></p></div></div></div>'
+				});
+				_popover.data('bs.popover').options.content = $(error).text();
+				$(element).popover('show');
 			},
 			success: function (label, element) {
     			$(element).popover('hide');
 			},
 			submitHandler : function(form) {
+				$('#signUpBtn').text('Please wait');
+				$('#signUpBtn').prop('disabled', true);
 				sendAjax();
-			},
-			invalidHandler : function(form) {
 			}
 		});
 	
@@ -131,6 +130,8 @@ $(function() {
 					else
 						$('#line_rb').after('<div class="error alert alert-danger fade in" id="err"><strong> Internal error! </strong></div>');
 				}
+				$('#uploadBtn').text('Upload');
+				$('#uploadBtn').prop('disabled', false);
 			}
 		});
 	}
