@@ -15,6 +15,7 @@ import org.springframework.security.authentication.
 UsernamePasswordAuthenticationToken;
 import org.springframework.security.core.Authentication;
 import org.springframework.security.core.context.SecurityContextHolder;
+import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.security.web.authentication.WebAuthenticationDetails;
 import org.springframework.stereotype.Controller;
 import org.springframework.validation.BindingResult;
@@ -47,6 +48,10 @@ public class RegisterController {
     /** AuthenticationManager instance to log user to system. */
     @Autowired
     private AuthenticationManager authenticationManager;
+    
+    /** BCrypt password encoder. */
+    @Autowired
+    private BCryptPasswordEncoder encoder;
     
     /**
      * Registration page mapping.
@@ -91,26 +96,28 @@ public class RegisterController {
             header.setLocation(new URI("templates"));
             status = HttpStatus.CREATED;
             user.setRole(UserRole.ROLE_USER);
+            String rawPassword = user.getPassword();
+            user.setPassword(encoder.encode(user.getPassword()));
             userService.create(user);
-            authentificate(user, request);
+            authentificate(user.getEmail(), rawPassword, request);
         }
         return new ResponseEntity<String>(msg, header, status);
     }
     
     /**
-     * Authenticate user to system.
+     * Authenticate user to system using email and not encoded password.
      * 
-     * @param user
-     *            user to authenticate.
+     * @param email
+     *            user's email
+     * @param password
+     *            user's password
      * @param request
      *            information about current request
      */
-    private void authentificate(final User user,
+    private void authentificate(final String email, final String password,
             final HttpServletRequest request) {
-        String userName = user.getEmail();
-        String password = user.getPassword();
         UsernamePasswordAuthenticationToken token =
-                new UsernamePasswordAuthenticationToken(userName, password);
+                new UsernamePasswordAuthenticationToken(email, password);
         request.getSession();
         token.setDetails(new WebAuthenticationDetails(request));
         Authentication authenticatedUser =

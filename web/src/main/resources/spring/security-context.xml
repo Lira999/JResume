@@ -6,8 +6,13 @@
                     http://www.springframework.org/schema/security 
                     http://www.springframework.org/schema/security/spring-security-4.0.xsd">
 	
+	<beans:bean id="encoder" class="org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder">
+	</beans:bean>
+	
 	<authentication-manager alias="authenticationManager">
-		<authentication-provider user-service-ref="userDetailsService" />
+		<authentication-provider user-service-ref="userDetailsService">
+			<password-encoder ref="encoder"/>
+		</authentication-provider>
 	</authentication-manager>
 	
 	<http pattern="/resources/**" security="none"/>
