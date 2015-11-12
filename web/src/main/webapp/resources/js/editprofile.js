@@ -140,7 +140,7 @@ $(function() {
 					contentType : 'application/json',
 					data : data,
 					success : function(data, textStatus, xhr) {
-						top.location.href = xhr.getResponseHeader('Location');
+						top.location.href = '';
 					},
 					error : function(data, textStatus) {
 						if (!$('#err').length) {
