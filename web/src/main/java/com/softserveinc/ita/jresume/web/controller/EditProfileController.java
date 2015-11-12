@@ -3,6 +3,7 @@ package com.softserveinc.ita.jresume.web.controller;
 import java.security.Principal;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -25,6 +26,10 @@ public class EditProfileController {
     /** User service to operate with user objects. */
     @Autowired
     private UserService userService;
+    
+    /** BCrypt password encoder. */
+    @Autowired
+    private BCryptPasswordEncoder encoder;
     
     /**
      * Edit profile page mapping.
@@ -64,6 +69,7 @@ public class EditProfileController {
     public final void editProfile(final Principal principal,
             @RequestBody final UserDTO updatedUser) {
         User currentUser = userService.findByEmail(principal.getName());
+        updatedUser.setPassword(encoder.encode(updatedUser.getPassword()));
         userService.update(currentUser, updatedUser);
     }
     
@@ -80,7 +86,7 @@ public class EditProfileController {
     @ResponseBody
     public final Boolean currentPasswordMath(@RequestBody final String password,
             final Principal principal) {
-        return userService.findByEmail(principal.getName()).getPassword()
-                .equals(password.replace("currentPassword=", ""));
+        return encoder.matches(password.replace("currentPassword=", ""),
+                userService.findByEmail(principal.getName()).getPassword());
     }
 }
