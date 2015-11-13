@@ -33,14 +33,12 @@ public class FileUploadService {
      *            target name of file
      * @param extension
      *            target extension of file
-     * @return {@code true} if operation success or false in case of errors.
      * @throws IOException
      *             in case of errors during saving files
      */
-    public final boolean saveFile(final byte[] inputData,
+    public final void saveFile(final byte[] inputData,
             final String name,
-            final Enum<FileExtensions> extension) throws IOException {
-        boolean result = false;
+            final FileExtensions extension) throws IOException {
         String fileName = name + "." + extension.toString();
         String path = Paths.get(uploadPath, fileName).toString();
         File outputFile = new File(path);
@@ -52,13 +50,11 @@ public class FileUploadService {
             fileOutputStream =
                     new FileOutputStream(outputFile);
             fileOutputStream.write(inputData);
-            result = true;
         } finally {
             if (fileOutputStream != null) {
                 fileOutputStream.close();
             }
         }
-        return result;
     }
     
 }

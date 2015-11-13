@@ -118,7 +118,6 @@ public class RegisterController {
             final HttpServletRequest request) {
         UsernamePasswordAuthenticationToken token =
                 new UsernamePasswordAuthenticationToken(email, password);
-        request.getSession();
         token.setDetails(new WebAuthenticationDetails(request));
         Authentication authenticatedUser =
                 authenticationManager.authenticate(token);

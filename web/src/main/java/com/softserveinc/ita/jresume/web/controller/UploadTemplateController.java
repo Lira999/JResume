@@ -103,19 +103,13 @@ public class UploadTemplateController {
             LOGGER.info(
                     "Start writing files " + image.getOriginalFilename() + " "
                             + schema.getOriginalFilename());
-            boolean result = fileUploadService.saveFile(image.getBytes(), name,
-                    FileExtensions.PNG)
-                    && fileUploadService.saveFile(schema.getBytes(), name,
-                            FileExtensions.XSL);
-            if (result) {
-                responseEntity =
-                        new ResponseEntity<String>("OK",
-                                HttpStatus.OK);
-            } else {
-                responseEntity =
-                        new ResponseEntity<String>(errorMessage,
-                                HttpStatus.INTERNAL_SERVER_ERROR);
-            }
+            fileUploadService.saveFile(image.getBytes(), name,
+                    FileExtensions.PNG);
+            fileUploadService.saveFile(schema.getBytes(), name,
+                    FileExtensions.XSL);
+            responseEntity =
+                    new ResponseEntity<String>("OK",
+                            HttpStatus.OK);
         } catch (MaxUploadSizeExceededException | IOException e) {
             LOGGER.error("Exception during writing files ", e);
             responseEntity =
