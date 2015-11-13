@@ -16,7 +16,8 @@ function getUserInformation() {
                 userInformation[0] + '<span class="caret">' + 
                 '</span></a><ul class="dropdown-menu"><li><a href="viewprofile">' + 
                 'View Profile</a></li><li><a href="editprofile">Edit Profile</a>' + 
-                '</li></ul></li><li><a href="logout"><span class="glyphicon' +
+                '</li><li><a href="userinformation">Add User Information</a></li>'+
+                '</ul></li><li><a href="logout"><span class="glyphicon' +
                 ' glyphicon-log-out"></span> Log Out</a></li>';
             } else {
                 logged = '<li class="dropdown"><a class="dropdown-toggle" ' + 
@@ -24,7 +25,8 @@ function getUserInformation() {
                 userInformation[0] + '<span class="caret">' + 
                 '</span></a><ul class="dropdown-menu"><li><a href="viewprofile">' + 
                 'View Profile</a></li><li><a href="editprofile">Edit Profile</a>' + 
-                '</li><li><a href="uploadtemplate">Upload New Template</a>' + 
+                '</li> <li><a href="userinformation">Add User Information</a></li>'+
+                '<li><a href="uploadtemplate">Upload New Template</a>' + 
                 '</li></ul></li><li><a href="logout"><span class="glyphicon' +
                 ' glyphicon-log-out"></span> Log Out</a></li>';
             }
