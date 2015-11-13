@@ -66,9 +66,9 @@ public class SoftServeUserInformationService {
             SoftServeUserInformation softServeUserInformation =
                     user.getUserInformation().getSoftServeUserInformation();
             softServeUserInformation
-                    .setFirstName(softServeUserInformationDto.getFirstName());
+                    .setFirstName(user.getFirstName());
             softServeUserInformation
-                    .setLastName(softServeUserInformationDto.getLastName());
+                    .setLastName(user.getLastName());
             softServeUserInformation
                     .setPosition(softServeUserInformationDto.getPosition());
             softServeUserInformation
