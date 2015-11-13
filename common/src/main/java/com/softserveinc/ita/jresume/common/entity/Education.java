@@ -66,7 +66,7 @@ public class Education extends Base {
      * Education associates with UserInformation. Many to one relationship,
      * references to usetInformation table
      */
-    @ManyToOne(fetch = FetchType.LAZY, cascade = CascadeType.ALL)
+    @ManyToOne(fetch = FetchType.LAZY, cascade = CascadeType.MERGE)
     @JoinColumn(name = "usetInformationId")
     private UserInformation userInformation;
     

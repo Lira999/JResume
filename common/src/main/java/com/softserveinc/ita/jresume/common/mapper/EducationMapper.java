@@ -1,5 +1,7 @@
 package com.softserveinc.ita.jresume.common.mapper;
 
+import org.springframework.stereotype.Component;
+
 import com.softserveinc.ita.jresume.common.dto.EducationDTO;
 import com.softserveinc.ita.jresume.common.entity.Education;
 
@@ -9,6 +11,7 @@ import com.softserveinc.ita.jresume.common.entity.Education;
  * @author Bohdan Khudoba
  *         
  */
+@Component
 public class EducationMapper implements GenericMapper<Education, EducationDTO> {
     
     @Override

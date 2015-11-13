@@ -1,5 +1,7 @@
 package com.softserveinc.ita.jresume.common.mapper;
 
+import org.springframework.stereotype.Component;
+
 import com.softserveinc.ita.jresume.common.dto.ProjectDTO;
 import com.softserveinc.ita.jresume.common.entity.Project;
 
@@ -9,6 +11,7 @@ import com.softserveinc.ita.jresume.common.entity.Project;
  * @author Bohdan Khudoba
  *         
  */
+@Component
 public class ProjectMapper implements GenericMapper<Project, ProjectDTO> {
     
     @Override

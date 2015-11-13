@@ -51,7 +51,7 @@ public class Certification extends Base {
      * Certification associates with UserInformation. Many to one relationship,
      * references to usetInformation table
      */
-    @ManyToOne(fetch = FetchType.LAZY, cascade = CascadeType.ALL)
+    @ManyToOne(fetch = FetchType.LAZY, cascade = CascadeType.MERGE)
     @JoinColumn(name = "usetInformationId")
     private UserInformation userInformation;
     

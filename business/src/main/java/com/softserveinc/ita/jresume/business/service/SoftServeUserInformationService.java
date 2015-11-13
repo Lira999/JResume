@@ -4,9 +4,12 @@ import org.springframework.beans.factory.annotation.Autowired;
 
 import org.springframework.stereotype.Service;
 
+import com.softserveinc.ita.jresume.common.dto.SoftServeUserInformationDTO;
 import com.softserveinc.ita.jresume.common.entity.SoftServeUserInformation;
 import com.softserveinc.ita.jresume.common.entity.User;
-import com.softserveinc.ita.jresume.common.entity.UserInformation;
+import com.softserveinc.ita.jresume.common.mapper.
+
+SoftServeUserInformationMapper;
 import com.softserveinc.ita.jresume.persistence.dao.impl.UserInformationDAO;
 
 /**
@@ -22,68 +25,79 @@ public class SoftServeUserInformationService {
     @Autowired
     private UserInformationDAO userInformationDao;
     
+    /** SoftServeUserInformationMapper for map between DTO and entity. */
+    @Autowired
+    private SoftServeUserInformationMapper softServeUserInformationMapper;
+    
     /**
-     * Create a new softServeUserInformation.
+     * Get SoftServeUserInformationDTO associated with user.
      * 
-     * @param softServeUserInformation
-     *            to be created.
      * @param user
-     *            user associated with softServeUserInformation.
-     * @return created SoftServeUserInformation.
+     *            current user.
+     * @return SoftServeUserInformationDTO associated with user.
      */
-    public final UserInformation create(
-            final SoftServeUserInformation softServeUserInformation,
-            final User user) {
-        softServeUserInformation.setUser(user);
-        return userInformationDao.create(softServeUserInformation);
+    public final SoftServeUserInformationDTO getDto(final User user) {
+        return softServeUserInformationMapper
+                .toDto(user.getUserInformation()
+                        .getSoftServeUserInformation());
     }
     
     /**
-     * Update a new softServeUserInformation.
+     * Edit SoftServeUserInformation.
      * 
-     * @param newSoftServeUserInformation
-     *            newSoftServeUserInformation object with updated information.
+     * @param softServeUserInformationDto
+     *            DTO for SoftServeUserInformation entity.
      * @param user
-     *            user associated with softServeUserInformation.
-     * @return updated SoftServeUserInformation.
+     *            User associated with SoftServeUserInformation.
      */
-    public final UserInformation
-            update(final SoftServeUserInformation newSoftServeUserInformation,
+    public final void
+            edit(final SoftServeUserInformationDTO softServeUserInformationDto,
                     final User user) {
-        SoftServeUserInformation softServeUserInformation =
-                user.getUserInformation().getSoftServeUserInformation();
-        softServeUserInformation
-                .setBirthDate(newSoftServeUserInformation.getBirthDate());
-        softServeUserInformation
-                .setFirstName(newSoftServeUserInformation.getFirstName());
-        softServeUserInformation
-                .setFrameworks(newSoftServeUserInformation.getFrameworks());
-        softServeUserInformation
-                .setHardware(newSoftServeUserInformation.getHardware());
-        softServeUserInformation
-                .setLastName(newSoftServeUserInformation.getLastName());
-        softServeUserInformation.setMethodologies(
-                newSoftServeUserInformation.getMethodologies());
-        softServeUserInformation.setOperatingSystems(
-                newSoftServeUserInformation.getOperatingSystems());
-        softServeUserInformation
-                .setPosition(newSoftServeUserInformation.getPosition());
-        softServeUserInformation.setProgrammingLanguages(
-                newSoftServeUserInformation.getProgrammingLanguages());
-        softServeUserInformation
-                .setRdbms(newSoftServeUserInformation.getRdbms());
-        softServeUserInformation
-                .setSummary(newSoftServeUserInformation.getSummary());
-        softServeUserInformation
-                .setTechnologies(newSoftServeUserInformation.getTechnologies());
-        softServeUserInformation
-                .setTestingTools(newSoftServeUserInformation.getTestingTools());
-        softServeUserInformation
-                .setTools(newSoftServeUserInformation.getTools());
-        softServeUserInformation
-                .setWebServers(newSoftServeUserInformation.getWebServers());
-                
-        return userInformationDao.update(softServeUserInformation);
+        if (user.getUserInformation() == null) {
+            SoftServeUserInformation softServeUserInformation =
+                    new SoftServeUserInformation();
+            softServeUserInformation =
+                    softServeUserInformationMapper
+                            .toEntity(softServeUserInformationDto);
+            softServeUserInformation.setUser(user);
+            userInformationDao.create(softServeUserInformation);
+            
+        } else {
+            SoftServeUserInformation softServeUserInformation =
+                    user.getUserInformation().getSoftServeUserInformation();
+            softServeUserInformation
+                    .setFirstName(softServeUserInformationDto.getFirstName());
+            softServeUserInformation
+                    .setLastName(softServeUserInformationDto.getLastName());
+            softServeUserInformation
+                    .setPosition(softServeUserInformationDto.getPosition());
+            softServeUserInformation
+                    .setSummary(softServeUserInformationDto.getSummary());
+            softServeUserInformation
+                    .setBirthDate(softServeUserInformationDto.getBirthDate());
+            softServeUserInformation
+                    .setFrameworks(softServeUserInformationDto.getFrameworks());
+            softServeUserInformation
+                    .setHardware(softServeUserInformationDto.getHardware());
+            softServeUserInformation.setMethodologies(
+                    softServeUserInformationDto.getMethodologies());
+            softServeUserInformation.setOperatingSystems(
+                    softServeUserInformationDto.getOperatingSystems());
+            softServeUserInformation
+                    .setProgrammingLanguages(softServeUserInformationDto
+                            .getProgrammingLanguages());
+            softServeUserInformation
+                    .setRdbms(softServeUserInformationDto.getRdbms());
+            softServeUserInformation.setTechnologies(
+                    softServeUserInformationDto.getTechnologies());
+            softServeUserInformation.setTestingTools(
+                    softServeUserInformationDto.getTestingTools());
+            softServeUserInformation
+                    .setTools(softServeUserInformationDto.getTools());
+            softServeUserInformation
+                    .setWebServers(softServeUserInformationDto.getWebServers());
+            userInformationDao.update(softServeUserInformation);
+        }
     }
     
     /**

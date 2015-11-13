@@ -16,7 +16,6 @@ $(document).ready(function () {
 				$('#load-btn').show();
 			} 
 			for(var i = response.length - 1; i >= 0; i--) {
-				
 				if (response[i].mark === 'EXCELLENT')
 					var mark = new String('<span class="glyphicon glyphicon-star"></span>'
 							+ '<span class="glyphicon glyphicon-star"></span>'
@@ -52,7 +51,7 @@ $(document).ready(function () {
 						+ '</div>'
 						+ '<div class="col-md-offset-11">'
 						+ '<h6>'
-						+ moment(response[i].createDate).format('DD-MMM-YYYY ')
+						+ moment(response[i].createDate).format('DD-MMM-YYYY')
 						+ '</h6>'
 						+ '</div>'
 						+ '</div>'
@@ -61,7 +60,6 @@ $(document).ready(function () {
 						+ '<div>'
 						+ response[i].comment
 						+ '</div></li>');
-
 			}
 			$('#list').find('li:hidden:lt('+ COMMENTS_PER_LOAD + ')').show();
 		},

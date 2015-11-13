@@ -73,7 +73,7 @@ public class Project extends Base {
      * Project associates with UserInformation. Many to one relationship,
      * references to usetInformation table
      */
-    @ManyToOne(fetch = FetchType.LAZY, cascade = CascadeType.ALL)
+    @ManyToOne(fetch = FetchType.LAZY, cascade = CascadeType.MERGE)
     @JoinColumn(name = "userInformationId")
     private UserInformation userInformation;
     

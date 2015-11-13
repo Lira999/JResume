@@ -1,5 +1,7 @@
 package com.softserveinc.ita.jresume.common.mapper;
 
+import org.springframework.stereotype.Component;
+
 import com.softserveinc.ita.jresume.common.dto.CertificationDTO;
 import com.softserveinc.ita.jresume.common.entity.Certification;
 
@@ -9,6 +11,7 @@ import com.softserveinc.ita.jresume.common.entity.Certification;
  * @author Bohdan Khudoba
  *         
  */
+@Component
 public class CertificationMapper
         implements GenericMapper<Certification, CertificationDTO> {
         

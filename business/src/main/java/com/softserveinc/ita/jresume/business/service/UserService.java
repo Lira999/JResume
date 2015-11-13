@@ -5,6 +5,7 @@ import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import com.softserveinc.ita.jresume.common.dto.SoftServeUserInformationDTO;
 import com.softserveinc.ita.jresume.common.dto.UserDTO;
 import com.softserveinc.ita.jresume.common.entity.User;
 import com.softserveinc.ita.jresume.common.mapper.UserMapper;
@@ -27,14 +28,22 @@ public class UserService {
     private UserMapper userMapper;
     
     /**
+     * SoftServeUserInformationService to operate with SoftServeUserInformation
+     * objects.
+     */
+    @Autowired
+    private SoftServeUserInformationService softServeUserInformationService;
+    
+    /**
      * Create a new user.
      * 
      * @param user
      *            to be created.
-     * @return created user.
      */
-    public final User create(final User user) {
-        return userDao.create(user);
+    public final void create(final User user) {
+        userDao.create(user);
+        softServeUserInformationService.edit(new SoftServeUserInformationDTO(),
+                user);
     }
     
     /**
