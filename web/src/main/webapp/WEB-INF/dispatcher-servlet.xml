@@ -7,7 +7,8 @@
 		http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context-4.2.xsd">
 
 	<!-- import all controllers -->
-	<context:component-scan base-package="com.softserveinc.ita.jresume.web.controller" />
+	<context:component-scan base-package="com.softserveinc.ita.jresume.web.controller,
+	    com.softserveinc.ita.jresume.web.requestFilter" />
 
 	<!-- import all context files -->
 	<import resource="classpath*:**/*-context.xml" />

@@ -21,6 +21,9 @@ public class BaseEntityListener {
     @PrePersist
     private void prePersist(final Base object) {
         object.setCreateDate(new Date());
+        if (LoggedUser.getLoggedUser() != null) {
+            object.setCreatedBy(LoggedUser.getLoggedUser());
+        }
     }
     
     /**
@@ -32,6 +35,7 @@ public class BaseEntityListener {
     @PreUpdate
     private void preUpdate(final Base object) {
         object.setUpdateDate(new Date());
+        object.setUpdatedBy(LoggedUser.getLoggedUser());
     }
     
 }
