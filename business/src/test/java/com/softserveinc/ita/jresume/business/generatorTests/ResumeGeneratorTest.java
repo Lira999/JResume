@@ -1,8 +1,7 @@
 package com.softserveinc.ita.jresume.business.generatorTests;
 
-import java.io.ByteArrayOutputStream;
 import java.io.File;
-import java.io.FileOutputStream;
+import java.io.FileWriter;
 import java.io.IOException;
 import java.nio.file.Files;
 import java.util.ArrayList;
@@ -22,7 +21,6 @@ import com.softserveinc.ita.jresume.business.xslt.XsltTransformer;
 import com.softserveinc.ita.jresume.common.dto.TemplateDTO;
 import com.softserveinc.ita.jresume.common.entity.Education;
 import com.softserveinc.ita.jresume.common.entity.Project;
-import com.softserveinc.ita.jresume.common.entity.Template;
 import com.softserveinc.ita.jresume.common.entity.UserInformation;
 
 /**
@@ -61,7 +59,7 @@ public class ResumeGeneratorTest {
     public final void init() {
         output = new File(
                 "src/test/resources/testFiles/generatorTestFiles/output.html");
-        
+                
         resumeGenerator = new ResumeGenerator();
         ReflectionTestUtils.setField(resumeGenerator, "xsltTransformer",
                 new XsltTransformer());
@@ -81,7 +79,7 @@ public class ResumeGeneratorTest {
         userInformation.setPosition("Some position...");
         userInformation.setSummary(
                 "Describe your professional background and skills relevant...");
-        
+                
         List<Education> educations = new ArrayList<>();
         Education edu = new Education();
         edu.setDegreeReceived("Some degree");
@@ -157,10 +155,11 @@ public class ResumeGeneratorTest {
     @Test
     public final void testGeneration() throws ResumeGeneratorException,
             IOException {
-        ByteArrayOutputStream os = (ByteArrayOutputStream) resumeGenerator
-                .generate(userInformation, template);
-        os.writeTo(new FileOutputStream(output));
-        
+            
+        try (FileWriter fileOutput = new FileWriter(output);) {
+            fileOutput.write(new String(resumeGenerator.generate(
+                    userInformation, template)));
+        }
         File expectedOutputWin = new File("src/test/resources/testFiles"
                 + "/generatorTestFiles/outputWin.html");
         File expectedOutputUnix = new File("src/test/resources/testFiles/"

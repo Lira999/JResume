@@ -1,8 +1,19 @@
-.wrapper {
-	margin-top: 50px;
-	margin-bottom: 50px;
+.container {
+	margin-top: 40px;
+	margin-bottom: 40px;
 }
 
 .error {
 	text-align: center;
+}
+
+.well {
+  padding-top: 5px !important;
+  margin-top: 5px !important;
+}
+
+.center {
+  float: none;
+  margin-left: auto;
+  margin-right: auto;
 }

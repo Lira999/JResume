@@ -2,15 +2,19 @@ package com.softserveinc.ita.jresume.business.generator;
 
 import java.io.ByteArrayOutputStream;
 import java.io.File;
+import java.io.IOException;
 import java.io.InputStream;
-import java.io.OutputStream;
 
 import javax.xml.bind.JAXBException;
 
+import org.docx4j.openpackaging.exceptions.Docx4JException;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Service;
 
+import com.itextpdf.text.DocumentException;
+import com.softserveinc.ita.jresume.business.converter.DOCConverter;
+import com.softserveinc.ita.jresume.business.converter.PDFConverter;
 import com.softserveinc.ita.jresume.business.converter.XMLConverter;
 import com.softserveinc.ita.jresume.business.xslt.XsltTransformer;
 import com.softserveinc.ita.jresume.business.xslt.XstlTransformerException;
@@ -33,6 +37,14 @@ public class ResumeGenerator {
     @Autowired
     private XMLConverter xmlConverter;
     
+    /** Converter that converts from html code to PDF representation. */
+    @Autowired
+    private PDFConverter pdfConverter;
+    
+    /** Converter that converts from html to document representation. */
+    @Autowired
+    private DOCConverter docConverter;
+    
     /** Path to folder to save files. */
     @Value("${fileUpload.path}")
     private String uploadPath;
@@ -44,12 +56,12 @@ public class ResumeGenerator {
      *            the information about user for resume
      * @param templateDTO
      *            the template to use
-     * @return output stream with writed html data
+     * @return array of bytes with writed html data
      * @throws ResumeGeneratorException
      *             in case of wrong input parameters or during generation
      *             process
      */
-    public final OutputStream generate(final UserInformation userInformation,
+    public final byte[] generate(final UserInformation userInformation,
             final TemplateDTO templateDTO) throws ResumeGeneratorException {
         if (userInformation == null || templateDTO == null) {
             throw new ResumeGeneratorException(
@@ -72,6 +84,53 @@ public class ResumeGenerator {
             throw new ResumeGeneratorException("Exception in xslt transformer",
                     e);
         }
-        return output;
+        return output.toByteArray();
+    }
+    
+    /**
+     * This method retrieves generated resume in pdf format to array of bytes.
+     * 
+     * @param userInformation
+     *            the information about user for resume
+     * @param templateDTO
+     *            the template to use
+     * @return array of bytes with writed pdf data
+     * @throws ResumeGeneratorException
+     *             in case of wrong input parameters or during generation
+     *             process
+     */
+    public final byte[] generatePdf(final UserInformation userInformation,
+            final TemplateDTO templateDTO) throws ResumeGeneratorException {
+        byte[] bytes = generate(userInformation, templateDTO);
+        try {
+            return pdfConverter.convert(bytes);
+        } catch (IOException e) {
+            throw new ResumeGeneratorException("PDF conversion IOException", e);
+        } catch (DocumentException e) {
+            throw new ResumeGeneratorException(
+                    "PDF conversion DocumentException", e);
+        }
+    }
+    
+    /**
+     * This method retrieves generated resume in doc format to array of bytes.
+     * 
+     * @param userInformation
+     *            the information about user for resume
+     * @param templateDTO
+     *            the template to use
+     * @return array of bytes with writed doc data
+     * @throws ResumeGeneratorException
+     *             in case of wrong input parameters or during generation
+     *             process
+     */
+    public final byte[] generateDoc(final UserInformation userInformation,
+            final TemplateDTO templateDTO) throws ResumeGeneratorException {
+        byte[] bytes = generate(userInformation, templateDTO);
+        try {
+            return docConverter.convert(bytes);
+        } catch (Docx4JException e) {
+            throw new ResumeGeneratorException("DOC conversion exception", e);
+        }
     }
 }

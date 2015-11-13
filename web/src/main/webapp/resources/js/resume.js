@@ -10,4 +10,12 @@ $(function() {
 			showErrorMessage('#well');
 		}
 	});
+	
+	$('#pdf').click(function() {
+		window.open(document.location.href + 'Pdf', '_blank');
+	});
+	
+	$('#doc').click(function() {
+		window.open(document.location.href + 'Doc', '_blank');
+	});	
 });
