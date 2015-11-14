@@ -125,12 +125,17 @@ $(function() {
 					});
 
 	function sendAjax() {
-		const
-		BAD_REQUEST = 400;
+		var passwordToSet;
+		if ($('#password').val().length === 0) {
+			passwordToSet = $('#currentPassword').val();
+		} else {
+			passwordToSet = $('#password').val();
+		}
+		const BAD_REQUEST = 400;
 		var data = JSON.stringify({
 			firstName : $('#firstName').val(),
 			lastName : $('#lastName').val(),
-			password : $('#password').val()
+			password : passwordToSet
 		});
 		$
 				.ajax({
