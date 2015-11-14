@@ -130,8 +130,8 @@ $(function() {
 					else
 						$('#line_rb').after('<div class="error alert alert-danger fade in" id="err"><strong> Internal error! </strong></div>');
 				}
-				$('#uploadBtn').text('Upload');
-				$('#uploadBtn').prop('disabled', false);
+				$('#signUpBtn').text('Sign up');
+				$('#signUpBtn').prop('disabled', false);
 			}
 		});
 	}
