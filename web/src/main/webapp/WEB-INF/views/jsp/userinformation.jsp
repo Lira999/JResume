@@ -25,7 +25,7 @@
 				<hr class="colorgraph">
 				<div class="form-group col-lg-6">
 					<input type="text" class="form-control" id="position"
-						name="position" placeholder="Position" required>
+						name="position" placeholder="Position">
 				</div>
 				<div class="col-lg-6">
 					<div class="input-group input-append date col-lg-12"
@@ -43,71 +43,45 @@
 				<div class="form-group col-lg-12">
 					<h4>Education</h4>
 				</div>
+				<div id="education">
 
-				<div class="form-group col-lg-6">
-					<input type="text" class="form-control" id="schoolName"
-						name="schoolName" placeholder="School Name" required>
 				</div>
-				<div class="form-group col-lg-6">
-					<input type="text" class="form-control" id="university"
-						name="university" placeholder="University" required>
-				</div>
-				<div class="form-group col-lg-4">
-					<input type="text" class="form-control" id="degreeReceived"
-						name="degreeReceived" placeholder="Degree Received" required>
-				</div>
-				<div class="form-group col-lg-4">
-					<input type="text" class="form-control" id="department"
-						name="department" placeholder="Department" required>
-				</div>
-				<div class="form-group col-lg-4">
-					<input type="text" class="form-control" id="graduationYear"
-						name="graduationYear" placeholder="Graduation Year" required>
+				<div class="form-group col-lg-12">
+					<div class="col-xs-2">
+						<button id="addeducation"
+							class="btn-success btn-save btn-lg btn-block btn" type="button">One
+							more</button>
+					</div>
 				</div>
 				<div class="form-group col-lg-12">
 					<h4>Project</h4>
 				</div>
-				<div class="form-group col-lg-4">
-					<input type="text" class="form-control" id="description"
-						name="description" placeholder="Description" required>
+				<div id="project">
 				</div>
 
-				<div class="form-group col-lg-4">
-					<input type="text" class="form-control" id="customer"
-						name="customer" placeholder="Customer" required>
-				</div>
-				<div class="form-group col-lg-4">
-					<input type="text" class="form-control" id="role" name="role"
-						placeholder="Role" required>
+
+				<div class="form-group col-lg-12">
+					<div class="col-xs-2">
+						<button id="addproject"
+							class="btn-success btn-save btn-lg btn-block btn" type="button">One
+							more</button>
+					</div>
 				</div>
 
-				<div class="form-group col-lg-4">
-					<input type="text" class="form-control" id="teamSize"
-						name="teamSize" placeholder="Team Size" required>
-				</div>
-
-				<div class="form-group col-lg-4">
-					<input type="text" class="form-control" id="involvementDuration"
-						name="involvementDuration" placeholder="Involvement Duration"
-						required>
-				</div>
-
-				<div class="form-group col-lg-4">
-					<input type="text" class="form-control" id="tools" name="tools"
-						placeholder="Tools" required>
-				</div>
 				<div class="form-group col-lg-12">
 					<h4>Certification</h4>
 				</div>
-				<div class="form-group col-lg-8">
-					<input type="text" class="form-control" id="name" name="name"
-						placeholder="Name" required>
+				<div id="certification">
 				</div>
-				<div class="form-group col-lg-4">
-					<input type="text" class="form-control" id="yearReceived" name="yearReceived"
-						placeholder="Year Received" required>
+				<div class="form-group col-lg-12">
+					<div class="col-xs-2">
+						<button id="addcertification"
+							class="btn-success btn-save btn-lg btn-block btn" type="button">One
+							more</button>
+					</div>
 				</div>
-				
+
+
 				<div class="form-group col-lg-12">
 					<div class="col-xs-2">
 						<button id="next"

@@ -1,6 +1,7 @@
 package com.softserveinc.ita.jresume.web.controller;
 
 import java.security.Principal;
+import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -89,44 +90,93 @@ public class AddSoftServeUserInformationController {
     }
     
     /**
+     * Controller for find current educations.
+     * 
+     * @param principal
+     *            current spring security user, logged in system.
+     * @return list with EducationDTO.
+     */
+    @RequestMapping(value = "/education/current", produces = "application/json",
+            method = RequestMethod.GET)
+    @ResponseBody
+    public final List<EducationDTO> getEducations(final Principal principal) {
+        return educationService
+                .getListOfDto(userService.findByEmail(principal.getName()));
+    }
+    
+    /**
+     * Controller for find current projects.
+     * 
+     * @param principal
+     *            current spring security user, logged in system.
+     * @return list with ProjectDTO.
+     */
+    @RequestMapping(value = "/project/current", produces = "application/json",
+            method = RequestMethod.GET)
+    @ResponseBody
+    public final List<ProjectDTO> getProjects(final Principal principal) {
+        return projectService
+                .getListOfDto(userService.findByEmail(principal.getName()));
+    }
+    
+    /**
+     * Controller for find current certifications.
+     * 
+     * @param principal
+     *            current spring security user, logged in system.
+     * @return list with CertificationDTO.
+     */
+    @RequestMapping(value = "/certification/current",
+            produces = "application/json",
+            method = RequestMethod.GET)
+    @ResponseBody
+    public final List<CertificationDTO>
+            getCertifications(final Principal principal) {
+        return certificationService
+                .getListOfDto(userService.findByEmail(principal.getName()));
+    }
+    
+    /**
      * Controller for add education.
      * 
-     * @param educationDto
-     *            Data transfer object for Education that be added.
+     * @param listOfEducationDto
+     *            List of Data transfer object for Education.
      * @param principal
      *            current spring security user, logged in system.
      */
     @RequestMapping(value = "education", method = RequestMethod.POST,
             consumes = "application/json")
     @ResponseBody
-    public final void addEducation(@RequestBody final EducationDTO educationDto,
+    public final void addEducations(
+            @RequestBody final List<EducationDTO> listOfEducationDto,
             final Principal principal) {
-        educationService.create(educationDto,
+        educationService.create(listOfEducationDto,
                 userService.findByEmail(principal.getName()));
     }
     
     /**
      * Controller for add project.
      * 
-     * @param projectDto
-     *            Data transfer object for Project that be added.
+     * @param listOfProjectDto
+     *            List of Data transfer object for Project.
      * @param principal
      *            current spring security user, logged in system.
      */
     @RequestMapping(value = "project", method = RequestMethod.POST,
             consumes = "application/json")
     @ResponseBody
-    public final void addProject(@RequestBody final ProjectDTO projectDto,
+    public final void addProject(
+            @RequestBody final List<ProjectDTO> listOfProjectDto,
             final Principal principal) {
-        projectService.create(projectDto,
+        projectService.create(listOfProjectDto,
                 userService.findByEmail(principal.getName()));
     }
     
     /**
      * Controller for add certification.
      * 
-     * @param certificationDto
-     *            Data transfer object for Certification that be added.
+     * @param listOfCertificationDto
+     *            List of Data transfer object for Certification.
      * @param principal
      *            current spring security user, logged in system.
      */
@@ -134,9 +184,9 @@ public class AddSoftServeUserInformationController {
             consumes = "application/json")
     @ResponseBody
     public final void addCertification(
-            @RequestBody final CertificationDTO certificationDto,
+            @RequestBody final List<CertificationDTO> listOfCertificationDto,
             final Principal principal) {
-        certificationService.create(certificationDto,
+        certificationService.create(listOfCertificationDto,
                 userService.findByEmail(principal.getName()));
     }
     

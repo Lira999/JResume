@@ -172,7 +172,7 @@ public class Project extends Base {
      * 
      * @return projectRole of a developer in a project
      */
-    public final String getProjectRole() {
+    public final String getRole() {
         return role;
     }
     
@@ -181,7 +181,7 @@ public class Project extends Base {
      * 
      * @return number of workers which were involved in a project
      */
-    public final Short getProjectTeamSize() {
+    public final Short getTeamSize() {
         return teamSize;
     }
     

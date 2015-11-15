@@ -1,11 +1,13 @@
 package com.softserveinc.ita.jresume.business.service;
 
+import java.util.ArrayList;
+import java.util.List;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import com.softserveinc.ita.jresume.common.dto.CertificationDTO;
 import com.softserveinc.ita.jresume.common.entity.Certification;
-import com.softserveinc.ita.jresume.common.entity.SoftServeUserInformation;
 import com.softserveinc.ita.jresume.common.entity.User;
 import com.softserveinc.ita.jresume.common.mapper.CertificationMapper;
 import com.softserveinc.ita.jresume.persistence.dao.impl.CertificationDAO;
@@ -28,23 +30,52 @@ public class CertificationService {
     private CertificationDAO certificationDao;
     
     /**
+     * Gets list of CertificationDTO associated with user.
+     * 
+     * @param user
+     *            user associated with this list CertificationDTO.
+     * @return list of CertificationDTO associated with user.
+     */
+    public final List<CertificationDTO> getListOfDto(final User user) {
+        List<Certification> listOfEntity =
+                user.getUserInformation().getCertification();
+        List<CertificationDTO> result = new ArrayList<CertificationDTO>();
+        for (Certification certification : listOfEntity) {
+            result.add(certificationMapper.toDto(certification));
+        }
+        return result;
+    }
+    
+    /**
      * Create a new certification.
      * 
-     * @param certificationDto
+     * @param certificationsDto
      *            Data transfer object for Certification.
      * @param user
      *            user associated with this certification.
      */
-    public final void create(final CertificationDTO certificationDto,
+    public final void create(final List<CertificationDTO> certificationsDto,
             final User user) {
-        Certification certification =
-                certificationMapper.toEntity(certificationDto);
-                
-        if (user.getUserInformation() == null) {
-            certification.setUserInformation(new SoftServeUserInformation());
-        } else {
-            certification.setUserInformation(user.getUserInformation());
+        int countOfCurrentCertifications =
+                user.getUserInformation().getCertification().size();
+        List<Certification> listOfCurrentCertification =
+                user.getUserInformation().getCertification();
+        for (int i = 0; i < countOfCurrentCertifications; i++) {
+            Certification certification = listOfCurrentCertification.get(i);
+            CertificationDTO certificationDto = certificationsDto.get(i);
+            certification.setName(certificationDto.getName());
+            certification.setYearReceived(certificationDto.getYearReceived());
+            certificationDao.update(certification);
         }
-        certificationDao.create(certification);
+        for (int i = countOfCurrentCertifications; i < certificationsDto
+                .size(); i++) {
+            Certification certification =
+                    certificationMapper.toEntity(certificationsDto.get(i));
+            certification.setUserInformation(user.getUserInformation());
+            if (certification.getName() != null
+                    && certification.getYearReceived() != null) {
+                certificationDao.create(certification);
+            }
+        }
     }
 }

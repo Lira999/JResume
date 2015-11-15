@@ -21,8 +21,8 @@ public class ProjectMapper implements GenericMapper<Project, ProjectDTO> {
         projectDto.setDescription(project.getDescription());
         projectDto.setId(project.getId());
         projectDto.setInvolvementDuration(project.getInvolvementDuration());
-        projectDto.setRole(project.getProjectRole());
-        projectDto.setTeamSize(project.getProjectTeamSize());
+        projectDto.setRole(project.getRole());
+        projectDto.setTeamSize(project.getTeamSize());
         projectDto.setTools(project.getTools());
         projectDto.setUserInformationId(project.getUserInformation().getId());
         return projectDto;
@@ -35,7 +35,7 @@ public class ProjectMapper implements GenericMapper<Project, ProjectDTO> {
         project.setDescription(projectDto.getDescription());
         project.setId(projectDto.getId());
         project.setInvolvementDuration(projectDto.getInvolvementDuration());
-        project.setRole(projectDto.getProjectRole());
+        project.setRole(projectDto.getRole());
         project.setTeamSize(projectDto.getProjectTeamSize());
         project.setTools(projectDto.getTools());
         return project;
