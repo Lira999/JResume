@@ -10,6 +10,9 @@ import com.softserveinc.ita.jresume.common.entity.MarkValue;
  */
 public class MarkDTO extends BaseDTO {
     
+    /** TemplateId associated with mark. */
+    private Long templateId;
+    
     /** Value of this mark. */
     private MarkValue mark;
     
@@ -53,5 +56,26 @@ public class MarkDTO extends BaseDTO {
     public final void setComment(final String newComment) {
         comment = newComment;
     }
+
+    /**
+     * Gets templateId for this mark.
+     * 
+     * @return templateId for this mark.
+     */
+    public final Long getTemplateId() {
+        return templateId;
+    }
+
+    /**
+     * Changes templateId for this mark.
+     * 
+     * @param newTemplateId
+     *            new templateId for this mark.
+     */
+    public final void setTemplateId(final Long newTemplateId) {
+        templateId = newTemplateId;
+    }
+    
+    
     
 }

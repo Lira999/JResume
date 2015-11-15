@@ -408,9 +408,6 @@ $(document).ready(
 											$('#customer-' + projectCount)
 													.val(
 															response[projectCount].customer);
-											$('#role-' + projectCount)
-													.val(
-															response[projectCount].role);
 											$('#teamSize-' + projectCount)
 													.val(
 															response[projectCount].teamSize);
@@ -426,7 +423,7 @@ $(document).ready(
 										if (projectCount === 0) {
 											$('#project')
 													.append(
-															'<div class="form-group col-lg-4">'
+															'<div class="form-group col-lg-8">'
 																	+ '<input type="text" class="form-control" id="description-'
 																	+ projectCount
 																	+ '"name="description" placeholder="Description">'
@@ -435,12 +432,6 @@ $(document).ready(
 																	+ '<input type="text" class="form-control" id="customer-'
 																	+ projectCount
 																	+ '"name="customer" placeholder="Customer">'
-																	+ '</div>'
-																	+ '<div class="form-group col-lg-4">'
-																	+ '<input type="text" class="form-control" id="role-"'
-																	+ projectCount
-																	+ '"name="role"'
-																	+ 'placeholder="Role">'
 																	+ '</div>'
 																	+ '<div class="form-group col-lg-4">'
 																	+ '<input type="text" class="form-control" id="teamSize-'

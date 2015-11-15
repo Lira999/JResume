@@ -9,9 +9,10 @@ $(function() {
 		var data = JSON.stringify({
 			comment : $('#comment').val(),
 			mark : $('#rating-input').val(),
+			templateId: id,
 		});
 		$.ajax({
-			url : 'addcomment' + id,
+			url : 'addcomment',
 			type : 'POST',
 			contentType : 'application/json',
 			data : data,

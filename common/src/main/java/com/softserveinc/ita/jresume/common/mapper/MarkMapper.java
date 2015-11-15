@@ -20,16 +20,29 @@ public class MarkMapper implements GenericMapper<Mark, MarkDTO> {
         mark.setComment(markDto.getComment());
         mark.setMark(markDto.getMark());
         mark.setCreateDate(markDto.getCreateDate());
+        mark.setCreatedBy(markDto.getCreatedBy());
         return mark;
     }
     
     @Override
     public final MarkDTO toDto(final Mark mark) {
+        if (mark.getUser() != null) {
+            if (mark.getUser().getFirstName() == null) {
+                System.err.println(mark.getUser().getFirstName()
+                        + " ===== ===== ===== =====");
+            } else {
+                System.err.println("first name null");
+                
+            }
+        } else {
+            System.err.println("user null");
+        }
         MarkDTO markDto = new MarkDTO();
         markDto.setComment(mark.getComment());
         markDto.setMark(mark.getMark());
         markDto.setCreateDate(mark.getCreateDate());
         markDto.setCreatedBy(mark.getCreatedBy());
+        markDto.setTemplateId(mark.getTemplate().getId());
         return markDto;
     }
 }

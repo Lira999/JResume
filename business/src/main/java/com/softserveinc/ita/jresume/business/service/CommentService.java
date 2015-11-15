@@ -41,19 +41,12 @@ public class CommentService {
      * Create a new mark.
      * 
      * @param markDto
-     *            Data transfer object for Mark.
-     * @param templateId
-     *            associated with template.
-     * @param userId
-     *            associated with user.
+     *            Data transfer object for Mark. associated with template.
      */
-    public final void create(final MarkDTO markDto, final long templateId,
-            final long userId) {
+    public final void create(final MarkDTO markDto) {
         Mark mark = markMapper.toEntity(markDto);
-        mark.setUser(userDao.findById(userId));
-        mark.setTemplate(templateDao.findById(templateId));
-        mark.setCreatedBy(userDao.findById(userId).getFirstName() + " "
-                + userDao.findById(userId).getLastName());
+        mark.setUser(userDao.findByEmail(mark.getCreatedBy()));
+        mark.setTemplate(templateDao.findById(markDto.getTemplateId()));
         markDao.create(mark);
     }
     
@@ -67,6 +60,9 @@ public class CommentService {
         List<Mark> listOfMarks = markDao.findByTemplateId(templateId);
         for (Mark mark : listOfMarks) {
             MarkDTO markDto = markMapper.toDto(mark);
+            markDto.setCreatedBy(userDao.findByEmail(mark.getCreatedBy())
+                    .getFirstName() + " "
+                    + userDao.findByEmail(mark.getCreatedBy()).getLastName());
             result.add(markDto);
         }
         return result;
