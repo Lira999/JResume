@@ -3,7 +3,7 @@
 <html>
 <head>
 	<jsp:include page="../generic.jsp"></jsp:include>
-	<title>404 - JResume</title>
+	<title>500 - JResume</title>
 </head>
 <body>
 <jsp:include page="../navbar.jsp"></jsp:include>
@@ -16,7 +16,7 @@
         <div class="panel-heading">
           <h3 class="text-center">
           <span class="glyphicon glyphicon-exclamation-sign" aria-hidden="true"></span>
-          Internal server error - 505
+          Internal server error - 500
           </h3>
         </div>
         <div class="panel-body">
