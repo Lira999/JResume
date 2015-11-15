@@ -56,7 +56,7 @@ public class MarkDTO extends BaseDTO {
     public final void setComment(final String newComment) {
         comment = newComment;
     }
-
+    
     /**
      * Gets templateId for this mark.
      * 
@@ -65,7 +65,7 @@ public class MarkDTO extends BaseDTO {
     public final Long getTemplateId() {
         return templateId;
     }
-
+    
     /**
      * Changes templateId for this mark.
      * 
@@ -75,7 +75,5 @@ public class MarkDTO extends BaseDTO {
     public final void setTemplateId(final Long newTemplateId) {
         templateId = newTemplateId;
     }
-    
-    
     
 }

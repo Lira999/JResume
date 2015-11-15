@@ -26,17 +26,6 @@ public class MarkMapper implements GenericMapper<Mark, MarkDTO> {
     
     @Override
     public final MarkDTO toDto(final Mark mark) {
-        if (mark.getUser() != null) {
-            if (mark.getUser().getFirstName() == null) {
-                System.err.println(mark.getUser().getFirstName()
-                        + " ===== ===== ===== =====");
-            } else {
-                System.err.println("first name null");
-                
-            }
-        } else {
-            System.err.println("user null");
-        }
         MarkDTO markDto = new MarkDTO();
         markDto.setComment(mark.getComment());
         markDto.setMark(mark.getMark());
