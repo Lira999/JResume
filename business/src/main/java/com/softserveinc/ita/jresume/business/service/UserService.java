@@ -57,10 +57,16 @@ public class UserService {
      */
     public final User update(final User currentUser,
             final UserDTO updatedUser) {
-        currentUser.setFirstName(updatedUser.getFirstName());
-        currentUser.setLastName(currentUser.getLastName());
+        if (updatedUser.getFirstName() != null
+                && !updatedUser.getFirstName().equals("")) {
+            currentUser.setFirstName(updatedUser.getFirstName());
+        }
+        if (updatedUser.getLastName() != null
+                && !updatedUser.getLastName().equals("")) {
+            currentUser.setLastName(updatedUser.getLastName());
+        }
         if (updatedUser.getPassword() != null
-                && !updatedUser.getPassword().isEmpty()) {
+                && updatedUser.getPassword().equals("")) {
             currentUser.setPassword(updatedUser.getPassword());
         }
         return userDao.update(currentUser);

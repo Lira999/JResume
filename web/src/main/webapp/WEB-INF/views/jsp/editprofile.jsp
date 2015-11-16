@@ -25,8 +25,7 @@
 			</div>
 			<div class="input-group col-xs-12">
 				<input class="form-control" placeholder="Current Password"
-					id="currentPassword" name="currentPassword" type="password"
-					required>
+					id="currentPassword" name="currentPassword" type="password">
 			</div>
 			<div class="input-group col-xs-12">
 				<input class="form-control" placeholder="Password" id="password"

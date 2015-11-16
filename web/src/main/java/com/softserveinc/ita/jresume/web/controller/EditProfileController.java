@@ -76,7 +76,7 @@ public class EditProfileController {
     /**
      * Controller for checking password matching.
      * 
-     * @param password
+     * @param currentPassword
      *            entered password.
      * @param principal
      *            current spring security user, logged in system.
@@ -84,19 +84,10 @@ public class EditProfileController {
      */
     @RequestMapping(value = "currentPassword", method = RequestMethod.POST)
     @ResponseBody
-    public final Boolean currentPasswordMath(@RequestBody final String password,
+    public final Boolean currentPasswordMath(final String currentPassword,
             final Principal principal) {
-        System.err.println(
-                password.replaceAll("currentPassword=", "") + "======="
-                        + encoder.encode(
-                                password.replaceAll("currentPassword=", ""))
-                        + "====" + userService.findByEmail(principal.getName())
-                                .getPassword());
-        System.err.println(encoder.matches(
-                encoder.encode(password.replaceAll("currentPassword=", "")),
-                userService.findByEmail(principal.getName())
-                        .getPassword()));
-        return true;
-        
+        System.err.println(currentPassword);
+        return encoder.matches(currentPassword,
+                userService.findByEmail(principal.getName()).getPassword());
     }
 }

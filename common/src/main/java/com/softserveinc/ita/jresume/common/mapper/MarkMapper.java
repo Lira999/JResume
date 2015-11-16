@@ -19,8 +19,6 @@ public class MarkMapper implements GenericMapper<Mark, MarkDTO> {
         Mark mark = new Mark();
         mark.setComment(markDto.getComment());
         mark.setMark(markDto.getMark());
-        mark.setCreateDate(markDto.getCreateDate());
-        mark.setCreatedBy(markDto.getCreatedBy());
         return mark;
     }
     
