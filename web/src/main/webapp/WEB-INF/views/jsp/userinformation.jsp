@@ -20,8 +20,9 @@
 		<form class="editprofile-form" method="POST" role="form">
 
 			<div class="row">
-				<h3 style="margin-bottom: 25px; text-align: center;">User
-					Information</h3>
+				<div class="header">
+					<h3>User Information</h3>
+				</div>
 				<hr class="colorgraph">
 				<div class="form-group col-lg-6">
 					<input type="text" class="form-control" id="position"
@@ -43,42 +44,39 @@
 				<div class="form-group col-lg-12">
 					<h4>Education</h4>
 				</div>
-				<div id="education">
-
-				</div>
+				<div id="education"></div>
 				<div class="form-group col-lg-12">
-					<div class="col-xs-2">
+					<span class="pull-right">
 						<button id="addeducation"
 							class="btn-success btn-save btn-lg btn-block btn" type="button">One
 							more</button>
-					</div>
+					</span>
+
 				</div>
 				<div class="form-group col-lg-12">
 					<h4>Project</h4>
 				</div>
-				<div id="project">
-				</div>
+				<div id="project"></div>
 
 
 				<div class="form-group col-lg-12">
-					<div class="col-xs-2">
+					<span class="pull-right">
 						<button id="addproject"
 							class="btn-success btn-save btn-lg btn-block btn" type="button">One
 							more</button>
-					</div>
+					</span>
 				</div>
 
 				<div class="form-group col-lg-12">
 					<h4>Certification</h4>
 				</div>
-				<div id="certification">
-				</div>
+				<div id="certification"></div>
 				<div class="form-group col-lg-12">
-					<div class="col-xs-2">
+					<span class="pull-right">
 						<button id="addcertification"
 							class="btn-success btn-save btn-lg btn-block btn" type="button">One
 							more</button>
-					</div>
+					</span>
 				</div>
 
 
@@ -91,10 +89,10 @@
 
 				<div id="nextfields"></div>
 				<div class="form-group col-lg-12">
-					<div class="col-xs-2">
+					<span class="pull-right">
 						<button id="savebutton"
 							class="btn-success btn-save btn-lg btn-block btn" type="button">Save</button>
-					</div>
+					</span>
 				</div>
 			</div>
 		</form>

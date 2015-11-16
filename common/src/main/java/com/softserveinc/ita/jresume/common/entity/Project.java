@@ -60,7 +60,7 @@ public class Project extends Base {
      */
     @XmlElement
     @Column(name = "involvementDuration")
-    private Byte involvementDuration;
+    private String involvementDuration;
     
     /**
      * Describes tools and technologies which were used in a project.
@@ -134,7 +134,7 @@ public class Project extends Base {
      *            description of a time to be involvement
      */
     public final void setInvolvementDuration(
-            final Byte newInvolvementDuration) {
+            final String newInvolvementDuration) {
         involvementDuration = newInvolvementDuration;
     }
     
@@ -190,7 +190,7 @@ public class Project extends Base {
      * 
      * @return time have been spent in a project
      */
-    public final Byte getInvolvementDuration() {
+    public final String getInvolvementDuration() {
         return involvementDuration;
     }
     

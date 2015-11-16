@@ -86,7 +86,17 @@ public class EditProfileController {
     @ResponseBody
     public final Boolean currentPasswordMath(@RequestBody final String password,
             final Principal principal) {
-        return encoder.matches(password.replace("currentPassword=", ""),
-                userService.findByEmail(principal.getName()).getPassword());
+        System.err.println(
+                password.replaceAll("currentPassword=", "") + "======="
+                        + encoder.encode(
+                                password.replaceAll("currentPassword=", ""))
+                        + "====" + userService.findByEmail(principal.getName())
+                                .getPassword());
+        System.err.println(encoder.matches(
+                encoder.encode(password.replaceAll("currentPassword=", "")),
+                userService.findByEmail(principal.getName())
+                        .getPassword()));
+        return true;
+        
     }
 }

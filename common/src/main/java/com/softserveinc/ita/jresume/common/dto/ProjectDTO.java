@@ -36,7 +36,7 @@ public class ProjectDTO extends BaseDTO {
     /**
      * Describes involvement duration in a project.
      */
-    private Byte involvementDuration;
+    private String involvementDuration;
     
     /**
      * Describes tools and technologies which were used in a project.
@@ -124,7 +124,7 @@ public class ProjectDTO extends BaseDTO {
      *            description of a time to be involvement
      */
     public final void setInvolvementDuration(
-            final Byte newInvolvementDuration) {
+            final String newInvolvementDuration) {
         involvementDuration = newInvolvementDuration;
     }
     
@@ -169,7 +169,7 @@ public class ProjectDTO extends BaseDTO {
      * 
      * @return time have been spent in a project
      */
-    public final Byte getInvolvementDuration() {
+    public final String getInvolvementDuration() {
         return involvementDuration;
     }
     

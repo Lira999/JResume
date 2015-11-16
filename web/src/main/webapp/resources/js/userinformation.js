@@ -129,45 +129,46 @@ $(function() {
 					success : function(response) {
 						$('#nextfields').prepend(
 								'<div class="form-group col-lg-12">'
-								+ '<input name="programminglanguages" class="form-control"'
-								+ '	id="programminglanguages" placeholder="Programming Languages">'
-								+ '</div>'
-								+ '<div class="form-group col-lg-12">'
-								+ '<input name="technologies" class="form-control" id="technologies"'
-								+ 'placeholder="Technologies">'
-								+ '</div>'
-								+ '<div class="form-group col-lg-12">'
-								+ '<input name="rdbms" class="form-control" id="rdbms"'
-								+ 'placeholder="RDBMS">'
-								+ '</div>'
-								+ '<div class="form-group col-lg-12">'
-								+ '<input name="methodologies" class="form-control" id="methodologies"'
-								+ 'placeholder="Methodologies">'
-								+ '</div>'
-								+ '<div class="form-group col-lg-12">'
-								+ '<input name="frameworks" class="form-control" id="frameworks"'
-								+ 'placeholder="Frameworks">'
-								+ '</div>'
-								+ '<div class="form-group col-lg-12">'
-								+ '<input name="webservers" class="form-control" id="webservers"'
-								+ 'placeholder="Web Servers">'
-								+ '</div>'
-								+ '<div class="form-group col-lg-12">'
-								+ '<input name="tools" class="form-control" id="tools"'
-								+ 'placeholder="Tools">'
-								+ '</div>'
-								+ '<div class="form-group col-lg-12">'
-								+ '<input name="testingtools" class="form-control" id="testingtools"'
-								+ 'placeholder="Testing Tools">'
-								+ '</div>'
-								+ '<div class="form-group col-lg-12">'
-								+ '<input name="operatingsystems" class="form-control"'
-								+ 'id="operatingsystems" placeholder="Operating Systems">'
-								+ '</div>'
-								+ '<div class="form-group col-lg-12">'
-								+ '<input name="hardware" class="form-control" id="hardware" '
-								+ 'placeholder="Hardware">'
-								+ '</div>');
+									+ '<input name="programminglanguages" class="form-control"'
+									+ '	id="programminglanguages" placeholder="Programming Languages">'
+									+ '</div>'
+									+ '<div class="form-group col-lg-12">'
+									+ '<input name="technologies" class="form-control" id="technologies"'
+									+ 'placeholder="Technologies">'
+									+ '</div>'
+									+ '<div class="form-group col-lg-12">'
+									+ '<input name="rdbms" class="form-control" id="rdbms"'
+									+ 'placeholder="RDBMS">'
+									+ '</div>'
+									+ '<div class="form-group col-lg-12">'
+									+ '<input name="methodologies" class="form-control" id="methodologies"'
+									+ 'placeholder="Methodologies">'
+									+ '</div>'
+									+ '<div class="form-group col-lg-12">'
+									+ '<input name="frameworks" class="form-control" id="frameworks"'
+									+ 'placeholder="Frameworks">'
+									+ '</div>'
+									+ '<div class="form-group col-lg-12">'
+									+ '<input name="webservers" class="form-control" id="webservers"'
+									+ 'placeholder="Web Servers">'
+									+ '</div>'
+									+ '<div class="form-group col-lg-12">'
+									+ '<input name="tools" class="form-control" id="tools"'
+									+ 'placeholder="Tools">'
+									+ '</div>'
+									+ '<div class="form-group col-lg-12">'
+									+ '<input name="testingtools" class="form-control" id="testingtools"'
+									+ 'placeholder="Testing Tools">'
+									+ '</div>'
+									+ '<div class="form-group col-lg-12">'
+									+ '<input name="operatingsystems" class="form-control"'
+									+ 'id="operatingsystems" placeholder="Operating Systems">'
+									+ '</div>'
+									+ '<div class="form-group col-lg-12">'
+									+ '<input name="hardware" class="form-control" id="hardware" '
+									+ 'placeholder="Hardware">'
+									+ '</div>'
+						);
 						$('#next').hide();
 						$('#programminglanguages').val(response.programmingLanguages);
 						$('#technologies').val(response.technologies);
@@ -191,6 +192,123 @@ $(function() {
 				educationCount++;
 				$('#education').append(
 						'<div class="form-group col-lg-6">'
+							+ '<input type="text" class="form-control" id="schoolName-'
+							+ educationCount
+							+ '"name="schoolName" placeholder="School Name">'
+							+ '</div>'
+							+ '<div class="form-group col-lg-6">'
+							+ '<input type="text" class="form-control" id="university-'
+							+ educationCount
+							+ '"name="university" placeholder="University">'
+							+ '</div>'
+							+ '<div class="form-group col-lg-4">'
+							+ '<input type="text" class="form-control" id="degreeReceived-'
+							+ educationCount
+							+ '"name="degreeReceived" placeholder="Degree Received">'
+							+ '</div>'
+							+ '<div class="form-group col-lg-4">'
+							+ '<input type="text" class="form-control" id="department-'
+							+ educationCount
+							+ '"name="department" placeholder="Department">'
+							+ '</div>'
+							+ '<div class="form-group col-lg-4">'
+							+ '<input type="number" class="form-control" id="graduationYear-'
+							+ educationCount
+							+ '"name="graduationYear" placeholder="Graduation Year">'
+							+ '<br></div>'
+				);
+			}
+		);
+	}
+);
+
+
+$(function() {
+	$('#addproject').click(
+			function() {
+				projectCount++;
+				$('#project').append(
+						'<div class="form-group col-lg-8">'
+							+ '<input type="text" class="form-control" id="description-'
+							+ projectCount
+							+ '"name="description" placeholder="Description">'
+							+ '</div>'
+							+ '<div class="form-group col-lg-4">'
+							+ '<input type="text" class="form-control" id="customer-'
+							+ projectCount
+							+ '"name="customer" placeholder="Customer">'
+							+ '</div>'
+							+ '<div class="form-group col-lg-4">'
+							+ '<input type="number" class="form-control" id="teamSize-'
+							+ projectCount
+							+ '"name="teamSize" placeholder="Team Size">'
+							+ '</div>'
+							+ '	<div class="form-group col-lg-4">'
+							+ '<input type="text" class="form-control" id="involvementDuration-'
+							+ projectCount
+							+ '"name="involvementDuration" placeholder="Involvement Duration">'
+							+ '</div>'
+							+ '<div class="form-group col-lg-4">'
+							+ '<input type="text" class="form-control" id="tools-'
+							+ projectCount
+							+ '"name="tools"'
+							+ 'placeholder="Tools">'
+							+ '<br></div>'
+				);
+			}
+		);
+	}
+);
+$(function() {
+	$('#addcertification').click(
+			function() {
+				certificationCount++;
+				$('#certification').append(
+						'<div class="form-group col-lg-8">'
+							+ '<input type="text" class="form-control" id="name-'
+							+ certificationCount
+							+ '"name="name" placeholder="Name">'
+							+ '</div>'
+							+ '<div class="form-group col-lg-4">'
+							+ '<input type="number" class="form-control" id="yearReceived-'
+							+ certificationCount
+							+ '"name="yearReceived" placeholder="Year Received" required>'
+							+ '<br></div>'
+				);
+			}
+		);
+	}
+);
+$(document).ready(
+		function() {
+			$.ajax({
+				type : 'GET',
+				url : 'userinformation/result',
+				dataType : 'json',
+				contentType : 'application/json',
+				success : function(response) {
+					$('#position').val(response.position);
+					$('#summary').val(response.summary);
+					if (response.birthDate != null) {
+						$('#birthdate').val(moment(response.birthDate).format('MM-DD-YYYY'));
+					}
+				},
+				error : function(error) {
+				}
+			}
+		)
+	}
+);
+
+$.ajax({
+	type : 'GET',
+	url : 'userinformation/education/current',
+	dataType : 'json',
+	contentType : 'application/json',
+	success : function(response) {
+		for (; educationCount < response.length; educationCount++) {
+			$('#education').append(
+					'<div class="form-group col-lg-6">'
 						+ '<input type="text" class="form-control" id="schoolName-'
 						+ educationCount
 						+ '"name="schoolName" placeholder="School Name">'
@@ -211,22 +329,60 @@ $(function() {
 						+ '"name="department" placeholder="Department">'
 						+ '</div>'
 						+ '<div class="form-group col-lg-4">'
-						+ '<input type="text" class="form-control" id="graduationYear-'
+						+ '<input type="number" class="form-control" id="graduationYear-'
 						+ educationCount
 						+ '"name="graduationYear" placeholder="Graduation Year">'
-						+ '<br></div>');
-				}
+						+ '<br></div>'
 			);
+			$('#schoolName-' + educationCount).val(response[educationCount].schoolName);
+			$('#university-' + educationCount).val(response[educationCount].university);
+			$('#degreeReceived-'+ educationCount).val(response[educationCount].degreeReceived);
+			$('#department-' + educationCount).val(response[educationCount].department);
+			$('#graduationYear-'+ educationCount).val(response[educationCount].graduationYear);
+		}
+		if (educationCount === 0) {
+			$('#education').append(
+					'<div class="form-group col-lg-6">'
+						+ '<input type="text" class="form-control" id="schoolName-'
+						+ educationCount
+						+ '"name="schoolName" placeholder="School Name">'
+						+ '</div>'
+						+ '<div class="form-group col-lg-6">'
+						+ '<input type="text" class="form-control" id="university-'
+						+ educationCount
+						+ '"name="university" placeholder="University">'
+						+ '</div>'
+						+ '<div class="form-group col-lg-4">'
+						+ '<input type="text" class="form-control" id="degreeReceived-'
+						+ educationCount
+						+ '"name="degreeReceived" placeholder="Degree Received">'
+						+ '</div>'
+						+ '<div class="form-group col-lg-4">'
+						+ '<input type="text" class="form-control" id="department-'
+						+ educationCount
+						+ '"name="department" placeholder="Department">'
+						+ '</div>'
+						+ '<div class="form-group col-lg-4">'
+						+ '<input type="number" class="form-control" id="graduationYear-'
+						+ educationCount
+						+ '"name="graduationYear" placeholder="Graduation Year">'
+						+ '<br></div>'
+			);
+			}
+		},
+		error : function(err) {
+		}
 	}
 );
-
-
-$(function() {
-	$('#addproject').click(
-			function() {
-				projectCount++;
-				$('#project').append(
-						'<div class="form-group col-lg-8">'
+$.ajax({
+	type : 'GET',
+	url : 'userinformation/project/current',
+	dataType : 'json',
+	contentType : 'application/json',
+	success : function(response) {
+		for (; projectCount < response.length; projectCount++) {
+			$('#project').append(
+					'<div class="form-group col-lg-8">'
 						+ '<input type="text" class="form-control" id="description-'
 						+ projectCount
 						+ '"name="description" placeholder="Description">'
@@ -237,7 +393,7 @@ $(function() {
 						+ '"name="customer" placeholder="Customer">'
 						+ '</div>'
 						+ '<div class="form-group col-lg-4">'
-						+ '<input type="text" class="form-control" id="teamSize-'
+						+ '<input type="number" class="form-control" id="teamSize-'
 						+ projectCount
 						+ '"name="teamSize" placeholder="Team Size">'
 						+ '</div>'
@@ -251,257 +407,86 @@ $(function() {
 						+ projectCount
 						+ '"name="tools"'
 						+ 'placeholder="Tools">'
-						+ '<br></div>');
-				}
+						+ '<br></div>'
 			);
-	}
-);
-$(function() {
-	$('#addcertification').click(
-			function() {
-				certificationCount++;
-				$('#certification').append(
-						'<div class="form-group col-lg-8">'
-						+ '<input type="text" class="form-control" id="name-'
-						+ certificationCount
-						+ '"name="name" placeholder="Name">'
+			$('#description-' + projectCount).val(response[projectCount].description);
+			$('#customer-' + projectCount).val(response[projectCount].customer);
+			$('#teamSize-' + projectCount).val(response[projectCount].teamSize);
+			$('#involvementDuration-'+ projectCount).val(response[projectCount].involvementDuration);
+			$('#tools-' + projectCount).val(response[projectCount].tools);
+			}
+		if (projectCount === 0) {
+			$('#project')
+			.append('<div class="form-group col-lg-8">'
+						+ '<input type="text" class="form-control" id="description-'
+						+ projectCount
+						+ '"name="description" placeholder="Description">'
 						+ '</div>'
 						+ '<div class="form-group col-lg-4">'
-						+ '<input type="text" class="form-control" id="yearReceived-'
+						+ '<input type="text" class="form-control" id="customer-'
+						+ projectCount
+						+ '"name="customer" placeholder="Customer">'
+						+ '</div>'
+						+ '<div class="form-group col-lg-4">'
+						+ '<input type="number" class="form-control" id="teamSize-'
+						+ projectCount
+						+ '"name="teamSize" placeholder="Team Size">'
+						+ '</div>'
+						+ '	<div class="form-group col-lg-4">'
+						+ '<input type="text" class="form-control" id="involvementDuration-'
+						+ projectCount
+						+ '"name="involvementDuration" placeholder="Involvement Duration">'
+						+ '</div>'
+						+ '<div class="form-group col-lg-4">'
+						+ '<input type="text" class="form-control" id="tools-'
+						+ projectCount
+						+ '"name="tools"'
+						+ 'placeholder="Tools">'
+						+ '<br></div>'
+			);
+		}
+	},
+	error : function(err) {
+	}
+});
+$.ajax({
+	type : 'GET',
+	url : 'userinformation/certification/current',
+	dataType : 'json',
+	contentType : 'application/json',
+	success : function(response) {
+		for (; certificationCount < response.length; certificationCount++) {
+			$('#certification').append(
+					'<div class="form-group col-lg-8">'
+						+ '<input type="text" class="form-control" id="name-'
+						+ certificationCount
+						+ '"name="name" placeholder="Name" required>'
+						+ '</div>'
+						+ '<div class="form-group col-lg-4">'
+						+ '<input type="number" class="form-control" id="yearReceived-'
+						+ certificationCount
+						+ '"name="yearReceived" placeholder="Year Received" required>'
+						+ '<br></div>'
+			);
+			$('#name-' + certificationCount).val(response[certificationCount].name);
+			$('#yearReceived-'+ certificationCount).val(response[certificationCount].yearReceived);
+		}
+		if (certificationCount === 0) {
+			$('#certification').append(
+					'<div class="form-group col-lg-8">'
+						+ '<input type="text" class="form-control" id="name-'
+						+ certificationCount
+						+ '"name="name" placeholder="Name" required>'
+						+ '</div>'
+						+ '<div class="form-group col-lg-4">'
+						+ '<input type="number" class="form-control" id="yearReceived-'
 						+ certificationCount
 						+ '"name="yearReceived" placeholder="Year Received" required>'
 						+ '<br></div>');
-				}
-			);
-	}
-);
-$(document).ready(
-		function() {
-			$.ajax({
-				type : 'GET',
-				url : 'userinformation/result',
-				dataType : 'json',
-				contentType : 'application/json',
-				success : function(response) {
-					$('#position').val(response.position);
-					$('#summary').val(response.summary);
-					$('#birthdate').val(moment(response.birthDate).format('DD-MM-YYYY'));
-					console.log(response.birthdate);
-				},
-				error : function(error) {
-				}
 			}
-		)
+		},
+		error : function(err) {
+		}
 	}
 );
-
-									$.ajax({
-										type : 'GET',
-										url : 'userinformation/education/current',
-										dataType : 'json',
-										contentType : 'application/json',
-										success : function(response) {
-											for (; educationCount < response.length; educationCount++) {
-												$('#education').append(
-												'<div class="form-group col-lg-6">'
-												+ '<input type="text" class="form-control" id="schoolName-'
-												+ educationCount
-												+ '"name="schoolName" placeholder="School Name">'
-												+ '</div>'
-												+ '<div class="form-group col-lg-6">'
-												+ '<input type="text" class="form-control" id="university-'
-												+ educationCount
-												+ '"name="university" placeholder="University">'
-												+ '</div>'
-												+ '<div class="form-group col-lg-4">'
-												+ '<input type="text" class="form-control" id="degreeReceived-'
-												+ educationCount
-												+ '"name="degreeReceived" placeholder="Degree Received">'
-												+ '</div>'
-												+ '<div class="form-group col-lg-4">'
-												+ '<input type="text" class="form-control" id="department-'
-												+ educationCount
-												+ '"name="department" placeholder="Department">'
-												+ '</div>'
-												+ '<div class="form-group col-lg-4">'
-												+ '<input type="text" class="form-control" id="graduationYear-'
-												+ educationCount
-												+ '"name="graduationYear" placeholder="Graduation Year">'
-												+ '<br></div>');
-												$('#schoolName-' + educationCount).val(response[educationCount].schoolName);
-												$('#university-' + educationCount).val(response[educationCount].university);
-												$('#degreeReceived-'+ educationCount).val(response[educationCount].degreeReceived);
-												$('#department-' + educationCount).val(response[educationCount].department);
-												$('#graduationYear-'+ educationCount).val(response[educationCount].graduationYear);
-											}
-											if (educationCount === 0) {
-											$('#education').append(
-													'<div class="form-group col-lg-6">'
-													+ '<input type="text" class="form-control" id="schoolName-'
-													+ educationCount
-													+ '"name="schoolName" placeholder="School Name">'
-													+ '</div>'
-													+ '<div class="form-group col-lg-6">'
-													+ '<input type="text" class="form-control" id="university-'
-													+ educationCount
-													+ '"name="university" placeholder="University">'
-													+ '</div>'
-													+ '<div class="form-group col-lg-4">'
-													+ '<input type="text" class="form-control" id="degreeReceived-'
-													+ educationCount
-													+ '"name="degreeReceived" placeholder="Degree Received">'
-													+ '</div>'
-													+ '<div class="form-group col-lg-4">'
-													+ '<input type="text" class="form-control" id="department-'
-													+ educationCount
-													+ '"name="department" placeholder="Department">'
-													+ '</div>'
-													+ '<div class="form-group col-lg-4">'
-													+ '<input type="text" class="form-control" id="graduationYear-'
-													+ educationCount
-													+ '"name="graduationYear" placeholder="Graduation Year">'
-													+ '<br></div>');
-											}
-											},
-									error : function(err) {
-									}
-								});
-						$
-								.ajax({
-									type : 'GET',
-									url : 'userinformation/project/current',
-									dataType : 'json',
-									contentType : 'application/json',
-									success : function(response) {
-										for (; projectCount < response.length; projectCount++) {
-											$('#project')
-													.append(
-															'<div class="form-group col-lg-8">'
-																	+ '<input type="text" class="form-control" id="description-'
-																	+ projectCount
-																	+ '"name="description" placeholder="Description">'
-																	+ '</div>'
-																	+ '<div class="form-group col-lg-4">'
-																	+ '<input type="text" class="form-control" id="customer-'
-																	+ projectCount
-																	+ '"name="customer" placeholder="Customer">'
-																	+ '</div>'
-																	+ '<div class="form-group col-lg-4">'
-																	+ '<input type="text" class="form-control" id="teamSize-'
-																	+ projectCount
-																	+ '"name="teamSize" placeholder="Team Size">'
-																	+ '</div>'
-																	+ '	<div class="form-group col-lg-4">'
-																	+ '<input type="text" class="form-control" id="involvementDuration-'
-																	+ projectCount
-																	+ '"name="involvementDuration" placeholder="Involvement Duration">'
-																	+ '</div>'
-																	+ '<div class="form-group col-lg-4">'
-																	+ '<input type="text" class="form-control" id="tools-'
-																	+ projectCount
-																	+ '"name="tools"'
-																	+ 'placeholder="Tools">'
-																	+ '<br></div>');
-											$('#description-' + projectCount)
-													.val(
-															response[projectCount].description);
-											$('#customer-' + projectCount)
-													.val(
-															response[projectCount].customer);
-											$('#teamSize-' + projectCount)
-													.val(
-															response[projectCount].teamSize);
-											$(
-													'#involvementDuration-'
-															+ projectCount)
-													.val(
-															response[projectCount].involvementDuration);
-											$('#tools-' + projectCount)
-													.val(
-															response[projectCount].tools);
-										}
-										if (projectCount === 0) {
-											$('#project')
-													.append(
-															'<div class="form-group col-lg-8">'
-																	+ '<input type="text" class="form-control" id="description-'
-																	+ projectCount
-																	+ '"name="description" placeholder="Description">'
-																	+ '</div>'
-																	+ '<div class="form-group col-lg-4">'
-																	+ '<input type="text" class="form-control" id="customer-'
-																	+ projectCount
-																	+ '"name="customer" placeholder="Customer">'
-																	+ '</div>'
-																	+ '<div class="form-group col-lg-4">'
-																	+ '<input type="text" class="form-control" id="teamSize-'
-																	+ projectCount
-																	+ '"name="teamSize" placeholder="Team Size">'
-																	+ '</div>'
-																	+ '	<div class="form-group col-lg-4">'
-																	+ '<input type="text" class="form-control" id="involvementDuration-'
-																	+ projectCount
-																	+ '"name="involvementDuration" placeholder="Involvement Duration">'
-																	+ '</div>'
-																	+ '<div class="form-group col-lg-4">'
-																	+ '<input type="text" class="form-control" id="tools-'
-																	+ projectCount
-																	+ '"name="tools"'
-																	+ 'placeholder="Tools">'
-																	+ '<br></div>');
-										}
-
-									},
-									error : function(err) {
-										debugger
-									}
-								});
-						$
-								.ajax({
-									type : 'GET',
-									url : 'userinformation/certification/current',
-									dataType : 'json',
-									contentType : 'application/json',
-									success : function(response) {
-										for (; certificationCount < response.length; certificationCount++) {
-											$('#certification')
-													.append(
-															'<div class="form-group col-lg-8">'
-																	+ '<input type="text" class="form-control" id="name-'
-																	+ certificationCount
-																	+ '"name="name" placeholder="Name" required>'
-																	+ '</div>'
-																	+ '<div class="form-group col-lg-4">'
-																	+ '<input type="text" class="form-control" id="yearReceived-'
-																	+ certificationCount
-																	+ '"name="yearReceived" placeholder="Year Received" required>'
-																	+ '<br></div>');
-											$('#name-' + certificationCount)
-													.val(
-															response[certificationCount].name);
-											$(
-													'#yearReceived-'
-															+ certificationCount)
-													.val(
-															response[certificationCount].yearReceived);
-										}
-										if (certificationCount === 0) {
-											$('#certification')
-													.append(
-															'<div class="form-group col-lg-8">'
-																	+ '<input type="text" class="form-control" id="name-'
-																	+ certificationCount
-																	+ '"name="name" placeholder="Name" required>'
-																	+ '</div>'
-																	+ '<div class="form-group col-lg-4">'
-																	+ '<input type="text" class="form-control" id="yearReceived-'
-																	+ certificationCount
-																	+ '"name="yearReceived" placeholder="Year Received" required>'
-																	+ '<br></div>');
-										}
-									},
-									error : function(err) {
-										debugger
-									}
-								});
 	
