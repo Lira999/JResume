@@ -103,13 +103,11 @@ $(function() {
 				showErrorMessage('#well');
 			}
 		});
-
 	}
 	$('#savebutton').click(function() {
 		sendAjax();
 	});
 });
-
 $(document).ready(function() {
 	$('#datePicker').datepicker({
 		format : 'mm-dd-yyyy'
@@ -117,7 +115,6 @@ $(document).ready(function() {
 		$('#eventForm').formValidation('revalidateField', 'date');
 	});
 });
-
 $(function() {
 	$('#next').click(
 			$(document).ready(function() {
@@ -183,9 +180,13 @@ $(function() {
 						},
 						error : function(error) {
 						}
-						});
-				}));});
-
+						}
+					);
+				}
+			)
+		);
+	}
+);
 $(function() {
 	$('#addeducation').click(
 			function() {
@@ -221,8 +222,6 @@ $(function() {
 		);
 	}
 );
-
-
 $(function() {
 	$('#addproject').click(
 			function() {

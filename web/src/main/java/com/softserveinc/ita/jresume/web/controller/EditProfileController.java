@@ -86,7 +86,6 @@ public class EditProfileController {
     @ResponseBody
     public final Boolean currentPasswordMath(final String currentPassword,
             final Principal principal) {
-        System.err.println(currentPassword);
         return encoder.matches(currentPassword,
                 userService.findByEmail(principal.getName()).getPassword());
     }

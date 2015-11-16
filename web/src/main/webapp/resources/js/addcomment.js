@@ -1,11 +1,9 @@
 $(function() {
-
 	function sendAjax() {
 		var startPosition = document.location.href.indexOf('viewtemplate/')
 				+ 'viewtemplate/'.length;
 		var id = document.location.href.substring(startPosition,
 				document.location.href.length);
-
 		var data = JSON.stringify({
 			comment : $('#comment').val(),
 			mark : $('#rating-input').val(),
@@ -72,13 +70,11 @@ $(function() {
 						currentPosition--;
 						},
 						error : function(data, status, er) {
-							
 						}
 						});
 				jQuery('textarea[name="comment"]').val('');
 				},
 				error : function(er) {
-					
 				}
 				});
 		}
@@ -88,7 +84,6 @@ $(function() {
 		}
 	});
 });
-
 jQuery(document).ready(function() {
 	$('#rating-input').rating({
 		min : 0,

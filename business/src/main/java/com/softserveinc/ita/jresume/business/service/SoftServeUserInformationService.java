@@ -61,7 +61,6 @@ public class SoftServeUserInformationService {
                             .toEntity(softServeUserInformationDto);
             softServeUserInformation.setUser(user);
             userInformationDao.create(softServeUserInformation);
-            
         } else {
             SoftServeUserInformation softServeUserInformation =
                     user.getUserInformation().getSoftServeUserInformation();

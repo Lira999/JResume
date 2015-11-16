@@ -86,7 +86,6 @@ $(function() {
 					regx : 'Please enter your last name correctly'
 				},
 				currentPassword : {
-					required : 'Please enter your last name.',
 					remote : 'This password does not match'
 				},
 				password : {
