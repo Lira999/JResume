@@ -17,7 +17,7 @@
 	</build>
 
 	<properties>
-		<spring-security-version>4.0.2.RELEASE</spring-security-version>
+		<spring-security-version>6.4.9</spring-security-version>
 	</properties>
 
 	<dependencies>
