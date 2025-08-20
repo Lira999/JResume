@@ -41,7 +41,7 @@
 		<dependency>
 			<groupId>org.springframework</groupId>
 			<artifactId>spring-orm</artifactId>
-			<version>4.2.1.RELEASE</version>
+			<version>6.2.10</version>
 		</dependency>
 
 		<!-- hibernate dependency -->
